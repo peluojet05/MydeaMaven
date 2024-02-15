@@ -39,7 +39,7 @@ public class Accion extends HttpServlet {
             out.println("<title>Servlet Accion</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Accion at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet Accion at " + request.getParameter("text")+ "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
