@@ -15,8 +15,23 @@
         <h1>Hello World heroku</h1>
         <h2>Hola Adrian</h2>
         <form action="Accion">
-            <input type="text" name="text"/>
-            <button type="submit">sergio</button>
+            TEXTO:<input type="text" name="text"/>
+            <br>
+            NUMERO:<input type="text" name="text2"/>
+            <br>
+            <button type="submit">SUBMIT</button>
         </form>
+        <%
+            if(request.getAttribute("mensaje")!=null) 
+            {  
+        %>          
+                <script>
+    window.onload=function() {
+       alert( "Exito:  <%=request.getAttribute("mensaje")%>");
+    };
+ </script>      
+        <%
+            }
+                %>
     </body>
 </html>
