@@ -38,16 +38,7 @@ public class Accion extends HttpServlet {
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            Conexion con = new Conexion();
-            Connection c;
-            con.setCon();
-            c=con.getCon();
-           
-            String mensaje = con.Consulta();
-                c.close();     
-            request.setAttribute("mensaje", mensaje);   
-                   RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
-                   rd.forward(request, response);
+    
             
         }
     }
