@@ -51,7 +51,7 @@
             con.setCon();
             c = con.getCon();
             stmt = c.createStatement();
-            rs2 = stmt.executeQuery("Select n.neg_id, p.per_id from Negocio n inner Join Persona p where p.per_id=n.per_id and p.per_correo='" + correo + "';");
+            rs2 = stmt.executeQuery("Select n.neg_id, p.per_id from Negocio n inner Join Persona p on p.per_id=n.per_id where p.per_correo='" + correo + "';");
             int num = 0;
             while (rs2.next())
             {
@@ -146,7 +146,7 @@
                 <span class="Inria tt_ch">Mis Negocios</span>
                 <div class="cont_res_var d- flex-column">
 
-                    <%                       rs3 = stmt.executeQuery("Select * from Negocio where neg_activo=1 and per_id=" + pid + ";");
+                    <%                       rs3 = stmt.executeQuery("Select * from Negocio where neg_activo=true and per_id=" + pid + ";");
 
                         while (rs3.next())
                         {

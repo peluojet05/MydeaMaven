@@ -651,7 +651,7 @@
         %>          
                 <script>
     window.onload=function() {
-       alert( "Error:  <%=request.getAttribute("mensaje")%>");
+       alert( "<%=request.getAttribute("mensaje")%>");
     };
  </script>      
         <%

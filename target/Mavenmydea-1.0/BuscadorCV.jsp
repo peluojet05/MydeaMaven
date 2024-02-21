@@ -55,8 +55,8 @@
           con.setCon();
           c = con.getCon();
           stmt = c.createStatement();
-          rs= stmt.executeQuery("SELECT n.*,d.*,p.per_foto,u.usu_nombre FROM Negocio n INNER JOIN Direccion d inner join Persona p inner join Usuario u where "
-                  + "n.dir_id=d.dir_id and n.per_id = p.per_id and p.usu_id = u.usu_id and n.neg_activo = 1 AND neg_nombre LIKE '"+bs+"%' ;");
+          rs= stmt.executeQuery("SELECT n.*,d.*,p.per_foto,u.usu_nombre FROM Direccion d INNER JOIN Negocio n ON n.dir_id=d.dir_id I"
+                  + "NNER JOIN Persona p ON n.per_id = p.per_id INNER JOIN Usuario u ON p.usu_id = u.usu_id WHERE n.neg_activo = true AND neg_nombre ILIKE '%"+bs+"%' ;");
            if(rs!=null){
            while(rs.next()){
            String nombre = rs.getString("neg_nombre");
@@ -105,7 +105,7 @@
                         %>
                     
                         <%
-            rs2= stmt.executeQuery("SELECT p.per_foto, p.per_descripcion, per_id, u.usu_nombre, u.tip_id from Persona p inner join Usuario u where u.usu_id=p.usu_id AND usu_nombre LIKE '"+bs+"%' ;");
+            rs2= stmt.executeQuery("SELECT p.per_foto, p.per_descripcion, per_id, u.usu_nombre, u.tip_id FROM Persona p INNER JOIN Usuario u ON u.usu_id=p.usu_id WHERE usu_nombre ILIKE '%"+bs+"%' ;");
            if(rs2!=null){
            while(rs2.next()){
            
@@ -150,7 +150,7 @@
             %>
                     
             <%
-                rs3= stmt.executeQuery("SELECT * from Producto where pro_nombre LIKE '"+bs+"%' ;");
+                rs3= stmt.executeQuery("SELECT * FROM Producto WHERE pro_nombre ILIKE '%"+bs+"%' ;");
            if(rs3!=null){
            while(rs3.next()){
            

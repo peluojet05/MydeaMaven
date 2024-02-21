@@ -57,9 +57,9 @@ public class Comentar extends HttpServlet {
             */
             
             if(like!=null){
-                like="1";
+                like="true";
             }else{
-                like="0";
+                like="false";
             }
             
             HttpSession misession= (HttpSession) request.getSession();

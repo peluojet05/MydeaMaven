@@ -558,7 +558,7 @@ public class Conexion {
             Statement stmt=con.createStatement();
             
             
-            String sql3 = "Insert into Feedback(neg_id, per_id, fed_comentario, fed_like) Values("+idn+","+idu+",'"+comentario+"',"+like+");";
+            String sql3 = "Insert into Feedback(neg_id, per_id, fed_comentario, fed_like) Values("+idn+","+idu+",'"+comentario+"','"+like+"');";
             stmt.execute(sql3);
             
             

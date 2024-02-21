@@ -57,7 +57,7 @@
         c = con.getCon();
         stmt = c.createStatement();
         
-        rs = stmt.executeQuery("Select n.*,d.* from Negocio n inner join Direccion d where n.dir_id=d.dir_id and n.neg_id="+id+";");
+        rs = stmt.executeQuery("Select n.*,d.* from Negocio n inner join Direccion d on n.dir_id=d.dir_id where n.neg_id="+id+";");
         
          while (rs.next()) {
             logo=rs.getString("neg_logo");
@@ -82,7 +82,7 @@
             did=rs.getInt("dir_id");
         }
         
-        ResultSet rs2 = stmt.executeQuery("select nh.*, h.* from Negocio_Horario nh inner join Horario h  where nh.hor_id=h.hor_id and nh.neg_id =" + id + ";");
+        ResultSet rs2 = stmt.executeQuery("select nh.*, h.* from Negocio_Horario nh inner join Horario h  on nh.hor_id=h.hor_id where nh.neg_id =" + id + ";");
         String[] Dia = new String[7];
         String[] Abierto = new String[7];
         String[] Cerrado = new String[7];
