@@ -171,8 +171,8 @@
                     <!-- Las tarjetas se agregarán aquí -->
                     <%
 
-                        rs = stmt.executeQuery("select d.*, n.*, p.usu_id, u.usu_nombre from Direccion d inner join Negocio n inner join Persona p"
-                                + " inner join Usuario u where d.dir_id=n.dir_id and n.per_id = p.per_id and p.usu_id = u.usu_id;");
+                        rs = stmt.executeQuery("select d.*, n.*, p.usu_id, u.usu_nombre from Direccion d inner join Negocio n on d.dir_id=n.dir_id inner join Persona "
+                                + "p on n.per_id = p.per_id inner join Usuario u on p.usu_id = u.usu_id;");
 
                         while (rs.next()) {
 
@@ -233,7 +233,7 @@
                 <%
                     ResultSet pr, it;
 
-                    String sl = "select p.*, d.dis_nombre from Producto p inner join Disponibilidad d where p.dis_id=d.dis_id";
+                    String sl = "select p.*, d.dis_nombre from Producto p inner join Disponibilidad d on p.dis_id=d.dis_id;";
 
                     String pi = "";
 
@@ -278,7 +278,7 @@
                 <%
                     ResultSet pr2;
 
-                    String sl2 = "select n.neg_nombre, n.neg_id, v.* from Negocio n inner join Novedad v where n.neg_id=v.neg_id;";
+                    String sl2 = "select n.neg_nombre, n.neg_id, v.* from Negocio n inner join Novedad v on n.neg_id=v.neg_id;";
 
                     String pi2 = "";
 

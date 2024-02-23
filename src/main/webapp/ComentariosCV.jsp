@@ -37,8 +37,8 @@
                         con.setCon();
                         c = con.getCon();
                         stmt = c.createStatement();
-        rs3 = stmt.executeQuery("Select u.usu_nombre, p.per_foto, p.per_correo from Usuario u inner join Persona p where p.usu_id="
-                + "u.usu_id and p.per_id="+request.getParameter("idu")+";");
+        rs3 = stmt.executeQuery("Select u.usu_nombre, p.per_foto, p.per_correo from Usuario u inner join Persona p on p.usu_id="
+                + "u.usu_id where p.per_id="+request.getParameter("idu")+";");
         
                 String foto = "", nombre="", correo="";
                 while(rs3.next()){
@@ -77,7 +77,7 @@
                        
                            
 
-rs = stmt.executeQuery("select n.*, f.* from Feedback f inner join Negocio n where f.neg_id=n.neg_id and f.per_id=" + request.getParameter("idu") + ";");
+rs = stmt.executeQuery("select n.*, f.* from Feedback f inner join Negocio n on f.neg_id=n.neg_id where f.per_id=" + request.getParameter("idu") + ";");
 
    
 

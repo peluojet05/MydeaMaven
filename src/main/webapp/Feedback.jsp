@@ -56,11 +56,11 @@
                         con.setCon();
                         c = con.getCon();
                         stmt = c.createStatement();
-                        int pid = 0;
+                        String nid = request.getParameter("idn");
                         
 
-                            pid = con.Pid(correo);
-                            rs2 = stmt.executeQuery("select * from Negocio where per_id=" + pid + ";");
+                      
+                            rs2 = stmt.executeQuery("select * from Feedback where neg_id=" + nid + ";");
                         
 
                         int p = 0;
@@ -75,10 +75,10 @@
 
                            
 
-                                pid = con.Pid(correo);
+                               
 rs = stmt.executeQuery("select u.usu_nombre, p.per_foto, p.per_descripcion, f.fed_like, f.fed_comentario from Persona p"
-+ " inner join Usuario u inner join Feedback f where p.usu_id = u.usu_id "
-+ "and p.per_id = f.per_id and f.neg_id=" + p + ";");
++ " inner join Usuario u on p.usu_id = u.usu_id inner join Feedback f on  "
++ " p.per_id = f.per_id where f.neg_id=" + nid + ";");
                             
 
                             while (rs.next())

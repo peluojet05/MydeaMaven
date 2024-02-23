@@ -90,8 +90,8 @@
                             if (p != null)
                             {
 
-                                rs = stmt.executeQuery("select n.* from Guardado g inner join Negocio n where "
-                                + "g.neg_id = n.neg_id and g.per_id=" + pid + ";");
+                                rs = stmt.executeQuery("select n.* from Guardado g inner join Negocio n on "
+                                + "g.neg_id = n.neg_id where g.per_id=" + pid + ";");
 
                                 while (rs.next())
                                 {

@@ -99,7 +99,7 @@
                            
 
                                 pid = con.Pid(correo);
-                                rs = stmt.executeQuery("select n.*, f.* from Feedback f inner join Negocio n where f.neg_id=n.neg_id and f.per_id=" + pid + ";");
+                                rs = stmt.executeQuery("select n.*, f.* from Feedback f inner join Negocio n on f.neg_id=n.neg_id where f.per_id=" + pid + ";");
                             
 
                             while (rs.next())

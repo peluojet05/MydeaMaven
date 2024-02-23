@@ -49,12 +49,12 @@
                 if (request.getAttribute("neid") != null)
                 {
 
-                    rs = stmt.executeQuery("select n.*, u.usu_nombre, p.per_foto, p.per_correo from Negocio n inner join Usuario u inner join Persona p "
-                            + "where p.per_id=n.per_id and p.usu_id=u.usu_id and n.neg_id=" + request.getAttribute("neid") + ";");
+                    rs = stmt.executeQuery("select n.*, u.usu_nombre, p.per_foto, p.per_correo from Negocio n inner join Persona p on p.per_id=n.per_id inner join Usuario "
+                    + "u on p.usu_id=u.usu_id where n.neg_id=" + request.getAttribute("neid") + ";");
                 } else
                 {
-                    rs = stmt.executeQuery("select n.*, u.usu_nombre, p.per_foto, p.per_correo from Negocio n inner join Usuario u inner join Persona p "
-                            + "where p.per_id=n.per_id and p.usu_id=u.usu_id and n.neg_id=" + id + ";");
+                    rs = stmt.executeQuery("select n.*, u.usu_nombre, p.per_foto, p.per_correo from Negocio n inner join Persona p on p.per_id=n.per_id inner join Usuario "
+                    + "u on p.usu_id=u.usu_id where n.neg_id=" + id + ";");
                 }
                 while (rs.next())
                 {
@@ -77,7 +77,7 @@
                 }
                 nombre = nombre.toUpperCase();
 
-                ResultSet rs2 = stmt.executeQuery("select nh.*, h.* from Negocio_Horario nh inner join Horario h  where nh.hor_id=h.hor_id and nh.neg_id =" + id + ";");
+                ResultSet rs2 = stmt.executeQuery("select nh.*, h.* from Negocio_Horario nh inner join Horario h  on nh.hor_id=h.hor_id where nh.neg_id=" + id + ";");
                 String[] Dia = new String[7];
                 String[] Abierto = new String[7];
                 String[] Cerrado = new String[7];
@@ -95,7 +95,7 @@
                 }
                 int pid = 0;
 
-                ResultSet rs4 = stmt.executeQuery("Select n.neg_id, p.per_id from Negocio n inner Join Persona p where p.per_id=n.per_id and p.per_correo='" + correop + "';");
+                ResultSet rs4 = stmt.executeQuery("Select n.neg_id, p.per_id from Negocio n inner Join Persona p on p.per_id=n.per_id where p.per_correo='" + correop + "';");
                 int num = 0;
                 while (rs4.next())
                 {
@@ -113,8 +113,8 @@
                 
                 String direccion="";
                 
-                ResultSet rs8 = stmt.executeQuery("select d.*, n.*, p.usu_id, u.usu_nombre from Direccion d inner join Negocio n inner join Persona p"
-                                + " inner join Usuario u where d.dir_id=n.dir_id and n.per_id = p.per_id and p.usu_id = u.usu_id and n.neg_id="+neid+";");
+                ResultSet rs8 = stmt.executeQuery("select d.*, n.*, p.usu_id, u.usu_nombre from Direccion d inner join Negocio n on d.dir_id=n.dir_id inner join Persona p "
+                        + "on n.per_id = p.per_id inner join Usuario u on p.usu_id = u.usu_id where n.neg_id="+neid+";");
                    
                         while (rs8.next())
                         {
@@ -126,7 +126,7 @@
 
             }
             
-            ResultSet rm = stmt.executeQuery("Select * from Feedback where fed_like=1 and neg_id="+neid+";");
+            ResultSet rm = stmt.executeQuery("Select * from Feedback where fed_like=true and neg_id="+neid+";");
             
 int lk = 0;
 
@@ -571,7 +571,7 @@ int lk = 0;
 
                                             String[] pi = new String[z];
 
-                                            String sq = "select p.*, d.dis_nombre from Producto p inner join Disponibilidad d where p.dis_id=d.dis_id and p.neg_id=" + id + ";";
+                                            String sq = "select p.*, d.dis_nombre from Producto p inner join Disponibilidad d on p.dis_id=d.dis_id where p.neg_id=" + id + ";";
 
                                             pr = stmt.executeQuery(sq);
                                             int y = 0;
@@ -685,8 +685,8 @@ int lk = 0;
 
                                 <%
 
-                                    ResultSet rs7 = stmt.executeQuery("select u.usu_nombre, f.fed_comentario, f.fed_like, p.per_foto from Usuario u inner join Feedback "
-                                            + "f inner join Persona p where f.per_id = p.per_id and p.usu_id = u.usu_id and f.neg_id=" + neid + ";");
+                                    ResultSet rs7 = stmt.executeQuery("select u.usu_nombre, f.fed_comentario, f.fed_like, p.per_foto from Usuario u inner join"
+                                            + " Persona p on p.usu_id = u.usu_id inner join Feedback f on f.per_id = p.per_id where f.neg_id=" + neid + ";");
 
                                     while (rs7.next())
                                     {

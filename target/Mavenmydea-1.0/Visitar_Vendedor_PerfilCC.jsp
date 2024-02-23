@@ -41,7 +41,7 @@
           c = con.getCon();
           stmt = c.createStatement();
           String unom="", pnom="", desc="", foto="", telefono="", correo="", fb="", tw="", ig="", web="";
-          rs= stmt.executeQuery("SELECT u.usu_nombre, p.* from Usuario u inner join Persona p where p.usu_id = u.usu_id and p.per_id="+id+";");
+          rs= stmt.executeQuery("SELECT u.usu_nombre, p.* from Usuario u inner join Persona p on p.usu_id = u.usu_id where p.per_id="+id+";");
           
            while(rs.next()){
              unom = rs.getString("usu_nombre");
