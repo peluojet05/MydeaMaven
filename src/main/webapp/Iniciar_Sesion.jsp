@@ -33,10 +33,13 @@
                             <span class="error">${error_correo_Vacio}</span>
                             <span class="error">${error_correo_Invalido}</span>
                         </li>
-                        <li><label for="Con_is">Contraseña</label><input value="${valorPass}" type="password" id="Con_is" name="Con_is" class="form-control" placeholder=" Ingresar">
+                        <li><label for="Con_is">Contraseña</label>
+                            <section class="contr_sect">
+                                <input value="${valorPass}" type="password" id="Con_is" name="Con_is" class="form-control" placeholder=" Ingresar"><i class="bi bi-eye eye_r" id="eyescs"></i><i class="bi bi-eye-slash eye_r" id="eyencs"></i>
+                            </section>
                             <span class="error">${error_contraseña_Vacio}</span>
                         </li></ul>
-                    <span>¿Aún no tienes una cuenta?<a href="Registro.jsp" class="txt_os">Registrarse</a> </span>
+                    <span>¿Aún no tienes una cuenta? <a href="Registro.jsp" class="txt_os">Registrarse</a> </span>
                 </div>
                 <button class="btn btns_is" type="submit" id="Boton_is">
                     Iniciar Sesión
@@ -44,18 +47,17 @@
             </form>
         </div>
     </body>
-                                                <%
-            if(request.getAttribute("mensaje")!=null) 
-            {  
-        %>          
-                <script>
-    window.onload=function() {
-       alert( "Error:  <%=request.getAttribute("mensaje")%>");
-    };
- </script>      
-        <%
-            }
-                %>
+    <%
+        if (request.getAttribute("mensaje") != null) {
+    %>          
+    <script>
+        window.onload = function () {
+            alert("Error:  <%=request.getAttribute("mensaje")%>");
+        };
+    </script>      
+    <%
+        }
+    %>
     <script src="js/Nav.js"></script>
     <script src="js/is.js"></script>
 </html>

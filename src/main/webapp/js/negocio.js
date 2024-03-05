@@ -267,7 +267,6 @@ divs_pro.forEach(function (div) {
 function copiarDatos(divClicado) {
     let nombre = divClicado.querySelector("#tt_pro_most").textContent;
     let precio = divClicado.querySelector("#pre_most_pro").textContent;
-    let calificacion = divClicado.querySelector("#num_calf_most").textContent;
     let descripcion = divClicado.querySelector("#desc_com_pro").textContent;
     let disponibilidad = divClicado.querySelector(".dis_most_pro").value;
     let destinoDiv = document.getElementById('producto_epecifico');
@@ -275,7 +274,6 @@ function copiarDatos(divClicado) {
     destinoDiv.style.display = "flex";
     destinoDiv.querySelector("#npv_pro_esp").textContent = nombre;
     destinoDiv.querySelector("#pre_pro_esp").textContent = "$" + precio;
-    destinoDiv.querySelector("#cal_pro_esp").innerHTML = '<i class="bi bi-heart-fill"></i> ' + calificacion;
     destinoDiv.querySelector("#des_pro_esp").textContent = descripcion;
     destinoDiv.querySelector("#dis_pro_esp").textContent = disponibilidad;
     destinoDiv.querySelector("#img_pro_mosr_espe").src = img;

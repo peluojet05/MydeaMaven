@@ -10,8 +10,8 @@
     <body>
         <jsp:include page="templates/Navegadores/Navegador_SC.jsp"/>
         <div class="content_registro d-flex flex-column justify-content-between" data-aos="fade-up">
-            <section class="color1_reg deslizari"></section>
-            <section class="color2_reg deslizari"></section>
+            <section class="color1_reg deslizari" id="barr1"></section>
+            <section class="color2_reg deslizari" id="barr2"></section>
             <form class="w-100 container_reg align-items-center justify-content-center flex-column subir" method="post" action="Registro">
                 <div class="reg_form_container justify-content-between align-items-center">
                     <section class="Txt_reg d-flex flex-column justify-content-center align-items-center">
@@ -35,11 +35,15 @@
                             <span class="error">${error_telefono_Vacio}</span>
                             <span class="error">${error_telefono_Invalido}</span>
                         </li>
-                        <li><label for="Con_reg">Contraseña</label><input value="${valorPassword}" type="password" class="form-control" placeholder=" Ingresar" id="Con_reg" name="Con_reg" autocomplete="new-password">
+                        <li><label for="Con_reg">Contraseña</label>
+                            <section class="contr_sect"><input value="${valorPassword}" type="password" class="form-control contr_inp" placeholder=" Ingresar" id="Con_reg" name="Con_reg" autocomplete="new-password"><i class="bi bi-eye eye_r" id="eyesc1"></i><i class="bi bi-eye-slash eye_r" id="eyenc1"></i></section>
                             <span class="error">${error_contraseña_Vacio}</span>
                             <span class="error">${error_contraseña_Invalido}</span>
                         </li>
-                        <li><label for="ConCon_reg">Confirmar Contraseña</label><input value="${valorCpassword}" type="password" class="form-control" placeholder=" Confirmar" id="ConCon_reg" name="ConCon_reg">
+                        <li><label for="ConCon_reg">Confirmar Contraseña</label>
+                            <section class="contr_sect">
+                                <input value="${valorCpassword}" type="password" class="form-control" placeholder=" Confirmar" id="ConCon_reg" name="ConCon_reg"><i class="bi bi-eye eye_r" id="eyesc2"></i><i class="bi bi-eye-slash eye_r" id="eyenc2"></i>
+                            </section>
                             <span class="error">${error_confirmarContraseña_Vacio}</span>
                             <span class="error">${error_confirmarContraseña_Invalido}</span>
                         </li>   
@@ -53,12 +57,12 @@
                     </select>
                     <span class="error">${error_tipoCuenta_Invalido}</span>
                     <ul class="d-flex w-100 justify-content-around avisos">
-                        <li><input type="checkbox" id="TyC_reg" name="TyC_reg" ${not empty requestScope.valorTyC ? 'checked' : ''}><a href="Avisos.jsp"><span>Aceptar Términos y Condiciones</span></a></li>
-                        <li><input type="checkbox" id="AP_reg" name="AP_reg"><a href="Avisos.jsp" ${not empty requestScope.valorAP ? 'checked' : ''}><span>Aceptar Aviso de Privacidad</span></a></li>
+                        <li><input type="checkbox" id="TyC_reg" name="TyC_reg" ${not empty requestScope.valorTyC ? 'checked' : ''}><a href="Terminos_Condiciones.jsp" target="_blank"><span>Aceptar Términos y Condiciones</span></a></li>
+                        <li><input type="checkbox" id="AP_reg" name="AP_reg"><a href="Aviso_Privacidad.jsp" target="_blank" ${not empty requestScope.valorAP ? 'checked' : ''}><span>Aceptar Aviso de Privacidad</span></a></li>
                     </ul>        
                     <span class="error">${error_TyC_Vacio}</span>
                     <span class="error">${error_AP_Vacio}</span>
-                    
+
                     <span>¿Ya tienes una cuenta? <a href="Iniciar_Sesion.jsp" class="txt_or">Iniciar Sesión</a> </span>
 
                 </div>
@@ -68,8 +72,7 @@
             </form>
         </div>
         <%
-            if (request.getAttribute("mensaje") != null)
-            {
+            if (request.getAttribute("mensaje") != null) {
         %>          
         <script>
             window.onload = function () {

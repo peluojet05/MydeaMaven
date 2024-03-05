@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.Statement"%>
+<%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="Clases.Conexion"%>
 <%@page import="Clases.Persona"%>
@@ -55,9 +56,13 @@
           con.setCon();
           c = con.getCon();
           stmt = c.createStatement();
-          rs= stmt.executeQuery("SELECT n.*,d.*,p.per_foto,u.usu_nombre FROM Direccion d INNER JOIN Negocio n ON n.dir_id=d.dir_id I"
-                  + "NNER JOIN Persona p ON n.per_id = p.per_id INNER JOIN Usuario u ON p.usu_id = u.usu_id WHERE n.neg_activo = true AND neg_nombre ILIKE '%"+bs+"%' ;");
-           if(rs!=null){
+                    PreparedStatement ps = c.prepareStatement("SELECT n.*,d.*,p.per_foto,u.usu_nombre FROM Direccion d INNER JOIN "
+                  + "Negocio n ON n.dir_id=d.dir_id INNER JOIN Persona p ON n.per_id = p.per_id INNER JOIN Usuario u ON"
+                  + " p.usu_id = u.usu_id WHERE n.neg_activo = true AND neg_nombre ILIKE ?");
+          ps.setString(1, "%" + bs + "%");
+          rs= ps.executeQuery();
+          
+          if(rs!=null){
            while(rs.next()){
            String nombre = rs.getString("neg_nombre");
             String nombreu = rs.getString("usu_nombre");
@@ -105,8 +110,10 @@
                         %>
                     
                         <%
-            rs2= stmt.executeQuery("SELECT p.per_foto, p.per_descripcion, per_id, u.usu_nombre, u.tip_id FROM Persona p INNER JOIN Usuario u ON u.usu_id=p.usu_id WHERE usu_nombre ILIKE '%"+bs+"%' ;");
-           if(rs2!=null){
+            PreparedStatement ps2 = c.prepareStatement("SELECT p.per_foto, p.per_descripcion, per_id, u.usu_nombre, u.tip_id FROM Persona p INNER JOIN Usuario u ON u.usu_id=p.usu_id WHERE usu_nombre ILIKE ?");
+            ps2.setString(1, "%" + bs + "%");
+            rs2= ps2.executeQuery();
+            if(rs2!=null){
            while(rs2.next()){
            
            String unom = rs2.getString("usu_nombre");
@@ -150,7 +157,9 @@
             %>
                     
             <%
-                rs3= stmt.executeQuery("SELECT * FROM Producto WHERE pro_nombre ILIKE '%"+bs+"%' ;");
+               PreparedStatement ps3= c.prepareStatement("SELECT * FROM Producto WHERE pro_nombre ILIKE ?");
+                ps3.setString(1, "%" + bs + "%");
+                rs3 = ps3.executeQuery();
            if(rs3!=null){
            while(rs3.next()){
            

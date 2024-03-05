@@ -45,16 +45,14 @@
                 c = con.getCon();
                 stmt = c.createStatement();
 
-                if (request.getAttribute("neid") != null)
-                {
+                if (request.getAttribute("neid") != null) {
 
-                    rs = stmt.executeQuery("select n.*, u.usu_nombre, p.per_foto, p.per_correo from Negocio n inner join Persona p on p.per_id=n.per_id inner join Usuario "
-                    + "u on p.usu_id=u.usu_id where n.neg_id=" + request.getAttribute("neid") + ";");
-                } else
-                {
-                    rs = stmt.executeQuery("select n.*, u.usu_nombre, p.per_foto, p.per_correo from Negocio n inner join Persona p on p.per_id=n.per_id inner join Usuario "
-                    + "u on p.usu_id=u.usu_id where n.neg_id=" + id + ";");
-                }
+                rs = stmt.executeQuery("select n.*, u.usu_nombre, p.per_foto, p.per_correo from Negocio n inner join Persona p on p.per_id=n.per_id"
+                + " inner join Usuario u on p.usu_id=u.usu_id where n.neg_id=" + request.getAttribute("neid") + ";");
+            } else {
+                rs = stmt.executeQuery("select n.*, u.usu_nombre, p.per_foto, p.per_correo from Negocio n inner join Persona p on p.per_id=n.per_id"
+                + " inner join Usuario u on p.usu_id=u.usu_id where n.neg_id=" + id + ";");
+            }
                 while (rs.next())
                 {
                     logo = rs.getString("neg_logo");
@@ -76,7 +74,7 @@
                 }
                 nombre = nombre.toUpperCase();
 
-                ResultSet rs2 = stmt.executeQuery("select nh.*, h.* from Negocio_Horario nh inner join Horario h  on nh.hor_id=h.hor_id where nh.neg_id=" + id + ";");
+                ResultSet rs2 = stmt.executeQuery("select nh.*, h.* from Negocio_Horario nh inner join Horario h on nh.hor_id=h.hor_id where nh.neg_id =" + id + ";");
                 String[] Dia = new String[7];
                 String[] Abierto = new String[7];
                 String[] Cerrado = new String[7];
@@ -112,8 +110,8 @@
                 
                 String direccion="";
                 
-                ResultSet rs8 = stmt.executeQuery("select d.*, n.*, p.usu_id, u.usu_nombre from Direccion d inner join Negocio n on d.dir_id=n.dir_id inner join Persona p "
-                        + "on n.per_id = p.per_id inner join Usuario u on p.usu_id = u.usu_id where n.neg_id="+neid+";");
+                ResultSet rs8 = stmt.executeQuery("select d.*, n.*, p.usu_id, u.usu_nombre from Direccion d inner join Negocio n on d.dir_id=n.dir_id"
+                    + " inner join Persona p on n.per_id = p.per_id inner join Usuario u on p.usu_id = u.usu_id where n.neg_id=" + neid + ";");
                    
                         while (rs8.next())
                         {
@@ -683,8 +681,8 @@ int lk = 0;
 
                                 <%
 
-                                    ResultSet rs7 = stmt.executeQuery("select u.usu_nombre, f.fed_comentario, f.fed_like, p.per_foto from Usuario u inner join"
-                                            + " Persona p on p.usu_id = u.usu_id inner join Feedback f on f.per_id = p.per_id where f.neg_id=" + neid + ";");
+                                    ResultSet rs7 = stmt.executeQuery("select u.usu_nombre, f.fed_comentario, f.fed_like, p.per_foto from Usuario u inner join Persona p "
+                                            + "on p.usu_id = u.usu_id inner join Feedback f on f.per_id = p.per_id where f.neg_id=" + neid + ";");
 
                                     while (rs7.next())
                                     {

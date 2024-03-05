@@ -1,0 +1,110 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 3 mar 2024, 00:20:20
+    Author     : altro
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+html{
+    height: 100vh;
+    width: 100vw;
+}
+body{
+    height: 100%;
+    width: 100%;
+}
+.nav_avisos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(151, 26, 64);
+    padding: 1%;
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.507);
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    width: 100%;
+}
+#ntc{
+    background: #d26a20;
+}
+#tyc_btn {
+    color: white;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    gap: 5px;
+}
+
+#flecha_av {
+    font-size: 1.5rem;
+}
+
+#tyc_btn:hover #flecha_av {
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    font-size: 1.8rem;
+}
+
+.txt_tt_av {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+.colorbar_ap{
+    width: 100vw;
+    height: 20vh;
+    background: rgb(114, 18, 47);
+    position: absolute;
+    bottom: 0;
+}
+.colorbar_tc{
+    width: 100vw;
+    height: 20vh;
+    background: #D95538;
+    position: absolute;
+    bottom: 0;
+}
+.texto_aviso{
+    position: absolute;
+    z-index: 2;
+    padding: 1.5%;
+    border-radius: 15px;
+    border: 5px solid black;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+    -webkit-transform: translate(-50%, -45%);
+    -moz-transform: translate(-50%, -45%);
+    -ms-transform: translate(-50%, -45%);
+    -o-transform: translate(-50%, -45%);
+    background: white;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    width: 55vw;
+    height: 75vh;
+    box-shadow: 5px 5px 0px rgb(0, 0, 0);
+    overflow-y: scroll;
+}
+.texto_aviso::-webkit-scrollbar{
+    width: 10px;
+    margin-right: 5px;
+}
+.texto_aviso::-webkit-scrollbar-thumb{
+    background: rgba(0, 0, 0, 0.7);
+    margin-right: 5px;
+    border-radius: 5px;
+}

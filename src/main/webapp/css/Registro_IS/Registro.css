@@ -98,6 +98,7 @@
     -o-transition: 0.3s;
     opacity: 1;
     background-color: rgb(255, 196, 0);
+    color: white;
 }
 .avisos li{
     display: flex;
@@ -142,4 +143,27 @@
 #TP_cnf{
     width: 60%;
     font-size: 0.8rem;
+}
+.contr_sect{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+}
+#Con_reg, #ConCon_reg{
+    height: 75%;
+}
+.eye_r{
+    font-size: 2rem;
+    font-weight: bolder;
+    color: #D95538;
+    cursor: pointer;
+}
+.eye_r:hover{
+    transition: 0.3s;
+    color:rgb(224, 177, 23);
+}
+#eyenc1, #eyenc2, #eyencs{
+    display: none;
 }

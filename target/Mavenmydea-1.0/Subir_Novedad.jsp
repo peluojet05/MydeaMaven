@@ -57,7 +57,7 @@
                                             
                                      <%//arregla esta cosa valdivia%>       
                                             <div class="elementos-derecha">
-                <input type="file" name="" id="inpt_file_img_perf">
+                <input type="file" name="" id="inpt_file_img_perf" accept="image/png, image/jpeg">
                 <div class="cont-img" id="nue_img">
                     <img class="img" src="" alt="" id="nimg_most">
                     <i class="bi bi-image icon_img_most" id="icon_img_most"></i>

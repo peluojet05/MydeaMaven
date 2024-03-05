@@ -11,7 +11,6 @@ let botones_most_pro = document.querySelectorAll('.btns_pro_most');
 let pro_most_info = document.getElementById("Prod_most_espe_cont1");
 let pro_most_res = document.getElementById("Prod_most_espe_cont2");
 let IDP = document.getElementById("IDP");
-let Resn = document.getElementById("Resn");
 let divEspecifico = document.getElementById('producto_epecifico');
 let sin_like = document.getElementById("h_sc");
 let con_like = document.getElementById("h_cc");
@@ -42,16 +41,16 @@ divs_pro.forEach(function (div) {
 function copiarDatos(divClicado) {
     let nombre = divClicado.querySelector("#tt_pro_most").textContent;
     let precio = divClicado.querySelector("#pre_most_pro").textContent;
-    let calificacion = divClicado.querySelector("#num_calf_most").textContent;
     let descripcion = divClicado.querySelector("#desc_com_pro").textContent;
     let disponibilidad = divClicado.querySelector(".dis_most_pro").value;
     let destinoDiv = document.getElementById('producto_epecifico');
+    let img = divClicado.querySelector("#card-img-top").src;
     destinoDiv.style.display = "flex";
     destinoDiv.querySelector("#npv_pro_esp").textContent = nombre;
     destinoDiv.querySelector("#pre_pro_esp").textContent = "$" + precio;
-    destinoDiv.querySelector("#cal_pro_esp").innerHTML = '<i class="bi bi-heart-fill"></i> ' + calificacion;
     destinoDiv.querySelector("#des_pro_esp").textContent = descripcion;
     destinoDiv.querySelector("#dis_pro_esp").textContent = disponibilidad;
+    destinoDiv.querySelector("#img_pro_mosr_espe").src = img;
 }
 
 
@@ -59,11 +58,6 @@ function copiarDatos(divClicado) {
 IDP.addEventListener("click", () => {
     pro_most_info.style.display = "flex";
     pro_most_res.style.display = "none";
-});
-
-Resn.addEventListener("click", () => {
-    pro_most_info.style.display = "none";
-    pro_most_res.style.display = "flex";
 });
 
 botones_most_pro.forEach(function (boton) {
@@ -80,23 +74,4 @@ divEspecifico.addEventListener("click", (e) => {
     if (e.target === divEspecifico) {
         divEspecifico.style.display = "none";
     }
-});
-
-//Btn Like
-sin_like.addEventListener("click", () => {
-    sin_like.style.display = "none";
-    con_like.style.display = "flex";
-});
-
-con_like.addEventListener("click", () => {
-    sin_like.style.display = "flex";
-    con_like.style.display = "none";
-});
-
-document.getElementById('prev_cr').addEventListener('click', function () {
-    slider_cup.scrollBy({ left: -600, behavior: 'smooth' });
-});
-
-document.getElementById('next_cr').addEventListener('click', function () {
-    slider_cup.scrollBy({ left: 600, behavior: 'smooth' });
 });

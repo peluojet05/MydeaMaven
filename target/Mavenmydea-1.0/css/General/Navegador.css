@@ -25,9 +25,7 @@ nav {
 .icon i::before {
   font-size: 40px;
 }
-.logo {
-  height: 3rem;
-}
+
 .input_search {
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
@@ -353,99 +351,72 @@ nav {
 .Inria{
   font-family: var(--Inria_Sans);
 }
-.tt_con{
-    text-align: center;
+
+.logo{
+    height: 3rem;
 }
-.inpt_concorr{
-    width: 90px;
-    height: 90px;
+
+.logo_mobile{
+    display: none;
 }
-.ccr{
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    position: absolute;
-    top: 5vh;
-}
-.inpts_c{
-    gap: 2%;
-}
-.inpts_c input{
-    border-radius: 20px;
-    border: none;
-    background: #cccccc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 3rem;
-}
-.inpts_c input:focus{
-    transition: 0.3s;
-    background: white;
-}
-.cuerp_txt{
-    overflow-y: scroll;
-    height: 80px;
-}
-.cuerp_txt::-webkit-scrollbar{
-    width: 5px;
-}
-.cuerp_txt::-webkit-scrollbar-thumb{
-    background: black;
-    border-radius: 5px;
-}
-.rel{
-    position: relative;
-}
-.form_nov{
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    border: 1px solid transparent;
-}
-#form_nov button{
-    height: 100%;
-    width: 100%;
-    background: transparent;
-    border: none;
-}
-.aavisos{
-    position: absolute;
-    width: 100%;
-    height: 90vh;
-    bottom: 0;
-}
-#desc_neg_in{
-    font-size: 0.85rem;
-    text-align: center;
-}
-.cont_cc{
-    height: 90vh;
-    position: absolute;
-    top: 5vh;
-}
-.cont_cc_inpts{
-    gap: 8px;
-}
-.cont_cc_inpts input{
-    height: 100px;
-    width: 100px;
-    background: grey;
-    border-radius: 15px;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 3rem;
-    font-weight: bold;
-}
-.cont_cc_inpts input:focus{
-    transition: 0.3s;
-    background: white;
+
+@media screen and (max-width:990px) {
+    .logo{
+        display: none;
+    }
+    .contenedor_nav{
+        flex-direction: column;
+    }
+    #btn_negypro{
+        display: none;
+    }
+    .div_buscador{
+        flex: 1;
+        width: 100%;
+        order: 2;
+    }
+    .buscador{
+        flex: 2;
+        margin: 0;
+    }
+    .input_search{
+        width: 100%;
+    }
+    .div_botones{
+        flex: 1;
+        width: 100%;
+        margin-top: 2px;
+        order: 1;
+        justify-content: flex-end;
+    }
+    .button_search i{
+        font-size: 30px
+    }
+    .button_search{
+        width: 15%
+    }
+    nav{
+       min-height: 15vh
+    }
+    .btn_rosa{
+        height: 5vh;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    .btn_negro{
+        height: 5vh;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    .icon{
+        height: 5vh;
+        padding: 0;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    .logo_mobile{
+        display: flex;
+        margin-right: 10vw;
+        height: 6vh;
+    }
 }

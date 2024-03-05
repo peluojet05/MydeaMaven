@@ -53,7 +53,7 @@ public class CrearNegocio extends HttpServlet {
             String Nombre = request.getParameter("N_Neg_cnf");
             request.setAttribute("valorNombreNegocio", Nombre);
             String Tipo = request.getParameter("TP_cnf");
-            List<String> opciones_tipoNegocio = Arrays.asList("Abarrotes", "Materia_Prima", "Restaurantes", "SyP", "Cafeteria", "Catering", "Panaderia", "OyF");
+            List<String> opciones_tipoNegocio = Arrays.asList("Abarrotes", "Materia_Prima", "Restaurantes", "SyP", "Cafetería", "Catering", "Panaderia", "OyF", "Otro");
             request.setAttribute("valorTipoNegocio", Tipo);
             String Descripcion = request.getParameter("desc");
             request.setAttribute("valorDescripcion", Descripcion);

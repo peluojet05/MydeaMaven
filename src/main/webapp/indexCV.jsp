@@ -22,7 +22,6 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <jsp:include page="templates/Referencias/Todas_Ref.jsp"/>
-
         <title>Difunde tú Negocio con Mydea</title>
     </head>
     <body class="index">
@@ -200,8 +199,8 @@
                             <div class="dts_sli_n">
                                 <span class="nn_sli_n" id="nn_sli_n"><%=nombre%></span>
                                 <span class="nv_sli_n" id="nv_sli_n"><%=nombreu%></span>
-                                <section class="d-flex w-100 justify-content-around Inria">
-                                    <span class="nv_sli_n" id="desc_neg_in"><%=desc%></span>
+                                <section class="d-flex w-100 justify-content-around cf_sli_n">
+                                    <span class="nv_sli_n" id="nv_sli_n"><%=desc%></span>
                                 </section>
                                 <section class="d-flex w-100 justify-content-around align-items-center dir_sli_n">
                                     <i class="bi bi-geo-alt-fill"></i>
@@ -227,7 +226,7 @@
         <!--DE TODO UN POCO-->
         <div class="slid_pro d-flex flex-column">
             <span class="w-100 dtp_tt">De Todo un Poco</span>
-            <span>Aquí encontrarás una mezcla fascinante de contenido variado que enriquecerá tu experiencia. 
+            <span class="dtup_txt">Aquí encontrarás una mezcla fascinante de contenido variado que enriquecerá tu experiencia. 
                 Sumérgete en artículos, recomendaciones, actualizaciones y mucho más. Explora, aprende y descubre un mundo de posibilidades en este espacio lleno de sorpresas.</span>
             <button id="prev_dtp" class="btn prev"><i class="bi bi-caret-left"></i></button>
             <button id="next_dtp" class="btn next"><i class="bi bi-caret-right"></i></button>
@@ -473,9 +472,9 @@
                 %>
 
                  <section class="card_pro_most card_pro_most_active">
+                        <span class="card-title tt_pro_most" id="tt_pro_most"><%=dis%></span>
                     <img src="<%=pi2%>" class="card-img-top img_most" alt="...">
                     <div class="card-body d-flex flex-column">
-                        <span class="card-title tt_pro_most" id="tt_pro_most"><%=dis%></span>
                          <span class="card-text" id="desc_com_pro"><%=np%></span>
                         <span class="card-text" id="desc_com_pro"><%=pd%></span>
                         
