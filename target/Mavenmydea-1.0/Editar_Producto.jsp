@@ -5,6 +5,19 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    HttpSession session1 = request.getSession(false);
+    if (session1.getAttribute("usuario") != null) {
+
+    %>
+
+<%@page session="true"%>
+<%@page import="Clases.Usuario" %>
+<%@page import="Clases.Persona" %>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="Clases.Conexion"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,6 +27,28 @@
     </head>
     <body>
         <jsp:include page="templates/Navegadores/Navegador_CV.jsp"/>
+        <%
+            
+            Conexion con;
+            Connection c;
+            
+            ResultSet rs, rs2, rs3;
+            con = new Conexion();
+            con.setCon();
+            c = con.getCon();
+            Statement stmt = c.createStatement();
+            String id = request.getParameter("idn");
+            rs2 = stmt.executeQuery("select p.*, d.dis_nombre from Producto p inner join Disponibilidad d on p.dis_id=d.dis_id where p.pro_id=1 and p.neg_id="+id+";");
+            String np = null, img= null, dis=null, pd=null;
+            int pre = 0;
+            while (rs2.next()){
+                 np = rs2.getString("pro_nombre");
+                 pre = rs2.getInt("pro_precio");
+                 img = rs2.getString("pro_imagen");
+                 dis = rs2.getString("dis_nombre");
+                 pd = rs2.getString("pro_descripcion");    
+            }
+        %>
         <div class="d-flex flex-column w-100 justify-content-between cnf1 Inria">
             <section class="color1e"></section>
             <section class="color2e"></section>
@@ -45,7 +80,7 @@
                                                 <i class="bi bi-question-circle" data-bs-toggle="tooltip"
                                                    data-bs-placement="right" data-bs-title="Tooltip on right"></i></span>
                                             <section class="Logo_Prev" id="Prod_Prev">
-                                                <img src="" alt="Logo" id="Prev_img_Prod" class="Prev_Log" />
+                                                <img src="<%=img%>" alt="Logo" id="Prev_img_Prod" class="Prev_Log" />
                                                 <input type="file" class="d-none" name="Prod_cnf" id="Prod_cnf"
                                                        accept="image/png, image/jpeg" />
                                                 <i class="bi bi-image Plus_L" id="Plus_Prod"></i>
@@ -57,7 +92,7 @@
                                             <span class="fw-bold">Nombre del Producto o Servicio
                                                 <i class="bi bi-question-circle" data-bs-toggle="tooltip"
                                                    data-bs-placement="right" data-bs-title="Tooltip on right"></i></span>
-                                            <input type="text" class="form-control" placeholder="Nombre de su Producto"
+                                            <input type="text" class="form-control" placeholder="<%=np%>"
                                                    id="Nom_Pro_inp" />
                                         </section>
                                         <section>
@@ -65,7 +100,7 @@
                                                 <i class="bi bi-question-circle" data-bs-toggle="tooltip"
                                                    data-bs-placement="right" data-bs-title="Tooltip on right"></i></span>
                                             <input type="number" class="form-control"
-                                                   placeholder="Ingrese el precio de su producto" id="Pre_Prod_inp" />
+                                                   placeholder="$<%=pre%>" id="Pre_Prod_inp" />
                                         </section>
                                     </section>
                                 </section>
@@ -74,7 +109,7 @@
                                         <span class="fw-bold">Descripcion del Producto o Servicio
                                             <i class="bi bi-question-circle" data-bs-toggle="tooltip"
                                                data-bs-placement="right" data-bs-title="Tooltip on right"></i></span>
-                                        <textarea class="form-control txta_cnf" name="" id="Desc_Pro_inp"></textarea>
+                                        <textarea class="form-control txta_cnf" name="" id="Desc_Pro_inp" placeholder="$<%=pre%>"></textarea>
                                     </section>
                                     <section class="d-flex h-50 justify-content-around w-100 flex-column">
                                         <span class="fw-bold">Disponibilidad del Producto o Servicio
@@ -83,16 +118,14 @@
                                         <section class="d-flex h-50 w-100 justify-content-between align-items-center">
                                             <select class="form-select w-75" aria-label="Default select example"
                                                     id="Tip_Pro_inp">
-                                                <option selected disabled hidden>
-                                                    Seleccione la Disponibilidad de su Producto o Servicio
-                                                </option>
+                                                
                                                 <option value="Disponible en todo momento">Disponible en todo momento
                                                 </option>
                                                 <option value="Por Pedido">Por Pedido</option>
                                                 <option value="Mayoreo">Mayoreo</option>
                                                 <option value="Solo por Unidad">Solo por Unidad</option>
                                                 <option value="Disponible por un Tiempo">Disponible por un Tiempo</option>
-                                                <option value="Proximamente">Proximamente</option>
+                                                <option value="Proximamente" selected>Proximamente</option>
                                             </select>
                                             <button type="submit" type="button"
                                                     class="btn btn-outline-dark btn_rosa h-75 text-white" id="btn_AProd">
@@ -107,15 +140,29 @@
                                                                                data-bs-toggle="tooltip" data-bs-placement="right"
                                                                                data-bs-title="Tooltip on right"></i></span>
                                 <section class="w-100 Prod_Cont" id="Prod_Cont">
+                                    <%
+                                        
+                                    rs = stmt.executeQuery("select p.*, d.dis_nombre from Producto p inner join Disponibilidad d on p.dis_id=d.dis_id where p.neg_id="+id+";");
+                                    
+                                    while(rs.next()){
+                                    
+                                        String np2 = rs.getString("pro_nombre");
+                                        int pre2 = rs.getInt("pro_precio");
+                                        String img2 = rs.getString("pro_imagen");
+                                        String dis2 = rs.getString("dis_nombre");
+                                        String pd2 = rs.getString("pro_descripcion");
+
+                                    
+                                    %>
                                     <div class="prod d-flex" id="prod1">
-                                        <img src="" alt="prod" class="img_prod_cnf">
+                                        <img src="<%=img2%>" alt="prod" class="img_prod_cnf">
                                         <input type="file" class="d-none" disabled>
                                         <section class="d-flex flex-column Prod_Lis">
-                                            <input type="text" class="N_ProVP" value=" Nom_Prod_inp.value" disabled>
-                                            <textarea type="text" class="D_ProVP" disabled>Desc_Pro_inp.value</textarea>
+                                            <input type="text" class="N_ProVP" value="<%=np2%>" disabled>
+                                            <textarea type="text" class="D_ProVP" disabled><%=pd2%></textarea>
                                             <section class="d-flex w-100 justify-content-between">
-                                                <input type="text" value="$" id="precio" disabled>
-                                                <input type="text" id="dis" value="Disponibilidad" disabled>
+                                                <input type="text" value="$<%=pre2%>" id="precio" disabled>
+                                                <input type="text" id="dis" value="<%=dis2%>" disabled>
                                                 <form action="" method="post">
                                                     <button class="btn_elim_pro btn_rosa" type="submit">Editar</button>
                                                 </form>
@@ -125,42 +172,9 @@
                                             </section>
                                         </section>
                                     </div>
-                                    <div class="prod d-flex" id="prod1">
-                                        <img src="" alt="prod" class="img_prod_cnf">
-                                        <input type="file" class="d-none" disabled>
-                                        <section class="d-flex flex-column Prod_Lis">
-                                            <input type="text" class="N_ProVP" value=" Nom_Prod_inp.value" disabled>
-                                            <textarea type="text" class="D_ProVP" disabled>Desc_Pro_inp.value</textarea>
-                                            <section class="d-flex w-100 justify-content-between">
-                                                <input type="text" value="$" id="precio" disabled>
-                                                <input type="text" id="dis" value="Disponibilidad" disabled>
-                                                <form action="" method="post">
-                                                    <button class="btn_elim_pro btn_rosa" type="submit">Editar</button>
-                                                </form>
-                                                <form action="" method="post">
-                                                    <button class="btn_elim_pro btn_rosa" type="submit">Eliminar</button>
-                                                </form>
-                                            </section>
-                                        </section>
-                                    </div>
-                                    <div class="prod d-flex" id="prod1">
-                                        <img src="" alt="prod" class="img_prod_cnf">
-                                        <input type="file" class="d-none" disabled>
-                                        <section class="d-flex flex-column Prod_Lis">
-                                            <input type="text" class="N_ProVP" value=" Nom_Prod_inp.value" disabled>
-                                            <textarea type="text" class="D_ProVP" disabled>Desc_Pro_inp.value</textarea>
-                                            <section class="d-flex w-100 justify-content-between">
-                                                <input type="text" value="$" id="precio" disabled>
-                                                <input type="text" id="dis" value="Disponibilidad" disabled>
-                                                <form action="" method="post">
-                                                    <button class="btn_elim_pro btn_rosa" type="submit">Editar</button>
-                                                </form>
-                                                <form action="" method="post">
-                                                    <button class="btn_elim_pro btn_rosa" type="submit">Eliminar</button>
-                                                </form>
-                                            </section>
-                                        </section>
-                                    </div>
+                                    <%
+                                        }
+                                    %>
                                 </section>
                             </div>
                         </div>
@@ -168,5 +182,10 @@
                 </div>
             </div>
         </div>
+                  <%  }else{
+    System.out.println("Error: Sesión no existe");
+    response.sendRedirect("index.jsp");
+}
+            %>
     </body>
 </html>

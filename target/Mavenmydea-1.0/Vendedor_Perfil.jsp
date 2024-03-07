@@ -197,7 +197,10 @@
                                         <button type="submit" class="btn btn_visitar_busq">Visitar</button>
                                     </form>
                                         
-                                        
+                                    <form action="Editar_Producto.jsp" method="post" class="btn_mn">
+                                        <input type="hidden" name="idn" value="<%=idn%>"/>
+                                        <button type="submit" class="btn btn_visitar_busq">Editar Productos</button>
+                                    </form>  
                                            
                                     <form action="EliminarNegocio" method="post">
                                         <input type="hidden" name="idn" value="<%=idn%>"/>
