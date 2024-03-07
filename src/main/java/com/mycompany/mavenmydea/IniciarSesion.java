@@ -39,6 +39,8 @@ import java.util.Random;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
+//Inyecciones
+import org.owasp.encoder.Encode;
 
 /**
  *
@@ -67,15 +69,19 @@ public class IniciarSesion extends HttpServlet {
             HttpSession session = request.getSession(create);
             
             String nom=request.getParameter("Nom_usu_is");
+            String encnom = Encode.forHtml(nom);
             request.setAttribute("valorNom", nom);
             String pass=request.getParameter("Con_is");
+            String encpass = Encode.forHtml(pass);
             request.setAttribute("valorPass", pass);
             String correo=request.getParameter("Email_is");
+            String enccorreo = Encode.forHtml(correo);
             request.setAttribute("valorCorreo", correo);
             
             
             
             String codigo = request.getParameter("codigo");
+            String enccodigo = Encode.forHtml(codigo);
             
             
             //Expresiones regulares
@@ -98,7 +104,7 @@ public class IniciarSesion extends HttpServlet {
                 if (ChronoUnit.MINUTES.between(generationTime, LocalDateTime.now()) > 5) {
                     request.setAttribute("error_codigo", "El código de confirmación ha caducado");
                     request.getRequestDispatcher("ConfirmarCodigo_I.jsp").forward(request, response);
-                } else if (codigo.equals(codigoCompletado)) {
+                } else if (enccodigo.equals(codigoCompletado)) {
                     
                     Conexion c = new Conexion();
                     Connection con;
