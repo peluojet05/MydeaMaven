@@ -29,7 +29,7 @@ public class Conexion {
     public void setCon() {
        try{
            
-     /* POSTGRE HOST, CON ESTE HACEN LA PULL REQUEST
+     //POSTGRE HOST, CON ESTE HACEN LA PULL REQUEST
 String dbDriver = "org.postgresql.Driver";
      String dbURL = "jdbc:postgresql://ec2-100-26-73-144.compute-1.amazonaws.com/db3v6hean6n35q";
                           
@@ -38,9 +38,9 @@ String dbDriver = "org.postgresql.Driver";
      String dbPassword = "45a8d512e214c8aec0d15935b70c9addc631a10c65bc23296d0e2e2bd0b2f0a0";
      Class.forName(dbDriver).newInstance();
      con = DriverManager.getConnection(dbURL,dbUsername, dbPassword);
-     */
      
-     //MYSQL LOCAL
+     
+     /* MYSQL LOCAL CAMBIEN LA CONTRASEÑA
      String dbDriver = "com.mysql.jdbc.Driver";
      String dbURL = "jdbc:mysql://localhost:3306/";
                 // Database name to access
@@ -50,7 +50,8 @@ String dbDriver = "org.postgresql.Driver";
      Class.forName(dbDriver).newInstance();
      con = DriverManager.getConnection(dbURL + dbName,
      dbUsername,
-     dbPassword);
+     dbPassword); 
+     */
      
      
       } catch (Exception e ) {
@@ -722,6 +723,23 @@ String dbDriver = "org.postgresql.Driver";
             mensaje="Negocio guardado";
             }
             System.out.println("pid "+pid);
+            
+        } catch (Exception e ) {
+                System.err.println("Error"+e);
+        }
+        return mensaje;
+    }
+    
+    public String Eliminar(String id){
+        String mensaje = "Negocio eliminado con éxito";
+        try{
+          
+            
+            
+            String sql3 = "Update Negocio set neg_activo=false where neg_id="+id+";";
+            Statement stmt =con.createStatement();
+            stmt.execute(sql3);
+            
             
         } catch (Exception e ) {
                 System.err.println("Error"+e);

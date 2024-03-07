@@ -3,8 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
+import Clases.Conexion;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,15 +38,26 @@ public class EliminarNegocio extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet EliminarNegocio</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet EliminarNegocio at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            
+            
+            String id = request.getParameter("idn");
+            
+            Conexion con = new Conexion();
+            Connection c;
+            con.setCon();
+            c=con.getCon();
+            String mensaje = con.Eliminar(id);
+            
+            try {
+                c.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(EditarCuenta.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            request.setAttribute("mensaje", mensaje);    
+                   RequestDispatcher rd = request.getRequestDispatcher("Vendedor_Perfil.jsp");
+                   rd.forward(request, response);
+            
         }
     }
 

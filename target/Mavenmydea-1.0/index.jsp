@@ -42,7 +42,7 @@
             c = con.getCon();
             stmt = c.createStatement();
 
-            r = stmt.executeQuery("Select * From Negocio LIMIT 3");
+            r = stmt.executeQuery("Select * From Negocio where neg_activo=true LIMIT 3");
             int k = 0;
 
             String[] nombreg = new String[3];
@@ -193,7 +193,7 @@
                     <%
 
                         rs = stmt.executeQuery("select d.*, n.*, p.usu_id, u.usu_nombre from Direccion d inner join Negocio n on d.dir_id=n.dir_id inner join Persona "
-                                + "p on n.per_id = p.per_id inner join Usuario u on p.usu_id = u.usu_id;");
+                                + "p on n.per_id = p.per_id inner join Usuario u on p.usu_id = u.usu_id where n.neg_activo=true;");
 
                         while (rs.next())
                         {
@@ -253,7 +253,8 @@
                 <%
                     ResultSet pr;
 
-                    String sl = "select p.*, d.dis_nombre from Producto p inner join Disponibilidad d on p.dis_id=d.dis_id;";
+                    String sl = "select p.*, d.dis_nombre from Producto p inner join Disponibilidad d on p.dis_id=d.dis_id inner join Negocio n on p.neg_id = n.neg_id where"
+                            + " n.neg_activo=true;";
 
                     pr = stmt.executeQuery(sl);
 
@@ -298,7 +299,7 @@
                 <%
                     ResultSet pr2;
 
-                    String sl2 = "select n.neg_nombre, n.neg_id, v.* from Negocio n inner join Novedad v on n.neg_id=v.neg_id;";
+                    String sl2 = "select n.neg_nombre, n.neg_id, v.* from Negocio n inner join Novedad v on n.neg_id=v.neg_id where n.neg_activo=true;";
 
                     String pi2 = "";
 

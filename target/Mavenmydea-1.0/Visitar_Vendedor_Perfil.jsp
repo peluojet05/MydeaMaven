@@ -48,7 +48,7 @@
              ig = rs.getString("per_instagram");
              web = rs.getString("per_web");
             }
-            rs2=stmt.executeQuery("Select * from Negocio where per_id="+id+";");
+            rs2=stmt.executeQuery("Select * from Negocio where per_id="+id+" and neg_activo=true;");
             int num =0;
             while(rs2.next()){
             num=num+1;
@@ -145,7 +145,7 @@
                 <div class="cont_res_var d- flex-column">
                     
                    <%
-                       rs3 = stmt.executeQuery("Select * from Negocio where per_id="+id+";");
+                       rs3 = stmt.executeQuery("Select * from Negocio where per_id="+id+" and neg_activo=true;");
                        
                        while(rs3.next()){
                        
