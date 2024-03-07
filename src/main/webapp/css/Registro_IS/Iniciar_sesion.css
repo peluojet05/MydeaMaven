@@ -136,3 +136,21 @@
     height: 90vh;
     bottom: 0;
 }
+@media screen and (max-width:1024px){
+    .is_form_container{
+        width: 95%;
+        margin-top: 2.4rem;
+    }
+    .container_is{
+        top: 9vh
+    }
+    .user_is{
+        font-size: 6.5rem
+    }
+    .btns_is_active {
+        width: 50%;
+    }
+    .texto_registro{
+        text-align: center;
+    }
+}
