@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" http-equiv="Content-Type" content="width=device-width, initial-scale=1, charset=UTF-8">
         <jsp:include page="templates/Referencias/Todas_Ref.jsp"/>
         <title>Bienvenido de Vuelta!</title>
     </head>
@@ -39,7 +39,7 @@
                             </section>
                             <span class="error">${error_contraseña_Vacio}</span>
                         </li></ul>
-                    <span>¿Aún no tienes una cuenta? <a href="Registro.jsp" class="txt_os">Registrarse</a> </span>
+                        <span class="texto_registro">¿Aún no tienes una cuenta? <a href="Registro.jsp" class="txt_os">Registrarse</a> </span>
                 </div>
                 <button class="btn btns_is" type="submit" id="Boton_is">
                     Iniciar Sesión
