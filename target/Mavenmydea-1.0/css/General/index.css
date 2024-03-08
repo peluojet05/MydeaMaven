@@ -16,7 +16,7 @@ html {
     height: auto;
 }
 nav {
-    position: absolute;
+    position: fixed;
 }
 .content_index {
     position: absolute;

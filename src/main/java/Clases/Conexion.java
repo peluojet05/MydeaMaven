@@ -46,7 +46,7 @@ String dbDriver = "org.postgresql.Driver";
                 // Database name to access
      String dbName = "mydea";
      String dbUsername = "root";
-     String dbPassword = "Sn0w.2017";
+     String dbPassword = "n0m3l0";
      Class.forName(dbDriver).newInstance();
      con = DriverManager.getConnection(dbURL + dbName,
      dbUsername,
