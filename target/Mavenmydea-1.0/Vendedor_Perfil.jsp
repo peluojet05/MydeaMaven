@@ -51,7 +51,7 @@
             con.setCon();
             c = con.getCon();
             stmt = c.createStatement();
-            rs2 = stmt.executeQuery("Select n.neg_id, p.per_id from Negocio n inner Join Persona p on p.per_id=n.per_id where p.per_correo='" + correo + "';");
+            rs2 = stmt.executeQuery("Select n.neg_id, p.per_id from Negocio n inner Join Persona p on p.per_id=n.per_id where p.per_correo='" + correo + "' and n.neg_activo=true;");
             int num = 0;
             while (rs2.next())
             {
@@ -226,6 +226,18 @@
             });
 
         </script>
+        <%
+            if (request.getAttribute("mensaje") != null)
+            {
+        %>          
+        <script>
+            window.onload = function () {
+                alert("  <%=request.getAttribute("mensaje")%>");
+            };
+        </script>      
+        <%
+            }
+        %>
                                                                     <%
             }else{
     System.out.println("Error: Sesión no existe");
