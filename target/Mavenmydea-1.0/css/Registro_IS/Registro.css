@@ -24,6 +24,10 @@
     z-index: 1;
 }
 
+nav {
+    position: fixed;
+}
+
 .Txt_reg{
     width: 100%;
     text-align: justify;
@@ -109,7 +113,7 @@
     width: 100%;
     position: absolute;
     bottom: 0;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 .color1_reg{
     height: 30%;
@@ -166,4 +170,30 @@
 }
 #eyenc1, #eyenc2, #eyencs{
     display: none;
+}
+@media screen and (max-width:1024px){
+    .container_reg{
+        /*top: calc(100px + 2vh);*/
+    }
+    .reg_form_container{
+        width: 95%;
+        height: auto;
+    }
+    .list_inp_reg li{
+        width: 100%;
+    }
+    .list_inp_reg{
+        height: auto;
+    }
+    .container_reg{
+        height: auto;
+        bottom: initial;
+        top: 10%;
+    }
+    .color2_reg{
+        display: none;
+    }
+    .btns_reg_active{
+        width: auto;
+    }
 }
