@@ -15,9 +15,10 @@
 <%@page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
-     <%
-    HttpSession session1 = request.getSession(false);
-    if (session1.getAttribute("usuario") != null) {
+    <%
+        HttpSession session1 = request.getSession(false);
+        if (session1.getAttribute("usuario") != null)
+        {
 
     %>
     <head>
@@ -39,61 +40,65 @@
                     </section>
                 </section>
                 <div class="cont_busq_res">
-                    
-                            <%
-          String bs = request.getParameter("txt");
-          Conexion con;
-          Connection c;
-          Statement stmt;
-          ResultSet rs, rs2, rs3;
-          
-          int id;
-          int i=0;
-            
-        %>
-        <%
-          con = new Conexion();
-          con.setCon();
-          c = con.getCon();
-          stmt = c.createStatement();
-                    PreparedStatement ps = c.prepareStatement("SELECT n.*,d.*,p.per_foto,u.usu_nombre FROM Direccion d INNER JOIN "
-                  + "Negocio n ON n.dir_id=d.dir_id INNER JOIN Persona p ON n.per_id = p.per_id INNER JOIN Usuario u ON"
-                  + " p.usu_id = u.usu_id WHERE n.neg_activo = true AND neg_nombre ILIKE ?");
-          ps.setString(1, "%" + bs + "%");
-          rs= ps.executeQuery();
-          
-          if(rs!=null){
-           while(rs.next()){
-           String nombre = rs.getString("neg_nombre");
-            String nombreu = rs.getString("usu_nombre");
-            String img = rs.getString("neg_logo");
-            String foto = rs.getString("per_foto");
-            String colonia = rs.getString("dir_colonia");
-            String calle = rs.getString("dir_calle");
-            String desc = rs.getString("neg_descripcion");
-            int numero = rs.getInt("dir_numero");
-            int idn = rs.getInt("neg_id");
-            String direccion = colonia + ", "+calle+", "+numero;
-           
-            
-        %>
-                    
+
+                    <%
+                        String bs = request.getParameter("txt");
+                        Conexion con;
+                        Connection c;
+                        Statement stmt;
+                        ResultSet rs, rs2, rs3;
+
+                        int id;
+                        int i = 0;
+
+                    %>
+                    <%            con = new Conexion();
+                        con.setCon();
+                        c = con.getCon();
+                        stmt = c.createStatement();
+                        PreparedStatement ps = c.prepareStatement("SELECT n.*,d.*,p.per_foto,u.usu_nombre FROM Direccion d INNER JOIN "
+                                + "Negocio n ON n.dir_id=d.dir_id INNER JOIN Persona p ON n.per_id = p.per_id INNER JOIN Usuario u ON"
+                                + " p.usu_id = u.usu_id WHERE n.neg_activo = true AND neg_nombre ILIKE ?");
+                        ps.setString(1, "%" + bs + "%");
+                        rs = ps.executeQuery();
+
+                        if (rs != null)
+                        {
+                            while (rs.next())
+                            {
+                                String nombre = rs.getString("neg_nombre");
+                                String nombreu = rs.getString("usu_nombre");
+                                String img = rs.getString("neg_logo");
+                                String foto = rs.getString("per_foto");
+                                String colonia = rs.getString("dir_colonia");
+                                String calle = rs.getString("dir_calle");
+                                String desc = rs.getString("neg_descripcion");
+                                int numero = rs.getInt("dir_numero");
+                                int idn = rs.getInt("neg_id");
+                                String direccion = colonia + ", " + calle + ", " + numero;
+
+
+                    %>
+
+                    <!-- Negocio -->
                     <section class="busq_result busq_neg" id="negbusq">
-                        <img src="<%=img%>" alt="" class="w-25" id="img_loc_busq">
-                        <section class="w-100">
+                        <section class="neg_bus_pre">
+                            <img class="img_neg_busq" src="<%=img%>" alt="" id="img_loc_busq">
                             <span class="nb_busq nb" id="nb_busq"><%=nombre%></span>
-                            <section class="d-flex desc_bus">
-                                <section class="d-flex dir_bus w-100">
+                        </section>
+                        <div class="line_neg_busq"></div>
+                        <section class="d-flex desc_bus">
+                            <section class="num_busq">
+                                <span class="desc_neg_busq"><%=desc%></span>
+                                <section class="d-flex dir_bus">
                                     <i class="bi bi-geo-alt-fill"></i>
                                     <span id="dir_neg_busq"><%=direccion%></span>
                                 </section>
-                                <section class="d-flex flex-column num_busq justify-content-between align-items-center w-75">
-                                    <section>
-                                        <i class="bi bi-heart-fill"></i> <span id="calf_neg_busq">000001</span>
-                                    </section>
-                                    <section>
-                                        <i class="bi bi-chat-square-dots-fill"></i> <span id="com_neg_busq">000001</span>
-                                    </section>
+                                <section class="inf_neg_busq">
+                                    <i class="bi bi-heart-fill"></i> <span id="calf_neg_busq">0</span>
+                                </section>
+                                <section class="inf_neg_busq">
+                                    <i class="bi bi-chat-square-dots-fill"></i> <span id="com_neg_busq">0</span>
                                 </section>
                             </section>
                         </section>
@@ -105,94 +110,115 @@
                             <input type="text" class="d-none" value="<%=idn%>" id="id_neg_bus">
                         </section>
                     </section>
+                        
                     <%}
                         }
-                        %>
-                    
-                        <%
-            PreparedStatement ps2 = c.prepareStatement("SELECT p.per_foto, p.per_descripcion, per_id, u.usu_nombre, u.tip_id FROM Persona p INNER JOIN Usuario u ON u.usu_id=p.usu_id WHERE usu_nombre ILIKE ?");
-            ps2.setString(1, "%" + bs + "%");
-            rs2= ps2.executeQuery();
-            if(rs2!=null){
-           while(rs2.next()){
-           
-           String unom = rs2.getString("usu_nombre");
-           String pfoto = rs2.getString("per_foto");
-           String descripcion = rs2.getString("per_descripcion");
-           int pid = rs2.getInt("per_id");
-           int tipo = rs2.getInt("tip_id");
-            
+                    %>
 
-           if(tipo==1){
-        %>
-        
-        <form class="busq_result busq_usu" id="usubusq" method="post" action="Visitar_Cuenta_UsuarioCV.jsp" >
+                    <%
+                        PreparedStatement ps2 = c.prepareStatement("SELECT p.per_foto, p.per_descripcion, per_id, u.usu_nombre, u.tip_id FROM Persona p INNER JOIN Usuario u ON u.usu_id=p.usu_id WHERE usu_nombre ILIKE ?");
+                        ps2.setString(1, "%" + bs + "%");
+                        rs2 = ps2.executeQuery();
+                        if (rs2 != null)
+                        {
+                            while (rs2.next())
+                            {
+
+                                String unom = rs2.getString("usu_nombre");
+                                String pfoto = rs2.getString("per_foto");
+                                String descripcion = rs2.getString("per_descripcion");
+                                int pid = rs2.getInt("per_id");
+                                int tipo = rs2.getInt("tip_id");
+
+                                if (tipo == 1)
+                                {
+                    %>
+
+                    <!-- Usuario Normal -->
+                    <form class="busq_result busq_usu nr" id="usubusq" method="post" action="Visitar_Cuenta_UsuarioCV.jsp" >
                         <input class="d-none" type="text" disabled>
                         <button class="d-none" type="submit" id="btn_smt_usu"></button>
-                        <img src="<%=pfoto%>" alt="" id="usu_img_busq">
-                        <section class="d-flex flex-column">
+                        <img src="<%=pfoto%>" class="usunr_img" id="usu_img_busq">
+                        <section class="info_usu_nusq usu_nr">
                             <span class="nb_busq nb"><%=unom%></span>
                             <span class="dir_bus w-100 desc_busq"><%=descripcion%></span>
+                            <i class="bi bi-person-fill usernr_icon"></i>
                         </section>
                         <input type="hidden" name="idu" value="<%=pid%>"/>
                     </form>
-                            <%
-                                }else if(tipo==2){
-                                %>
-        <form class="busq_result busq_usu" id="usubusq" method="post" action="Visitar_Vendedor_PerfilCV.jsp" >
+                    
+                    <%
+                    } else if (tipo == 2)
+                    {
+                    %>
+                    
+                    <!-- Usuario Vendedor -->
+                    <form class="busq_result busq_usu" id="usubusq" method="post" action="Visitar_Vendedor_PerfilCV.jsp" >
                         <input class="d-none" type="text" disabled>
                         <button class="d-none" type="submit" id="btn_smt_usu"></button>
-                        <img src="<%=pfoto%>" alt="" id="usu_img_busq">
-                        <section class="d-flex flex-column">
+                        <img src="<%=pfoto%>" class="usuvd_img" id="usu_img_busq">
+                        <section class="info_usu_nusq usu_vd">
                             <span class="nb_busq nb">Vendedor <%=unom%></span>
                             <span class="dir_bus w-100 desc_busq"><%=descripcion%></span>
+                            <i class="bi bi-shop uservd_icon"></i>
                         </section>
                         <input type="hidden" name="idu" value="<%=pid%>"/>
                     </form>
-                    
-        <%
-            }
-            }
-            }
-            %>
-                    
-            <%
-               PreparedStatement ps3= c.prepareStatement("SELECT * FROM Producto p inner join Negocio n on p.neg_id=n.neg_id WHERE "
-                        + "p.pro_nombre ILIKE ? and p.pro_activo=true and n.neg_activo=true");
-                ps3.setString(1, "%" + bs + "%");
-                rs3 = ps3.executeQuery();
-           if(rs3!=null){
-           while(rs3.next()){
-           
-          String pnom = rs3.getString("pro_nombre");
-          String pimg = rs3.getString("pro_imagen");
-          int precio = rs3.getInt("pro_precio");
-          int nid = rs3.getInt("neg_id");
-                %>
-            
-            
-                <form class="busq_result busq_pr" id="probusq" method="post" action="NegocioCV.jsp" >
+
+                    <%
+                                }
+                            }
+                        }
+                    %>
+
+                    <%
+                        PreparedStatement ps3 = c.prepareStatement("SELECT * FROM Producto WHERE pro_nombre ILIKE ?");
+                        ps3.setString(1, "%" + bs + "%");
+                        rs3 = ps3.executeQuery();
+                        if (rs3 != null)
+                        {
+                            while (rs3.next())
+                            {
+
+                                String pnom = rs3.getString("pro_nombre");
+                                String pimg = rs3.getString("pro_imagen");
+                                int precio = rs3.getInt("pro_precio");
+                                int nid = rs3.getInt("neg_id");
+                    %>
+
+                    <!-- Producto -->
+                    <form class="busq_result busq_pr" id="probusq" method="post" action="NegocioCV.jsp" >
                         <input class="d-none" type="text" disabled>
                         <button class="d-none" type="submit" id="btn_smt_pro"></button>
-                        <img src="<%=pimg%>" alt="">
-                        <span class="nb_busq w-50 h-100 d-flex align-items-center nb"><%=pnom%></span>
+                        <img class="img_pro_busq ipb1" src="<%=pimg%>">
+                        <section class="ivbs" id="ivsy">
+                            <span id="ivsy">De:</span>
+                            <img class="img_vd_busq ivb1" src="src"/>
+                        </section>
+                        <img class="img_pro_busq ipb2" src="src"/>
+                        <section class="ivbs ivbsn">
+                            <span>Ofece:</span>
+                            <img class="img_vd_busq ivb2" src="<%=pimg%>"/>
+                        </section>
                         <section
-                            class="d-flex flex-column w-50 h-100 align-items-center justify-content-around num_pro_busq">
-                            <span>$<%=precio%></span>
-                            <section class="d-flex">
-                                <span><i class="bi bi-heart-fill"></i> 000000</span>
-                                <span><i class="bi bi-chat-square-dots-fill"></i> 000000</span>
+                            class="num_pro_busq">
+                            <span class="nb_busq nb"><%=pnom%></span>
+                            <span>Descripción</span>
+                            <hr id="lnngbs">
+                            <section class="lkpr">
+                                <span>$<%=precio%></span>
+                                <span><i class="bi bi-heart-fill"></i> 0 Me Gusta</span>
                             </section>
                         </section>
                         <input type="hidden" name="idn" value="<%=nid%>"/>
                     </form>
-                    
-                <%
-                    }
-}
-c.close();
+
+                    <%
+                            }
+                        }
+                        c.close();
                     %>
-                    
+
                 </div>
             </div>
             <form class="w-50 h-100 cont_busq_most Inria" method="post" action="NegocioCV.jsp" >
@@ -214,17 +240,17 @@ c.close();
                         facere quia architecto dolores aperiam, beatae quidem vero.</span>
                     <section class="d-flex w-100 cont_dts_neg_vp">
                         <section class="w-75 d-flex align-items-center"><i class="bi bi-geo-alt-fill"></i> <span
-                            class="dir_vp" id="dir_vp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-                            quos quasi a
-                            quod suscipit maiores architecto praesentium culpa nulla obcaecati dicta cumque deserunt
-                            similique odio, blanditiis consequuntur. Eum, ipsam obcaecati!</span></section></section>
-                        <section class="d-flex flex-column w-50 num_vp justify-content-around">
-                            <section class="d-flex"><i class="bi bi-heart-fill"></i><span id="calf_neg_vp"> 000000</span></section>
-                            <section class="d-flex"><i class="bi bi-chat-square-dots-fill"></i><span id="com_neg_vp">000000</span></section>
-                        </section>
-                     <button type="submit" class="btn_busq">Explorar Negocio</button>
+                                class="dir_vp" id="dir_vp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
+                                quos quasi a
+                                quod suscipit maiores architecto praesentium culpa nulla obcaecati dicta cumque deserunt
+                                similique odio, blanditiis consequuntur. Eum, ipsam obcaecati!</span></section></section>
+                    <section class="d-flex flex-column w-50 num_vp justify-content-around">
+                        <section class="d-flex"><i class="bi bi-heart-fill"></i><span id="calf_neg_vp"> 000000</span></section>
+                        <section class="d-flex"><i class="bi bi-chat-square-dots-fill"></i><span id="com_neg_vp">000000</span></section>
                     </section>
-                   
+                    <button type="submit" class="btn_busq">Explorar Negocio</button>
+                </section>
+
             </form>
         </div>
         <script>
@@ -233,12 +259,13 @@ c.close();
                 selector: '[data-bs-toggle="tooltip"]',
             });
         </script>
-<%
-            }else{
-    System.out.println("Error: Sesión no existe");
-    response.sendRedirect("index.jsp");
-}
-            %>
+        <%
+            } else
+            {
+                System.out.println("Error: Sesión no existe");
+                response.sendRedirect("index.jsp");
+            }
+        %>
         <script src="js/Nav.js"></script>
         <script src="js/busq.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
