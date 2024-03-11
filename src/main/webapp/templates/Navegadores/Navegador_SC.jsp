@@ -28,6 +28,7 @@
         <div class="d-flex col-xl-6 col-lg-6 div_botones">
             <div class="col-xl-2 col-lg-2 logo_mobile">
                 <a href="index.jsp"><img src="assets/Logo_Icon.png" alt="logotipo" ></a>
+                <a href="index.jsp"><img src="assets/logo_mydea_comida.png" alt="logotipo" ></a>
             </div>
             <div class="col-xl-6 col-lg-6 d-flex justify-content-evenly">
                 <button type="button" class="btn btn-outline-dark btn_negro btn_negro_responsive" id="btn_acceder">Acceder</button>

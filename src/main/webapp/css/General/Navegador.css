@@ -396,10 +396,10 @@ nav {
     }
     .logo_mobile{
         display: flex;
-        height: 80%;
+        height: 60%;
         left: 20px;
         position: absolute;
-        margin-top: 1%;
+        margin-top: 2%;
     }
     .boton{
         position: absolute;
