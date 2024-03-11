@@ -17,6 +17,8 @@
     padding: 2%;
     gap: 10px;
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
 }
 .cont_busq_res::-webkit-scrollbar{
     width: 6px;
@@ -65,31 +67,6 @@
     background-color: black;
     color: white;
 }
-.busq_result{
-    display: flex;
-    background-color: white;
-    height: 40%;
-    width: 100%;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-    border: 3px solid black;
-    box-shadow: 4px 4px 1px black;
-    padding: 1%;
-    gap: 2%;
-}
-.busq_result img{
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    border: 3px solid white;
-    max-width: 200px;
-}
 .nb_busq{
     font-size: 1.5rem;
     font-weight: bold;
@@ -97,9 +74,11 @@
 .desc_bus{
     display: flex;
     gap: 10px;
+    height: 100%;
+    width: 55%;
+    padding: 2.5%;
 }
 .dir_bus{
-    width: 65%;
     font-size: 0.8rem;
     display: flex;
     gap: 5px;
@@ -108,34 +87,104 @@
     font-size: 0.8rem;
     text-align: justify;
 }
-.dir_bus i{
-    font-size: 1.8rem;
+.num_busq i{
+    font-size: 1rem;
+    background: #a23d7b;
+    height: 1.7rem;
+    width: 1.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 5px;
+    border-radius: 100%;
+}
+.inf_neg_busq{
+    display: flex;
+    align-items: center;
 }
 .num_busq{
-    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: first;
+    font-size: 1rem;
+    height: 100%
 }
-.num_busq{
-    font-size: 1.5rem;
+.busq_result{
+    width: 49%;
+    height: 50%;
+}
+.busq_neg{
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 4px 4px 1px black;
+}
+.neg_bus_pre{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 2.5%;
+    background: rgb(187,60,120);
+    color: white;
+    width: 45%;
+    border-radius: 5px;
+}
+.img_neg_busq{
+    height: 80%;
+    width: 90%;
+    border-radius: 100%;
+    border: 5px solid rgba(255,255,255,0.8);
+}
+.desc_neg_busq{
+    font-size: 0.9rem;
+}
+.line_neg_busq{
+    width: 1.5%;
+    height: 95%;
+    background: rgba(0,0,0,0.1);
+    border-radius: 15px;
 }
 .busq_neg:hover{
     transition: 0.3s;
     -webkit-transition: 0.3s;
     -moz-transition: 0.3s;
     -ms-transition: 0.3s;
-    background-color: #eabf4a;
+    background-color: #a23d7b;
     -o-transition: 0.3s;
     color: white;
     cursor: pointer;
 }
-.busq_usu:hover{
+.busq_neg:hover .neg_bus_pre{
     transition: 0.3s;
     -webkit-transition: 0.3s;
     -moz-transition: 0.3s;
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
-    background-color: #a23d7b;
-    color: white;
-    cursor: pointer;
+    background-color: white;
+    color: black;
+}
+.busq_neg:hover .num_busq i{
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    background: white;
+    color: #a23d7b;
+}
+.dir_bus span, .inf_neg_busq span{
+    color: black;
+    background: white;
+    padding: 3px;
+    border-radius: 5px;
+}
+.busq_usu{
+    position: relative;
 }
 #usu_img_busq{
     border-radius: 100%;
@@ -143,37 +192,25 @@
     -moz-border-radius: 100%;
     -ms-border-radius: 100%;
     -o-border-radius: 100%;
-    width: 130px;
-    height: 130px;
+    width: 22%;
+    height: 44%;
     max-width: 140px;
     max-height: 140px;
-    border: 5px solid white;
+    position: absolute;
+    top:2%;
+    left: 3%;
+    z-index: 1;
 }
-.num_pro_busq{
-    font-size: 1.5rem;
-    font-weight: bold;
+.usunr_img{
+    border: 5px solid #D95538;
 }
-.num_pro_busq section{
-    gap: 15px;
+.usuvd_img{
+    border: 5px solid rgb(151, 26, 64);
 }
 .busq_pr .nb_busq{
     font-size: 1.7rem;
     text-align: center;
-    border-right: 3px solid black;
     padding: 5px;
-}
-.busq_pr:hover{
-    background-color: #d26a20;
-    color: white;
-    cursor: pointer;
-}
-.busq_pr:hover .nb_busq{
-    transition: 0.3s;
-    -webkit-transition: 0.3s;
-    -moz-transition: 0.3s;
-    -ms-transition: 0.3s;
-    -o-transition: 0.3s;
-    border-right: 3px solid rgb(255, 255, 255);
 }
 .cont_busq_most{
     background: #ced4da;
@@ -257,4 +294,138 @@
 }
 .cont_dts_neg_vp{
     justify-content: center;
+}
+.inf_neg_busq i{
+    margin-right: 4px;
+}
+.busq_usu{
+    display: flex;
+    align-items: end;
+}
+.usu_nr{
+    border: 5px solid #D95538;
+    border-radius: 20px 5px 20px 5px;
+}
+.usu_vd{
+    border: 5px solid rgb(151, 26, 64);
+    border-radius: 20px 5px 20px 5px;
+}
+.info_usu_nusq{
+    display: flex;
+    flex-direction: column;
+    background: white;
+    width: 100%;
+    height: 65%;
+    padding: 4% 1% 1% 4%;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+.usernr_icon::before{
+    position: absolute;
+    right: -18%;
+    bottom: -18%;
+    font-size: 9.8rem;
+    color: rgba(217, 85, 56, 0.5);
+}
+.uservd_icon::before{
+    position: absolute;
+    right: -15%;
+    bottom: -1%;
+    font-size: 8rem;
+    color: rgba(151, 26, 64, 0.5);
+}
+.usu_nr:hover{
+    transition: 0.3s;
+    background: #D95538;
+    color: white;
+}
+.usu_nr:hover .usernr_icon::before, .usu_vd:hover .uservd_icon::before{
+    transition: 0.3s;
+    z-index: 2;
+    color: rgba(255, 255, 255, 0.5);
+}
+.usu_vd:hover{
+    transition: 0.3s;
+    background: rgb(151, 26, 64);
+    color: white;
+}
+.busq_pr{
+    background: white;
+    padding: 2%;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2%;
+    position: relative;
+    border-radius: 0px 20px 20px 0px;
+    border: 5px solid #f58b4f;
+    border-left: none;
+}
+.busq_pr:hover{
+    transition: 0.3s;
+    background: #f58b4f;
+    color: white;
+}
+.busq_pr:hover .ipb2, .busq_pr:hover .ivb2, .busq_pr:hover .ivbsn{
+    transition: 0.3s;
+    display: flex;
+}
+.busq_pr:hover .ipb1, .busq_pr:hover .ivb1, .busq_pr:hover #ivbsy{
+    transition: 0.3s;
+    display: none;
+}
+.img_pro_busq{
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    border: 5px solid black;
+}
+.img_vd_busq{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: 3px solid white;
+}
+.ivbs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 2%;
+}
+.ivbs span{
+    background: black;
+    color: white;
+    font-weight: bold;
+    padding: 3px;
+    border-radius: 10px;
+}
+.num_pro_busq{
+    width: 65%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.num_pro_busq span{
+    text-align: center;
+}
+.ipb2, .ivb2, .ivbsn{
+    display: none;
+}
+.lkpr{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+#lnngbs{
+    width: 100%;
+    height: 3px;
+    margin: 0px;
 }

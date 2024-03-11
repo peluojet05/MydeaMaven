@@ -41,12 +41,13 @@ public class Conexion {
      
      
      // MYSQL LOCAL CAMBIEN LA CONTRASEÑA
+     
      String dbDriver = "com.mysql.jdbc.Driver";
      String dbURL = "jdbc:mysql://localhost:3306/";
                 // Database name to access
      String dbName = "mydea";
      String dbUsername = "root";
-     String dbPassword = "reinasusy";
+     String dbPassword = "";
      Class.forName(dbDriver).newInstance();
      con = DriverManager.getConnection(dbURL + dbName,
      dbUsername,

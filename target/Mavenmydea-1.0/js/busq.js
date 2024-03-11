@@ -3,6 +3,7 @@ let pro = document.getElementById("Productos_btn_busq");
 let neg = document.getElementById("Negocios_btn_busq");
 let usu = document.getElementById("Usuarios_btn_busq");
 let gen = document.getElementById("General_btn_busq");
+let btn_fltr = document.querySelectorAll(".btn_busq");
 
 busqueda.forEach(function (busqueda_b) {
     busqueda_b.addEventListener('click', function () {
@@ -75,4 +76,26 @@ gen.addEventListener("click", () => {
     busqueda.forEach(function (gen) {
         gen.style.display = "flex";
     });
+});
+
+btn_fltr.forEach(btn => {
+    btn.addEventListener('click', function () {
+        btn_fltr.forEach(b => {
+            b.style.backgroundColor = "white";
+            b.style.color = "black";
+        });
+        this.style.color = "white";
+        this.style.backgroundColor = 'black';
+    });
+});
+
+let probusq = document.getElementById("probusq");
+let txtprobusq = document.getElementById("ivsy");
+
+probusq.addEventListener('mouseover', function() {
+  txtprobusq.style.display = 'none';
+});
+
+probusq.addEventListener('mouseout', function() {
+  txtprobusq.style.display = 'flex';
 });
