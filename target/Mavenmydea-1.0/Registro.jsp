@@ -71,12 +71,13 @@
                 </button>
             </form>
         </div>
+                    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <%
             if (request.getAttribute("mensaje") != null) {
         %>          
         <script>
             window.onload = function () {
-                alert("Error:  <%=request.getAttribute("mensaje")%>");
+                swal("Error", "<%=request.getAttribute("mensaje")%>", "error"});
             };
         </script>      
         <%
