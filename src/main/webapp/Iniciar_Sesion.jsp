@@ -52,9 +52,14 @@
         if (request.getAttribute("mensaje") != null) {
     %>          
     <script>
-        window.onload = function () {
-            swal("Error", "<%=request.getAttribute("mensaje")%>", "error");
-        };
+         window.onload=function() {
+       Swal.fire({
+  icon: "error",
+  title: "<%=request.getAttribute("mensaje")%>",
+  showConfirmButton: false,
+  timer: 5000
+});
+    };
     </script>      
     <%
         }
