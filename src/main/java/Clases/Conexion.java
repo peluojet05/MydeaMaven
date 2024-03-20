@@ -41,7 +41,7 @@ String dbDriver = "org.postgresql.Driver";
      con = DriverManager.getConnection(dbURL,dbUsername, dbPassword);
      //
      
-     /* MYSQL LOCAL CAMBIEN LA CONTRASEÑA
+     /*MYSQL LOCAL CAMBIEN LA CONTRASEÑA
      
      String dbDriver = "com.mysql.jdbc.Driver";
      String dbURL = "jdbc:mysql://localhost:3306/";
