@@ -977,6 +977,7 @@ int lk = 0;
                 </section>
             </div>
         </form>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
                                     
 let esc_res = document.getElementById("esc_res");
@@ -1004,13 +1005,35 @@ cancelar_resena_neg.addEventListener("click", ()=>{
         <%
             if (request.getAttribute("mensaje") != null)
             {
+            
+                if(request.getAttribute("mensaje").equals("Ya has guardado este negocio")){
         %>          
         <script>
-            window.onload = function () {
-                alert("  <%=request.getAttribute("mensaje")%>");
-            };
+            
+       Swal.fire({
+  icon: "error",
+  title: "<%=request.getAttribute("mensaje")%>",
+  showConfirmButton: false,
+  timer: 5000
+});
+    
         </script>      
         <%
+            }else{
+%>          
+        <script>
+            
+       Swal.fire({
+  icon: "success",
+  title: "<%=request.getAttribute("mensaje")%>",
+  showConfirmButton: false,
+  timer: 5000
+});
+    
+        </script>      
+        <%
+
+}
             }
         %>
                                                 <%
@@ -1022,6 +1045,6 @@ cancelar_resena_neg.addEventListener("click", ()=>{
         <script src="js/Nav.js"></script>
         <script src="js/negocio.js"></script>
         <script src="js/cu.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        
     </body>
 </html>
