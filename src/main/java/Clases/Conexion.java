@@ -29,7 +29,7 @@ public class Conexion {
     public void setCon() {
        try{
            
-     // POSTGRE HOST, CON ESTE HACEN LA PULL REQUEST
+     // POSTGRE HOST, CON ESTE HACEN LA PULL REQUESTT
      
      String dbDriver = "org.postgresql.Driver";
      String dbURL = "jdbc:postgresql://ec2-100-26-73-144.compute-1.amazonaws.com/db3v6hean6n35q";
