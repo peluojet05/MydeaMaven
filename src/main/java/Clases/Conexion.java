@@ -39,7 +39,7 @@ public class Conexion {
      String dbPassword = "45a8d512e214c8aec0d15935b70c9addc631a10c65bc23296d0e2e2bd0b2f0a0";
      Class.forName(dbDriver).newInstance();
      con = DriverManager.getConnection(dbURL,dbUsername, dbPassword);
-     ///
+     //
      
      /*MYSQL LOCAL CAMBIEN LA CONTRASEÑA
      
