@@ -42,15 +42,18 @@
             c = con.getCon();
             stmt = c.createStatement();
 
-            if (request.getAttribute("neid") != null) {
+            if (request.getAttribute("neid") != null)
+            {
 
                 rs = stmt.executeQuery("select n.*, u.usu_nombre, p.per_foto, p.per_correo from Negocio n inner join Persona p on p.per_id=n.per_id"
-                + " inner join Usuario u on p.usu_id=u.usu_id where n.neg_id=" + request.getAttribute("neid") + ";");
-            } else {
+                        + " inner join Usuario u on p.usu_id=u.usu_id where n.neg_id=" + request.getAttribute("neid") + ";");
+            } else
+            {
                 rs = stmt.executeQuery("select n.*, u.usu_nombre, p.per_foto, p.per_correo from Negocio n inner join Persona p on p.per_id=n.per_id"
-                + " inner join Usuario u on p.usu_id=u.usu_id where n.neg_id=" + id + ";");
+                        + " inner join Usuario u on p.usu_id=u.usu_id where n.neg_id=" + id + ";");
             }
-            while (rs.next()) {
+            while (rs.next())
+            {
                 logo = rs.getString("neg_logo");
                 nombre = rs.getString("neg_nombre");
                 desc = rs.getString("neg_descripcion");
@@ -77,7 +80,8 @@
             String[] Especial = new String[7];
 
             int a = 0;
-            while (rs2.next()) {
+            while (rs2.next())
+            {
 
                 Abierto[a] = rs2.getString("hor_abierto");
                 Cerrado[a] = rs2.getString("hor_cerrado");
@@ -89,14 +93,16 @@
 
             ResultSet rs4 = stmt.executeQuery("Select n.neg_id, p.per_id from Negocio n inner Join Persona p on p.per_id=n.per_id where p.per_correo='" + correop + "';");
             int num = 0;
-            while (rs4.next()) {
+            while (rs4.next())
+            {
                 num = num + 1;
                 pid = rs4.getInt("per_id");
             }
 
             ResultSet rs5 = stmt.executeQuery("Select * from Feedback where neg_id=" + neid + ";");
             int num2 = 0;
-            while (rs5.next()) {
+            while (rs5.next())
+            {
                 num2 = num2 + 1;
 
             }
@@ -106,7 +112,8 @@
             ResultSet rs8 = stmt.executeQuery("select d.*, n.*, p.usu_id, u.usu_nombre from Direccion d inner join Negocio n on d.dir_id=n.dir_id"
                     + " inner join Persona p on n.per_id = p.per_id inner join Usuario u on p.usu_id = u.usu_id where n.neg_id=" + neid + ";");
 
-            while (rs8.next()) {
+            while (rs8.next())
+            {
                 String colonia = rs8.getString("dir_colonia");
                 String calle = rs8.getString("dir_calle");
                 int numero = rs8.getInt("dir_numero");
@@ -119,7 +126,8 @@
 
             int lk = 0;
 
-            while (rm.next()) {
+            while (rm.next())
+            {
                 lk = lk + 1;
             }
 
@@ -168,7 +176,7 @@
                                     </a>
                                 </section>
                             </section>
-                            <!--Horarios y mapa-->
+                            <!--Horarios-->
                             <section class="w-100 h-75 hormap_n d-flex flex-column">
                                 <span class="hu_tt">Horarios y Ubicación</span>
                                 <section class="d-flex w-100 h-100 hormap_ncon">
@@ -176,7 +184,7 @@
                                         <div class="d-flex flex-column horarios_cnf" id="horarios_cnf">
                                             <span class="fw-bold">Horarios
                                                 <i class="bi bi-question-circle" data-bs-toggle="tooltip"
-                                                   data-bs-placement="right" data-bs-title="Tooltip on right"></i></span>
+                                                   data-bs-placement="right" data-bs-title="Para visualizar el horario de los otros días de la semana, por favor, seleccione el día de su interés."></i></span>
                                             <section class="d-flex h_cnf justify-content-between h-100">
                                                 <div class="line_cnf" id="line_hn"></div>
                                                 <ul class="h-100 d-flex flex-column justify-content-between ds_cnf">
@@ -239,11 +247,13 @@
                                                         <section class="d-flex flex-column">
                                                             <span>Lunes:</span>
                                                             <%
-                                                                if (Abierto[0].equals("No")) {
+                                                                if (Abierto[0].equals("No"))
+                                                                {
                                                             %>
                                                             <span><%=Especial[0]%></span>
                                                             <%
-                                                            } else {
+                                                            } else
+                                                            {
                                                             %>
                                                             <span><%=Abierto[0]%> - <%=Cerrado[0]%></span>
 
@@ -259,11 +269,13 @@
                                                         <section class="d-flex flex-column">
                                                             <span>Martes:</span>
                                                             <%
-                                                                if (Abierto[1].equals("No")) {
+                                                                if (Abierto[1].equals("No"))
+                                                                {
                                                             %>
                                                             <span><%=Especial[1]%></span>
                                                             <%
-                                                            } else {
+                                                            } else
+                                                            {
                                                             %>
                                                             <span><%=Abierto[1]%> - <%=Cerrado[1]%></span>
 
@@ -279,11 +291,13 @@
                                                         <section class="d-flex flex-column">
                                                             <span>Miércoles:</span>
                                                             <%
-                                                                if (Abierto[2].equals("No")) {
+                                                                if (Abierto[2].equals("No"))
+                                                                {
                                                             %>
                                                             <span><%=Especial[2]%></span>
                                                             <%
-                                                            } else {
+                                                            } else
+                                                            {
                                                             %>
                                                             <span><%=Abierto[2]%> - <%=Cerrado[2]%></span>
 
@@ -299,11 +313,13 @@
                                                         <section class="d-flex flex-column">
                                                             <span>Jueves:</span>
                                                             <%
-                                                                if (Abierto[3].equals("No")) {
+                                                                if (Abierto[3].equals("No"))
+                                                                {
                                                             %>
                                                             <span><%=Especial[3]%></span>
                                                             <%
-                                                            } else {
+                                                            } else
+                                                            {
                                                             %>
                                                             <span><%=Abierto[3]%> - <%=Cerrado[3]%></span>
 
@@ -319,11 +335,13 @@
                                                         <section class="d-flex flex-column">
                                                             <span>Viernes:</span>
                                                             <%
-                                                                if (Abierto[4].equals("No")) {
+                                                                if (Abierto[4].equals("No"))
+                                                                {
                                                             %>
                                                             <span><%=Especial[4]%></span>
                                                             <%
-                                                            } else {
+                                                            } else
+                                                            {
                                                             %>
                                                             <span><%=Abierto[4]%> - <%=Cerrado[4]%></span>
 
@@ -339,11 +357,13 @@
                                                         <section class="d-flex flex-column">
                                                             <span>Sábado:</span>
                                                             <%
-                                                                if (Abierto[5].equals("No")) {
+                                                                if (Abierto[5].equals("No"))
+                                                                {
                                                             %>
                                                             <span><%=Especial[5]%></span>
                                                             <%
-                                                            } else {
+                                                            } else
+                                                            {
                                                             %>
                                                             <span><%=Abierto[5]%> - <%=Cerrado[5]%></span>
 
@@ -359,11 +379,13 @@
                                                         <section class="d-flex flex-column">
                                                             <span>Domingo:</span>
                                                             <%
-                                                                if (Abierto[6].equals("No")) {
+                                                                if (Abierto[6].equals("No"))
+                                                                {
                                                             %>
                                                             <span><%=Especial[6]%></span>
                                                             <%
-                                                            } else {
+                                                            } else
+                                                            {
                                                             %>
                                                             <span><%=Abierto[6]%> - <%=Cerrado[6]%></span>
 
@@ -376,15 +398,14 @@
                                             </section>
                                         </div>
                                     </section>
-                                    <section class="d-flex flex-column ancho h-100">
+                                    <section class="d-flex flex-column ancho sect_ub">
                                         <span class="fw-bold">Ubicación
                                             <i class="bi bi-question-circle" data-bs-toggle="tooltip"
-                                               data-bs-placement="right" data-bs-title="Tooltip on right"></i></span>
-                                        <section class="d-flex w-100">
+                                               data-bs-placement="right" data-bs-title="La ubicación es provista por el vendedor. Se recomienda verificarla antes de la visita."></i></span>
+                                        <img src="<%=imagen1%>" class="img_neg_ub"/>
+                                        <section class="d-flex w-100 justify-content-center align-items-center ub_exc">
                                             <span class="ancho dir_loc" id="dir_loc" data-bs-title="<%=direccion%>"><%=direccion%></span>
-                                            <section class="w-50 d-flex align-items-center justify-content-around ">
-                                                <button class="btn btn_bl" id="cop_dir">Copiar</button>
-                                            </section>
+                                            <button class="btn btn_bl" id="cop_dir">Copiar Dirección</button>
                                         </section>
                                     </section>
                                 </section>
@@ -395,7 +416,7 @@
                             <form class="propietario d-flex flex-column justify-content-between align-items-center" method="post">
                                 <span class="fw-bold hu_tt">Propietario <i class="bi bi-question-circle"
                                                                            data-bs-toggle="tooltip" data-bs-placement="right"
-                                                                           data-bs-title="Tooltip on right"></i></span>
+                                                                           data-bs-title="Para acceder al perfil del vendedor, simplemente haga clic."></i></span>
                                 <input type="text" class="Id_del_negociante d-none">
                                 <button type="submit" class="prop_neg d-flex justify-content-center align-items-center">
                                     <section
@@ -424,7 +445,7 @@
                             <section class="Contactos_section_n">
                                 <span class="hu_tt">Contactos del Negocio <i class="bi bi-question-circle"
                                                                              data-bs-toggle="tooltip" data-bs-placement="right"
-                                                                             data-bs-title="Tooltip on right"></i></span>
+                                                                             data-bs-title="El propietario del negocio asume la responsabilidad de proporcionar respuestas prontas y efectivas a través de estos medios de comunicación."></i></span>
                                 <section class="d-flex justify-content-between w-100 icnsc_section_n">
 
 
@@ -435,8 +456,10 @@
                                        data-bs-placement="bottom" data-bs-title="<%=correo%>"></i>
 
                                     <%
-                                        if (fb.equals("")) {
-                                        } else {
+                                        if (fb.equals(""))
+                                        {
+                                        } else
+                                        {
 
                                     %>
                                     <a href="<%=fb%>" class="contact_red_cu"><i
@@ -445,8 +468,10 @@
                                         <%
                                             }
 
-                                            if (ig.equals("")) {
-                                            } else {
+                                            if (ig.equals(""))
+                                            {
+                                            } else
+                                            {
                                         %>
                                     <a href="<%=ig%>" class="contact_red_cu"><i
                                             class="bi bi-instagram contact_red_cu" data-bs-toggle="tooltip"
@@ -454,8 +479,10 @@
                                         <%
                                             }
 
-                                            if (tw.equals("")) {
-                                            } else {
+                                            if (tw.equals(""))
+                                            {
+                                            } else
+                                            {
                                         %>                               
                                     <a href="<%=tw%>" class="contact_red_cu"><i
                                             class="bi bi-twitter contact_red_cu" data-bs-toggle="tooltip"
@@ -463,8 +490,10 @@
                                         <%
                                             }
 
-                                            if (web.equals("")) {
-                                            } else {
+                                            if (web.equals(""))
+                                            {
+                                            } else
+                                            {
                                         %>  
                                     <a href="<%=web%>" class="contact_red_cu"><i
                                             class="bi bi-globe2 contact_red_cu" data-bs-toggle="tooltip"
@@ -486,20 +515,16 @@
                                 <img src="<%=logo%>" alt="" id="img_L_pr">
                                 <button type="button" class="btn btn_sp btn_active btn_general"
                                         id="general_most">General</button>
-                                <button type="button" class="btn btn_sp sp_div_n_desactive" id="precios_most">Mejores
-                                    Precios</button>
-                                <button type="button" class="btn btn_sp sp_div_n_desactive" id="calif_most">Mejores
-                                    Calificados</button>
-                                <button type="button" class="btn btn_sp sp_div_n_desactive">Nuevos Productos</button>
-                                <button type="button" class="btn btn_sp sp_div_n_desactive">Productos Antiguos</button>
-                                <button type="button" class="btn btn_sp sp_div_n_desactive" id="comen_most">Más
-                                    Comentados</button>
+                                <button type="button" class="btn btn_sp sp_div_n_desactive" id="precios_most_mn">Menor a Mayor Precio</button>
+                                <button type="button" class="btn btn_sp sp_div_n_desactive" id="precios_most_nm">Mayor a Menor Precio</button>
+                                <button type="button" class="btn btn_sp sp_div_n_desactive" id="pro_most_nue">Nuevos Productos</button>
+                                <button type="button" class="btn btn_sp sp_div_n_desactive" id="pro_most_ant">Productos Antiguos</button>
                                 <select class="select_sp" id="select_sp">
                                     <option selected disabled hidden>Disponibilidad</option>
                                     <option value="Disponible en todo momento">Disponible en todo momento</option>
-                                    <option value="Por pedido">Por pedido</option>
+                                    <option value="Por Pedido">Por pedido</option>
                                     <option value="Mayoreo">Mayoreo</option>
-                                    <option value="Solo por unidad">Solo por unidad</option>
+                                    <option value="Solo por Unidad">Solo por unidad</option>
                                     <option value="Disponible por un tiempo">Disponible por un tiempo</option>
                                     <option value="Proximamente">Próximamente</option>
                                     <option value="General">General</option>
@@ -510,7 +535,7 @@
                                     <input type="text" class="form-control" placeholder="Buscar un producto específico" id="Busq_Pro_inp_n">
                                 </section>
 
-                                <section class="Mostrar_Productos d-flex flex-column justify-content-between">
+                                <section class="Mostrar_Productos">
                                     <span class="Mostrar_Productos_busq">Mostrar Productos: "<span
                                             id="Busqueda_pro">General</span>"</span>
                                     <div class="Productos_most" id="Cont_pr_most">
@@ -523,7 +548,8 @@
 
                                             it = stmt.executeQuery(sl);
                                             int z = 0;
-                                            while (it.next()) {
+                                            while (it.next())
+                                            {
                                                 z = z + 1;
                                             }
 
@@ -533,7 +559,8 @@
 
                                             pr = stmt.executeQuery(sq);
                                             int y = 0;
-                                            while (pr.next()) {
+                                            while (pr.next())
+                                            {
 
                                                 String np = pr.getString("pro_nombre");
                                                 int pre = pr.getInt("pro_precio");
@@ -543,22 +570,17 @@
 
                                         %>
 
-                                        <section class="card_pro_most card_pro_most_active" id="pro">
-                                            <span class="card-title tt_pro_most" id="tt_pro_most"><%=np%></span>
-                                            <img src="<%=pi[y]%>" class="card-img-top img_most" alt="..." id="card-img-top">
-                                            <div class="card-body d-flex flex-column">
-                                                <div
-                                                    class="d-flex w-100 justify-content-between align-items-lg-center pr_inf_n">
-                                                    <span class="pre_sl d-flex">$<div class="pre_most_pro"
-                                                                                      id="pre_most_pro"><%=pre%></div>
-                                                    </span>
+                                        <section class="card_pro_most card_pro_most_active" id="card_pro_neg">
+                                            <span class="pre_sl">$<div class="pre_most_pro" id="pre_most_pro"><%=pre%>
                                                 </div>
-                                                <span class="card-text" id="desc_com_pro"><%=pd%></span>
-                                            </div>
+                                            </span>
+                                            <img src="<%=pi[y]%>" class="card-img-top img_most" alt="..." id="card-img-top">
                                             <input type="text" class="dis_most_pro" value="<%=dis%>" disabled>
+                                            <span class="card-title tt_pro_most" id="tt_pro_most"><%=np%></span>
+                                            <span class="card-text dis_most_pro" id="desc_com_pro"><%=pd%></span>
                                         </section>
-                                        
-                                        
+
+
 
                                         <%
                                                 y = y + 1;
@@ -578,23 +600,24 @@
                         </section>
                         <div class="most_img_div">
                             <section class="imgneg">
-                                <img src="<%=imagen1%>" alt="">
+                                <img src="<%=imagen1%>" class="img_esp_cl">
                             </section>
                             <section class="imgneg">
-                                <img src="<%=imagen2%>" alt="">
+                                <img src="<%=imagen2%>" class="img_esp_cl">
                             </section>
                             <section class="imgneg">
-                                <img src="<%=imagen3%>" alt="">
+                                <img src="<%=imagen3%>" class="img_esp_cl">
                             </section>
 
                             <%
-                                for (int q = 0; q < y; q++) {
+                                for (int q = 0; q < y; q++)
+                                {
 
 
                             %>
 
                             <section class="imgpro">
-                                <img src="<%=pi[q]%>" alt="">
+                                <img src="<%=pi[q]%>" class="img_esp_cl">
                             </section>
 
                             <%
@@ -642,7 +665,8 @@
                                     ResultSet rs7 = stmt.executeQuery("select u.usu_nombre, f.fed_comentario, f.fed_like, p.per_foto from Usuario u inner join Persona p "
                                             + "on p.usu_id = u.usu_id inner join Feedback f on f.per_id = p.per_id where f.neg_id=" + neid + ";");
 
-                                    while (rs7.next()) {
+                                    while (rs7.next())
+                                    {
 
                                         String nomu = rs7.getString("usu_nombre");
                                         String ft = rs7.getString("per_foto");
@@ -651,22 +675,20 @@
                                 %>
 
                                 <section class="resena_usua_esp d-flex flex-column">
-                                    <section
-                                        class="d-flex justify-content-around flex-column align-items-center comentario_n">
+                                    <section class="comentario_n">
+                                        <span><%=nomu%></span>
                                         <img src="<%=ft%>" alt="">
-                                        <section class="d-flex flex-column align-items-center">
-                                            <span><%=nomu%></span>
-                                            <%
-                                                if (like == true) {
-                                            %>
-                                            <span><i class="bi bi-heart-fill" id="h_sc"></i> Le gustó este Negocio</span>
-                                            <%
-                                                }
-                                            %>
-
-                                        </section>
                                     </section>
                                     <span class="texto_res_usu"><%=comentario%></span>
+                                    <%
+                                        if (like == true)
+                                        {
+                                    %>
+                                    <span class="liornli"><i class="bi bi-heart-fill"></i> Le gustó este Negocio</span>
+                                    <%
+                                        }
+                                    %>
+                                    <i class="bi bi-quote comment_icon_neg"></i>
                                 </section>
 
                                 <%
@@ -682,34 +704,40 @@
                     <footer class="footeri" id="footer_n">
                         <div class="contacts-section">
                             <section class="contacts-section1">
-
                                 <section class="line-footer"></section>
+
                                 <div class="contacts-footer">
                                     <section class="facebook-contact">
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" class="facebook-footer"
-                                             id="facebook-footer"
-                                             viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                        <path
-                                            d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z" />
-                                        </svg>
+                                        <a href="https://www.facebook.com/profile.php?id=61558166331318" target="_blank">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" class="facebook-footer"
+                                                 id="facebook-footer"
+                                                 viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                            <path
+                                                d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z" />
+                                            </svg>
+                                        </a>
                                     </section>
                                     <section class="instragram-contact">
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" class="instagram-footer"
-                                             id="instagram-footer"
-                                             viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                        <path
-                                            d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
-                                        </svg>
+                                        <a href="https://www.instagram.com/mydea_ethevs/" target="_blank">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" class="instagram-footer"
+                                                 id="instagram-footer"
+                                                 viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                            <path
+                                                d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                                            </svg>
+                                        </a>
                                     </section>
                                     <section class="youtube-contact">
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" class="youtube-footer"
-                                             id="youtube-footer"
-                                             viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                        <path
-                                            d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" />
-                                        </svg>
+                                        <a href="https://www.youtube.com/@Mydeaethev_S" target="_blanl">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" class="youtube-footer"
+                                                 id="youtube-footer"
+                                                 viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                            <path
+                                                d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" />
+                                            </svg>
+                                        </a>
                                     </section>
-                                    <section class="link-contact">
+                                    <section class="link-contact" id="link-contact" data-bs-title="www.mydea.pro">
                                         <svg xmlns="http://www.w3.org/2000/svg" height="1em" class="link-footer"
                                              id="link-footer"
                                              viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -831,6 +859,14 @@
                 </section>
             </div>
         </form>
+
+        <!--Fotografias-->
+        <div class="fot_most_esp" id="fot_most_esp">
+            <section class="img_esp_gr">
+                <img src="" id="img_esp_gr"/>
+                <span>Si desea salir de click fuera de la imagen.</span>
+            </section>
+        </div>
         <%
             c.close();
         %>
@@ -842,7 +878,8 @@
             });
         </script>
         <%
-            if (request.getAttribute("mensaje") != null) {
+            if (request.getAttribute("mensaje") != null)
+            {
         %>          
         <script>
             window.onload = function () {
