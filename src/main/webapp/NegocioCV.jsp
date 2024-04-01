@@ -178,6 +178,29 @@
                                 <a href="#resenas_otros_usuarios">
                                     <button class="btn btn_bl">Reseñas</button>
                                 </a>
+                                <%
+                                    if (request.getAttribute("neid") != null)
+        {
+                                    %>
+                                <form action="Guardar2">
+                                    <input type="hidden" name="idn" value="<%=request.getAttribute("neid")%>"/>
+                                    
+                                    <button class="btn btn_bl">Guardar Negocio</button>
+                                </form>
+                                    <%
+                                        }
+else{
+                                        %>
+                                        
+                                        <form action="Guardar2">
+                                    <input type="hidden" name="idn" value="<%=id%>"/>
+                                    
+                                    <button class="btn btn_bl">Guardar Negocio</button>
+                                </form>
+                                    
+                                    <%
+                                    
+                                        }%>
                             </section>
                         </section>
                         <!--Horarios-->

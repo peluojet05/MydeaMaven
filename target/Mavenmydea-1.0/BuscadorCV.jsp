@@ -13,6 +13,7 @@
 <%@page import="Clases.Persona"%>
 <%@page import="Clases.Usuario"%>
 <%@page import="java.util.ArrayList" %>
+<%@page import="org.owasp.encoder.Encode" %>
 <!DOCTYPE html>
 <html>
     <%
@@ -24,14 +25,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <jsp:include page="templates/Referencias/Todas_Ref.jsp"/>
-        <title><%=request.getParameter("txt")%></title>
+        <title>- <%=Encode.forHtml(request.getParameter("txt"))%></title>
     </head>
     <body>
         <jsp:include page="templates/Navegadores/Navegador_CV.jsp"/>
         <div class="busq_cont_prin">
             <div class="w-100 h-100 cont_busq_res_txt d-flex flex-column Inria">
                 <section>
-                    <span class="busqueda">"General"</span>
+                    <span class="busqueda">"<%=Encode.forHtml(request.getParameter("txt"))%>"</span>
                     <section class="botones_busq">
                         <button class="btn_busq" id="General_btn_busq">General</button>
                         <button class="btn_busq" id="Productos_btn_busq">Productos</button>
@@ -42,7 +43,8 @@
                 <div class="cont_busq_res">
 
                    <%
-                        String bs = request.getParameter("txt");
+                        String enctxt = Encode.forHtml(request.getParameter("txt"));
+                        String bs = enctxt;
                         Conexion con;
                         Connection c;
                         Statement stmt;
