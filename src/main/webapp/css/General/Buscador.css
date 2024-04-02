@@ -429,3 +429,16 @@
     height: 3px;
     margin: 0px;
 }
+
+@media screen and (max-width:1024px){
+    .cont_busq_most{
+        display: none;
+    }
+    .busq_result{
+        width: 100%;
+        height: auto;
+    }
+    .busq_usu{
+        height: 50%;
+    }
+}
