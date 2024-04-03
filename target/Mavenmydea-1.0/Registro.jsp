@@ -58,11 +58,10 @@
                     <span class="error">${error_tipoCuenta_Invalido}</span>
                     <ul class="d-flex w-100 justify-content-around avisos">
                         <li><input type="checkbox" id="TyC_reg" name="TyC_reg" ${not empty requestScope.valorTyC ? 'checked' : ''}><a href="Terminos_Condiciones.jsp" target="_blank"><span>Aceptar Términos y Condiciones</span></a></li>
+                        <span class="error">${error_TyC_Vacio}</span>
                         <li><input type="checkbox" id="AP_reg" name="AP_reg"><a href="Aviso_Privacidad.jsp" target="_blank" ${not empty requestScope.valorAP ? 'checked' : ''}><span>Aceptar Aviso de Privacidad</span></a></li>
+                        <span class="error">${error_AP_Vacio}</span>
                     </ul>        
-                    <span class="error">${error_TyC_Vacio}</span>
-                    <span class="error">${error_AP_Vacio}</span>
-
                     <span>¿Ya tienes una cuenta? <a href="Iniciar_Sesion.jsp" class="txt_or">Iniciar Sesión</a> </span>
 
                 </div>

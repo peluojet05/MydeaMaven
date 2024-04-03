@@ -74,10 +74,10 @@ public class Registro extends HttpServlet {
             String enctelefono = Encode.forHtml(telefono);
             request.setAttribute("valorTelefono", telefono);
             String password = request.getParameter("Con_reg");
-            String encpassword = Encode.forHtml(correo);
+            String encpassword = Encode.forHtml(password);
             request.setAttribute("valorPassword", password);
             String Cpassword = request.getParameter("ConCon_reg");
-            String encCpassword = Encode.forHtml(correo);
+            String encCpassword = Encode.forHtml(Cpassword);
             request.setAttribute("valorCpassword", Cpassword);
             String TyC = request.getParameter("TyC_reg");
             request.setAttribute("valorTyC", TyC);
@@ -259,7 +259,7 @@ public class Registro extends HttpServlet {
                             error = true;
                         }
                         //Contraseñas iguales
-                        if(!encCpassword.equals(password)){
+                        if(!encCpassword.equals(encpassword)){
                             request.setAttribute("error_confirmarContraseña_Invalido", "Las contraseñas no coinciden");
                             error = true;
                         }
@@ -293,11 +293,11 @@ public class Registro extends HttpServlet {
                 }        
                 
                 else {
-                    request.getSession().setAttribute("nombrep", nombrep);
-                    request.getSession().setAttribute("nombreu", nombreu);
-                    request.getSession().setAttribute("email", correo);
-                    request.getSession().setAttribute("telefono", telefono);
-                    request.getSession().setAttribute("password", password);
+                    request.getSession().setAttribute("nombrep", encnombrep);
+                    request.getSession().setAttribute("nombreu", encnombreu);
+                    request.getSession().setAttribute("email", enccorreo);
+                    request.getSession().setAttribute("telefono", enctelefono);
+                    request.getSession().setAttribute("password", encpassword);
                     request.getSession().setAttribute("tipo", tipo);
                     
                     

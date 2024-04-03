@@ -28,6 +28,8 @@ import java.util.List;
 //expresiones
 import java.util.regex.Pattern;
 
+import org.owasp.encoder.Encode;
+
 /**
  *
  * @author Diego
@@ -51,11 +53,13 @@ public class CrearNegocio extends HttpServlet {
             
             //Datos del negocio
             String Nombre = request.getParameter("N_Neg_cnf");
+            String encNombre = Encode.forHtml(Nombre);
             request.setAttribute("valorNombreNegocio", Nombre);
             String Tipo = request.getParameter("TP_cnf");
             List<String> opciones_tipoNegocio = Arrays.asList("Abarrotes", "Materia_Prima", "Restaurantes", "SyP", "Cafetería", "Catering", "Panaderia", "OyF", "Otro");
             request.setAttribute("valorTipoNegocio", Tipo);
             String Descripcion = request.getParameter("desc");
+            String encDescripcion = Encode.forHtml(Descripcion);
             request.setAttribute("valorDescripcion", Descripcion);
             
             //Horario
@@ -139,14 +143,19 @@ public class CrearNegocio extends HttpServlet {
             
             //Direccion
             String Cp = request.getParameter("cpp");
+            String encCp = Encode.forHtml(Cp);
             request.setAttribute("valorCp", Cp);
             String Colonia = request.getParameter("colonia");
+            String encColonia = Encode.forHtml(Colonia);
             request.setAttribute("valorColonia", Colonia);
             String Numero = request.getParameter("numero");
+            String encNumero = Encode.forHtml(Numero);
             request.setAttribute("valorNumero", Numero);
             String Calle = request.getParameter("calle");
+            String encCalle = Encode.forHtml(Calle);
             request.setAttribute("valorCalle", Calle);
             String Iextra = request.getParameter("iextra");
+            String encIextra = Encode.forHtml(Iextra);
             request.setAttribute("valorIextra", Iextra);
             
             //contactos
@@ -191,15 +200,15 @@ public class CrearNegocio extends HttpServlet {
             boolean error = false;
             
             //Nombre del negocio
-                    if(Nombre != null){
-                        Nombre = Nombre.trim();
+                    if(encNombre != null){
+                        encNombre = encNombre.trim();
                         //Que no este vacio
-                        if(Nombre.isEmpty()){
+                        if(encNombre.isEmpty()){
                             request.setAttribute("error_nombreNegocio_Vacio", "Ingrese el nombre de su local");
                             error = true;
                         }
                         //Muy largo
-                        if(Nombre.length() > 60){
+                        if(encNombre.length() > 60){
                             request.setAttribute("error_nombreNegocio_Largo", "Solo se permiten hasta 60 caracteres");
                             error = true;
                         }
@@ -221,15 +230,15 @@ public class CrearNegocio extends HttpServlet {
                     
                     
             //Descripcion del negocio
-                    if(Descripcion != null){
-                        Descripcion = Descripcion.trim();
+                    if(encDescripcion != null){
+                        encDescripcion = encDescripcion.trim();
                         //Que no este vacio
-                        if(Descripcion.isEmpty()){
+                        if(encDescripcion.isEmpty()){
                             request.setAttribute("error_descripcionNegocio_Vacio", "Ingrese la descripcion de su negocio");
                             error = true;
                         }
                         //Muy largo
-                        if(Descripcion.length() > 500){
+                        if(encDescripcion.length() > 500){
                             request.setAttribute("error_descripcionNegocio_Largo", "Solo se permiten hasta 500 caracteres");
                             error = true;
                         }
@@ -315,9 +324,9 @@ public class CrearNegocio extends HttpServlet {
                     
                 //Direccion del local
                     //Cp
-                    if(Cp != null){
-                        Cp = Cp.trim();
-                        if(Cp == null || Cp.isEmpty() || !Cp.matches("\\d+") || Cp.length() != 5){
+                    if(encCp != null){
+                        encCp = encCp.trim();
+                        if(encCp == null || encCp.isEmpty() || !encCp.matches("\\d+") || encCp.length() != 5){
                             request.setAttribute("error_codigoPostal_Invalido", "Ingrese un codigo postal");
                             error = true;
                         }
@@ -327,15 +336,15 @@ public class CrearNegocio extends HttpServlet {
                     }
                     
                     //Colonia
-                    if(Colonia != null){
-                        Colonia = Colonia.trim();
+                    if(encColonia != null){
+                        encColonia = encColonia.trim();
                         
-                        if (Colonia == null || Colonia.isEmpty()){
+                        if (encColonia == null || encColonia.isEmpty()){
                             request.setAttribute("error_colonia_Vacio", "Ingrese la colonia donde se ubica su local");
                             error = true;
                         }
 
-                        if (Colonia == null || Colonia.length() > 80){
+                        if (encColonia == null || encColonia.length() > 80){
                             request.setAttribute("error_colonia_Largo", "Solo se permite un maximo de 80 caracteres");
                             error = true;
                         }
