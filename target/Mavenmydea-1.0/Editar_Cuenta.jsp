@@ -137,21 +137,43 @@ String desc = per.getPer_descripcion();
             });
         </script>
          <%
-            if(request.getAttribute("mensaje")!=null) 
-            {  
-        %>          
-                <script>
-    window.onload=function() {
-       alert( "<%=request.getAttribute("mensaje")%>");
-    };
- </script>      
-        <%
-            }
-                %>
+                if (request.getAttribute("mensaje") != null)
+                {
+
+                    if (request.getAttribute("mensaje").equals("Datos actualizados correctamente"))
+                    {
+            %>          
+        <script>
+        
+        Swal.fire({
+                icon: "success",
+                title: "<%=request.getAttribute("mensaje")%>",
+                showConfirmButton: false,
+                timer: 5000
+        });
+        </script>      
+                    <%
+                    } else
+                    {
+                    %>          
+        <script>
+        Swal.fire({
+                icon: "error",
+                title: "<%=request.getAttribute("mensaje")%>",
+                showConfirmButton: false,
+                timer: 5000
+            });
+            
+            </script>      
+                    <%
+
+                            }
+                        }
+                    %>
                 
                         <%
             }else{
-    System.out.println("Error: Sesión no existe");
+    System.out.println("Error: SesiÃ³n no existe");
     response.sendRedirect("index.jsp");
 }
             %>

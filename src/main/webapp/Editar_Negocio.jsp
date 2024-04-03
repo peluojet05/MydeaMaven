@@ -978,18 +978,40 @@
                 selector: '[data-bs-toggle="tooltip"]',
             });
         </script>
-                                                        <%
-            if(request.getAttribute("mensaje")!=null) 
-            {  
-        %>          
-                <script>
-    window.onload=function() {
-       alert( "  <%=request.getAttribute("mensaje")%>");
-    };
- </script>      
-        <%
-            }
-                %>
+<%
+                if (request.getAttribute("mensaje") != null)
+                {
+
+                    if (request.getAttribute("mensaje").equals("Negocio actualizado con exito"))
+                    {
+            %>          
+        <script>
+        
+        Swal.fire({
+                icon: "success",
+                title: "<%=request.getAttribute("mensaje")%>",
+                showConfirmButton: false,
+                timer: 5000
+        });
+        </script>      
+                    <%
+                    } else
+                    {
+                    %>          
+        <script>
+        Swal.fire({
+                icon: "error",
+                title: "<%=request.getAttribute("mensaje")%>",
+                showConfirmButton: false,
+                timer: 5000
+            });
+            
+            </script>      
+                    <%
+
+                            }
+                        }
+                    %>
                                         <%
             }else{
     System.out.println("Error: Sesión no existe");
