@@ -16,7 +16,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" http-equiv="Content-Type" content="width=device-width, initial-scale=1, charset=UTF-8">
         <jsp:include page="templates/Referencias/Todas_Ref.jsp"/>
         <title>Tus Comentarios</title>
     </head>
@@ -89,7 +89,7 @@ rs = stmt.executeQuery("select n.*, f.* from Feedback f inner join Negocio n on 
 
                     %>
                     <form class="coment_pro_ch d-flex" method="post">
-                    <section class="h-100 w-25 img_sect_ch">
+                    <section class="img_sect_ch">
                         <section class="h-100 w-100 img_res_ch">
                             <img src="<%=fotog%>" alt="">
                         </section>

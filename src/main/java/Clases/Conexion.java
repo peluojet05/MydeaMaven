@@ -30,11 +30,7 @@ public class Conexion {
        try{
            
      //POSTGRE HOST, CON ESTE HACEN LA PULL REQUESTT
-<<<<<<< Updated upstream
      
-=======
-     //
->>>>>>> Stashed changes
      String dbDriver = "org.postgresql.Driver";
      String dbURL = "jdbc:postgresql://ec2-100-26-73-144.compute-1.amazonaws.com/db3v6hean6n35q";
                           
@@ -44,10 +40,7 @@ public class Conexion {
      Class.forName(dbDriver).newInstance();
      con = DriverManager.getConnection(dbURL,dbUsername, dbPassword);
      
-<<<<<<< Updated upstream
      
-=======
->>>>>>> Stashed changes
      /*MYSQL LOCAL CAMBIEN LA CONTRASEÑA
      
      String dbDriver = "com.mysql.jdbc.Driver";
@@ -55,13 +48,12 @@ public class Conexion {
                 // Database name to access
      String dbName = "mydea";
      String dbUsername = "root";
-     String dbPassword = "FunnyValentine4";
+     String dbPassword = "20232707SQL.";
      Class.forName(dbDriver).newInstance();
      con = DriverManager.getConnection(dbURL + dbName,
      dbUsername,
      dbPassword); 
      */
-     
      
       } catch (Exception e ) {
             System.out.println("erore");

@@ -430,6 +430,27 @@
     margin: 0px;
 }
 
+.modal_neg {
+  display: none;
+  position: fixed;
+  z-index: 15;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.cont_busq_most_2{
+    background: #ced4da;
+    position: relative;
+    overflow: hidden;
+    height: 85%;
+    width: 90%;
+    border-radius: 5px;
+}
+
 @media screen and (max-width:1024px){
     .cont_busq_most{
         display: none;
@@ -440,5 +461,14 @@
     }
     .busq_usu{
         height: 50%;
+    }
+    #usu_img_busq{
+        width: 30%;
+    }
+}
+
+@media screen and (min-width:1025px){
+    .modal_neg{
+        display: none;
     }
 }
