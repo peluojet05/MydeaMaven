@@ -11,9 +11,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     HttpSession session1 = request.getSession(false);
-    if (session1.getAttribute("usuario") != null) {
+    if (session1.getAttribute("usuario") != null)
+    {
 
-    %>
+%>
 
 <%@page session="true"%>
 
@@ -28,8 +29,7 @@
     </head>
     <body>
         <jsp:include page="templates/Navegadores/Navegador_CC.jsp"/>
-        <%
-            HttpSession misession = (HttpSession) request.getSession();
+        <%            HttpSession misession = (HttpSession) request.getSession();
             Usuario usuario = (Usuario) misession.getAttribute("usuario");
             String nombre = usuario.getUsu_nom();
             String pass = usuario.getUsu_pass();
@@ -62,48 +62,48 @@
             </div>
             <div class="d-flex flex-column res_otr_usu_cont">
                 <span class="Inria tt_ch">Negocios Guardados</span>
-               <div class="cont_res_var d- flex-column">
+                <div class="cont_res_var d- flex-column">
 
-                    
-                        <%
 
-                            Conexion con;
-                            Connection c;
-                            Statement stmt;
-                            ResultSet rs, rs2;
-                            con = new Conexion();
-                            con.setCon();
-                            c = con.getCon();
-                            stmt = c.createStatement();
-                            int pid = con.Pid(correo);
+                    <%
 
-                            String p = null;
+                        Conexion con;
+                        Connection c;
+                        Statement stmt;
+                        ResultSet rs, rs2;
+                        con = new Conexion();
+                        con.setCon();
+                        c = con.getCon();
+                        stmt = c.createStatement();
+                        int pid = con.Pid(correo);
 
-                            rs2 = stmt.executeQuery("select * from Guardado where per_id=" + pid + ";");
+                        String p = null;
 
-                            while (rs2.next())
+                        rs2 = stmt.executeQuery("select * from Guardado where per_id=" + pid + ";");
+
+                        while (rs2.next())
+                        {
+                            p = "1";
+
+                            System.out.println("pid " + pid);
+                        }
+                        if (p != null)
+                        {
+
+                            rs = stmt.executeQuery("select n.* from Guardado g inner join Negocio n on "
+                                    + "g.neg_id = n.neg_id where g.per_id=" + pid + ";");
+
+                            while (rs.next())
                             {
-                                p = "1";
 
-                                System.out.println("pid " + pid);
-                            }
-                            if (p != null)
-                            {
+                                String nombreg = rs.getString("neg_nombre");
+                                String descg = rs.getString("neg_descripcion");
+                                String fotog = rs.getString("neg_logo");
+                                int idn = rs.getInt("neg_id");
 
-                                rs = stmt.executeQuery("select n.* from Guardado g inner join Negocio n on "
-                                + "g.neg_id = n.neg_id where g.per_id=" + pid + ";");
+                    %>
 
-                                while (rs.next())
-                                {
-
-                                    String nombreg = rs.getString("neg_nombre");
-                                    String descg = rs.getString("neg_descripcion");
-                                    String fotog = rs.getString("neg_logo");
-                                    int idn = rs.getInt("neg_id");
-
-                        %>
-
-<form class="coment_pro_ch d-flex" method="post">
+                    <section class="coment_pro_ch d-flex" method="post">
                         <section class="h-100 w-25 img_sect_ch">
                             <section class="h-100 w-100 img_res_ch">
                                 <img src="<%=fotog%>" alt="">
@@ -116,27 +116,24 @@
                                 <span class="cuerp_res_ch"><%=descg%></span>
                             </section>
                             <section class="d-flex justify-content-between">
-
                                 <section class="btns_ch">
-                                    
-
-
-                                </section>
-                            </section>
-                        </section>
-                    </form>
-                            <%
-                                /*
-                            <form method="post" action="EliminarGuardadoCC" >
-                                        <button type="submit" class="btn btn_elim_busq">Eliminar de Guardados</button>
-                                        <input type="hidden" name="idn" value="<%=idn"/>
-                                    </form>
-                                    */
-                                                %>
                                     <form method="post" action="Negocio.jsp" >
                                         <button type="submit" class="btn btn_visitar_busq">Visitar</button>
                                         <input type="hidden" name="idn" value="<%=idn%>"/>
                                     </form>
+                                </section>
+                            </section>
+                        </section>
+                    </section>
+                    <%
+                        /*
+                    <form method="post" action="EliminarGuardadoCC" >
+                                <button type="submit" class="btn btn_elim_busq">Eliminar de Guardados</button>
+                                <input type="hidden" name="idn" value="<%=idn"/>
+                            </form>
+                         */
+                    %>
+
 
                     <%
                         }
@@ -151,19 +148,15 @@
 
                     %>
 
-
-
-
-
-
                     <%       c.close();
                     %>
-                                        <%
-            }else{
-    System.out.println("Error: Sesión no existe");
-    response.sendRedirect("index.jsp");
-}
-            %>
+                    <%
+                        } else
+                        {
+                            System.out.println("Error: Sesión no existe");
+                            response.sendRedirect("index.jsp");
+                        }
+                    %>
                 </div>
             </div>
         </div>
