@@ -226,19 +226,18 @@
         <!--DE TODO UN POCO-->
         <div class="slid_pro d-flex flex-column">
             <span class="w-100 dtp_tt">De Todo un Poco</span>
-            <span class="dtup_txt">Aquí encontrarás una mezcla fascinante de contenido variado que enriquecerá tu experiencia. 
-                Sumérgete en artículos, recomendaciones, actualizaciones y mucho más. Explora, aprende y descubre un mundo de posibilidades en este espacio lleno de sorpresas.</span>
+            <span class="dtup texto dtup_txt">Aquí encontrarás una mezcla fascinante de contenido variado que enriquecerá tu experiencia. 
+                Sumérgete en artículos, recomendaciones, actualizaciones y mucho más. Explora, aprende y descubre un mundo de posibilidades en este espacio lleno de sorpresas.
+            </span>
             <button id="prev_dtp" class="btn prev"><i class="bi bi-caret-left"></i></button>
             <button id="next_dtp" class="btn next"><i class="bi bi-caret-right"></i></button>
-            <div class="slider_i" id="slider_dtp">
+            <div class="slider_i slider_ip" id="slider_dtp">
 
                 <%
-                    ResultSet pr, it;
+                    ResultSet pr;
 
                     String sl = "select p.*, d.dis_nombre from Producto p inner join Disponibilidad d on p.dis_id=d.dis_id inner join Negocio n on p.neg_id = n.neg_id where"
                             + " n.neg_activo=true;";
-
-                    String pi = "";
 
                     pr = stmt.executeQuery(sl);
 
@@ -247,23 +246,19 @@
 
                         String np = pr.getString("pro_nombre");
                         int pre = pr.getInt("pro_precio");
-                        pi = pr.getString("pro_imagen");
+                        String pi = pr.getString("pro_imagen");
                         String dis = pr.getString("dis_nombre");
                         String pd = pr.getString("pro_descripcion");
                 %>
 
                 <section class="card_pro_most card_pro_most_active">
-                    <span class="card-title tt_pro_most" id="tt_pro_most"><%=np%></span>
-                    <img src="<%=pi%>" class="card-img-top img_most" alt="..." id="card-img-top">
-                    <div class="card-body d-flex flex-column">
-                        <div class="d-flex w-100 justify-content-between align-items-lg-center pr_inf_n">
-                            <span class="pre_sl d-flex">$<div class="pre_most_pro" id="pre_most_pro"><%=pre%></div>
-                            </span>
-
+                    <span class="pre_sl">$<div class="pre_most_pro" id="pre_most_pro"><%=pre%>
                         </div>
-                        <span class="card-text" id="desc_com_pro"><%=pd%></span>
-                    </div>
+                    </span>
+                    <img src="<%=pi%>" class="card-img-top img_most" alt="..." id="card-img-top">
                     <input type="text" class="dis_most_pro" value="<%=dis%>" disabled>
+                    <span class="card-title tt_pro_most" id="tt_pro_most"><%=np%></span>
+                    <span class="card-text dis_most_pro" id="desc_com_pro"><%=pd%></span>
                 </section>
                 <%
                     }

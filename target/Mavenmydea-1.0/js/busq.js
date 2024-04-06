@@ -11,10 +11,9 @@ busqueda.forEach(function (busqueda_b) {
     });
 });
 
+//Funciones de clickeo de Tarjetas
 function copiarDatos(clickeado) {
     var id_busq = clickeado.id;
-    let nom = clickeado.querySelector(".nb");
-    let desc = clickeado.querySelector(".desc_busq");
     switch (id_busq) {
         case "negbusq":
             document.getElementById("dir_vp").textContent = clickeado.querySelector("#dir_neg_busq").textContent;

@@ -636,7 +636,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 .secc_pro_most_espe span:nth-child(3) {
     font-size: 1rem;
 }
-.secc_pro_most_espe span:last-child {
+.secc_pro_most_espe span:last-child, #dis_pro_esp {
     background-color: #ffb62e;
     font-size: 1.3rem;
     width: fit-content;
@@ -1413,6 +1413,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 }
 #img_esp_gr{
     max-height: 450px;
+}
+#elimcom_neg{
+    font-size: 0.8rem;
+    padding: 3px;
+    margin: 0px 0px 2% 3%;
 }
 @media screen and (max-width:1024px){
     .prestn_neg{
