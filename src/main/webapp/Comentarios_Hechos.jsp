@@ -11,9 +11,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     HttpSession session1 = request.getSession(false);
-    if (session1.getAttribute("usuario") != null) {
+    if (session1.getAttribute("usuario") != null)
+    {
 
-    %>
+%>
 
 <%@page session="true"%>
 
@@ -27,8 +28,7 @@
         <title>Tus Comentarios</title>
     </head>
     <jsp:include page="templates/Navegadores/Navegador_CC.jsp"/>
-    <%
-        HttpSession misession = (HttpSession) request.getSession();
+    <%        HttpSession misession = (HttpSession) request.getSession();
         Usuario usuario = (Usuario) misession.getAttribute("usuario");
         String nombre = usuario.getUsu_nom();
         String pass = usuario.getUsu_pass();
@@ -62,59 +62,56 @@
         <div class="d-flex flex-column res_otr_usu_cont">
             <span class="Inria tt_ch">Reseñas Hechas</span>
             <div class="cont_res_var d- flex-column">
-                
-                    <%
 
-                        Conexion con;
-                        Connection c;
-                        Statement stmt;
-                        ResultSet rs, rs2 = null;
-                        con = new Conexion();
-                        con.setCon();
-                        c = con.getCon();
-                        stmt = c.createStatement();
-                        int pid = 0;
-                        if (request.getParameter("idu") != null)
+                <%
+
+                    Conexion con;
+                    Connection c;
+                    Statement stmt;
+                    ResultSet rs, rs2 = null;
+                    con = new Conexion();
+                    con.setCon();
+                    c = con.getCon();
+                    stmt = c.createStatement();
+                    int pid = 0;
+                    if (request.getParameter("idu") != null)
+                    {
+
+                        rs2 = stmt.executeQuery("select * from Feedback where per_id=" + request.getParameter("idu") + ";");
+
+                    } else
+                    {
+
+                        pid = con.Pid(correo);
+                        rs2 = stmt.executeQuery("select * from Feedback where per_id=" + pid + ";");
+                    }
+
+                    String p = null;
+
+                    while (rs2.next())
+                    {
+                        p = "1";
+
+                    }
+                    if (p != null)
+                    {
+
+                        pid = con.Pid(correo);
+                        rs = stmt.executeQuery("select n.*, f.* from Feedback f inner join Negocio n on f.neg_id=n.neg_id where f.per_id=" + pid + ";");
+
+                        while (rs.next())
                         {
 
-                            rs2 = stmt.executeQuery("select * from Feedback where per_id=" + request.getParameter("idu") + ";");
+                            String nombreg = rs.getString("neg_nombre");
+                            String descg = rs.getString("neg_descripcion");
+                            String fotog = rs.getString("neg_logo");
+                            String comentario = rs.getString("fed_comentario");
+                            Boolean like = rs.getBoolean("fed_like");
+                            int idc = rs.getInt("fed_id");
+                            int idn = rs.getInt("neg_id");
 
-                        } else
-                        {
-
-                            pid = con.Pid(correo);
-                            rs2 = stmt.executeQuery("select * from Feedback where per_id=" + pid + ";");
-                        }
-
-                        String p = null;
-
-                        while (rs2.next())
-                        {
-                            p = "1";
-
-                        }
-                        if (p != null)
-                        {
-
-                           
-
-                                pid = con.Pid(correo);
-                                rs = stmt.executeQuery("select n.*, f.* from Feedback f inner join Negocio n on f.neg_id=n.neg_id where f.per_id=" + pid + ";");
-                            
-
-                            while (rs.next())
-                            {
-
-                                String nombreg = rs.getString("neg_nombre");
-                                String descg = rs.getString("neg_descripcion");
-                                String fotog = rs.getString("neg_logo");
-                                String comentario = rs.getString("fed_comentario");
-                                Boolean like = rs.getBoolean("fed_like");
-                                int idc = rs.getInt("fed_id");
-                                int idn = rs.getInt("neg_id");
-
-                    %>
-                    <form class="coment_pro_ch d-flex" method="post">
+                %>
+                <section class="coment_pro_ch d-flex">
                     <section class="h-100 w-25 img_sect_ch">
                         <section class="h-100 w-100 img_res_ch">
                             <img src="<%=fotog%>" alt="">
@@ -140,23 +137,23 @@
                             %>
                             <section class="btns_ch">
 
-                                
-                            </section>
-                        </section>
-                    </section>
-                </form>
-                            <%
-                                /*
-                            <form method="post" action="EliminarComentarioCC" >
-                                    <button type="submit" class="btn btn_elim_busq">Eliminar Comentario</button>
-                                    <input type="hidden" name="idn" value="<%=idn"/>
-                                </form>
-                                */
-                                            %>
                                 <form method="post" action="Negocio.jsp" >
                                     <button type="submit" class="btn btn_visitar_busq">Visitar</button>
                                     <input type="hidden" name="idn" value="<%=idn%>"/>
                                 </form>
+                            </section>
+                        </section>
+                    </section>
+                </section>
+                <%
+                    /*
+                <form method="post" action="EliminarComentarioCC" >
+                        <button type="submit" class="btn btn_elim_busq">Eliminar Comentario</button>
+                        <input type="hidden" name="idn" value="<%=idn"/>
+                    </form>
+                     */
+                %>
+
                 <%
                     }
 
@@ -169,12 +166,13 @@
                 <%    }
                     c.close();
                 %>
-<%
-            }else{
-    System.out.println("Error: Sesión no existe");
-    response.sendRedirect("index.jsp");
-}
-            %>
+                <%
+                    } else
+                    {
+                        System.out.println("Error: Sesión no existe");
+                        response.sendRedirect("index.jsp");
+                    }
+                %>
             </div>
         </div>
     </div>

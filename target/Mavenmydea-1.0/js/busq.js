@@ -12,6 +12,7 @@ busqueda.forEach(function (busqueda_b) {
     });
 });
 
+//Funciones de clickeo de Tarjetas
 function copiarDatos(clickeado) {
     var id_busq = clickeado.id;
     let nom = clickeado.querySelector(".nb");

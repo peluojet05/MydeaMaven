@@ -275,9 +275,12 @@
 .de{
     font-size: 1.5rem;
     font-weight: bold;
+    text-align: center;
 }
 .nd_vp{
     gap: 15px;
+    justify-content: center;
+    align-items: center;
 }
 .dir_vp{
     font-size: 0.65rem;
@@ -287,7 +290,11 @@
     margin-right: 5px;
 }
 .num_vp{
+    display: flex;
     font-size: 1.4rem;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 .num_vp section{
     gap: 5px;
@@ -471,4 +478,135 @@
     .modal_neg{
         display: none;
     }
+}
+.opt_busq{
+    border: 2px solid black;
+    box-shadow: 3px 3px 1px black;
+    outline: none;
+}
+.opt_busq_ad{
+    border: none;
+    outline: none;
+    background: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+}
+.opt_busq_ad:active{
+    background: none;
+}
+#resena_usua_esp_busq{
+    height: 95%;
+    width: 98%;
+}
+.fech_cre{
+    font-size: 0.8rem;
+    margin-top: 5%;
+}
+.fech_cre input{
+    background: none;
+    border: none;
+    outline: none;
+    color: white;
+    font-weight: bold;
+}
+#nnu_vp{
+    margin-left: 3px;
+}
+#combusq{
+    cursor: pointer;
+}
+#Nom_com_vp_txt, #Nom_com_vp{
+    font-size: 1.2rem;
+    text-align: center;
+}
+.nov_busq{
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    justify-content: end;
+    cursor: pointer;
+    background: white;
+    border-radius: 15px;
+    border: 2px solid black;
+}
+.nov_busq:hover .nov_desc_esp{
+    transition: 0.4s;
+    transform: translateX(0%);
+    cursor: pointer;
+}
+.nov_desc_esp{
+    position: absolute;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background: rgb(224, 177, 23);
+    border-radius: 0px 40% 40% 0px;
+    transform: translateX(-60%);
+}
+.nov_desc_esp img{
+    height: 100%;
+    border-radius: 0px 100% 100% 0px;
+    width: 40%;
+}
+.img_nov{
+    display: none;
+}
+.nov_busq:hover .img_nov{
+    transition: 0.4s;
+    display: flex;
+}
+.nov_busq:hover .img_nov_neg{
+    transition: 0.4s;
+    display: none;
+}
+.cont_anuncio{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 2%;
+    gap: 3px;
+}
+.tt_nov_bus{
+    font-size: 1.2rem;
+    text-align: center;
+    color: white;
+}
+.tt_nov_esp{
+    font-weight: bolder;
+}
+.desc_nov_busq{
+    overflow-y: scroll;
+    text-align: justify;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 2px;
+    border-radius: 5px;
+}
+.desc_nov_busq::-webkit-scrollbar{
+    width: 3px;
+}
+.desc_nov_busq::-webkit-scrollbar-thumb{
+    background-color: black;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.present_nov{
+    width: 60%;
+    height: 100%;
+    padding: 5px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.tt_nov_pres{
+    font-size: 2rem;
+    font-weight: bold;
+}
+#Nom_nov_vp{
+    font-size: 1.7rem;
 }

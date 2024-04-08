@@ -68,7 +68,6 @@ nav {
     height: 40%;
 }
 .btn_exp {
-    width: 20%;
     background-color: #ff4105;
     font-weight: bold;
     color: white;
@@ -764,6 +763,10 @@ nav {
 .NegocioSC .card_i{
     position: relative;
 }
+.NegocioSC:hover .neg_admin_inx{
+    transition: 0.3s;
+    transform: translateY(-40px);
+}
 .index{
     background-color: #E9E9E9;
 }
@@ -801,7 +804,41 @@ nav {
 #slider_dtp{
     height: 250px;
 }
-
+.Btns_adminel_sldr{
+    display: flex;
+    gap: 10px;
+}
+.btn_elimnegscr_admin, #btn_elimnegscr_admin{
+    background: rgb(151, 26, 64);
+    color: white;
+    font-weight: bold;
+    border: none;
+    box-shadow: none;
+}
+.btn_elimnegscr_admin:hover, #btn_elimnegscr_admin:hover{
+    transition: 0.3s;
+    background: rgb(209, 0, 0);
+    color: white;
+}
+.NegocioSC #btn_elimnegscr_admin{
+    font-size: 0.95rem;
+}
+.neg_admin_inx{
+    z-index: 1;
+    position: relative;
+}
+.elim_neg_inx{
+    position: absolute;
+    height: 10%;
+    width: 100%;
+    bottom: 13%;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    font-size: 0.8rem;
+}
 @media screen and (max-width:1024px){
     #carouselExampleInterval{
         padding-top: 9vh;
@@ -911,7 +948,6 @@ nav {
         height: auto;
     }
 }
-
 @media screen and (max-height:741px){
     .Nom_neg_indx{
         font-size: 5rem;

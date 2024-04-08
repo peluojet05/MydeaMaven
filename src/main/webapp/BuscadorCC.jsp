@@ -29,7 +29,7 @@
         <title>- <%=Encode.forHtml(request.getParameter("txt"))%></title>
     </head>
     <body>
-        <jsp:include page="templates/Navegadores/Navegador_CV.jsp"/>
+        <jsp:include page="templates/Navegadores/Navegador_CC.jsp"/>
         <div class="busq_cont_prin">
             <div class="w-100 h-100 cont_busq_res_txt d-flex flex-column Inria">
                 <section>
@@ -64,7 +64,7 @@
                         
                         PreparedStatement ps4 = c.prepareStatement("SELECT n.*,d.*,p.per_foto,u.usu_nombre FROM Direccion d INNER JOIN "
                                 + "Negocio n ON n.dir_id=d.dir_id INNER JOIN Persona p ON n.per_id = p.per_id INNER JOIN Usuario u ON"
-                                + " p.usu_id = u.usu_id WHERE n.neg_activo = true AND neg_nombre ILIKE ?");
+                                + " p.usu_id = u.usu_id WHERE n.neg_activo = true AND neg_nombre LIKE ?");
                         ps4.setString(1, "%" + bs + "%");
                         rs4 = ps4.executeQuery();
                         if (rs4 != null)
@@ -81,7 +81,7 @@
                     int cont = 0;
                     PreparedStatement ps5 = c.prepareStatement("SELECT n.*,d.*,p.per_foto,u.usu_nombre FROM Direccion d INNER JOIN "
                                 + "Negocio n ON n.dir_id=d.dir_id INNER JOIN Persona p ON n.per_id = p.per_id INNER JOIN Usuario u ON"
-                                + " p.usu_id = u.usu_id WHERE n.neg_activo = true AND neg_nombre ILIKE ?");
+                                + " p.usu_id = u.usu_id WHERE n.neg_activo = true AND neg_nombre LIKE ?");
                         ps5.setString(1, "%" + bs + "%");
                         rs5 = ps5.executeQuery();
                         if (rs5 != null)
@@ -129,7 +129,7 @@
                        int cont6 = 0; 
                         PreparedStatement ps = c.prepareStatement("SELECT n.*,d.*,p.per_foto,u.usu_nombre FROM Direccion d INNER JOIN "
                                 + "Negocio n ON n.dir_id=d.dir_id INNER JOIN Persona p ON n.per_id = p.per_id INNER JOIN Usuario u ON"
-                                + " p.usu_id = u.usu_id WHERE n.neg_activo = true AND neg_nombre ILIKE ?");
+                                + " p.usu_id = u.usu_id WHERE n.neg_activo = true AND neg_nombre LIKE ?");
                         ps.setString(1, "%" + bs + "%");
                         rs = ps.executeQuery();
                         if (rs != null)
@@ -189,7 +189,7 @@
                     %>
 
                     <%
-                        PreparedStatement ps2 = c.prepareStatement("SELECT p.per_foto, p.per_descripcion, per_id, u.usu_nombre, u.tip_id FROM Persona p INNER JOIN Usuario u ON u.usu_id=p.usu_id WHERE usu_nombre ILIKE ?");
+                        PreparedStatement ps2 = c.prepareStatement("SELECT p.per_foto, p.per_descripcion, per_id, u.usu_nombre, u.tip_id FROM Persona p INNER JOIN Usuario u ON u.usu_id=p.usu_id WHERE usu_nombre LIKE ?");
                         ps2.setString(1, "%" + bs + "%");
                         rs2 = ps2.executeQuery();
                         if (rs2 != null)
@@ -246,7 +246,7 @@
 
                     <%
                         PreparedStatement ps3 = c.prepareStatement("SELECT * FROM Producto p inner join Negocio n on p.neg_id=n.neg_id"
-                                + " WHERE p.pro_nombre ILIKE ?");
+                                + " WHERE p.pro_nombre LIKE ?");
                         ps3.setString(1, "%" + bs + "%");
                         rs3 = ps3.executeQuery();
                         if (rs3 != null)
