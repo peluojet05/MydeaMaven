@@ -211,7 +211,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 }
 .prop_neg {
     height: 90%;
-    width: 85%;
+    /*width: 85%;*/
     display: flex;
     flex-direction: column;
     position: relative;
@@ -1419,6 +1419,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     padding: 3px;
     margin: 0px 0px 2% 3%;
 }
+.hormap_n{
+    height: 75%;
+}
 @media screen and (max-width:1024px){
     .prestn_neg{
         height: 85vh;
@@ -1444,11 +1447,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
         margin-top: 3.5%;
     }
     #line_hn{
-        height: 40%;
+        height: 30%;
     }
     .hormap_n{
         gap: 0;
         margin: 0;
+        height: auto;
     }
     #Productos_Neg, #Dts_Neg{
         margin-left: 5px;
@@ -1474,14 +1478,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     .buscpro_form_n input{
         width: 100%;
     }
-    .card_pro_most_active{
+    .card_responsive{
         width: 48%;
         height: 49%;
         margin-right: 0;
         margin-bottom: 2%;
     }
     .tt_pro_most{
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
     .pr_inf_n span:last-child{
         font-size: 1.3rem;
@@ -1498,9 +1502,31 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     .Reporte_Emer{
         width: 90%;
     }
+    .img_esp_gr{
+        max-width: 90%;
+    }
+    .prev_ros, .next_ros{
+        margin-top: 19%;
+    }
+    .btns_pro_most_esp_res{
+        width: 100%;
+    }
+    .secc_pro_most_espe span:nth-child(3){
+        text-align: center;
+    }
+    .nomneg_neg{
+        text-align: center;
+        line-height: 0.8;
+    }
 }
+
 @media screen and (max-height:741px){
     .nomneg_neg{
         font-size: 7rem;
+    }
+}
+@media screen and (min-height:700px){
+    .comment_icon_neg{
+        bottom: -13%;
     }
 }

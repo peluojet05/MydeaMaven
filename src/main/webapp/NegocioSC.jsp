@@ -177,7 +177,7 @@
                                 </section>
                             </section>
                             <!--Horarios-->
-                            <section class="w-100 h-75 hormap_n d-flex flex-column">
+                            <section class="w-100 hormap_n d-flex flex-column">
                                 <span class="hu_tt">Horarios y Ubicación</span>
                                 <section class="d-flex w-100 h-100 hormap_ncon">
                                     <section class="ancho">
@@ -570,7 +570,7 @@
 
                                         %>
 
-                                        <section class="card_pro_most card_pro_most_active" id="card_pro_neg">
+                                        <section class="card_pro_most card_pro_most_active card_responsive" id="card_pro_neg">
                                             <span class="pre_sl">$<div class="pre_most_pro" id="pre_most_pro"><%=pre%>
                                                 </div>
                                             </span>

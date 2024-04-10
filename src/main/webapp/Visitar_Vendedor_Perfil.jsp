@@ -15,7 +15,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" http-equiv="Content-Type" content="width=device-width, initial-scale=1, charset=UTF-8">
         <jsp:include page="templates/Referencias/Todas_Ref.jsp"/>
          <%
           String id = request.getParameter("idu");
@@ -63,7 +63,7 @@
         <jsp:include page="templates/Navegadores/Navegador_SC.jsp"/>
         <div class="rv_contprin w-100">
             <div class="rv_cont_usu h-100 d-flex flex-column justify-content-center align-items-center" id="rv_cont_usu">
-                <section class="h-50 prop_neg_cont">
+                <section class="prop_neg_cont">
                     <span class="prop_neg d-flex justify-content-center align-items-center">
                         <section class="card_neg h-100 d-flex flex-column align-items-center justify-content-evenly">
                             <section class="bord_color">
@@ -94,7 +94,7 @@
                     </span>
                 </section>
 
-                <section class="Contactos_section_n h-25">
+                <section class="Contactos_section_n">
                     <span class="hu_tt" id="hu_tt">Contactos<i class="bi bi-question-circle"
                                                                             data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Tooltip on right"></i></span>
                     <section class="d-flex justify-content-between w-100 icnsc_section_n">
@@ -155,7 +155,7 @@
                        int idn = rs3.getInt("neg_id");
                        %>
                     <section class="coment_pro_ch d-flex" id="coment_pro_ch">
-                        <section class="h-100 w-25 img_sect_ch">
+                        <section class="img_sect_ch">
                             <section class="h-100 w-100 img_res_ch">
                                 <img src="<%=nfoto%>" alt="">
                             </section>
