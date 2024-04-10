@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -469,6 +470,23 @@ public class CrearNegocio extends HttpServlet {
 
 
                 String pid = Integer.toString(id);
+                LocalDateTime hoy = LocalDateTime.now();
+                
+                    String year = Integer.toString(hoy.getYear());
+
+                    String mes = Integer.toString(hoy.getMonthValue());
+
+                    String dia = Integer.toString(hoy.getDayOfMonth());
+
+                    if(hoy.getDayOfMonth()<10){
+                        dia = "0"+dia;
+                    }
+
+                    if(hoy.getMonthValue()<10){
+                        mes="0"+mes;
+                    }
+
+                         String fecha = year +"-"+ mes +"-"+ dia;
                 String mensaje = con.AgNeg(pid, Nombre, Descripcion, Colonia, Calle, Numero, Iextra, Cp, 
                         Pagina, logo, Tipo, Facebook, Twitter, Instagram, img1, img2, Correo, img3, Telefono);
 
