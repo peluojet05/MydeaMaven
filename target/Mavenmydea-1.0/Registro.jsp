@@ -19,7 +19,7 @@
                         <span>Ya estás un paso más cerca de formar parte de la enorme comunidad de MYDEA.<br> Por favor complete los campos solicitados para terminar su registro.</span>
                     </section>
                     <ul class="d-flex list_inp_reg justify-content-around">
-                        <li><label for="Nom_com_reg">Nombre Completo</label><input value="${valorNombreP}" type="text" id="Nom_com_reg" name="Nom_com_reg" class="form-control" placeholder=" Nombre Completo">
+                        <li><label for="Nom_com_reg">Nombre Completo</label><input value="${valorNombreP}" type="text" id="Nom_com_reg" name="Nom_com_reg" class="form-control" placeholder=" Nombre Completo" onkeypress="return Letras(event)">
                             <span class="error">${error_nombreCompleto_Vacio}</span>
                             <span class="error">${error_nombreCompleto_Largo}</span>
                             <span class="error">${error_nombreCompleto_Invalido}</span></li>
@@ -31,7 +31,7 @@
                             <span class="error">${error_correo_Vacio}</span>
                             <span class="error">${error_correo_Invalido}</span>
                         </li>
-                        <li><label for="Num_reg">Número Telefónico</label><input value="${valorTelefono}" type="tel" id="Num_reg" name="Num_reg" class="form-control" placeholder=" Numero Telefonico" autocomplete="new-password">
+                        <li><label for="Num_reg">Número Telefónico</label><input value="${valorTelefono}" type="tel" id="Num_reg" name="Num_reg" class="form-control" placeholder=" Numero Telefonico" autocomplete="new-password" onkeypress="return Numeros(event)">
                             <span class="error">${error_telefono_Vacio}</span>
                             <span class="error">${error_telefono_Invalido}</span>
                         </li>
@@ -89,5 +89,6 @@
         %>
         <script src="js/Nav.js"></script>
         <script src="js/reg.js"></script>
+        <script src="js/Caracteres.js"></script>
     </body>
 </html>

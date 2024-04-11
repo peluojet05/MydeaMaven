@@ -31,6 +31,7 @@ public class Conexion {
            
      //POSTGRE HOST, CON ESTE HACEN LA PULL REQUESTT
      
+     /*
      String dbDriver = "org.postgresql.Driver";
      String dbURL = "jdbc:postgresql://ec2-100-26-73-144.compute-1.amazonaws.com/db3v6hean6n35q";
                           
@@ -40,9 +41,9 @@ public class Conexion {
      Class.forName(dbDriver).newInstance();
      con = DriverManager.getConnection(dbURL,dbUsername, dbPassword);
      
-     
+     */
      //MYSQL LOCAL CAMBIEN LA CONTRASEÑA
-     /*
+     
      String dbDriver = "com.mysql.jdbc.Driver";
      String dbURL = "jdbc:mysql://localhost:3306/";
                 // Database name to access
@@ -54,7 +55,7 @@ public class Conexion {
      dbUsername,
      dbPassword); 
      
-     */
+     
      
       } catch (Exception e ) {
             System.out.println("erore");

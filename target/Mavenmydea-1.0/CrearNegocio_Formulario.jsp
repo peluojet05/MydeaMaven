@@ -432,7 +432,7 @@
                                             <label for="cpp">Código Postal
                                                 <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
                                                    data-bs-title="Tooltip on right"></i></label>
-                                            <input type="text" class="form-control" name="cpp" id="cpp" value="${valorCp}"/>
+                                            <input type="text" class="form-control" name="cpp" id="cpp" value="${valorCp}" onkeypress="return Letras(event)"/>
                                             <span class="error">${error_codigoPostal_Invalido}</span>
                                         </section>
                                     </section>
@@ -497,7 +497,7 @@
                                     <li class="d-flex ctc_l">
                                         <label for="tel_loc_cnf"><i class="bi bi-telephone-fill" data-bs-toggle="tooltip"
                                                                     data-bs-placement="right" data-bs-title="Número Telefonico (Sin espacios)"></i></label><input
-                                                                        type="tel" id="tel_loc_cnf" name="tel_loc_cnf" class="form-control" value="${valorTelefono}"/>
+                                                                        type="tel" id="tel_loc_cnf" name="tel_loc_cnf" class="form-control" value="${valorTelefono}" onkeypress="return Letras(event)"/>
                                                                     
                                     </li>
                                     <span class="error">${error_telefono_Vacio}</span>
@@ -691,6 +691,7 @@
         <script src="js/Nav.js"></script>
         <script src="js/Nav_CC.js"></script>
         <script src="js/cnf.js"></script>
+        <script src="js/Caracteres.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         
     </body>

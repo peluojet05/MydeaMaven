@@ -143,19 +143,43 @@ function toggleDisplay(elemento) {
     }
 }
 
-function showPreviewImage(event) {
-    /*Most_Img.style.display = "flex";
-    Plus_Logo.style.position = "absolute";*/
-    const file = event.target.files[0];
-    const reader = new FileReader();
+document.addEventListener('DOMContentLoaded', (event) => {
+    inpt_file_img_perf.addEventListener('change', function(e) {
+        var archivo = e.target.files[0];
+        var tiposPermitidos = /(\.jpg|\.jpeg|\.png)$/i;
 
-    reader.onload = function (event) {
-        nue_img.src = event.target.result;
-    };
+        if(!tiposPermitidos.exec(archivo.name)) {
+            Swal.fire({
+                title: "ERROR",
+                text: "Por favor, sube solo archivos .jpg o .png.",
+                icon: "error",
+                showConfirmButton: true
+            });
+            e.target.value = '';
+            inpt_file_img_perf.src = ''; // Borra la previsualización de la imagen
+            return false;
+        } else {
+            showPreviewImage(e); // Si es una imagen, muestra la previsualización
+        }
+    });
 
-    if (file) {
-        reader.readAsDataURL(file);
+    inpt_file_img_perf.addEventListener("click", function () {
+        inpt_file_img_perf.click();
+    });
+
+    function showPreviewImage(event) {
+        inpt_file_img_perf.style.display = "flex";
+        inpt_file_img_perf.style.position = "absolute";
+        const file = event.target.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function (event) {
+            inpt_file_img_perf.src = event.target.result;
+        };
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
     }
-}
-inpt_file_img_perf.addEventListener("change", showPreviewImage);
+});
 
