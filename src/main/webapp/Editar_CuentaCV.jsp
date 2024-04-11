@@ -47,7 +47,7 @@ String desc = per.getPer_descripcion();
                     <section class="d-flex inpts_names_ec">
                         <section class="d-flex flex-column">
                             <label for="">Nombre Completo</label>
-                            <input type="text" class="inpts" name="nomc" placeholder="<%=nombrereal%>" >
+                            <input type="text" class="inpts" name="nomc" placeholder="<%=nombrereal%>" onkeypress="return Letras(event)">
                             <span class="error">${error_nombreC_Vacio}</span>
                             <span class="error">${error_nombreC_Largo}</span>
                             <span class="error">${error_nombreC_Invalido}</span>
@@ -62,6 +62,7 @@ String desc = per.getPer_descripcion();
                     <section class="d-flex flex-column txtar">
                         <label for="">Descripcion</label>
                         <textarea name="desc" id="" class="inpts " placeholder="<%=desc%>" ></textarea>
+                        <span class="error">${error_descripcionCuenta_Largo}</span>
                     </section>
                 </div>
                 <div class="contactos">
@@ -70,7 +71,7 @@ String desc = per.getPer_descripcion();
                         <section class="d-flex justify-content-center align-items-center">
                             <i class="bi bi-telephone contactos_usu_perfil" id="Telefono"></i>
                             <section class="inpt_ing_cont h-50" id="inpt_tel">
-                                <input type="tel" placeholder="<%=telefono%>" name="telefono" >
+                                <input type="tel" placeholder="<%=telefono%>" name="telefono" onkeypress="return Numeros(event)">
                                 <span class="error">${error_telefono_Vacio}</span>
                                 <span class="error">${error_telefono_Invalido}</span>
                                 <button type="button"><i class="bi bi-check-circle" id="confirm_btn"></i></button>
@@ -89,6 +90,7 @@ String desc = per.getPer_descripcion();
                             <i class="bi bi-facebook contactos_usu_perfil" id="Facebook"></i>
                             <section class="inpt_ing_cont h-50" id="inpt_face">
                                 <input type="text" placeholder="<%=fb%>" name="fb" >
+                                <span class="error">${error_facebook_Invalido}</span>
                                 <button type="button"><i class="bi bi-check-circle" id="confirm_btn"></i></button>
                             </section>
                         </section>
@@ -96,6 +98,7 @@ String desc = per.getPer_descripcion();
                             <i class="bi bi-instagram contactos_usu_perfil" id="Instagram"></i>
                             <section class="inpt_ing_cont h-50" id="inpt_inst">
                                 <input type="text" placeholder="<%=ig%>" name="ig" >
+                                <span class="error">${error_instagram_Invalido}</span>
                                 <button type="button"><i class="bi bi-check-circle" id="confirm_btn"></i></button>
                             </section>
                         </section>
@@ -103,6 +106,7 @@ String desc = per.getPer_descripcion();
                             <i class="bi bi-twitter contactos_usu_perfil" id="Twitter"></i>
                             <section class="inpt_ing_cont h-50" id="inpt_twit">
                                 <input type="text" placeholder="<%=tw%>" name="tw">
+                                <span class="error">${error_twitter_Invalido}</span>
                                 <button type="button"><i class="bi bi-check-circle" id="confirm_btn"></i></button>
                             </section>
                         </section>
@@ -110,6 +114,7 @@ String desc = per.getPer_descripcion();
                             <i class="bi bi-globe2 contactos_usu_perfil" id="Web"></i>
                             <section class="inpt_ing_cont h-50" id="inpt_web">
                                 <input type="text" placeholder="<%=web%>" name="web" >
+                                <span class="error">${error_pagina_Invalido}</span>
                                 <button type="button"><i class="bi bi-check-circle" id="confirm_btn"></i></button>
                             </section>
                         </section>
@@ -178,5 +183,6 @@ String desc = per.getPer_descripcion();
             %>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
         <script src="js/ec.js"></script>
+        <script src="js/Caracteres.js"></script>
     </body>
 </html>

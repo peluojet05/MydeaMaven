@@ -105,80 +105,24 @@ public class IniciarSesion extends HttpServlet {
                     request.setAttribute("error_codigo", "El código de confirmación ha caducado");
                     request.getRequestDispatcher("ConfirmarCodigo_I.jsp").forward(request, response);
                 } else if (enccodigo.equals(codigoCompletado)) {
-                    
+
                     Conexion c = new Conexion();
                     Connection con;
 
                     c.setCon();
                     con=c.getCon();
-
-                    String mensaje = c.ISU(encnom, encpass, enccorreo);
-
-                    if(mensaje==null){
-
-                        String[] Persona = new String[9];
-
-                        Persona=c.InfoPersona(encnom);
-
-                        String tipo = c.Tipo(encnom);
-
-                        try {
-                            con.close();
-                        } catch (SQLException ex) {
-                            Logger.getLogger(CrearNegocio.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                        String descripcion = Persona[0];
-                        String nombrereal = Persona[1];
-                        String telefono = Persona[2];
-                        String foto = Persona[3];
-                        String fb = Persona [4];
-                        String ig = Persona[5];
-                        String tw= Persona[6];
-                        String web = Persona[7];
-                        
-                        System.out.println("Correo: " + correo);
-                        System.out.println("Telefono: " + telefono);
-                        System.out.println("Nombre Real: " + nombrereal);
-                        System.out.println("Foto: " + foto);
-                        System.out.println("Facebook: " + fb);
-                        System.out.println("Instagram: " + ig);
-                        System.out.println("Twitter: " + tw);
-                        System.out.println("Web: " + web);
-                        System.out.println("Descripcion: " + descripcion);
-                        
-                        Persona person = new Persona(correo, telefono, nombrereal, foto, fb, ig, tw, web, descripcion);
-                        session.setAttribute("persona", person);
-
-                        // Imprime el objeto Persona para verificar
-                        System.out.println("Objeto Persona guardado en la sesión: " + person);
-
-
-                        Usuario usuario = new Usuario(nom, pass);
-                        session.setAttribute("usuario",usuario);
-                        
-                        System.out.println("Sesión completa: " + request.getSession());
-
-                        if(tipo.equals("1")){
-
-                            response.sendRedirect("indexCC.jsp");
-                        }else if (tipo.equals("2")){
-                            response.sendRedirect("indexCV.jsp");
-                        }else{
-                            response.sendRedirect("index.jsp");
-                        }
-
-
-                        }else{
-                        try {
-                            con.close();
-                        } catch (SQLException ex) {
-                            Logger.getLogger(CrearNegocio.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                           request.setAttribute("mensaje", mensaje);
-                           RequestDispatcher rd = request.getRequestDispatcher("Iniciar_Sesion.jsp");
-                           rd.forward(request, response);
-                        }
                     
+                    String tipo = c.Tipo(encnom);
+                    
+                    
+                    if(tipo.equals("1")){
+
+                        response.sendRedirect("indexCC.jsp");
+                    }else if (tipo.equals("2")){
+                        response.sendRedirect("indexCV.jsp");
+                    }else{
+                        response.sendRedirect("index.jsp");
+                    }
                 } else {
                     // El código es incorrecto
                     request.setAttribute("error_codigo", "El código de confirmación no es correcto");
@@ -242,20 +186,78 @@ public class IniciarSesion extends HttpServlet {
                 }        
                 
                 else {
-                    request.getSession().setAttribute("nom", nom);
-                    request.getSession().setAttribute("correo", correo);
-                    request.getSession().setAttribute("pass", pass);
                     
+                    Conexion c = new Conexion();
+                    Connection con;
+
+                    c.setCon();
+                    con=c.getCon();
                     
-                    VerificacionCorreo_I emailSender = new VerificacionCorreo_I();
-                    String confirmationCode = emailSender.sendConfirmationCode(request);
-                    request.getSession().setAttribute("confirmationCode", confirmationCode);
-                    response.sendRedirect("ConfirmarCodigo_I.jsp");
-                    
+                    String mensaje = c.ISU(encnom, encpass, enccorreo);
+
+                    if(mensaje==null){
+                        request.getSession().setAttribute("nom", encnom);
+                        request.getSession().setAttribute("correo", enccorreo);
+                        request.getSession().setAttribute("pass", encpass);
+
+                        String[] Persona = new String[9];
+                        
+                        Persona=c.InfoPersona(encnom);
+                        
+                        try {
+                            con.close();
+                        } catch (SQLException ex) {
+                            Logger.getLogger(CrearNegocio.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        String descripcion = Persona[0];
+                        String nombrereal = Persona[1];
+                        String telefono = Persona[2];
+                        String foto = Persona[3];
+                        String fb = Persona [4];
+                        String ig = Persona[5];
+                        String tw= Persona[6];
+                        String web = Persona[7];
+                        
+                        System.out.println("Correo: " + correo);
+                        System.out.println("Telefono: " + telefono);
+                        System.out.println("Nombre Real: " + nombrereal);
+                        System.out.println("Foto: " + foto);
+                        System.out.println("Facebook: " + fb);
+                        System.out.println("Instagram: " + ig);
+                        System.out.println("Twitter: " + tw);
+                        System.out.println("Web: " + web);
+                        System.out.println("Descripcion: " + descripcion);
+                        
+                        Persona person = new Persona(correo, telefono, nombrereal, foto, fb, ig, tw, web, descripcion);
+                        session.setAttribute("persona", person);
+
+                        // Imprime el objeto Persona para verificar
+                        System.out.println("Objeto Persona guardado en la sesión: " + person);
+
+
+                        Usuario usuario = new Usuario(nom, pass);
+                        session.setAttribute("usuario",usuario);
+                        
+                        System.out.println("Sesión completa: " + request.getSession());
+                        
+
+                        VerificacionCorreo_I emailSender = new VerificacionCorreo_I();
+                        String confirmationCode = emailSender.sendConfirmationCode(request);
+                        request.getSession().setAttribute("confirmationCode", confirmationCode);
+                        response.sendRedirect("ConfirmarCodigo_I.jsp");
+                        
+                    }else{
+                        try {
+                            con.close();
+                        } catch (SQLException ex) {
+                            Logger.getLogger(CrearNegocio.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                           request.setAttribute("mensaje", mensaje);
+                           RequestDispatcher rd = request.getRequestDispatcher("Iniciar_Sesion.jsp");
+                           rd.forward(request, response);
+                    }
                 }
-            
             }
-            
         }
     }
 
