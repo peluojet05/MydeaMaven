@@ -68,7 +68,6 @@ nav {
     height: 40%;
 }
 .btn_exp {
-    width: 20%;
     background-color: #ff4105;
     font-weight: bold;
     color: white;
@@ -764,6 +763,10 @@ nav {
 .NegocioSC .card_i{
     position: relative;
 }
+.NegocioSC:hover .neg_admin_inx{
+    transition: 0.3s;
+    transform: translateY(-40px);
+}
 .index{
     background-color: #E9E9E9;
 }
@@ -801,7 +804,41 @@ nav {
 #slider_dtp{
     height: 250px;
 }
-
+.Btns_adminel_sldr{
+    display: flex;
+    gap: 10px;
+}
+.btn_elimnegscr_admin, #btn_elimnegscr_admin{
+    background: rgb(151, 26, 64);
+    color: white;
+    font-weight: bold;
+    border: none;
+    box-shadow: none;
+}
+.btn_elimnegscr_admin:hover, #btn_elimnegscr_admin:hover{
+    transition: 0.3s;
+    background: rgb(209, 0, 0);
+    color: white;
+}
+.NegocioSC #btn_elimnegscr_admin{
+    font-size: 0.95rem;
+}
+.neg_admin_inx{
+    z-index: 1;
+    position: relative;
+}
+.elim_neg_inx{
+    position: absolute;
+    height: 10%;
+    width: 100%;
+    bottom: 13%;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    font-size: 0.8rem;
+}
 @media screen and (max-width:1024px){
     #carouselExampleInterval{
         padding-top: 9vh;
@@ -883,10 +920,10 @@ nav {
         width: 100%;
     }
     .producto_epecifico_contenedor{
-        height: 75%;
+        height: 85%;
     }
     .text_inst_pro_espe{
-        margin: 1rem 5% 5% 5%;
+        margin: 0 5% 5% 5%;
         align-items: center;
     }
     .contacts-section1{
@@ -907,8 +944,10 @@ nav {
     .secc_pro_most_espe span:first-child{
         font-size: 2.9rem;
     }
+    .Nom_neg_indx{
+        height: auto;
+    }
 }
-
 @media screen and (max-height:741px){
     .Nom_neg_indx{
         font-size: 5rem;
@@ -917,9 +956,18 @@ nav {
         font-size: 1rem;
         margin-bottom: 5px;
     }
+    .secc_pro_most_espe span:first-child{
+        font-size: 1.9rem;
+    }
+    .img_pro_mosr_espe{
+        width: 80%;
+    }
 }
 @media screen and (min-height:1366px){
     #carouselExampleInterval{
         padding-top: 10%;
+    }
+    .img_pro_mosr_espe{
+        width: 80%;
     }
 }

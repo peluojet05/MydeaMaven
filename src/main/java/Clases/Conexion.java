@@ -56,7 +56,6 @@ public class Conexion {
      dbPassword); 
      
      
-     
       } catch (Exception e ) {
             System.out.println("erore");
                 System.err.println("Error"+e);

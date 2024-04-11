@@ -169,3 +169,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     -ms-border-radius: 100%;
     -o-border-radius: 100%;
 }
+@media screen and (max-width:1024px){
+    .main-container{
+        flex-direction: column;
+    }
+    .elementos-derecha{
+        width: 75%;
+        height: 75%;;
+        order: 1;
+        margin-right: 12.5%;
+    }
+    .elementos-izquierda{
+        width: 100%;
+        order: 2;
+    }
+}

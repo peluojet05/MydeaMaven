@@ -121,6 +121,11 @@
                                         <button type="submit" class="btn btn_visitar_busq">Visitar</button>
                                         <input type="hidden" name="idn" value="<%=idn%>"/>
                                     </form>
+                                    <form action="action" class="form_elim">
+                                        <input type="hidden" name="" value=""/>
+                                        <input type="hidden" class="name_elim" value="<%=nombreg%>"/>
+                                        <button type="submit" class="btn btn_elimnegscr_admin">Eliminar Negocio</button>
+                                    </form>
                                 </section>
                             </section>
                         </section>
@@ -133,8 +138,6 @@
                             </form>
                          */
                     %>
-
-
                     <%
                         }
 
@@ -147,7 +150,6 @@
                     <%    }
 
                     %>
-
                     <%       c.close();
                     %>
                     <%
@@ -160,5 +162,6 @@
                 </div>
             </div>
         </div>
+        <script src="js/elim.js"></script>
     </body>
 </html>

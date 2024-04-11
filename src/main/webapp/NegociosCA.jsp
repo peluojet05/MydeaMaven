@@ -12,12 +12,16 @@
 <%@page import="Clases.Persona"%>
 <%@page import="Clases.Usuario"%>
 <%@page import="java.util.ArrayList" %>
+<%
+    HttpSession session1 = request.getSession(false);
+    if (session1.getAttribute("usuario") != null)
+    {
+
+%>
 <!DOCTYPE html>
 <html class="scroll_none">
     <head>
-        <meta name="viewport" http-equiv="Content-Type" content="width=device-width, initial-scale=1, charset=UTF-8">
-        <%
-            /*
+        <%            /*
     HttpSession misession = (HttpSession) request.getSession();
         Usuario usuario = (Usuario) misession.getAttribute("usuario");
         String nombreu = usuario.getUsu_nom();
@@ -138,7 +142,7 @@
     </head>
     <body class="nego_neg">
 
-        <jsp:include page="templates/Navegadores/Navegador_SC.jsp"/>
+        <jsp:include page="templates/Navegadores/Navegador_CC.jsp"/>
         <div class="cont_neg w-100 d-flex flex-column" id="neg_bdy">
 
             <!---->
@@ -154,7 +158,11 @@
                         <button class="btn btn_Sen" id="btn_Sen">SEGUIR EXPLORANDO ESTE NEGOCIO</button>
                         <a href="index.jsp" class="link_salir">Salir de este Negocio</a>
                         <span class="heart_neg"><i class="bi bi-heart-fill"></i> <%=lk%></span>
-
+                        <form action="action" class="form_elim">
+                            <input type="hidden" name="" value=""/>
+                            <input type="hidden" class="name_elim" value="<%=nombre%>"/>
+                            <button type="submit" class="btn btn_elimnegscr_admin">Eliminar Negocio</button>
+                        </form>
                     </div>
                 </div>
                 <div class="neg_bdy d-flex flex-column">
@@ -177,7 +185,7 @@
                                 </section>
                             </section>
                             <!--Horarios-->
-                            <section class="w-100 hormap_n d-flex flex-column">
+                            <section class="w-100 h-75 hormap_n d-flex flex-column">
                                 <span class="hu_tt">Horarios y Ubicación</span>
                                 <section class="d-flex w-100 h-100 hormap_ncon">
                                     <section class="ancho">
@@ -570,7 +578,7 @@
 
                                         %>
 
-                                        <section class="card_pro_most card_pro_most_active card_responsive" id="card_pro_neg">
+                                        <section class="card_pro_most card_pro_most_active" id="card_pro_neg">
                                             <span class="pre_sl">$<div class="pre_most_pro" id="pre_most_pro"><%=pre%>
                                                 </div>
                                             </span>
@@ -627,16 +635,17 @@
                     </div>
                     <div class="resenas_otros_usuarios" id="resenas_otros_usuarios">
                         <span class="tittle_n">Reseñas</span>
-                        <section class="d-none justify-content-between">
+                        <section class="d-flex justify-content-between">
                             <button class="esc_res" id="esc_res">Escribir una Reseña</button>
                         </section>
-                        <div class="hacer_resena_neg w-50 d-none" id="hacer_resena_neg">
-                            <section class="d-flex w-100 w-75 comment_realizar_div comment_realizar_div2" method="post">
+                        <div class="hacer_resena_neg w-50" id="hacer_resena_neg">
+                            <form class="d-flex w-100 w-75 comment_realizar_div comment_realizar_div2" method="post" action="Comentar" >
                                 <section class="comment_realizar" id="comment_realizar">
                                     <textarea name="coment_prod_usu_n" id="coment_prod_usu_n" class="coment_prod_usu"
                                               placeholder="Escribir un comentario"></textarea>
                                     <hr>
                                     <section>
+                                        <button type="submit">Comentar</button>
                                         <button type="button" id="cancelar_resena_neg">Cancelar</button>
                                     </section>
                                 </section>
@@ -652,9 +661,8 @@
                                     <input type="checkbox" name="like_neg" id="like_neg" class="d-none">
                                     <input type="hidden" name="idn" value="<%=id%>"/>
                                 </section>
-                            </section>
+                            </form>
                         </div>
-
                         <section class="res_neg_ou">
                             <button id="prev_ros" class="btn prev_ros"><i class="bi bi-caret-left"></i></button>
                             <button id="next_ros" class="btn next_ros"><i class="bi bi-caret-right"></i></button>
@@ -688,6 +696,11 @@
                                     <%
                                         }
                                     %>
+                                    <form action="action" class="form_elim">
+                                        <input type="hidden" name="" value=""/>
+                                        <input type="hidden" class="name_elim" value="ESTE COMENTARIO"/>
+                                        <button type="submit" class="btn btn_elimnegscr_admin" id="elimcom_neg">Eliminar Comentario</button>
+                                    </form>
                                     <i class="bi bi-quote comment_icon_neg"></i>
                                 </section>
 
@@ -698,7 +711,7 @@
                         </section>
                     </div>
                     <section class="w-100 d-flex justify-content-center repo_btn">
-                        <button class="p-2 btn" id="Reporte"><i class="bi bi-flag-fill"></i> Reportar Negocio</button>
+                        <button class="p-2 btn" id="Reporte"><i class="bi bi-flag-fill"></i>Reportar Negocio</button>
                     </section>
                     <!--FOOTER-->
                     <footer class="footeri" id="footer_n">
@@ -773,6 +786,7 @@
             <div class="producto_epecifico_contenedor">
                 <section class="btns_pro_most_esp_res">
                     <button class="btn btns_pro_most bpmer_active" id="IDP">Información del producto</button>
+                    <button class="btn btns_pro_most d-none" id="Resn">Reseñas</button>
                 </section>
                 <div class="Prod_most_espe_cont justify-content-around">
                     <div class="Prod_most_espe_cont1 w-100 h-100 justify-content-around" id="Prod_most_espe_cont1">
@@ -786,6 +800,11 @@
                                 possimus
                                 facere vitae.</span>
                             <span id="dis_pro_esp">Disponibilidad</span>
+                            <form action="action" class="form_elim">
+                                <input type="hidden" name="" value=""/>
+                                <input type="hidden" class="name_elim" value="ESTE PRODUCTO"/>
+                                <button type="submit" class="btn btn_elimnegscr_admin">Eliminar Producto</button>
+                            </form>
                         </section>
                     </div>
                 </div>
@@ -865,8 +884,15 @@
             <section class="img_esp_gr">
                 <img src="" id="img_esp_gr"/>
                 <span>Si desea salir de click fuera de la imagen.</span>
+                <form action="action" class="form_elim">
+                    <input type="hidden" name="" value=""/>
+                    <input type="hidden" class="name_elim" value="ESTA IMAGEN"/>
+                    <button type="submit" class="btn btn_elimnegscr_admin">Eliminar Imagen</button>
+                </form>
             </section>
         </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <%
             c.close();
         %>
@@ -880,18 +906,49 @@
         <%
             if (request.getAttribute("mensaje") != null)
             {
+
+                if (request.getAttribute("mensaje").equals("Ya has guardado este negocio"))
+                {
         %>          
         <script>
-            window.onload = function () {
-                alert("  <%=request.getAttribute("mensaje")%>");
-            };
+
+            Swal.fire({
+                icon: "error",
+                title: "<%=request.getAttribute("mensaje")%>",
+                showConfirmButton: false,
+                timer: 5000
+            });
+
         </script>      
         <%
+        } else
+        {
+        %>          
+        <script>
+
+            Swal.fire({
+                icon: "success",
+                title: "<%=request.getAttribute("mensaje")%>",
+                showConfirmButton: false,
+                timer: 5000
+            });
+
+        </script>      
+        <%
+
+                }
+            }
+        %>
+        <%
+            } else
+            {
+                System.out.println("Error: Sesión no existe");
+                response.sendRedirect("index.jsp");
             }
         %>
         <script src="js/Nav.js"></script>
         <script src="js/negocio.js"></script>
         <script src="js/cu.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="js/elim.js"></script>
     </body>
 </html>

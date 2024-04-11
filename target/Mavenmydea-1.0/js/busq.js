@@ -4,6 +4,7 @@ let neg = document.getElementById("Negocios_btn_busq");
 let usu = document.getElementById("Usuarios_btn_busq");
 let gen = document.getElementById("General_btn_busq");
 let btn_fltr = document.querySelectorAll(".btn_busq");
+var modal = document.getElementById("modal");
 
 busqueda.forEach(function (busqueda_b) {
     busqueda_b.addEventListener('click', function () {
@@ -11,10 +12,12 @@ busqueda.forEach(function (busqueda_b) {
     });
 });
 
+//Funciones de clickeo de Tarjetas
 function copiarDatos(clickeado) {
     var id_busq = clickeado.id;
     let nom = clickeado.querySelector(".nb");
     let desc = clickeado.querySelector(".desc_busq");
+    var anchoVentana = window.innerWidth;
     switch (id_busq) {
         case "negbusq":
             document.getElementById("dir_vp").textContent = clickeado.querySelector("#dir_neg_busq").textContent;
@@ -29,6 +32,23 @@ function copiarDatos(clickeado) {
             document.getElementById("neg_img_vp").style.display = "flex";
             document.getElementById("secc_neg_vp").style.display = "flex";
             document.getElementById("Desc_neg_vp").textContent = clickeado.querySelector("#desc_busq").value;
+            
+            if(anchoVentana <= 1024){
+                document.getElementById("dir_vp_2").textContent = clickeado.querySelector("#dir_neg_busq").textContent;
+                document.getElementById("calf_neg_vp_2").textContent = clickeado.querySelector("#calf_neg_busq").textContent;
+                document.getElementById("com_neg_vp_2").textContent = clickeado.querySelector("#com_neg_busq").textContent;
+                document.getElementById("Nomb_pro_vp_2").textContent = clickeado.querySelector("#nb_busq").textContent;
+                document.getElementById("nd_vp_2").textContent = clickeado.querySelector("#Nom_per_neg_busq").value;
+                document.getElementById("id_neg_vp_2").value = clickeado.querySelector("#id_neg_bus").value;
+                document.getElementById("Logo_Negocio_vp_2").src = clickeado.querySelector("#img_loc_busq").src;
+                document.getElementById("fp_neg_vp_2").src = clickeado.querySelector("#FP_Neg_busq").src;
+                document.getElementById("neg_img_vp_2").src = clickeado.querySelector("#FN_Neg_busq").src;
+                document.getElementById("neg_img_vp_2").style.display = "flex";
+                document.getElementById("secc_neg_vp_2").style.display = "flex";
+                document.getElementById("Desc_neg_vp_2").textContent = clickeado.querySelector("#desc_busq").value;
+
+                modal.style.display = "flex";
+            }
             break;
         case "usubusq":
             let busqueda_usu = clickeado.querySelector("#btn_smt_usu");
@@ -99,3 +119,9 @@ probusq.addEventListener('mouseover', function() {
 probusq.addEventListener('mouseout', function() {
   txtprobusq.style.display = 'flex';
 });
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}

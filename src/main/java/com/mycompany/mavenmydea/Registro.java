@@ -126,6 +126,26 @@ public class Registro extends HttpServlet {
                     System.out.println("telefono: " + enctelefono);
                     System.out.println("correo: " + enccorreo);
                     System.out.println("tipo: " + tipo);
+                    
+                    LocalDateTime hoy = LocalDateTime.now();
+                
+                    String year = Integer.toString(hoy.getYear());
+
+                    String mes = Integer.toString(hoy.getMonthValue());
+
+                    String dia = Integer.toString(hoy.getDayOfMonth());
+
+                    if(hoy.getDayOfMonth()<10){
+                        dia = "0"+dia;
+                    }
+
+                    if(hoy.getMonthValue()<10){
+                        mes="0"+mes;
+                    }
+
+                         String fecha = year +"-"+ mes +"-"+ dia;
+
+                    
 
                     String mensaje = con.Registro(encnombreu, encpassword, encnombrep, enctelefono, enccorreo, tipo);
 

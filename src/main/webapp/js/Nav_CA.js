@@ -9,7 +9,7 @@ let fomr = document.getElementById("formcerrar");
 let edt_h = document.getElementById("btn_edit_h");
 let sav_h = document.getElementById("btn_guardado_h");
 let lgout_h = document.getElementById("btn_lgout_h");
-
+let ver_n = document.getElementById("btn_verf_nav");
 
 count_n.addEventListener("click", () => {
     window.location.href = "Cuenta_Usuario.jsp";
@@ -35,6 +35,10 @@ res_n.addEventListener("click", () => {
     window.location.href = "Comentarios_Hechos.jsp";
 });
 
+ver_n.addEventListener("click", () => {
+    window.location.href = "Verificar_Negocios.jsp";
+});
+
 lgout_n.addEventListener("click", (event) => {
     event.preventDefault();
     Swal.fire({
@@ -52,14 +56,3 @@ lgout_n.addEventListener("click", (event) => {
         }
     });
 });
-
-
-edt_h.addEventListener("click", () => {
-    window.location.href = "Editar_Cuenta.jsp";
-});
-
-sav_h.addEventListener("click", () => {
-    window.location.href = "Guardados.jsp";
-});
-
-

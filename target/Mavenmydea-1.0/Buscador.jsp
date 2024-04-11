@@ -17,7 +17,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" http-equiv="Content-Type" content="width=device-width, initial-scale=1, charset=UTF-8">
         <jsp:include page="templates/Referencias/Todas_Ref.jsp"/>
         <title>Busqueda - <%=Encode.forHtml(request.getParameter("txt"))%></title>
     </head>
@@ -319,9 +319,39 @@
                     </section>
                     <button type="submit" class="btn_busq">Explorar Negocio</button>
                 </section>
-
-
             </form>
+            <div id="modal" class="modal_neg justify-content-center align-items-center">
+                <form class="cont_busq_most_2 Inria" method="post" action="NegocioSC.jsp" >
+                    <input type="text" class="d-none" id="id_neg_vp_2" name="idn" >
+                    <img src="assets/neg2.jpg" alt="" class="neg_img_vp" id="neg_img_vp_2">
+                    <section class=" flex-column secc_neg_vp" id="secc_neg_vp_2">
+                        <img src="assets/Logo_Icon.png" alt="Imgagen Negocio" class="Logo_Negocio_vp" id="Logo_Negocio_vp_2">
+                        <span class="Nomb_pro_vp" id="Nomb_pro_vp_2">Nombre</span>
+                        <section class="d-flex flex-column w-100 justify-content-center">
+                            <section class="d-flex align-items-center nd_vp justify-content-center">
+                                <img src="assets/Logo_Icon.png" alt="" class="fp_neg_vp" id="fp_neg_vp_2">
+                                <span class="de" id="nd_vp_2">Nombre del dueño</span>
+                            </section>
+                        </section>
+                        <span class="Desc_neg_vp" id="Desc_neg_vp_2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem expedita
+                            odio minus ipsa consequuntur, vel architecto rem sed commodi enim error numquam doloremque quae
+                            eaque aliquid totam corrupti voluptate itaque. Lorem ipsum dolor sit, amet consectetur adipisicing
+                            elit. Ratione quam numquam excepturi quo sit non quaerat totam nam minus amet obcaecati voluptate
+                            facere quia architecto dolores aperiam, beatae quidem vero.</span>
+                        <section class="d-flex w-100 cont_dts_neg_vp">
+                            <section class="d-flex align-items-center"><i class="bi bi-geo-alt-fill"></i> <span
+                                    class="dir_vp" id="dir_vp_2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
+                                    quos quasi a
+                                    quod suscipit maiores architecto praesentium culpa nulla obcaecati dicta cumque deserunt
+                                    similique odio, blanditiis consequuntur. Eum, ipsam obcaecati!</span></section></section>
+                        <section class="d-flex flex-column num_vp justify-content-around">
+                            <section class="d-flex"><i class="bi bi-heart-fill"></i><span id="calf_neg_vp_2"> 000000</span></section>
+                            <section class="d-flex"><i class="bi bi-chat-square-dots-fill"></i><span id="com_neg_vp_2">000000</span></section>
+                        </section>
+                        <button type="submit" class="btn_busq">Explorar Negocio</button>
+                    </section>
+                </form>
+            </div>
         </div>
         <script>
             // Activar todos los tooltips
