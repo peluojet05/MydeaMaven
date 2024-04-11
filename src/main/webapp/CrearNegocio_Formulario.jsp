@@ -493,7 +493,6 @@
                                             <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
                                                data-bs-title="Número Telefonico"></i></span>
                                     </li>
-                                    <span class="error">${error_contactos_Vacio}</span>
                                     <!--Telefono-->
                                     <li class="d-flex ctc_l">
                                         <label for="tel_loc_cnf"><i class="bi bi-telephone-fill" data-bs-toggle="tooltip"
@@ -501,6 +500,7 @@
                                                                         type="tel" id="tel_loc_cnf" name="tel_loc_cnf" class="form-control" value="${valorTelefono}"/>
                                                                     
                                     </li>
+                                    <span class="error">${error_telefono_Vacio}</span>
                                     <span class="error">${error_telefono_Invalido}</span>
                                     <!--Email-->
                                     <li class="d-flex ctc_l">
@@ -509,6 +509,7 @@
                                                                      data-bs-title="Correo Electronico (example@dominio.com)"></i></label><input type="text"
                                                                            id="mail_loc_cnf" name="mail_loc_cnf" class="form-control" value="${valorCorreo}"/>
                                     </li>
+                                    <span class="error">${error_correo_Vacio}</span>
                                     <span class="error">${error_correo_Invalido}</span>
                                     <!--Facebook-->
                                     <li class="d-flex ctc_l">
