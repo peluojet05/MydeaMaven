@@ -92,7 +92,7 @@ public class Comentar extends HttpServlet {
                     }
 
                          String fecha = year +"-"+ mes +"-"+ dia;
-            String mensaje = con.Comentario(idn, idu, comentario, like);
+            String mensaje = con.Comentario(idn, idu, comentario, like, fecha);
             
             try {
                 c.close();

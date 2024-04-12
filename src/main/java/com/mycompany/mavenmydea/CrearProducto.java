@@ -171,7 +171,7 @@ public class CrearProducto extends HttpServlet {
 
                          String fecha = year +"-"+ mes +"-"+ dia;
                          
-           String mensaje = con.Agprod( neid,  nombre,  descripcion,  imagen,  precio,  disponibilidad);
+           String mensaje = con.Agprod( neid,  nombre,  descripcion,  imagen,  precio,  disponibilidad, fecha);
            
            try {
                 c.close();

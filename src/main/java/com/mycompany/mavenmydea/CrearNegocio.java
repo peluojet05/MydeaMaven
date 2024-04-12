@@ -54,7 +54,7 @@ public class CrearNegocio extends HttpServlet {
             String Nombre = request.getParameter("N_Neg_cnf");
             request.setAttribute("valorNombreNegocio", Nombre);
             String Tipo = request.getParameter("TP_cnf");
-            List<String> opciones_tipoNegocio = Arrays.asList("Abarrotes", "Materia_Prima", "Restaurantes", "SyP", "Cafetería", "Catering", "Panaderia", "OyF", "Otro");
+            List<String> opciones_tipoNegocio = Arrays.asList("Abarrotes", "Materia_Prima", "Restaurantes", "SyP", "Cafeteria", "Catering", "Panaderia", "OyF", "Otro");
             request.setAttribute("valorTipoNegocio", Tipo);
             String Descripcion = request.getParameter("desc");
             request.setAttribute("valorDescripcion", Descripcion);
@@ -488,7 +488,7 @@ public class CrearNegocio extends HttpServlet {
 
                          String fecha = year +"-"+ mes +"-"+ dia;
                 String mensaje = con.AgNeg(pid, Nombre, Descripcion, Colonia, Calle, Numero, Iextra, Cp, 
-                        Pagina, logo, Tipo, Facebook, Twitter, Instagram, img1, img2, Correo, img3, Telefono);
+                        Pagina, logo, Tipo, Facebook, Twitter, Instagram, img1, img2, Correo, img3, Telefono, fecha);
 
                 int nid = con.Nid(Nombre);
 

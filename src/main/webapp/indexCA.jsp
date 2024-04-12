@@ -22,11 +22,6 @@
     </head>
     <body class="index">
         <jsp:include page="templates/Navegadores/Navegador_CA.jsp"/>
-        <%
-            HttpSession session1 = request.getSession(false);
-            session1.invalidate();
-
-        %>
         <%            Conexion con;
             Connection c;
             Statement stmt;

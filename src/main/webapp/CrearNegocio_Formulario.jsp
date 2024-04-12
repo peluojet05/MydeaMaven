@@ -82,7 +82,7 @@
                                         <option value="Materia_Prima" ${valorTipoNegocio == 'Materia_Prima' ? 'selected' : ''}>Materia Prima</option>
                                         <option value="Restaurantes" ${valorTipoNegocio == 'Restaurantes' ? 'selected' : ''}>Restaurantes</option>
                                         <option value="SyP" ${valorTipoNegocio == 'SyP' ? 'selected' : ''}>Snacks y Postres</option>
-                                        <option value="Cafetería" ${valorTipoNegocio == 'Cafetería' ? 'selected' : ''}>Cafetería</option>
+                                        <option value="Cafeteria" ${valorTipoNegocio == 'Cafeteria' ? 'selected' : ''}>Cafeteria</option>
                                         <option value="Catering" ${valorTipoNegocio == 'Catering' ? 'selected' : ''}>Catering</option>
                                         <option value="Panaderia" ${valorTipoNegocio == 'Panaderia' ? 'selected' : ''}>Panadería</option>
                                         <option value="OyF" ${valorTipoNegocio == 'OyF' ? 'selected' : ''}>Venta de Ortalizas o frutas</option>
@@ -649,7 +649,7 @@
                 if (request.getAttribute("mensaje") != null)
                 {
 
-                    if (request.getAttribute("mensaje").equals("Negocio agregado con exito, ahora puede agregar productos"))
+                    if (request.getAttribute("mensaje").equals("Negocio agregado con exito, ahora puede agregar productos")||request.getAttribute("mensaje").equals("¡Listo! Producto agregado, puede seguir agregando productos"))
                     {
             %>          
         <script>

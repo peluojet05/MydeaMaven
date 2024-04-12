@@ -74,10 +74,10 @@ public class Registro extends HttpServlet {
             String enctelefono = Encode.forHtml(telefono);
             request.setAttribute("valorTelefono", telefono);
             String password = request.getParameter("Con_reg");
-            String encpassword = Encode.forHtml(correo);
+            String encpassword = Encode.forHtml(password);
             request.setAttribute("valorPassword", password);
             String Cpassword = request.getParameter("ConCon_reg");
-            String encCpassword = Encode.forHtml(correo);
+            String encCpassword = Encode.forHtml(Cpassword);
             request.setAttribute("valorCpassword", Cpassword);
             String TyC = request.getParameter("TyC_reg");
             request.setAttribute("valorTyC", TyC);
@@ -147,7 +147,7 @@ public class Registro extends HttpServlet {
 
                     
 
-                    String mensaje = con.Registro(encnombreu, encpassword, encnombrep, enctelefono, enccorreo, tipo);
+                    String mensaje = con.Registro(encnombreu, encpassword, encnombrep, enctelefono, enccorreo, tipo, fecha);
 
                      try {
                         c.close();
@@ -280,8 +280,11 @@ public class Registro extends HttpServlet {
                         }
                         //Contraseñas iguales
                         if(!encCpassword.equals(password)){
+                            System.out.println("Cpassword "+encCpassword );
+                            System.out.println("password "+password );
                             request.setAttribute("error_confirmarContraseña_Invalido", "Las contraseñas no coinciden");
                             error = true;
+                            
                         }
                     }
                     

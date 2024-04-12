@@ -69,7 +69,7 @@ public class SubirNovedad extends HttpServlet {
 
                          String fecha = year +"-"+ mes +"-"+ dia;
             
-            String mensaje = con.Novedad( nombre,  descripcion,  foto,  id);
+            String mensaje = con.Novedad( nombre,  descripcion,  foto,  id, fecha);
             try {
                 c.close();
             } catch (SQLException ex) {

@@ -121,7 +121,7 @@ public class IniciarSesion extends HttpServlet {
                         Persona=c.InfoPersona(encnom);
 
                         String tipo = c.Tipo(encnom);
-
+                        System.out.println("Tipo="+tipo);
                         try {
                             con.close();
                         } catch (SQLException ex) {
@@ -163,6 +163,8 @@ public class IniciarSesion extends HttpServlet {
                             response.sendRedirect("indexCC.jsp");
                         }else if (tipo.equals("2")){
                             response.sendRedirect("indexCV.jsp");
+                        }else if(tipo.equals("3")){
+                            response.sendRedirect("indexCA.jsp");
                         }else{
                             response.sendRedirect("index.jsp");
                         }

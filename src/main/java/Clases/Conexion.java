@@ -30,7 +30,7 @@ public class Conexion {
        try{
            
      //POSTGRE HOST, CON ESTE HACEN LA PULL REQUESTT
-     //
+     /*
      String dbDriver = "org.postgresql.Driver";
      String dbURL = "jdbc:postgresql://ec2-100-26-73-144.compute-1.amazonaws.com/db3v6hean6n35q";
                           
@@ -39,7 +39,7 @@ public class Conexion {
      String dbPassword = "45a8d512e214c8aec0d15935b70c9addc631a10c65bc23296d0e2e2bd0b2f0a0";
      Class.forName(dbDriver).newInstance();
      con = DriverManager.getConnection(dbURL,dbUsername, dbPassword);
-     //
+     */
      
      /*MYSQL LOCAL CAMBIEN LA CONTRASEÑA
      
@@ -55,13 +55,28 @@ public class Conexion {
      dbPassword); 
      */
      
+     // POSTGRE SQL LOCAL POR FAVOR USEN ESTA Y HAGAN TODOS LOS COMMMITS CON ESTA (llamenla MydeaLocal para que no tengan que cambiarlo aqui)
+     
+     String dbDriver = "org.postgresql.Driver";
+     String dbURL = "jdbc:postgresql://localhost/MydeaLocal";
+                          
+             
+     String dbUsername = "postgres";
+     String dbPassword = "Sn0w.2017";
+     Class.forName(dbDriver).newInstance();
+     con = DriverManager.getConnection(dbURL,dbUsername, dbPassword);
+     
+     //
+      
       } catch (Exception e ) {
             System.out.println("erore");
                 System.err.println("Error"+e);
       }
     }
     
-    public String Registro(String usu_nombre, String usu_pass, String per_nombrereal, String per_telefono, String per_correo, String tipo){
+    
+    
+    public String Registro(String usu_nombre, String usu_pass, String per_nombrereal, String per_telefono, String per_correo, String tipo, String fecha){
         
         
         Statement stmt=null;
@@ -121,13 +136,14 @@ public class Conexion {
                 int usu_id =rs.getInt("usu_id");
                 
             PreparedStatement ps3 = con.prepareStatement("INSERT INTO Persona(usu_id, per_telefono, per_nombrecompleto, "
-                    + "per_correo) VALUES(? , ? , ? , ? );");
+                    + "per_correo, per_fecha) VALUES(? , ? , ? , ?, ? );");
                 
                 ps3.setInt(1, usu_id);
                 ps3.setString(2, per_telefono);
                 ps3.setString(3, per_nombrereal);
-                ps3.setString(3, per_correo);
-                
+                ps3.setString(4, per_correo);
+                ps3.setString(5, fecha);    
+                ps3.execute();
             }
 
         }
@@ -277,7 +293,7 @@ public class Conexion {
     }
     
     public String AgNeg(String uid, String nombre, String desc, String colonia, String calle, String numero, String indicaciones, String cp, String web, 
-        String logo, String tema, String fb, String tw, String ig, String ft1, String ft2, String correo, String ft3, String tel){
+        String logo, String tema, String fb, String tw, String ig, String ft1, String ft2, String correo, String ft3, String tel, String fecha){
         
         String mensaje=null;
     
@@ -332,8 +348,8 @@ public class Conexion {
                 int dir_id =rs.getInt("dir_id");
                 
                 PreparedStatement psd = con.prepareStatement("INSERT INTO Negocio(neg_correo, neg_telefono, neg_logo, neg_descripcion, neg_facebook, neg_instagram, neg_twitter, neg_web, per_id,"
-                     + " neg_nombre, dir_id, tem_id, neg_imagen1, neg_imagen2, neg_imagen3)"
-            + "VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
+                     + " neg_nombre, dir_id, tem_id, neg_imagen1, neg_imagen2, neg_imagen3, neg_fecha)"
+            + "VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
                 psd.setString(1, correo);
                 psd.setString(2, tel);
                 psd.setString(3, logo);
@@ -349,6 +365,7 @@ public class Conexion {
                 psd.setString(13, ft1);
                 psd.setString(14, ft2);
                 psd.setString(15, ft3);
+                psd.setString(16, fecha);
                 
                 psd.execute();
              
@@ -408,14 +425,14 @@ public class Conexion {
     }
     
         
-    public String Agprod(String neid, String nombre, String descripcion, String imagen, String precio, String dis){
+    public String Agprod(String neid, String nombre, String descripcion, String imagen, String precio, String dis, String fecha){
         String mensaje=null;
       
         try{
          Statement stmt=con.createStatement();
          
-            String sql="insert into Producto(pro_nombre, pro_descripcion, pro_precio, neg_id, dis_id, pro_imagen)"
-                    + "values(?, ?, ?, ?, ?, ?);";
+            String sql="insert into Producto(pro_nombre, pro_descripcion, pro_precio, neg_id, dis_id, pro_imagen, pro_fecha)"
+                    + "values(?, ?, ?, ?, ?, ?, ?);";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, nombre);
             ps.setString(2, descripcion);
@@ -423,6 +440,7 @@ public class Conexion {
             ps.setInt(4, Integer.parseInt(neid));
             ps.setInt(5, Integer.parseInt(dis));
             ps.setString(6, imagen);
+            ps.setString(7, fecha);
             
             ps.execute();
             
@@ -585,16 +603,17 @@ public class Conexion {
         
     }
     
-    public String Novedad(String nombre, String descripcion, String foto, String id){
+    public String Novedad(String nombre, String descripcion, String foto, String id, String fecha){
         String mensaje=null;
         try{
            
-            String sql3 = "Insert into Novedad(neg_id, nov_nombre, nov_descripcion, nov_foto) Values( ?, ?, ?, ?);";
+            String sql3 = "Insert into Novedad(neg_id, nov_nombre, nov_descripcion, nov_foto, nov_fecha) Values( ?, ?, ?, ?, ?);";
             PreparedStatement ps = con.prepareStatement(sql3);
             ps.setInt(1, Integer.parseInt(id));
             ps.setString(2, nombre);
             ps.setString(3, descripcion);
             ps.setString(4, foto);
+            ps.setString(5, fecha);
             ps.execute();
             
             
@@ -683,18 +702,19 @@ public class Conexion {
         
     }
     
-    public String Comentario(String idn, int idu, String comentario, String like){
+    public String Comentario(String idn, int idu, String comentario, String like, String fecha){
         String mensaje = "Comentario realizado";
         try{
           
             
             
-            String sql3 = "Insert into Feedback(neg_id, per_id, fed_comentario, fed_like) Values( ? , ? , ? , ? );";
+            String sql3 = "Insert into Feedback(neg_id, per_id, fed_comentario, fed_like, fed_fecha) Values( ? , ? , ? , ?, ? );";
             PreparedStatement ps = con.prepareStatement(sql3);
             ps.setInt(1, Integer.parseInt(idn));
             ps.setInt(2, idu);
             ps.setString(3, comentario);
             ps.setBoolean(4, Boolean.valueOf(like));
+            ps.setString(5, fecha);
             ps.execute();
             
             
