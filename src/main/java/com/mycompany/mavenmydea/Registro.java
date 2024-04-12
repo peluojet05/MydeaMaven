@@ -279,9 +279,13 @@ public class Registro extends HttpServlet {
                             error = true;
                         }
                         //Contraseñas iguales
+<<<<<<< HEAD
                         if(!encCpassword.equals(password)){
                             System.out.println("Cpassword "+encCpassword );
                             System.out.println("password "+password );
+=======
+                        if(!encCpassword.equals(encpassword)){
+>>>>>>> 75a4c32ca2dd154c52f4aeb3eac72e382de9fc69
                             request.setAttribute("error_confirmarContraseña_Invalido", "Las contraseñas no coinciden");
                             error = true;
                             
@@ -316,11 +320,11 @@ public class Registro extends HttpServlet {
                 }        
                 
                 else {
-                    request.getSession().setAttribute("nombrep", nombrep);
-                    request.getSession().setAttribute("nombreu", nombreu);
-                    request.getSession().setAttribute("email", correo);
-                    request.getSession().setAttribute("telefono", telefono);
-                    request.getSession().setAttribute("password", password);
+                    request.getSession().setAttribute("nombrep", encnombrep);
+                    request.getSession().setAttribute("nombreu", encnombreu);
+                    request.getSession().setAttribute("email", enccorreo);
+                    request.getSession().setAttribute("telefono", enctelefono);
+                    request.getSession().setAttribute("password", encpassword);
                     request.getSession().setAttribute("tipo", tipo);
                     
                     

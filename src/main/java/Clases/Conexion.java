@@ -29,7 +29,8 @@ public class Conexion {
     public void setCon() {
        try{
            
-     //POSTGRE HOST, CON ESTE HACEN LA PULL REQUESTT
+      //POSTGRE HOST, CON ESTE HACEN LA PULL REQUESTT
+     
      /*
      String dbDriver = "org.postgresql.Driver";
      String dbURL = "jdbc:postgresql://ec2-100-26-73-144.compute-1.amazonaws.com/db3v6hean6n35q";
@@ -39,23 +40,22 @@ public class Conexion {
      String dbPassword = "45a8d512e214c8aec0d15935b70c9addc631a10c65bc23296d0e2e2bd0b2f0a0";
      Class.forName(dbDriver).newInstance();
      con = DriverManager.getConnection(dbURL,dbUsername, dbPassword);
-     */
      
-     /*MYSQL LOCAL CAMBIEN LA CONTRASEÑA
+     */
+     //MYSQL LOCAL CAMBIEN LA CONTRASEÑA
      
      String dbDriver = "com.mysql.jdbc.Driver";
      String dbURL = "jdbc:mysql://localhost:3306/";
                 // Database name to access
      String dbName = "mydea";
      String dbUsername = "root";
-     String dbPassword = "20232707SQL.";
+     String dbPassword = "reinasusy";
      Class.forName(dbDriver).newInstance();
      con = DriverManager.getConnection(dbURL + dbName,
      dbUsername,
      dbPassword); 
-     */
      
-     // POSTGRE SQL LOCAL POR FAVOR USEN ESTA Y HAGAN TODOS LOS COMMMITS CON ESTA (llamenla MydeaLocal para que no tengan que cambiarlo aqui)
+     /* POSTGRE SQL LOCAL POR FAVOR USEN ESTA Y HAGAN TODOS LOS COMMMITS CON ESTA (llamenla MydeaLocal para que no tengan que cambiarlo aqui)
      
      String dbDriver = "org.postgresql.Driver";
      String dbURL = "jdbc:postgresql://localhost/MydeaLocal";
@@ -66,7 +66,7 @@ public class Conexion {
      Class.forName(dbDriver).newInstance();
      con = DriverManager.getConnection(dbURL,dbUsername, dbPassword);
      
-     //
+     */
       
       } catch (Exception e ) {
             System.out.println("erore");

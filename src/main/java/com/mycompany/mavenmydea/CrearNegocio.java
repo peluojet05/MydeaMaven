@@ -29,6 +29,8 @@ import java.util.List;
 //expresiones
 import java.util.regex.Pattern;
 
+import org.owasp.encoder.Encode;
+
 /**
  *
  * @author Diego
@@ -52,11 +54,13 @@ public class CrearNegocio extends HttpServlet {
             
             //Datos del negocio
             String Nombre = request.getParameter("N_Neg_cnf");
+            String encNombre = Encode.forHtml(Nombre);
             request.setAttribute("valorNombreNegocio", Nombre);
             String Tipo = request.getParameter("TP_cnf");
             List<String> opciones_tipoNegocio = Arrays.asList("Abarrotes", "Materia_Prima", "Restaurantes", "SyP", "Cafeteria", "Catering", "Panaderia", "OyF", "Otro");
             request.setAttribute("valorTipoNegocio", Tipo);
             String Descripcion = request.getParameter("desc");
+            String encDescripcion = Encode.forHtml(Descripcion);
             request.setAttribute("valorDescripcion", Descripcion);
             
             //Horario
@@ -140,28 +144,39 @@ public class CrearNegocio extends HttpServlet {
             
             //Direccion
             String Cp = request.getParameter("cpp");
+            String encCp = Encode.forHtml(Cp);
             request.setAttribute("valorCp", Cp);
             String Colonia = request.getParameter("colonia");
+            String encColonia = Encode.forHtml(Colonia);
             request.setAttribute("valorColonia", Colonia);
             String Numero = request.getParameter("numero");
+            String encNumero = Encode.forHtml(Numero);
             request.setAttribute("valorNumero", Numero);
             String Calle = request.getParameter("calle");
+            String encCalle = Encode.forHtml(Calle);
             request.setAttribute("valorCalle", Calle);
             String Iextra = request.getParameter("iextra");
+            String encIextra = Encode.forHtml(Iextra);
             request.setAttribute("valorIextra", Iextra);
             
             //contactos
             String Telefono = request.getParameter("tel_loc_cnf");
+            String encTelefono = Encode.forHtml(Telefono);
             request.setAttribute("valorTelefono", Telefono);
             String Correo = request.getParameter("mail_loc_cnf");
+            String encCorreo = Encode.forHtml(Correo);
             request.setAttribute("valorCorreo", Correo);
             String Facebook = request.getParameter("face_loc_cnf");
+            String encFacebook = Encode.forHtml(Facebook);
             request.setAttribute("valorFacebook", Facebook);
             String Instagram = request.getParameter("inst_loc_cnf");
+            String encInstagram = Encode.forHtml(Instagram);
             request.setAttribute("valorInstagram", Instagram);
             String Twitter = request.getParameter("twit_loc_cnf");
+            String encTwitter = Encode.forHtml(Twitter);
             request.setAttribute("valorTwitter", Twitter);
             String Pagina = request.getParameter("web_loc_cnf");
+            String encPagina = Encode.forHtml(Pagina);
             request.setAttribute("valorPagina", Pagina);
 
             //Imagenes
@@ -177,13 +192,14 @@ public class CrearNegocio extends HttpServlet {
                     //Correo
                     String regex_Correo = "^[\\w-]+(\\.[\\w-]+)*@[\\w-]+(\\.[\\w-]+)*(\\.[a-zA-Z]{2,})$";
                     //Facebook
-                    String regex_Facebook = "^(https?:\\\\/\\\\/)?(www\\\\.)?facebook\\\\.com\\\\/.*";
-                    //Instagram
-                    String regex_Instagram = "^(https?:\\\\/\\\\/)?(www\\\\.)?instagram\\\\.com\\\\/.*";
+                    String regex_Facebook = "^https?://(www\\.)?facebook\\.com/[a-zA-Z0-9.-]+(/\\S*)?$";
+                    //Instagram 
+                    String regex_Instagram = "^https://www.instagram.com/[a-zA-Z0-9_\\.]+$";
                     //Twitter
-                    String regex_Twitter = "^(https?:\\\\/\\\\/)?(www\\\\.)?twitter\\\\.com\\\\/.*";
+                    String regex_Twitter = "^https?://twitter\\.com/[a-zA-Z0-9_]{1,15}$";
                     //Pagina
-                    String regex_Pagina = "^(http:\\\\/\\\\/www\\\\.|https:\\\\/\\\\/www\\\\.|http:\\\\/\\\\/|https:\\\\/\\\\/)?[a-z0-9]+([\\\\-\\\\.]{1}[a-z0-9]+)*\\\\.[a-z]{2,5}(:[0-9]{1,5})?(\\\\/.*)?$";
+                    String regex_Pagina = "^https?://[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}(/\\S*)?$";
+
 
             
             
@@ -192,15 +208,15 @@ public class CrearNegocio extends HttpServlet {
             boolean error = false;
             
             //Nombre del negocio
-                    if(Nombre != null){
-                        Nombre = Nombre.trim();
+                    if(encNombre != null){
+                        encNombre = encNombre.trim();
                         //Que no este vacio
-                        if(Nombre.isEmpty()){
+                        if(encNombre.isEmpty()){
                             request.setAttribute("error_nombreNegocio_Vacio", "Ingrese el nombre de su local");
                             error = true;
                         }
                         //Muy largo
-                        if(Nombre.length() > 60){
+                        if(encNombre.length() > 60){
                             request.setAttribute("error_nombreNegocio_Largo", "Solo se permiten hasta 60 caracteres");
                             error = true;
                         }
@@ -222,15 +238,15 @@ public class CrearNegocio extends HttpServlet {
                     
                     
             //Descripcion del negocio
-                    if(Descripcion != null){
-                        Descripcion = Descripcion.trim();
+                    if(encDescripcion != null){
+                        encDescripcion = encDescripcion.trim();
                         //Que no este vacio
-                        if(Descripcion.isEmpty()){
+                        if(encDescripcion.isEmpty()){
                             request.setAttribute("error_descripcionNegocio_Vacio", "Ingrese la descripcion de su negocio");
                             error = true;
                         }
                         //Muy largo
-                        if(Descripcion.length() > 500){
+                        if(encDescripcion.length() > 500){
                             request.setAttribute("error_descripcionNegocio_Largo", "Solo se permiten hasta 500 caracteres");
                             error = true;
                         }
@@ -316,9 +332,9 @@ public class CrearNegocio extends HttpServlet {
                     
                 //Direccion del local
                     //Cp
-                    if(Cp != null){
-                        Cp = Cp.trim();
-                        if(Cp == null || Cp.isEmpty() || !Cp.matches("\\d+") || Cp.length() != 5){
+                    if(encCp != null){
+                        encCp = encCp.trim();
+                        if(encCp == null || encCp.isEmpty() || !encCp.matches("\\d+") || encCp.length() != 5){
                             request.setAttribute("error_codigoPostal_Invalido", "Ingrese un codigo postal");
                             error = true;
                         }
@@ -328,15 +344,15 @@ public class CrearNegocio extends HttpServlet {
                     }
                     
                     //Colonia
-                    if(Colonia != null){
-                        Colonia = Colonia.trim();
+                    if(encColonia != null){
+                        encColonia = encColonia.trim();
                         
-                        if (Colonia == null || Colonia.isEmpty()){
+                        if (encColonia == null || encColonia.isEmpty()){
                             request.setAttribute("error_colonia_Vacio", "Ingrese la colonia donde se ubica su local");
                             error = true;
                         }
 
-                        if (Colonia == null || Colonia.length() > 80){
+                        if (encColonia == null || encColonia.length() > 80){
                             request.setAttribute("error_colonia_Largo", "Solo se permite un maximo de 80 caracteres");
                             error = true;
                         }
@@ -346,14 +362,14 @@ public class CrearNegocio extends HttpServlet {
                     }
                     
                     //Calle
-                    if(Calle != null){
-                        Calle = Calle.trim();
-                        if(Calle == null || Calle.isEmpty()){
+                    if(encCalle != null){
+                        encCalle = encCalle.trim();
+                        if(encCalle == null || encCalle.isEmpty()){
                             request.setAttribute("error_calle_Vacio", "Ingrese la calle donde esta ubicado su local");
                             error = true;
                         }
 
-                        if(Calle == null || Calle.length() > 100){
+                        if(encCalle == null || Calle.length() > 100){
                             request.setAttribute("error_calle_Largo", "Solo se permite un maximo de 100 caracteres");
                             error = true;
                         }
@@ -363,9 +379,9 @@ public class CrearNegocio extends HttpServlet {
                     }
                     
                     //Numero
-                    if(Numero != null){
-                        Numero = Numero.trim();
-                        if(Numero == null || Numero.isEmpty() || !Numero.matches("\\d+")){
+                    if(encNumero != null){
+                        encNumero = encNumero.trim();
+                        if(encNumero == null || encNumero.isEmpty() || !encNumero.matches("\\d+")){
                             request.setAttribute("error_numero_Invalido", "Ingrese el numero de su calle");
                             error = true;
                         }
@@ -375,7 +391,7 @@ public class CrearNegocio extends HttpServlet {
                     }
                     
                     //Info extra                    
-                    if(Iextra.length() > 300){
+                    if(encIextra.length() > 300){
                         request.setAttribute("error_infoExtra_Largo", "Se permite un maximo de 300 caracteres");
                         error = true;
                     }
@@ -383,22 +399,48 @@ public class CrearNegocio extends HttpServlet {
                 //Contactos
                     //Minimo un contacto
                     
-                    if(Telefono.isEmpty() && Correo.isEmpty() && Facebook.isEmpty() && Instagram.isEmpty() && Twitter.isEmpty() && Pagina.isEmpty()){
+                    /*if(Telefono.isEmpty() && Correo.isEmpty() && Facebook.isEmpty() && Instagram.isEmpty() && Twitter.isEmpty() && Pagina.isEmpty()){
                         request.setAttribute("error_contactos_Vacio", "Por favor, seleccione al menos un medio de contactacto");
                         error = true;
-                    }
+                    }*/
                     
                     //Telefono
-                    if(!Telefono.isEmpty() && !Pattern.matches(regex_Telefono, Telefono)){
-                        request.setAttribute("error_telefono_Invalido", "Ingrese un numero de telefono valido");
+                    if(encTelefono != null){
+                        encTelefono = encTelefono.trim();
+                        //Que no este vacio
+                        if(encTelefono.isEmpty()){
+                            request.setAttribute("error_telefono_Vacio", "El campo no debe de estar vacio");
+                            error = true;
+                        }
+                        //Que sea valido el telefono
+                        if(!Pattern.matches(regex_Telefono, encTelefono)){
+                            request.setAttribute("error_telefono_Invalido", "Ingrese un numero de telefono valido");
+                            error = true;
+                        }
+                    } else {
+                        request.setAttribute("error_telefono_Vacio", "El campo no debe de estar vacio");
                         error = true;
                     }
                     
                     //Correo
-                    if(!Correo.isEmpty() && !Pattern.matches(regex_Correo, Correo)){
-                        request.setAttribute("error_correo_Invalido", "Ingrese un correo electronico valido");
+                    if(encCorreo != null){
+                        encCorreo = encCorreo.trim();
+                        //Que no este vacio
+                        if(encCorreo.isEmpty()){
+                            request.setAttribute("error_correo_Vacio", "El campo no debe de estar vacio");
+                            error = true;
+                        }
+                        //Que sea correcto el correo
+                        if(!Pattern.matches(regex_Correo, encCorreo)){
+                            request.setAttribute("error_correo_Invalido", "Ingrese un correo electronico valido");
+                            error = true;
+                        } 
+                    } else {
+                        request.setAttribute("error_correo_Vacio", "El campo no debe de estar vacio");
                         error = true;
                     }
+                    
+                    //opcionales
                     
                     //Facebook
                     if(!Facebook.isEmpty() && !Pattern.matches(regex_Facebook, Facebook)){
@@ -470,10 +512,10 @@ public class CrearNegocio extends HttpServlet {
 
 
                 String pid = Integer.toString(id);
-                LocalDateTime hoy = LocalDateTime.now();
-                
-                    String year = Integer.toString(hoy.getYear());
+                String mensaje = con.AgNeg(pid, encNombre, encDescripcion, encColonia, encCalle, encNumero, encIextra, encCp, 
+                        encPagina, logo, Tipo, encFacebook, encTwitter, encInstagram, img1, img2, encCorreo, img3, encTelefono);
 
+<<<<<<< HEAD
                     String mes = Integer.toString(hoy.getMonthValue());
 
                     String dia = Integer.toString(hoy.getDayOfMonth());
@@ -491,6 +533,9 @@ public class CrearNegocio extends HttpServlet {
                         Pagina, logo, Tipo, Facebook, Twitter, Instagram, img1, img2, Correo, img3, Telefono, fecha);
 
                 int nid = con.Nid(Nombre);
+=======
+                int nid = con.Nid(encNombre);
+>>>>>>> 75a4c32ca2dd154c52f4aeb3eac72e382de9fc69
 
                 String neid = Integer.toString(nid);
                 

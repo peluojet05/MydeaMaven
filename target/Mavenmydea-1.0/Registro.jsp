@@ -19,7 +19,7 @@
                         <span>Ya estás un paso más cerca de formar parte de la enorme comunidad de MYDEA.<br> Por favor complete los campos solicitados para terminar su registro.</span>
                     </section>
                     <ul class="d-flex list_inp_reg justify-content-around">
-                        <li><label for="Nom_com_reg">Nombre Completo</label><input value="${valorNombreP}" type="text" id="Nom_com_reg" name="Nom_com_reg" class="form-control" placeholder=" Nombre Completo">
+                        <li><label for="Nom_com_reg">Nombre Completo</label><input value="${valorNombreP}" type="text" id="Nom_com_reg" name="Nom_com_reg" class="form-control" placeholder=" Nombre Completo" onkeypress="return Letras(event)">
                             <span class="error">${error_nombreCompleto_Vacio}</span>
                             <span class="error">${error_nombreCompleto_Largo}</span>
                             <span class="error">${error_nombreCompleto_Invalido}</span></li>
@@ -31,7 +31,7 @@
                             <span class="error">${error_correo_Vacio}</span>
                             <span class="error">${error_correo_Invalido}</span>
                         </li>
-                        <li><label for="Num_reg">Número Telefónico</label><input value="${valorTelefono}" type="tel" id="Num_reg" name="Num_reg" class="form-control" placeholder=" Numero Telefonico" autocomplete="new-password">
+                        <li><label for="Num_reg">Número Telefónico</label><input value="${valorTelefono}" type="tel" id="Num_reg" name="Num_reg" class="form-control" placeholder=" Numero Telefonico" autocomplete="new-password" onkeypress="return Numeros(event)">
                             <span class="error">${error_telefono_Vacio}</span>
                             <span class="error">${error_telefono_Invalido}</span>
                         </li>
@@ -58,11 +58,10 @@
                     <span class="error">${error_tipoCuenta_Invalido}</span>
                     <ul class="d-flex w-100 justify-content-around avisos">
                         <li><input type="checkbox" id="TyC_reg" name="TyC_reg" ${not empty requestScope.valorTyC ? 'checked' : ''}><a href="Terminos_Condiciones.jsp" target="_blank"><span>Aceptar Términos y Condiciones</span></a></li>
+                        <span class="error">${error_TyC_Vacio}</span>
                         <li><input type="checkbox" id="AP_reg" name="AP_reg"><a href="Aviso_Privacidad.jsp" target="_blank" ${not empty requestScope.valorAP ? 'checked' : ''}><span>Aceptar Aviso de Privacidad</span></a></li>
+                        <span class="error">${error_AP_Vacio}</span>
                     </ul>        
-                    <span class="error">${error_TyC_Vacio}</span>
-                    <span class="error">${error_AP_Vacio}</span>
-
                     <span>¿Ya tienes una cuenta? <a href="Iniciar_Sesion.jsp" class="txt_or">Iniciar Sesión</a> </span>
 
                 </div>
@@ -90,5 +89,6 @@
         %>
         <script src="js/Nav.js"></script>
         <script src="js/reg.js"></script>
+        <script src="js/Caracteres.js"></script>
     </body>
 </html>

@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="org.owasp.encoder.Encode" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -117,7 +118,7 @@
             <input class="form-control" type="text" id="code" name="codigo"><br>
             <span>${error_codigo}</span>
             <%-- Recuperar los datos de la sesión --%>
-            <input type="hidden" name="Nom_usu_is" value="<%= session.getAttribute("nom") %>">
+            <input type="hidden" name="Nom_usu_is" value="<%= Encode.forHtmlAttribute((String) session.getAttribute("nom")) %>">
             <input type="hidden" name="Email_is" value="<%= session.getAttribute("correo") %>">
             <input type="hidden" name="Con_is" value="<%= session.getAttribute("pass") %>">
             <input type="submit" value="Confirmar">

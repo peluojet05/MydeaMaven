@@ -33,6 +33,10 @@ import java.util.Random;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
+
+import org.owasp.encoder.Encode;
+
+
 /**
  *
  * @author Diego
@@ -56,22 +60,31 @@ public class EditarCuenta extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             
             String nombreu = request.getParameter("nomu");
+            String encnombreu = Encode.forHtml(nombreu);
             request.setAttribute("valorNomu", nombreu);
             String nombrec = request.getParameter("nomc");
+            String encnombrec = Encode.forHtml(nombrec);
             request.setAttribute("valorNomc", nombrec);
             String correo = request.getParameter("correo");
+            String enccorreo = Encode.forHtml(correo);
             request.setAttribute("valorCorr", correo);
             String descripcion = request.getParameter("desc");
+            String encdescripcion = Encode.forHtml(descripcion);
             request.setAttribute("valorDesc", descripcion);
             String telefono = request.getParameter("telefono");
+            String enctelefono = Encode.forHtml(telefono);
             request.setAttribute("valorTelef", telefono);
             String facebook = request.getParameter("fb");
+            String encfacebook = Encode.forHtml(facebook);
             request.setAttribute("valorFb", facebook);
             String instagram = request.getParameter("ig");
+            String encinstagram = Encode.forHtml(instagram);
             request.setAttribute("valorIg", instagram);
             String twitter = request.getParameter("tw");
+            String enctwitter = Encode.forHtml(twitter);
             request.setAttribute("valorTwit", twitter);
             String web = request.getParameter("web");
+            String encweb = Encode.forHtml(web);
             request.setAttribute("valorWeb", web);
             String foto = request.getParameter("foto");
             request.setAttribute("valorFot", foto);
@@ -87,8 +100,19 @@ public class EditarCuenta extends HttpServlet {
                 //Contraseña
                 String regex_Contraseña = "^(?=.*[0-9]).*$";
                 
+                //Redes sociales
+                    //Facebook
+                    String regex_Facebook = "^https?://(www\\.)?facebook\\.com/[a-zA-Z0-9.-]+(/\\S*)?$";
+                    //Instagram 
+                    String regex_Instagram = "^https://www.instagram.com/[a-zA-Z0-9_\\.]+$";
+                    //Twitter
+                    String regex_Twitter = "^https?://twitter\\.com/[a-zA-Z0-9_]{1,15}$";
+                    //Pagina
+                    String regex_Pagina = "^https?://[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}(/\\S*)?$";
+                
             //Codigo
             String codigo = request.getParameter("codigo");
+            String enccodigo = Encode.forHtml(codigo);
 
             HttpSession misession= (HttpSession) request.getSession();
             Usuario usuario= (Usuario) misession.getAttribute("usuario");
@@ -107,14 +131,14 @@ public class EditarCuenta extends HttpServlet {
             boolean error = false;
             
             //Correo
-            if(correo.equals("")){
-                correo=correoa;
+            if(enccorreo.equals("")){
+                enccorreo=correoa;
             } else {
-                correo = correo.trim();
-                if (!Pattern.matches(regex_Correo, correo)) {
+                enccorreo = enccorreo.trim();
+                if (!Pattern.matches(regex_Correo, enccorreo)) {
                     request.setAttribute("error_correo_Invalido", "Ingrese un correo valido");
                     error = true;
-                } else if (!correo.equals(correoa) && codigo != null) { // Verifica si el correo ha cambiado
+                } else if (!enccorreo.equals(correoa) && codigo != null) { // Verifica si el correo ha cambiado
                     // Confirmación del código
                     String codigoCompletado = (String) request.getSession().getAttribute("confirmationCode");
                     LocalDateTime generationTime = (LocalDateTime) request.getSession().getAttribute("generationTime");
@@ -123,7 +147,7 @@ public class EditarCuenta extends HttpServlet {
                     if (ChronoUnit.MINUTES.between(generationTime, LocalDateTime.now()) > 5) {
                         request.setAttribute("error_codigo", "El código de confirmación ha caducado");
                         error = true;
-                    } else if (!codigo.equals(codigoCompletado)) {
+                    } else if (!enccodigo.equals(codigoCompletado)) {
                         request.setAttribute("error_codigo", "El código de confirmación no es correcto");
                         error = true;
                     } else {
@@ -132,8 +156,8 @@ public class EditarCuenta extends HttpServlet {
                         con.setCon();
                         c=con.getCon();
 
-                        String mensaje = con.EUsuario(nombreu,nombreua,nombrec,correo,descripcion,telefono,facebook,instagram,twitter,
-                                web,foto,correoa,telefonoa);
+                        String mensaje = con.EUsuario(encnombreu,nombreua,encnombrec,enccorreo,encdescripcion,enctelefono,encfacebook,encinstagram,enctwitter,
+                                encweb,foto,correoa,telefonoa);
 
                         try {
                             c.close();
@@ -145,16 +169,16 @@ public class EditarCuenta extends HttpServlet {
                                 mensaje="Datos actualizados correctamente";
                                request.setAttribute("mensaje", mensaje);
 
-                               usuario.setUsu_nom(nombreu);
-                               per.setPer_correo(correo);
-                               per.setPer_descripcion(descripcion);
-                               per.setPer_fb(facebook);
+                               usuario.setUsu_nom(encnombreu);
+                               per.setPer_correo(enccorreo);
+                               per.setPer_descripcion(encdescripcion);
+                               per.setPer_fb(encfacebook);
                                per.setPer_foto(foto);
-                               per.setPer_ig(instagram);
-                               per.setPer_nombrereal(nombrec);
-                               per.setPer_telefono(telefono);
-                               per.setPer_twitter(twitter);
-                               per.setPer_web(web);
+                               per.setPer_ig(encinstagram);
+                               per.setPer_nombrereal(encnombrec);
+                               per.setPer_telefono(enctelefono);
+                               per.setPer_twitter(enctwitter);
+                               per.setPer_web(encweb);
 
                               RequestDispatcher rd = request.getRequestDispatcher("Editar_CuentaCV.jsp");
                               rd.forward(request, response);
@@ -172,19 +196,19 @@ public class EditarCuenta extends HttpServlet {
                 }
             }
             //Nombre usuario
-            if(nombreu.equals("")){
-            nombreu=nombreua;
+            if(encnombreu.equals("")){
+            encnombreu=nombreua;
             } else {
-                if(nombreu != null){
-                    nombreu = nombreu.trim();
+                if(encnombreu != null){
+                    encnombreu = encnombreu.trim();
                     if(!nombreu.equals(nombreua)){
 
-                        if(nombreu.isEmpty()){
+                        if(encnombreu.isEmpty()){
                             request.setAttribute("error_nombreU_Vacio", "El campo no debe de estar vacio");
                             error = true;
                         }
 
-                        if(nombreu.length() > 60){
+                        if(encnombreu.length() > 60){
                             request.setAttribute("error_nombreu_Largo", "Solo se permiten 60 caracteres");
                             error = true;
                         }
@@ -193,24 +217,24 @@ public class EditarCuenta extends HttpServlet {
             }
             
             //Nombre completo
-            if(nombrec.equals("")){
-                nombrec=nombreca;
+            if(encnombrec.equals("")){
+                encnombrec=nombreca;
             } else {
-                if(nombrec != null){
-                    nombrec = nombrec.trim();
-                    if(!nombrec.equals(nombreca)){
+                if(encnombrec != null){
+                    encnombrec = encnombrec.trim();
+                    if(!encnombrec.equals(nombreca)){
 
-                        if(nombrec.isEmpty()){
+                        if(encnombrec.isEmpty()){
                             request.setAttribute("error_nombreC_Vacio", "El campo no debe de estar vacio");
                             error = true;
                         }
 
-                        if(nombrec.length() > 60){
+                        if(encnombrec.length() > 60){
                             request.setAttribute("error_nombreC_Largo", "Solo se permiten 60 caracteres");
                             error = true;
                         }
 
-                        if(!Pattern.matches(regex_Letras, nombrec)){
+                        if(!Pattern.matches(regex_Letras, encnombrec)){
                             request.setAttribute("error_nombreC_Invalido", "Solo se permiten letras");
                             error = true;
                         }
@@ -218,24 +242,31 @@ public class EditarCuenta extends HttpServlet {
                 }
             }
             //descripcion
-            if(descripcion.equals("")){
-                descripcion=desca;
+            if(encdescripcion.equals("")){
+                encdescripcion=desca;
+            } else {
+                if(encdescripcion != null){
+                    if(encdescripcion.length() > 500){
+                    request.setAttribute("error_descripcionCuenta_Largo", "Solo se permiten hasta 500 caracteres");
+                    error = true;
+                    }
+                }
             }
             
             //telefono
-            if(telefono.equals("")){
-                telefono=telefonoa;
+            if(enctelefono.equals("")){
+                enctelefono=telefonoa;
             } else {
-                if(telefono != null){
-                    telefono = telefono.trim();
-                    if(!telefono.equals(telefonoa)){
+                if(enctelefono != null){
+                    enctelefono = enctelefono.trim();
+                    if(!enctelefono.equals(telefonoa)){
 
-                        if(telefono.isEmpty()){
+                        if(enctelefono.isEmpty()){
                             request.setAttribute("error_telefono_Vacio", "El campo no debe de estar vacio");
                             error = true;
                         }
                         //
-                        if(!Pattern.matches(regex_Telefono, telefono)){
+                        if(!Pattern.matches(regex_Telefono, enctelefono)){
                             request.setAttribute("error_telefono_Invalido", "Ingrese un numero de telefono valido");
                             error = true;
                         }
@@ -243,17 +274,50 @@ public class EditarCuenta extends HttpServlet {
                 }
             }
             
-            if(facebook.equals("")){
-                facebook=fba;
+            if(encfacebook.equals("")){
+                encfacebook=fba;
+            } else {
+                if(encfacebook != null){
+                    encfacebook = encfacebook.trim();
+                    if(!Pattern.matches(regex_Facebook, encfacebook)){
+                        request.setAttribute("error_facebook_Invalido", "Ingrese un link de facebook valido");
+                        error = true;
+                    }
+                }
             }
-            if(instagram.equals("")){
-                instagram=iga;
+            if(encinstagram.equals("")){
+                encinstagram=iga;
+            }else {
+                if(encinstagram != null){
+                    encinstagram = encinstagram.trim();
+                    if(!Pattern.matches(regex_Instagram, encinstagram)){
+                        request.setAttribute("error_instagram_Invalido", "Ingrese un link de instagram valido");
+                        error = true;
+                    }
+                }
             }
-            if(twitter.equals("")){
-                twitter=twa;
+            
+            if(enctwitter.equals("")){
+                enctwitter=twa;
+            }else {
+                if(enctwitter != null){
+                    enctwitter = enctwitter.trim();
+                    if(!Pattern.matches(regex_Twitter, enctwitter)){
+                        request.setAttribute("error_twitter_Invalido", "Ingrese un link de twitter valido");
+                        error = true;
+                    }
+                }
             }
-            if(web.equals("")){
-                web=weba;
+            if(encweb.equals("")){
+                encweb=weba;
+            } else {
+                if(encweb != null){
+                    encweb = encweb.trim();
+                    if(!Pattern.matches(regex_Pagina, encweb)){
+                        request.setAttribute("error_pagina_Invalido", "Ingrese un link valido");
+                        error = true;
+                    }
+                }
             }
             if(foto.equals("")){
                 foto=fotoa;
@@ -265,15 +329,15 @@ public class EditarCuenta extends HttpServlet {
                 request.getRequestDispatcher("Editar_CuentaCV.jsp").forward(request, response);
             } else {
                 if (!correo.equals(correoa)) {
-                    request.getSession().setAttribute("nombreu", nombreu);
-                    request.getSession().setAttribute("nombrec", nombrec);
-                    request.getSession().setAttribute("correo", correo);
-                    request.getSession().setAttribute("descripcion", descripcion);
-                    request.getSession().setAttribute("telefono", telefono);
-                    request.getSession().setAttribute("facebook", facebook);
-                    request.getSession().setAttribute("instagram", instagram);
-                    request.getSession().setAttribute("twitter", twitter);
-                    request.getSession().setAttribute("web", web);
+                    request.getSession().setAttribute("nombreu", encnombreu);
+                    request.getSession().setAttribute("nombrec", encnombrec);
+                    request.getSession().setAttribute("correo", enccorreo);
+                    request.getSession().setAttribute("descripcion", encdescripcion);
+                    request.getSession().setAttribute("telefono", enctelefono);
+                    request.getSession().setAttribute("facebook", encfacebook);
+                    request.getSession().setAttribute("instagram", encinstagram);
+                    request.getSession().setAttribute("twitter", enctwitter);
+                    request.getSession().setAttribute("web", encweb);
                     request.getSession().setAttribute("foto", foto);
 
                     VerificacionCorreo_E emailSender = new VerificacionCorreo_E();
@@ -287,8 +351,8 @@ public class EditarCuenta extends HttpServlet {
                     con.setCon();
                     c=con.getCon();
 
-                    String mensaje = con.EUsuario(nombreu,nombreua,nombrec,correo,descripcion,telefono,facebook,instagram,twitter,
-                            web,foto,correoa,telefonoa);
+                    String mensaje = con.EUsuario(encnombreu,nombreua,encnombrec,enccorreo,encdescripcion,enctelefono,encfacebook,encinstagram,enctwitter,
+                            encweb,foto,correoa,telefonoa);
 
                     try {
                         c.close();
@@ -300,16 +364,16 @@ public class EditarCuenta extends HttpServlet {
                            mensaje="Datos actualizados correctamente";
                            request.setAttribute("mensaje", mensaje);
 
-                           usuario.setUsu_nom(nombreu);
-                           per.setPer_correo(correo);
-                           per.setPer_descripcion(descripcion);
-                           per.setPer_fb(facebook);
+                           usuario.setUsu_nom(encnombreu);
+                           per.setPer_correo(enccorreo);
+                           per.setPer_descripcion(encdescripcion);
+                           per.setPer_fb(encfacebook);
                            per.setPer_foto(foto);
-                           per.setPer_ig(instagram);
-                           per.setPer_nombrereal(nombrec);
-                           per.setPer_telefono(telefono);
-                           per.setPer_twitter(twitter);
-                           per.setPer_web(web);
+                           per.setPer_ig(encinstagram);
+                           per.setPer_nombrereal(encnombrec);
+                           per.setPer_telefono(enctelefono);
+                           per.setPer_twitter(enctwitter);
+                           per.setPer_web(encweb);
 
                           RequestDispatcher rd = request.getRequestDispatcher("Editar_CuentaCV.jsp");
                           rd.forward(request, response);
