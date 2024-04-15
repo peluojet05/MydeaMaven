@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
@@ -279,13 +280,10 @@ public class Registro extends HttpServlet {
                             error = true;
                         }
                         //Contraseñas iguales
-<<<<<<< HEAD
-                        if(!encCpassword.equals(password)){
-                            System.out.println("Cpassword "+encCpassword );
-                            System.out.println("password "+password );
-=======
+
+                        
                         if(!encCpassword.equals(encpassword)){
->>>>>>> 75a4c32ca2dd154c52f4aeb3eac72e382de9fc69
+
                             request.setAttribute("error_confirmarContraseña_Invalido", "Las contraseñas no coinciden");
                             error = true;
                             

@@ -512,10 +512,10 @@ public class CrearNegocio extends HttpServlet {
 
 
                 String pid = Integer.toString(id);
-                String mensaje = con.AgNeg(pid, encNombre, encDescripcion, encColonia, encCalle, encNumero, encIextra, encCp, 
-                        encPagina, logo, Tipo, encFacebook, encTwitter, encInstagram, img1, img2, encCorreo, img3, encTelefono);
+                  LocalDateTime hoy = LocalDateTime.now();
+                
+                    String year = Integer.toString(hoy.getYear());
 
-<<<<<<< HEAD
                     String mes = Integer.toString(hoy.getMonthValue());
 
                     String dia = Integer.toString(hoy.getDayOfMonth());
@@ -529,13 +529,11 @@ public class CrearNegocio extends HttpServlet {
                     }
 
                          String fecha = year +"-"+ mes +"-"+ dia;
-                String mensaje = con.AgNeg(pid, Nombre, Descripcion, Colonia, Calle, Numero, Iextra, Cp, 
-                        Pagina, logo, Tipo, Facebook, Twitter, Instagram, img1, img2, Correo, img3, Telefono, fecha);
-
-                int nid = con.Nid(Nombre);
-=======
+                String mensaje = con.AgNeg(pid, encNombre, encDescripcion, encColonia, encCalle, encNumero, encIextra, encCp, 
+                        encPagina, logo, Tipo, encFacebook, encTwitter, encInstagram, img1, img2, encCorreo, img3, encTelefono, fecha);
+    
                 int nid = con.Nid(encNombre);
->>>>>>> 75a4c32ca2dd154c52f4aeb3eac72e382de9fc69
+
 
                 String neid = Integer.toString(nid);
                 

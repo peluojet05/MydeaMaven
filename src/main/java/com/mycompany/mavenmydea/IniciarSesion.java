@@ -111,7 +111,7 @@ public class IniciarSesion extends HttpServlet {
 
                     c.setCon();
                     con=c.getCon();
-<<<<<<< HEAD
+
 
                     String mensaje = c.ISU(encnom, encpass, enccorreo);
 
@@ -181,20 +181,7 @@ public class IniciarSesion extends HttpServlet {
                            RequestDispatcher rd = request.getRequestDispatcher("Iniciar_Sesion.jsp");
                            rd.forward(request, response);
                         }
-=======
->>>>>>> 75a4c32ca2dd154c52f4aeb3eac72e382de9fc69
-                    
-                    String tipo = c.Tipo(encnom);
-                    
-                    
-                    if(tipo.equals("1")){
 
-                        response.sendRedirect("indexCC.jsp");
-                    }else if (tipo.equals("2")){
-                        response.sendRedirect("indexCV.jsp");
-                    }else{
-                        response.sendRedirect("index.jsp");
-                    }
                 } else {
                     // El código es incorrecto
                     request.setAttribute("error_codigo", "El código de confirmación no es correcto");

@@ -42,7 +42,7 @@ public class Conexion {
      con = DriverManager.getConnection(dbURL,dbUsername, dbPassword);
      
      */
-     //MYSQL LOCAL CAMBIEN LA CONTRASEÑA
+     /*MYSQL LOCAL CAMBIEN LA CONTRASEÑA
      
      String dbDriver = "com.mysql.jdbc.Driver";
      String dbURL = "jdbc:mysql://localhost:3306/";
@@ -54,8 +54,8 @@ public class Conexion {
      con = DriverManager.getConnection(dbURL + dbName,
      dbUsername,
      dbPassword); 
-     
-     /* POSTGRE SQL LOCAL POR FAVOR USEN ESTA Y HAGAN TODOS LOS COMMMITS CON ESTA (llamenla MydeaLocal para que no tengan que cambiarlo aqui)
+     */
+     // POSTGRE SQL LOCAL POR FAVOR USEN ESTA Y HAGAN TODOS LOS COMMMITS CON ESTA (llamenla MydeaLocal para que no tengan que cambiarlo aqui)
      
      String dbDriver = "org.postgresql.Driver";
      String dbURL = "jdbc:postgresql://localhost/MydeaLocal";
@@ -66,7 +66,7 @@ public class Conexion {
      Class.forName(dbDriver).newInstance();
      con = DriverManager.getConnection(dbURL,dbUsername, dbPassword);
      
-     */
+     //
       
       } catch (Exception e ) {
             System.out.println("erore");
