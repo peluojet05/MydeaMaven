@@ -42,8 +42,8 @@ public class Conexion {
      con = DriverManager.getConnection(dbURL,dbUsername, dbPassword);
      
      */
-     /*MYSQL LOCAL CAMBIEN LA CONTRASEÑA
-     
+     //MYSQL LOCAL CAMBIEN LA CONTRASEÑA
+     /*
      String dbDriver = "com.mysql.jdbc.Driver";
      String dbURL = "jdbc:mysql://localhost:3306/";
                 // Database name to access

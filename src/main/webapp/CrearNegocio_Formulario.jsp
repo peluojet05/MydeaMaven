@@ -67,8 +67,8 @@
                                         <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
                                            data-bs-title="Tooltip on right"></i></span>
                                     <input type="text" class="form-control" placeholder="Nombre de su negocio" id="N_Neg_cnf" name="N_Neg_cnf" value="${valorNombreNegocio}" />
-                                    <span class="error">${error_nombreNegocio_Vacio}</span>
-                                    <span class="error">${error_nombreNegocio_Largo}</span>
+                                    <span class="error">${error_nombreN_Vacio}</span>
+                                    <span class="error">${error_nombreN_Largo}</span>
                                 </section>                                
                                 <section>
                                     <span class="fw-bold">Tipo de Negocio

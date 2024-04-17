@@ -123,7 +123,9 @@
                                     <span class="fw-bold">Nombre del Negocio
                                         <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
                                            data-bs-title="Tooltip on right"></i></span>
-                                    <input type="text" class="form-control" placeholder="<%=nombre%>" id="N_Neg_cnf" name="N_Neg_cnf" />
+                                    <input type="text" class="form-control" placeholder="<%=nombre%>" id="N_Neg_cnf" name="N_Neg_cnf" value="${valorNomN}"/>
+                                    <span class="error">${error_nombreNegocio_Vacio}</span>
+                                    <span class="error">${error_nombreNegocio_Largo}</span>
                                     <input type="hidden" name="anom" value="<%=nombre%>"/> 
                                 </section>
                                 <section>
@@ -139,39 +141,39 @@
                                                 
                                                     if(tipo==1){
                                                    %>
-                                                <option value="Abarrotes" selected>Abarrotes</option>
-                                                <option value="Materia_Prima">Materia Prima</option>
-                                                <option value="Restaurantes">Restaurantes</option>
-                                                <option value="SyP">Snacks y Postres</option>
-                                                <option value="Cafeteria">Cafetería</option>
-                                                <option value="Catering">Catering</option>
-                                                <option value="Panaderia">Panadería</option>
-                                                <option value="OyF">Venta de Ortalizas o frutas</option>
-                                                <option value="Otro">Otro</option>
+                                                <option value="Abarrotes" ${valorTipoN == 'Abarrotes' ? 'selected' : ''} selected>Abarrotes</option>
+                                                <option value="Materia_Prima" ${valorTipoN == 'Materia_Prima' ? 'selected' : ''}>Materia Prima</option>
+                                                <option value="Restaurantes" ${valorTipoN == 'Restaurantes' ? 'selected' : ''}>Restaurantes</option>
+                                                <option value="SyP" ${valorTipoN == 'SyP' ? 'selected' : ''}>Snacks y Postres</option>
+                                                <option value="Cafeteria ${valorTipoN == 'Cafeteria' ? 'selected' : ''}">Cafetería</option>
+                                                <option value="Catering" ${valorTipoNegocio == 'Catering' ? 'selected' : ''}>Catering</option>
+                                                <option value="Panaderia" ${valorTipoNegocio == 'Panaderia' ? 'selected' : ''}>Panadería</option>
+                                                <option value="OyF" ${valorTipoNegocio == 'OyF' ? 'selected' : ''}>Venta de Ortalizas o frutas</option>
+                                                <option value="Otro" ${valorTipoNegocio == 'Otro' ? 'selected' : ''}>Otro</option>
                                                    <%
                                                        }else if(tipo==2){
                                                    %>
-                                                <option value="Abarrotes">Abarrotes</option>
-                                                <option value="Materia_Prima" selected>Materia Prima</option>
-                                                <option value="Restaurantes">Restaurantes</option>
-                                                <option value="SyP">Snacks y Postres</option>
-                                                <option value="Cafeteria">Cafetería</option>
-                                                <option value="Catering">Catering</option>
-                                                <option value="Panaderia">Panadería</option>
-                                                <option value="OyF">Venta de Ortalizas o frutas</option>
-                                                <option value="Otro">Otro</option>
+                                                <option value="Abarrotes" ${valorTipoN == 'Abarrotes' ? 'selected' : ''} >Abarrotes</option>
+                                                <option value="Materia_Prima" ${valorTipoN == 'Materia_Prima' ? 'selected' : ''} selected>Materia Prima</option>
+                                                <option value="Restaurantes" ${valorTipoN == 'Restaurantes' ? 'selected' : ''}>Restaurantes</option>
+                                                <option value="SyP" ${valorTipoN == 'SyP' ? 'selected' : ''}>Snacks y Postres</option>
+                                                <option value="Cafeteria ${valorTipoN == 'Cafeteria' ? 'selected' : ''}">Cafetería</option>
+                                                <option value="Catering" ${valorTipoNegocio == 'Catering' ? 'selected' : ''}>Catering</option>
+                                                <option value="Panaderia" ${valorTipoNegocio == 'Panaderia' ? 'selected' : ''}>Panadería</option>
+                                                <option value="OyF" ${valorTipoNegocio == 'OyF' ? 'selected' : ''}>Venta de Ortalizas o frutas</option>
+                                                <option value="Otro" ${valorTipoNegocio == 'Otro' ? 'selected' : ''}>Otro</option>
                                                    <%
                                                        }else if(tipo==3){
                                                    %>
-                                                <option value="Abarrotes">Abarrotes</option>
-                                                <option value="Materia_Prima">Materia Prima</option>
-                                                <option value="Restaurantes" selected>Restaurantes</option>
-                                                <option value="SyP">Snacks y Postres</option>
-                                                <option value="Cafeteria">Cafetería</option>
-                                                <option value="Catering">Catering</option>
-                                                <option value="Panaderia">Panadería</option>
-                                                <option value="OyF">Venta de Ortalizas o frutas</option>
-                                                <option value="Otro">Otro</option>
+                                                <option value="Abarrotes" ${valorTipoN == 'Abarrotes' ? 'selected' : ''} >Abarrotes</option>
+                                                <option value="Materia_Prima" ${valorTipoN == 'Materia_Prima' ? 'selected' : ''}>Materia Prima</option>
+                                                <option value="Restaurantes" ${valorTipoN == 'Restaurantes' ? 'selected' : ''} selected>Restaurantes</option>
+                                                <option value="SyP" ${valorTipoN == 'SyP' ? 'selected' : ''}>Snacks y Postres</option>
+                                                <option value="Cafeteria ${valorTipoN == 'Cafeteria' ? 'selected' : ''}">Cafetería</option>
+                                                <option value="Catering" ${valorTipoNegocio == 'Catering' ? 'selected' : ''}>Catering</option>
+                                                <option value="Panaderia" ${valorTipoNegocio == 'Panaderia' ? 'selected' : ''}>Panadería</option>
+                                                <option value="OyF" ${valorTipoNegocio == 'OyF' ? 'selected' : ''}>Venta de Ortalizas o frutas</option>
+                                                <option value="Otro" ${valorTipoNegocio == 'Otro' ? 'selected' : ''}>Otro</option>
                                                    <%
                                                        }else if(tipo==4){
                                                    %>
@@ -249,6 +251,7 @@
                                             
                                             %>
                                     </select>
+                                    <span class="error">${error_tipoN_Invalido}</span>
                                 </section>
                                 <!--HORARIOS-->
                                 <div class="d-flex flex-column horarios_cnf">

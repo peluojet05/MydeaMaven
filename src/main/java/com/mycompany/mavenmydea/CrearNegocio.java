@@ -390,7 +390,8 @@ public class CrearNegocio extends HttpServlet {
                         error = true;
                     }
                     
-                    //Info extra                    
+                    //Info extra
+                    encIextra = encIextra.trim();
                     if(encIextra.length() > 300){
                         request.setAttribute("error_infoExtra_Largo", "Se permite un maximo de 300 caracteres");
                         error = true;

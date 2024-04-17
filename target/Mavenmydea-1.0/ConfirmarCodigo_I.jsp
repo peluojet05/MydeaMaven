@@ -112,14 +112,14 @@
     <body>
         <div class="cont">
             <img src="assets/Logo_Icon.png" alt="alt"/>
-        <h1>Se ha enviado un codigo a su correo electrónico</h1>
+        <h1>Se ha enviado un codigo a <%= session.getAttribute("correo")%></h1>
         <form action="IniciarSesion" method="POST">
             <label for="code">Código de confirmación:</label><br>
             <input class="form-control" type="text" id="code" name="codigo"><br>
             <span>${error_codigo}</span>
             <%-- Recuperar los datos de la sesión --%>
-            <input type="hidden" name="Nom_usu_is" value="<%= Encode.forHtmlAttribute((String) session.getAttribute("nom")) %>">
-            <input type="hidden" name="Email_is" value="<%= session.getAttribute("correo") %>">
+            <input type="hidden" name="Nom_usu_is" value="<%= session.getAttribute("nom")%>">
+            <input type="hidden" name="Email_is" value="<%= session.getAttribute("correo")%>">
             <input type="hidden" name="Con_is" value="<%= session.getAttribute("pass") %>">
             <input type="submit" value="Confirmar">
         </form>

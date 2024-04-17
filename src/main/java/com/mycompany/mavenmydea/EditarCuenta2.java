@@ -326,7 +326,7 @@ public class EditarCuenta2 extends HttpServlet {
             if(error){
                 request.getRequestDispatcher("Editar_Cuenta.jsp").forward(request, response);
             } else {
-                if (!correo.equals(correoa)) {
+                if (!enccorreo.equals(correoa)) {
                     request.getSession().setAttribute("nombreu", encnombreu);
                     request.getSession().setAttribute("nombrec", encnombrec);
                     request.getSession().setAttribute("correo", enccorreo);
