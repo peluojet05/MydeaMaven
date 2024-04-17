@@ -75,7 +75,7 @@
         }
     </style>
     <div class="cont">
-        <h1>Se ha enviado un codigo a su correo electrónico</h1>
+        <h1>Se ha enviado un codigo a <%= session.getAttribute("correo") %></h1>
         <form action="EditarCuenta" method="POST">
             <label for="code">Código de confirmación:</label><br>
             <input type="text" id="code" name="codigo"><br>

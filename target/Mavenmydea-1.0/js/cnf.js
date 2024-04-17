@@ -295,7 +295,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
         var tiposPermitidos = /(\.jpg|\.jpeg|\.png)$/i;
 
         if(!tiposPermitidos.exec(archivo.name)) {
-            alert('Por favor, sube solo archivos .jpg o .png.');
+            Swal.fire({
+                title: "ERROR",
+                text: "Por favor, sube solo archivos .jpg o .png.",
+                icon: "error",
+                showConfirmButton: true
+            });
             e.target.value = '';
             imgc1_cnf.src = ''; // Borra la previsualización de la imagen
             return false;
@@ -330,7 +335,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
         var tiposPermitidos = /(\.jpg|\.jpeg|\.png)$/i;
 
         if(!tiposPermitidos.exec(archivo.name)) {
-            alert('Por favor, sube solo archivos .jpg o .png.');
+            Swal.fire({
+                title: "ERROR",
+                text: "Por favor, sube solo archivos .jpg o .png.",
+                icon: "error",
+                showConfirmButton: true
+            });
             e.target.value = '';
             imgc2_cnf.src = ''; // Borra la previsualización de la imagen
             return false;
@@ -365,7 +375,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
         var tiposPermitidos = /(\.jpg|\.jpeg|\.png)$/i;
 
         if(!tiposPermitidos.exec(archivo.name)) {
-            alert('Por favor, sube solo archivos .jpg o .png.');
+            Swal.fire({
+                title: "ERROR",
+                text: "Por favor, sube solo archivos .jpg o .png.",
+                icon: "error",
+                showConfirmButton: true
+            });
             e.target.value = '';
             imgc3_cnf.src = ''; // Borra la previsualización de la imagen
             return false;
@@ -401,7 +416,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
         var tiposPermitidos = /(\.jpg|\.jpeg|\.png)$/i;
 
         if(!tiposPermitidos.exec(archivo.name)) {
-            alert('Por favor, sube solo archivos .jpg o .png.');
+            Swal.fire({
+                title: "ERROR",
+                text: "Por favor, sube solo archivos .jpg o .png.",
+                icon: "error",
+                showConfirmButton: true
+            });
             e.target.value = '';
             Most_Img.src = ''; // Borra la previsualización de la imagen
             return false;

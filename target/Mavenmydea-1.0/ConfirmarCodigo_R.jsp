@@ -111,7 +111,7 @@
     <body>
         <div class="cont">
             <img src="assets/Logo_Icon.png" alt="alt"/>
-        <h1>Se ha enviado un codigo a su correo electrónico</h1>
+        <h1>Se ha enviado un codigo a <%= session.getAttribute("email") %></h1>
         <form action="Registro" method="POST">
             <label for="code">Código de confirmación:</label><br>
             <input class="form-control" type="text" id="code" name="codigo"><br>
