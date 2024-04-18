@@ -62,7 +62,7 @@ public class Conexion {
                           
              
      String dbUsername = "postgres";
-     String dbPassword = "Sn0w.2017";
+     String dbPassword = "peluojet05";
      Class.forName(dbDriver).newInstance();
      con = DriverManager.getConnection(dbURL,dbUsername, dbPassword);
      
@@ -767,5 +767,75 @@ public class Conexion {
         }
         return mensaje;
     }
+    
+    public String EliminarP(String id){
+        String mensaje = "Producto eliminado con éxito";
+        try{
+          
+            
+            
+            String sql3 = "Update Producto set pro_activo=false where pro_id="+id+";";
+            Statement stmt =con.createStatement();
+            stmt.execute(sql3);
+            
+            
+        } catch (Exception e ) {
+                System.err.println("Error"+e);
+        }
+        return mensaje;
+    }
+    
+    public String EliminarC(String id){
+        String mensaje = "Comentario eliminado con éxito";
+        try{
+          
+            
+            
+            String sql3 = "Update Feedback set fed_activo=false where fed_id="+id+";";
+            Statement stmt =con.createStatement();
+            stmt.execute(sql3);
+            
+            
+        } catch (Exception e ) {
+                System.err.println("Error"+e);
+        }
+        return mensaje;
+    }
+    
+    public String EliminarN(String id){
+        String mensaje = "Novedad eliminada con éxito";
+        try{
+          
+            
+            
+            String sql3 = "Update Novedad set nov_activo=false where nov_id="+id+";";
+            Statement stmt =con.createStatement();
+            stmt.execute(sql3);
+            
+            
+        } catch (Exception e ) {
+                System.err.println("Error"+e);
+        }
+        return mensaje;
+    }
+    
+    public String EliminarU(String id){
+        String mensaje = "Usuario eliminado con éxito";
+        try{
+          
+            
+            
+            String sql3 = "Update Usuario set usu_activo=false where usu_id="+id+";";
+            Statement stmt =con.createStatement();
+            stmt.execute(sql3);
+            
+            
+        } catch (Exception e ) {
+                System.err.println("Error"+e);
+        }
+        return mensaje;
+    }
+    
+    
     
 }

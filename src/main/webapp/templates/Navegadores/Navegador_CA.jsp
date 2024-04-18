@@ -8,9 +8,9 @@
 <nav class="bg-body-tertiary container-fluid bg-white">
     <div class="row d-flex align-items-center p-1 h-100">
         <div class="col-3 d-flex">
-            <a href="indexCC.jsp"><img src="assets/logo_mydea_comida.png" alt="logotipo" class="img-fluid logo"></a>
+            <a href="indexCA.jsp"><img src="assets/logo_mydea_comida.png" alt="logotipo" class="img-fluid logo"></a>
         </div>
-        <form class="col-6 d-flex w-10" method="post" action="BuscadorCC.jsp" >
+        <form class="col-6 d-flex w-10" method="post" action="Buscador_admin.jsp" >
             <input class="form-control input_search" placeholder="Buscar... (Cafeterias, Abarrotes, Snacks)"
                    aria-label="Search" name="txt" >
             <button class="btn button_search" type="submit"><i class="bi bi-search text-white"></i></button>

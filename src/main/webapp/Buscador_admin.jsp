@@ -22,7 +22,7 @@
         <title>Busqueda - <%=Encode.forHtml(request.getParameter("txt"))%></title>
     </head>
     <body>
-        <jsp:include page="templates/Navegadores/Navegador_SC.jsp"/>
+        <jsp:include page="templates/Navegadores/Navegador_CA.jsp"/>
         <div class="busq_cont_prin">
             <div class="w-100 h-100 cont_busq_res_txt d-flex flex-column Inria">
                 <section>
@@ -192,7 +192,7 @@
                     %>
 
                     <%
-                        PreparedStatement ps2 = c.prepareStatement("SELECT p.per_foto, p.per_descripcion, per_id, u.usu_nombre, u.tip_id FROM Persona p INNER JOIN Usuario u ON u.usu_id=p.usu_id WHERE usu_nombre LIKE ?");
+                        PreparedStatement ps2 = c.prepareStatement("SELECT p.per_foto, p.per_descripcion, per_id, u.usu_nombre, u.tip_id FROM Persona p INNER JOIN Usuario u ON u.usu_id=p.usu_id WHERE usu_nombre ILIKE ?");
                         ps2.setString(1, "%" + bs + "%");
                         rs2 = ps2.executeQuery();
                         if (rs2 != null)
@@ -252,7 +252,28 @@
                     </form>
 
                     <%
-                                }
+                                }else if (tipo == 3)
+                    {
+%>
+ <!-- Usuario Administrador -->
+                    <form class="busq_result busq_usu" id="vendbusq" method="post" action="Visitar_Vendedor_PerfilCA.jsp" >
+                        <input class="d-none" id="Nombre_comp_usuv" type="text" disabled value="Nombre Completo Vendedor">
+                        <input class="d-none" id="nnuv_usu" type="text" disabled value="Numero de negocios a su nombre">
+                        <input class="d-none" id="nluv_usu" type="text" disabled value="Numero de Likes Dados">
+                        <input class="d-none" id="ncuv_usu" type="text" disabled value="Numero de Reseñas Hechas">
+                        <input class="d-none" id="fecha_inp_busq" type="date" disabled value="2001-05-20">
+                        <button class="d-none" type="submit" id="btn_smt_usu"></button>
+                        <img src="<%=pfoto%>" class="usuvd_img" id="usu_img_busq">
+                        <section class="info_usu_nusq usu_vd">
+                            <span class="nb_busq nb">Administrador <%=unom%></span>
+                            <input class="d-none" type="text" id="nom_usu_ck" value="<%=unom%>" disabled>
+                            <span class="dir_bus w-100 desc_busq" id="desc_busq_usu"><%=descripcion%></span>
+                            <i class="bi bi-shop uservd_icon"></i>
+                        </section>
+                        <input type="hidden" name="idu" id="idu" value="<%=pid%>"/>
+                    </form>
+<%
+}
                             }
                         }
                     %>
