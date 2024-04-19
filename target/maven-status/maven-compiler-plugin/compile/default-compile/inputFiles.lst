@@ -5,6 +5,7 @@ D:\5to semestre\SWyA\MydeaMaven\src\main\java\com\mycompany\mavenmydea\Verificac
 D:\5to semestre\SWyA\MydeaMaven\src\main\java\com\mycompany\mavenmydea\Comentar.java
 D:\5to semestre\SWyA\MydeaMaven\src\main\java\com\mycompany\mavenmydea\Accion.java
 D:\5to semestre\SWyA\MydeaMaven\src\main\java\com\mycompany\mavenmydea\EditarCuenta.java
+D:\5to semestre\SWyA\MydeaMaven\src\main\java\com\mycompany\mavenmydea\EliminarUsuario.java
 D:\5to semestre\SWyA\MydeaMaven\src\main\java\com\mycompany\mavenmydea\CrearProducto.java
 D:\5to semestre\SWyA\MydeaMaven\src\main\java\Clases\Conexion.java
 D:\5to semestre\SWyA\MydeaMaven\src\main\java\com\mycompany\mavenmydea\EditarCuenta2.java
@@ -12,11 +13,15 @@ D:\5to semestre\SWyA\MydeaMaven\src\main\java\com\mycompany\mavenmydea\Guardar2.
 D:\5to semestre\SWyA\MydeaMaven\src\main\java\Clases\Negocio.java
 D:\5to semestre\SWyA\MydeaMaven\src\main\java\com\mycompany\mavenmydea\CrearNegocio.java
 D:\5to semestre\SWyA\MydeaMaven\src\main\java\com\mycompany\mavenmydea\EliminarNegocio.java
+D:\5to semestre\SWyA\MydeaMaven\src\main\java\com\mycompany\mavenmydea\EliminarNovedadA.java
 D:\5to semestre\SWyA\MydeaMaven\src\main\java\com\mycompany\mavenmydea\resources\JakartaEE8Resource.java
+D:\5to semestre\SWyA\MydeaMaven\src\main\java\com\mycompany\mavenmydea\EliminarNegocioA.java
+D:\5to semestre\SWyA\MydeaMaven\src\main\java\com\mycompany\mavenmydea\EliminarProductoA.java
 D:\5to semestre\SWyA\MydeaMaven\src\main\java\com\mycompany\mavenmydea\EliminarComentarioCC.java
 D:\5to semestre\SWyA\MydeaMaven\src\main\java\com\mycompany\mavenmydea\CerrarSesion.java
 D:\5to semestre\SWyA\MydeaMaven\src\main\java\com\mycompany\mavenmydea\Comentar2.java
 D:\5to semestre\SWyA\MydeaMaven\src\main\java\com\mycompany\mavenmydea\VerificacionCorreo_E.java
+D:\5to semestre\SWyA\MydeaMaven\src\main\java\com\mycompany\mavenmydea\EliminarComentarioA.java
 D:\5to semestre\SWyA\MydeaMaven\src\main\java\com\mycompany\mavenmydea\Guardar.java
 D:\5to semestre\SWyA\MydeaMaven\src\main\java\Clases\Persona.java
 D:\5to semestre\SWyA\MydeaMaven\src\main\java\com\mycompany\mavenmydea\JakartaRestConfiguration.java
