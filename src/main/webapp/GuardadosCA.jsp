@@ -28,7 +28,7 @@
         <title>Productos y Negocios Guardados</title>
     </head>
     <body>
-        <jsp:include page="templates/Navegadores/Navegador_CC.jsp"/>
+        <jsp:include page="templates/Navegadores/Navegador_CA.jsp"/>
         <%            HttpSession misession = (HttpSession) request.getSession();
             Usuario usuario = (Usuario) misession.getAttribute("usuario");
             String nombre = usuario.getUsu_nom();

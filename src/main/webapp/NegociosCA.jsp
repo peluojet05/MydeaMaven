@@ -142,7 +142,7 @@
     </head>
     <body class="nego_neg">
 
-        <jsp:include page="templates/Navegadores/Navegador_CC.jsp"/>
+        <jsp:include page="templates/Navegadores/Navegador_CA.jsp"/>
         <div class="cont_neg w-100 d-flex flex-column" id="neg_bdy">
 
             <!---->

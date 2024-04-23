@@ -1,0 +1,126 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 18 abr 2024, 20:45:39
+    Author     : altro
+*/
+
+.html_accadm{
+    overflow: hidden;
+}
+.adm_cont_admin{
+    height: 90vh;
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+    background: rgb(51, 9, 22);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.adm_cont_admin_btt{
+    width: 75%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    cursor: auto;
+}
+.adm_cont_admin .btn_acc_adm{
+    position: relative;
+    height: 250px;
+    width: 230px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+.hexagon{
+    position: absolute;
+    font-size: 230px;
+    color: rgba(250,250,250,.8);
+    cursor: pointer;
+}
+.txt_btn{
+    position: relative;
+    z-index: 3;
+}
+.txt_btn_bttm{
+    z-index: 1;
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    text-align:center;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.btn_acc_adm:hover{
+    transition: .3s;
+    transform: translateY(-40px);
+}
+.sect_btnadmin:hover .txt_btn_bttm{
+    display: flex;
+}
+.btn_acc_adm:hover .usu_icon{
+    transition: .3s;
+    color: #008c8c;
+}
+.btn_acc_adm:hover i{
+    transition: .3s;
+    color: white;
+}
+.btn_acc_adm:hover .neg_icon{
+    transition: .3s;
+    color: rgb(151, 26, 64);
+}
+.btn_acc_adm:hover .coment_icon{
+    transition: .3s;
+    color: rgb(224, 177, 23);
+}
+.btn_acc_adm:hover .nov_icon{
+    transition: .3s;
+    color: rgba(244, 55, 112, 1);
+}
+.btn_acc_adm:hover .tick_icon{
+    transition: .3s;
+    color: #454545;
+}
+.sect_btnadmin{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon_btnadmin{
+    font-size: 7rem;
+    color: rgba(0,0,0,1);
+    cursor: pointer;
+}
+.square {
+  position: absolute;
+  background-color: rgba(225,225,225,0.4);
+  animation: animate 3s linear infinite;
+  z-index: 0;
+  filter: blur(5px);
+  border-radius: 8px;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(2vh) rotate(180deg);
+  }
+  100% {
+    transform: translateY(0) rotate(360deg);
+  }
+}
