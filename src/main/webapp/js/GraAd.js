@@ -5,6 +5,7 @@
 
 
 const ctx = document.getElementById('myChart');
+var opcion = document.getElementById('opcion');
             
 const numeroDeUsuarios = Number(document.getElementById('numeroDeUsuarios').value);
 const numeroDeUsuariosA = Number(document.getElementById('numeroDeUsuariosA').value);
@@ -13,7 +14,7 @@ const numeroDeUsuariosC = Number(document.getElementById('numeroDeUsuariosC').va
 const numeroDeUsuariosV = Number(document.getElementById('numeroDeUsuariosV').value);
 const numeroDeUsuariosAd = Number(document.getElementById('numeroDeUsuariosAd').value);
 
-const chart = new Chart(ctx, {
+var ConfUsuGen = {
     type: 'bar',
     data: {
       labels: ['Numero de usuarios'],
@@ -34,6 +35,15 @@ const chart = new Chart(ctx, {
             {
                 label: 'Usuarios CA',
                 data: [numeroDeUsuariosAd],
+            },
+
+            {
+                label: 'Usuarios activos',
+                data: [numeroDeUsuariosA],
+            }, 
+            {
+                label: 'Usuarios eliminados',
+                data: [numeroDeUsuariosI],
             }
         ]
     },
@@ -57,4 +67,75 @@ const chart = new Chart(ctx, {
         },
 
     }
+};
+
+var ConfUsuTip = {
+    type: 'doughnut',
+    data: {
+      labels: ['Usuarios CC', 'Usuarios CV', 'Usuarios CA'],
+      datasets: [{
+            label: 'Numero de usuarios',
+            data: [numeroDeUsuariosC, numeroDeUsuariosV, numeroDeUsuariosAd]
+        }]
+    },
+    options: {
+
+        responsive: true,
+        plugins: {
+            legend: {
+              position: 'top',
+            },
+            title: {
+              display: true,
+              text: 'Usuarios'
+            }
+        },
+
+    }
+};
+
+var ConfUsuEst = {
+    type: 'doughnut',
+    data: {
+      labels: ['Usuarios Activos', 'Usuarios Eliminados'],
+      datasets: [{
+            label: 'Numero de usuarios',
+            data: [numeroDeUsuariosA, numeroDeUsuariosI]
+        }]
+    },
+    options: {
+
+        responsive: true,
+        plugins: {
+            legend: {
+              position: 'top',
+            },
+            title: {
+              display: true,
+              text: 'Usuarios'
+            }
+        },
+
+    }
+};
+
+var myChart = new Chart(ctx, ConfUsuGen);
+
+opcion.addEventListener('change', function(){
+    var seleccion = opcion.value;
+    if(myChart){
+        myChart.destroy();
+    }
+    switch(seleccion) {
+        case 'general':
+            myChart = new Chart(ctx, ConfUsuGen); 
+            break;
+        case 'tipo':
+            myChart = new Chart(ctx, ConfUsuTip);
+            break;
+        case 'estado':
+            myChart = new Chart(ctx, ConfUsuEst);
+            break;
+    }
+    myChart.update();
 });

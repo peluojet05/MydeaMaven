@@ -65,7 +65,8 @@
     </head>
     <body>
         <div>
-            <select id="Opcion">
+            <select id="opcion">
+                <option value="general">General</option>
                 <option value="tipo">Estado</option>
                 <option value="estado">Tipo</option>
             </select>
