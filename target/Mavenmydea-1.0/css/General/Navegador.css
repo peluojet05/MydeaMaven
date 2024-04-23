@@ -181,10 +181,6 @@ nav {
   font-weight: bold;
   border: 2px solid black;
 }
-.Cuenta_des button:hover{
-  background: none;
-  background-color: black;
-}
 .Cuenta_des button:focus{
   background-color: black;
 }
@@ -373,7 +369,19 @@ nav {
 .btn_negro_noresponsive{
     display: none;
 }
-
+#btn_lgout_nav:hover{
+    background: none;
+}
+#cerr_sesnav:hover #btn_lgout_nav{
+    color: white;
+}
+#btn_lgout_nav{
+    border: none;
+    background: none;
+}
+.Cuenta_des button:hover{
+    background: black;
+}
 @media screen and (max-width:990px) {
     .logo{
         display: none;
