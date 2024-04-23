@@ -29,13 +29,13 @@
                     <li class="dropdown-item" id="btn_edit_nav">Editar Cuenta</li>
                     <li class="dropdown-item" id="btn_sav2_nav">Guardados</li>
                     <li class="dropdown-item" id="btn_res_nav">Reseñas</li>
-                    <li class="dropdown-item" id="btn_verf_nav">Verificar Negocios</li>
+                    <li class="dropdown-item" id="btn_admin">Acciones de Administrador</li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
                     <form action="CerrarSesion" id="formcerrar">
-                        <li class="dropdown-item">
-                            <button type="submit" id="btn_lgout_nav">Cerrar Sesión</button>
+                        <li class="dropdown-item cerr_sesnav" id="cerr_sesnav">
+                            <button class="cerr_sesnav_btn" type="submit" id="btn_lgout_nav">Cerrar Sesión</button>
                         </li>
                     </form>
                 </ul>

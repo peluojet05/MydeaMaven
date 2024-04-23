@@ -16,6 +16,7 @@ crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.2/dist/sweetalert2.min.js"></script>
 <link rel="stylesheet" href="css/General/normalize.css">
 <link rel="stylesheet" href="css/General/Navegador.css">
+<link rel="stylesheet" href="css\Administrador\Acciones_admin.css">
 <link rel="icon" href="assets/Logo_Icon.png" type="icon">
 <link rel="stylesheet" href="css/Crear/CrearInfo.css">
 <link rel="stylesheet" href="css/Crear/CrearFormN.css" />
