@@ -177,7 +177,7 @@
                                     <form action="action" class="form_elim">
                                         <input type="hidden" name="" value=""/>
                                         <input type="hidden" class="name_elim" value="<%=nnom%>"/>
-                                        <button type="submit" class="btn btn_elimnegscr_admin">Eliminar Producto</button>
+                                        <button type="submit" class="btn btn_elimnegscr_admin">Eliminar Negocio</button>
                                     </form>
                                 </section>
                             </section>

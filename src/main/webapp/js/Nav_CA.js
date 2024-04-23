@@ -6,10 +6,7 @@ let sav2_n = document.getElementById("btn_sav2_nav");
 let res_n = document.getElementById("btn_res_nav");
 let lgout_n = document.getElementById("btn_lgout_nav");
 let fomr = document.getElementById("formcerrar");
-let edt_h = document.getElementById("btn_edit_h");
-let sav_h = document.getElementById("btn_guardado_h");
-let lgout_h = document.getElementById("btn_lgout_h");
-let ver_n = document.getElementById("btn_verf_nav");
+let accadm = document.getElementById("btn_admin");
 
 count_n.addEventListener("click", () => {
     window.location.href = "Cuenta_Usuario.jsp";
@@ -24,19 +21,19 @@ edt_n.addEventListener("click", () => {
 });
 
 sav_n.addEventListener("click", () => {
-    window.location.href = "Guardados.jsp";
+    window.location.href = "GuardadosCA.jsp";
 });
 
 sav2_n.addEventListener("click", () => {
-    window.location.href = "Guardados.jsp";
+    window.location.href = "GuardadosCA.jsp";
 });
 
 res_n.addEventListener("click", () => {
     window.location.href = "Comentarios_Hechos.jsp";
 });
 
-ver_n.addEventListener("click", () => {
-    window.location.href = "Verificar_Negocios.jsp";
+accadm.addEventListener("click", ()=>{
+    window.location.href = "Acciones_Admin.jsp";
 });
 
 lgout_n.addEventListener("click", (event) => {
