@@ -180,9 +180,12 @@
             </section>
         </div>
         <!--LOS MEJORES NEGOCIOS-->
+        <!--Luego se borra-->
+                
+        <button onclick="location.href='GraficasAdmin.jsp';">graficas</button>
         <div class="padd_lds">
             <div class="slid_neg d-flex flex-column">
-                <span class="w-100">Los Mejores Negocios</span>
+                <span class="w-100">Los Mejores Negocios</span>                
                 <span class="texto">Encuentra y apoya a los mejores negocios de nuestra comunidad en un solo lugar.
                     Descubre joyas ocultas y favoritos de la comunidad, cuidadosamente seleccionados por su calidad, servicio excepcional o propuestas únicas. Disfruta de experiencias gastronómicas y servicios que sobresalen, avalados por la satisfacción de sus clientes.
                 </span>
