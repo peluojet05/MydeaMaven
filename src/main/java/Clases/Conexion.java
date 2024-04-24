@@ -31,7 +31,7 @@ public class Conexion {
            
       //POSTGRE HOST, CON ESTE HACEN LA PULL REQUESTT
      
-     //
+     /*
      String dbDriver = "org.postgresql.Driver";
      String dbURL = "jdbc:postgresql://ec2-100-26-73-144.compute-1.amazonaws.com/db3v6hean6n35q";
                           
@@ -41,7 +41,7 @@ public class Conexion {
      Class.forName(dbDriver).newInstance();
      con = DriverManager.getConnection(dbURL,dbUsername, dbPassword);
      
-     //
+     */
      //MYSQL LOCAL CAMBIEN LA CONTRASEÑA
      /*
      String dbDriver = "com.mysql.jdbc.Driver";
@@ -55,18 +55,18 @@ public class Conexion {
      dbUsername,
      dbPassword); 
      */
-     /* POSTGRE SQL LOCAL POR FAVOR USEN ESTA Y HAGAN TODOS LOS COMMMITS CON ESTA (llamenla MydeaLocal para que no tengan que cambiarlo aqui)
+     // POSTGRE SQL LOCAL POR FAVOR USEN ESTA Y HAGAN TODOS LOS COMMMITS CON ESTA (llamenla MydeaLocal para que no tengan que cambiarlo aqui)
      
      String dbDriver = "org.postgresql.Driver";
      String dbURL = "jdbc:postgresql://localhost/MydeaLocal";
                           
              
      String dbUsername = "postgres";
-     String dbPassword = "Sn0w.2017";
+     String dbPassword = "peluojet05";
      Class.forName(dbDriver).newInstance();
      con = DriverManager.getConnection(dbURL,dbUsername, dbPassword);
      
-     */
+     //
       
       } catch (Exception e ) {
             System.out.println("erore");
@@ -753,7 +753,6 @@ public class Conexion {
     
     public String Eliminar(String id){
         String mensaje = "Negocio eliminado con éxito";
-        System.out.println("id="+id);
         try{
           
             
@@ -771,7 +770,6 @@ public class Conexion {
     
     public String EliminarP(String id){
         String mensaje = "Producto eliminado con éxito";
-        System.out.println("id="+id);
         try{
           
             
@@ -789,7 +787,6 @@ public class Conexion {
     
     public String EliminarC(String id){
         String mensaje = "Comentario eliminado con éxito";
-        System.out.println("id="+id);
         try{
           
             
@@ -807,7 +804,6 @@ public class Conexion {
     
     public String EliminarN(String id){
         String mensaje = "Novedad eliminada con éxito";
-        System.out.println("id="+id);
         try{
           
             
@@ -825,7 +821,6 @@ public class Conexion {
     
     public String EliminarU(String id){
         String mensaje = "Usuario eliminado con éxito";
-        System.out.println("id="+id);
         try{
           
             

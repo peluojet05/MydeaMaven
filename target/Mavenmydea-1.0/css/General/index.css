@@ -839,6 +839,11 @@ nav {
     padding: 5px;
     font-size: 0.8rem;
 }
+.cerr_sesnav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 @media screen and (max-width:1024px){
     #carouselExampleInterval{
         padding-top: 9vh;

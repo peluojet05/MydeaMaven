@@ -51,7 +51,7 @@
                         Conexion con;
                         Connection c;
                         Statement stmt;
-                        ResultSet rs, rs2, rs3, rs4, rs5, rs6, rs7, rs8;
+                        ResultSet rs, rs2, rs3, rs4, rs5, rs6, rs7;
 
                         int id;
                         int i = 0;
@@ -66,7 +66,7 @@
 
                         PreparedStatement ps4 = c.prepareStatement("SELECT n.*,d.*,p.per_foto,u.usu_nombre FROM Direccion d INNER JOIN "
                                 + "Negocio n ON n.dir_id=d.dir_id INNER JOIN Persona p ON n.per_id = p.per_id INNER JOIN Usuario u ON"
-                                + " p.usu_id = u.usu_id WHERE n.neg_activo = true AND neg_nombre ILIKE ?");
+                                + " p.usu_id = u.usu_id WHERE n.neg_activo = true AND neg_nombre LIKE ?");
                         ps4.setString(1, "%" + bs + "%");
                         rs4 = ps4.executeQuery();
                         if (rs4 != null)
@@ -82,7 +82,7 @@
                         int cont = 0;
                         PreparedStatement ps5 = c.prepareStatement("SELECT n.*,d.*,p.per_foto,u.usu_nombre FROM Direccion d INNER JOIN "
                                 + "Negocio n ON n.dir_id=d.dir_id INNER JOIN Persona p ON n.per_id = p.per_id INNER JOIN Usuario u ON"
-                                + " p.usu_id = u.usu_id WHERE n.neg_activo = true AND neg_nombre ILIKE ?");
+                                + " p.usu_id = u.usu_id WHERE n.neg_activo = true AND neg_nombre LIKE ?");
                         ps5.setString(1, "%" + bs + "%");
                         rs5 = ps5.executeQuery();
                         if (rs5 != null)
@@ -131,7 +131,7 @@
                         int cont6 = 0;
                         PreparedStatement ps = c.prepareStatement("SELECT n.*,d.*,p.per_foto,u.usu_nombre FROM Direccion d INNER JOIN "
                                 + "Negocio n ON n.dir_id=d.dir_id INNER JOIN Persona p ON n.per_id = p.per_id INNER JOIN Usuario u ON"
-                                + " p.usu_id = u.usu_id WHERE n.neg_activo = true AND neg_nombre ILIKE ?");
+                                + " p.usu_id = u.usu_id WHERE n.neg_activo = true AND neg_nombre LIKE ?");
                         ps.setString(1, "%" + bs + "%");
                         rs = ps.executeQuery();
                         if (rs != null)
@@ -148,7 +148,6 @@
                                 String desc = rs.getString("neg_descripcion");
                                 int numero = rs.getInt("dir_numero");
                                 int idn = rs.getInt("neg_id");
-                                String fecha = rs.getString("neg_fecha");
                                 String direccion = colonia + ", " + calle + ", " + numero;
 
 
@@ -156,7 +155,7 @@
 
                     <!-- Negocio -->
                     <section class="busq_result busq_neg" id="negbusq">
-                        <input class="d-none" id="fecha_inp_busq" type="date" disabled value="<%=fecha%>">
+                        <input class="d-none" id="fecha_inp_busq" type="date" disabled value="">
                         <section class="neg_bus_pre">
                             <img class="img_neg_busq" src="<%=img%>" alt="" id="img_loc_busq">
                             <span class="nb_busq nb" id="nb_busq"><%=nombre%></span>
@@ -193,7 +192,7 @@
                     %>
 
                     <%
-                        PreparedStatement ps2 = c.prepareStatement("SELECT p.per_foto, p.per_fecha, p.per_descripcion, per_id, u.usu_nombre, u.tip_id FROM Persona p INNER JOIN Usuario u ON u.usu_id=p.usu_id WHERE usu_nombre ILIKE ?");
+                        PreparedStatement ps2 = c.prepareStatement("SELECT p.per_foto, p.per_descripcion, per_id, u.usu_nombre, u.tip_id FROM Persona p INNER JOIN Usuario u ON u.usu_id=p.usu_id WHERE usu_nombre ILIKE ?");
                         ps2.setString(1, "%" + bs + "%");
                         rs2 = ps2.executeQuery();
                         if (rs2 != null)
@@ -206,7 +205,7 @@
                                 String descripcion = rs2.getString("per_descripcion");
                                 int pid = rs2.getInt("per_id");
                                 int tipo = rs2.getInt("tip_id");
-                                String fecha = rs2.getString("per_fecha");
+
                                 if (tipo == 1)
                                 {
                     %>
@@ -217,7 +216,7 @@
                         <input class="d-none" id="nlu_usu" type="text" disabled value="Numero de Likes Dados">
                         <input class="d-none" id="ncu_usu" type="text" disabled value="Numero de Reseñas Hechas">
                         <input class="d-none" id="Nombre_comp_usu" type="text" disabled value="Nombre Comleto Usuario">
-                        <input class="d-none" id="fecha_inp_busq" type="date" disabled value="<%=fecha%>">
+                        <input class="d-none" id="fecha_inp_busq" type="date" disabled value="">
                         <button class="d-none" type="submit" id="btn_smt_usu"></button>
                         <img src="<%=pfoto%>" class="usunr_img" id="usu_img_busq">
                         <section class="info_usu_nusq usu_nr">
@@ -240,7 +239,7 @@
                         <input class="d-none" id="nnuv_usu" type="text" disabled value="Numero de negocios a su nombre">
                         <input class="d-none" id="nluv_usu" type="text" disabled value="Numero de Likes Dados">
                         <input class="d-none" id="ncuv_usu" type="text" disabled value="Numero de Reseñas Hechas">
-                        <input class="d-none" id="fecha_inp_busq" type="date" disabled value="<%=fecha%>">
+                        <input class="d-none" id="fecha_inp_busq" type="date" disabled value="2001-05-20">
                         <button class="d-none" type="submit" id="btn_smt_usu"></button>
                         <img src="<%=pfoto%>" class="usuvd_img" id="usu_img_busq">
                         <section class="info_usu_nusq usu_vd">
@@ -262,7 +261,7 @@
                         <input class="d-none" id="nnuv_usu" type="text" disabled value="Numero de negocios a su nombre">
                         <input class="d-none" id="nluv_usu" type="text" disabled value="Numero de Likes Dados">
                         <input class="d-none" id="ncuv_usu" type="text" disabled value="Numero de Reseñas Hechas">
-                        <input class="d-none" id="fecha_inp_busq" type="date" disabled value="<%=fecha%>">
+                        <input class="d-none" id="fecha_inp_busq" type="date" disabled value="2001-05-20">
                         <button class="d-none" type="submit" id="btn_smt_usu"></button>
                         <img src="<%=pfoto%>" class="usuvd_img" id="usu_img_busq">
                         <section class="info_usu_nusq usu_vd">
@@ -281,7 +280,7 @@
 
                     <%
                         PreparedStatement ps3 = c.prepareStatement("SELECT * FROM Producto p inner join Negocio n on p.neg_id=n.neg_id"
-                                + " WHERE p.pro_nombre ILIKE ?");
+                                + " WHERE p.pro_nombre LIKE ?");
                         ps3.setString(1, "%" + bs + "%");
                         rs3 = ps3.executeQuery();
                         if (rs3 != null)
@@ -295,13 +294,12 @@
                                 String desc = rs3.getString("pro_descripcion");
                                 int nid = rs3.getInt("neg_id");
                                 String nimg = rs3.getString("neg_logo");
-                                String fecha = rs3.getString("pro_fecha");
                     %>
 
                     <!-- Producto -->
                     <form class="busq_result busq_pr" id="probusq" method="post" action="NegociosCA.jsp" >
                         <input class="d-none" type="text" id="nom_neg_ofr" disabled value="Nombre del negocio que lo ofrefe">
-                        <input class="d-none" id="fecha_inp_busq" type="date" disabled value="<%=fecha%>">
+                        <input class="d-none" id="fecha_inp_busq" type="date" disabled value="2006-04-20">
                         <button class="d-none" type="submit" id="btn_smt_pro"></button>
                         <img class="img_pro_busq ipb1" id="img_pro_busq" src="<%=pimg%>">
                         <section class="ivbs" id="ivsy">
@@ -330,33 +328,17 @@
                         }
                     %>
 
-                     <%
-                        PreparedStatement ps6 = c.prepareStatement("select u.usu_nombre, f.fed_comentario, f.fed_fecha, f.fed_like, p.per_foto from Usuario u inner join Persona p "
-                                        + "on p.usu_id = u.usu_id inner join Feedback f on f.per_id = p.per_id where f.fed_comentario ILIKE ?");
-                        ps6.setString(1, "%" + bs + "%");
-                        rs8 = ps6.executeQuery();
-                        if (rs8 != null)
-                        {
-                            while (rs8.next())
-                            {
-
-                                String nomu = rs8.getString("usu_nombre");
-                                String ft = rs8.getString("per_foto");
-                                String comentario = rs8.getString("fed_comentario");
-                                Boolean like = rs8.getBoolean("fed_like");
-                                String fecha = rs8.getString("fed_fecha");
-                    %>
                     <!-- Comentarios -->
                     <section class="busq_result" id="combusq">
-                        <input class="d-none" id="fecha_inp_busq" type="date" disabled value="<%=fecha%>">
+                        <input class="d-none" id="fecha_inp_busq" type="date" disabled value="2007-04-20">
                         <input class="d-none" type="text" id="nom_neg_com" disabled value="Nombre del negocio que ah comentado">
-                        <img src="<%=ft%>" class="d-none" alt="Logo del negocio que comento" id="log_neg_com"/>
+                        <img src="src" class="d-none" alt="Logo del negocio que comento" id="log_neg_com"/>
                         <section class="resena_usua_esp d-flex flex-column" id="resena_usua_esp_busq">
                             <section class="comentario_n">
-                                <span id="nom_usu_com"><%=comentario%></span>
+                                <span id="nom_usu_com">Usuario que comento</span>
                                 <img src="assets/Logo_Icon.png" alt="Img de perfil del usuario" id="img_perf_com">
                             </section>
-                            <span class="texto_res_usu" id="coment_desc"><%=comentario%></span>
+                            <span class="texto_res_usu" id="coment_desc">Comentario</span>
                             <span class="liornli"><i class="bi bi-heart-fill"></i> Le gustó este Negocio</span>
                             <i class="bi bi-quote comment_icon_neg"></i>
                         </section>
@@ -364,20 +346,13 @@
                     </section>
 
                     <%
-                            }
-                        }
-                    %> 
-                    
-                    <%
                         ResultSet pr2;
 
-                        String sl2 = "select n.neg_nombre, n.neg_id, v.* from Negocio n inner join Novedad v on "
-                                + "n.neg_id=v.neg_id where n.neg_activo=true and v.nov_activo=true and v.nov_nombre ILIKE ?;";
+                        String sl2 = "select n.neg_nombre, n.neg_id, v.* from Negocio n inner join Novedad v on n.neg_id=v.neg_id where n.neg_activo=true;";
 
                         String pi2 = "";
-                        PreparedStatement ps9 = c.prepareStatement(sl2);
-                        ps9.setString(1, "%" + bs + "%");
-                        pr2 = ps9.executeQuery();
+
+                        pr2 = stmt.executeQuery(sl2);
 
                         while (pr2.next())
                         {
@@ -387,18 +362,17 @@
                             pi2 = pr2.getString("nov_foto");
                             String dis = pr2.getString("neg_nombre");
                             String pd = pr2.getString("nov_descripcion");
-                            String fecha = pr2.getString("nov_fecha");
                     %>
                     <!-- Novedades -->
                     <div class="busq_result nov_busq" id="novbusq">
-                        <input class="d-none" id="fecha_inp_busq" type="date" disabled value="<%=fecha%>">
+                        <input class="d-none" id="fecha_inp_busq" type="date" disabled value="2020-04-20">
                         <section class="nov_desc_esp">
                             <section class="cont_anuncio">
                                 <span class="tt_nov_bus"><span><%=dis%> </span> Anuncia: <br> <span class="tt_nov_esp" id="tt_nov_esp"><%=np%></span></span>
                                 <span class="desc_nov_busq" id="desc_nov_busq"><%=pd%> </span>
                             </section>
                             <img class="img_nov" id="img_nov" src="<%=pi2%>" alt="alt"/>
-                            <img class="img_nov_neg" id="img_nov_neg" src="<%=pi2%>" alt="alt"/>
+                            <img class="img_nov_neg" id="img_nov_neg" src="assets/neg1.jpg" alt="alt"/>
                         </section>
                         <section class="present_nov">
                             <span class="tt_nov_pres"><%=np%></span>
@@ -452,8 +426,8 @@
                         <input type="text" class="d-none" id="id_neg_vp" name="idn" >
                         <button type="submit" class="btn_busq">Explorar Negocio</button>
                     </form>
-                    <form action="EliminarNegocioA" class="form_elim">
-                        <input type="hidden" name="idn" value=""/>
+                    <form action="action" class="form_elim">
+                        <input type="hidden" name="" value=""/>
                         <input type="hidden" class="name_elim" value="ESTE NEGOCIO"/>
                         <button type="submit" class="btn btn_elimnegscr_admin" id="btn_elimnegscr_admin">Eliminar Negocio</button>
                     </form>
@@ -486,8 +460,8 @@
                         <input type="text" class="d-none" id="id_usuv_vp" name="idu" >
                         <button type="submit" class="btn_busq">Visitar Cuenta</button>
                     </form>
-                    <form action="EliminarUsuario" class="form_elim">
-                        <input type="hidden" name="idu" value=""/>
+                    <form action="action" class="form_elim">
+                        <input type="hidden" name="" value=""/>
                         <input type="hidden" class="name_elim" value="ESTE VENDEDOR"/>
                         <button type="submit" class="btn btn_elimnegscr_admin" id="btn_elimnegscr_admin">Eliminar Vendedor</button>
                     </form>
@@ -516,8 +490,8 @@
                         <input type="text" class="d-none" id="id_usu_vp" name="idu" >
                         <button type="submit" class="btn_busq">Visitar Cuenta</button>
                     </form>
-                    <form action="EliminarUsuario" class="form_elim">
-                        <input type="hidden" name="idu" value=""/>
+                    <form action="action" class="form_elim">
+                        <input type="hidden" name="" value=""/>
                         <input type="hidden" class="name_elim" value="ESTE USUARIO"/>
                         <button type="submit" class="btn btn_elimnegscr_admin" id="btn_elimnegscr_admin">Eliminar Usuario</button>
                     </form>
@@ -546,8 +520,8 @@
                         <input type="text" class="d-none" id="id_pro_vp" name="idn" >
                         <button type="submit" class="btn_busq">Visitar Negocio que lo ofrece</button>
                     </form>
-                    <form action="EliminarProductoA" class="form_elim">
-                        <input type="hidden" name="idp" value=""/>
+                    <form action="action" class="form_elim">
+                        <input type="hidden" name="" value=""/>
                         <input type="hidden" class="name_elim" value="ESTE PRODUCTO"/>
                         <button type="submit" class="btn btn_elimnegscr_admin" id="btn_elimnegscr_admin">Eliminar Producto</button>
                     </form>
@@ -572,8 +546,8 @@
                         <input type="text" class="d-none" id="id_com_vp" name="idn" >
                         <button type="submit" class="btn_busq">Visitar Negocio que Comentó</button>
                     </form>
-                    <form action="EliminarComentarioA" class="form_elim">
-                        <input type="hidden" name="idc" value=""/>
+                    <form action="action" class="form_elim">
+                        <input type="hidden" name="" value=""/>
                         <input type="hidden" class="name_elim" value="ESTE COMENTARIO"/>
                         <button type="submit" class="btn btn_elimnegscr_admin" id="btn_elimnegscr_admin">Eliminar Comentario</button>
                     </form>
@@ -598,8 +572,8 @@
                         <input type="text" class="d-none" id="id_nov_vp" name="idn" >
                         <button type="submit" class="btn_busq">Visitar negocio de la Novedad</button>
                     </form>
-                    <form action="EliminarNovedadA" class="form_elim">
-                        <input type="hidden" name="idn" value=""/>
+                    <form action="action" class="form_elim">
+                        <input type="hidden" name="" value=""/>
                         <input type="hidden" class="name_elim" value="ESTA NOVEDAD"/>
                         <button type="submit" class="btn btn_elimnegscr_admin" id="btn_elimnegscr_admin">Eliminar Novedad</button>
                     </form>
