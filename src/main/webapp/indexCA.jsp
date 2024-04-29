@@ -22,6 +22,12 @@
     </head>
     <body class="index">
         <jsp:include page="templates/Navegadores/Navegador_CA.jsp"/>
+        <%
+    HttpSession session1 = request.getSession(false);
+    if (session1.getAttribute("usuario") != null)
+    {
+
+%>
         <%            Conexion con;
             Connection c;
             Statement stmt;
@@ -469,6 +475,13 @@
         <%
             }
                 %>
+                <%
+                        } else
+                        {
+                            System.out.println("Error: Sesión no existe");
+                            response.sendRedirect("index.jsp");
+                        }
+                    %>
     <script src="js/Nav.js"></script>
     <script src="js/index.js"></script>
     <script src="js/elim.js"></script>

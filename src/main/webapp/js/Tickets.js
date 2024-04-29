@@ -1,9 +1,3 @@
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
- */
-
-//
 let ticket = document.querySelectorAll(".ticket_prev");
 let select_prioridad = document.getElementById("filtr_pri");
 let select_tema = document.getElementById("filtr_tem");
@@ -38,6 +32,7 @@ let est_pro_edt = document.getElementById("est_pro_edt");
 let est_cer_edt = document.getElementById("est_cer_edt");
 let Desc_edt = document.getElementById("Desc_edt");
 let btn_env_adm = document.getElementById("btn_env_adm");
+var ListaOg = [];
 
 btn_env_adm.addEventListener("click", function () {
     edit_com_inp.value = Desc_edt.value;
@@ -128,77 +123,21 @@ Descripcion.addEventListener("click", function () {
 edit_ticket.addEventListener("click", (e) => {
     if (e.target === edit_ticket) {
         edit_ticket.style.display = "none";
-        ticket.forEach(function (ticket_click) {
-            let Tema = ticket_click.querySelector("#Tema").value;
-            switch (Tema) {
-                case "Negocio":
-                    document.getElementById("tem_edt").value = "Negocio";
-                    break;
-                case "Desconocido":
-                    document.getElementById("tem_edt").value = "Desconocido";
-                    break;
-                case "Ejecucion":
-                    document.getElementById("tem_edt").value = "Ejecucion";
-                    break;
-                case "Editar":
-                    document.getElementById("tem_edt").value = "Editar";
-                    break;
-                case "Error":
-                    document.getElementById("tem_edt").value = "Error";
-                    break;
-                case "Cuentas":
-                    document.getElementById("tem_edt").value = "Cuentas";
-                    break;
-                case "Funcionamiento":
-                    document.getElementById("tem_edt").value = "Funcionamiento";
-                    break;
-                case "Otro":
-                    document.getElementById("tem_edt").value = "Otro";
-                    break;
-            }
-            edit_pri_inp.value = ticket_click.querySelector("#Prioridad").value;
-            edit_est_inp.value = ticket_click.querySelector("#Estado").value;
-            edit_com_inp.value = ticket_click.querySelector("#Desc_tick").textContent;
-        })
+        document.getElementById("tem_edt").value = ListaOg[0];
+        edit_pri_inp.value = ListaOg[1];
+        edit_est_inp.value = ListaOg[2];
+        edit_com_inp.value = ListaOg[3];
     }
 });
 
 Cancelar.forEach(function (cancel) {
     cancel.addEventListener("click", () => {
         edit_ticket.style.display = "none";
-        ticket.forEach(function (ticket_click) {
-            let Tema = ticket_click.querySelector("#Tema").value;
-            switch (Tema) {
-                case "Negocio":
-                    document.getElementById("tem_edt").value = "Negocio";
-                    break;
-                case "Desconocido":
-                    document.getElementById("tem_edt").value = "Desconocido";
-                    break;
-                case "Ejecucion":
-                    document.getElementById("tem_edt").value = "Ejecucion";
-                    break;
-                case "Editar":
-                    document.getElementById("tem_edt").value = "Editar";
-                    break;
-                case "Error":
-                    document.getElementById("tem_edt").value = "Error";
-                    break;
-                case "Cuentas":
-                    document.getElementById("tem_edt").value = "Cuentas";
-                    break;
-                case "Funcionamiento":
-                    document.getElementById("tem_edt").value = "Funcionamiento";
-                    break;
-                case "Otro":
-                    document.getElementById("tem_edt").value = "Otro";
-                    break;
-            }
-            edit_pri_inp.value = ticket_click.querySelector("#Prioridad").value;
-            edit_est_inp.value = ticket_click.querySelector("#Estado").value;
-            edit_com_inp.value = ticket_click.querySelector("#Desc_tick").textContent;
-        })
-    })
+        document.getElementById("tem_edt").value = ListaOg[0];
+        edit_pri_inp.value = ListaOg[1];
+        edit_est_inp.value = ListaOg[2];
+        edit_com_inp.value = ListaOg[3];
+    });
 });
 
 ticket.forEach(function (ticket_click) {
@@ -206,7 +145,7 @@ ticket.forEach(function (ticket_click) {
         CopiarDatosTicket(this);
         viz_ticket.style.display = "flex";
     });
-})
+});
 
 function CopiarDatosTicket(ticket_clickeado) {
     switch (ticket_clickeado.querySelector("#Estado").value) {
@@ -281,6 +220,15 @@ function CopiarDatosTicket(ticket_clickeado) {
     document.getElementById("Des_tick_viz").textContent = ticket_clickeado.querySelector("#Desc_tick").textContent;
     document.getElementById("Desc_edt").value = ticket_clickeado.querySelector("#Desc_tick").textContent;
     edit_com_inp.value = ticket_clickeado.querySelector("#Desc_tick").textContent;
+
+    let Tem_list = ticket_clickeado.querySelector("#Tema").value;
+    let Prioridad_list = ticket_clickeado.querySelector("#Prioridad").value;
+    let Estado_list = ticket_clickeado.querySelector("#Estado").value;
+    let Desc_list = ticket_clickeado.querySelector("#Desc_tick").textContent;
+
+    ListaOg = [Tem_list, Prioridad_list, Estado_list, Desc_list];
+
+    return ListaOg;
 }
 
 viz_ticket.addEventListener("click", (e) => {
@@ -428,6 +376,6 @@ function FechaCreacion(inpFech, selectFech) {
                     busq.style.display = "none";
                 }
                 break;
-        }
-    });
+        }
+    });
 }

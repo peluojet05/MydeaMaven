@@ -20,7 +20,9 @@ crossorigin="anonymous"></script>
 <link rel="icon" href="assets/Logo_Icon.png" type="icon">
 <link rel="stylesheet" href="css/Crear/CrearInfo.css">
 <link rel="stylesheet" href="css/Crear/CrearFormN.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="css/Registro_IS/Registro.css">
 <link rel="stylesheet" href="css/Registro_IS/Iniciar_sesion.css">
 <link rel="stylesheet" href="css/General/Animations.css">
@@ -35,3 +37,4 @@ crossorigin="anonymous"></script>
 <link rel="stylesheet" href="css/Negocios/Feedback.css" />
 <link rel="stylesheet" href="css/Negocios/Novedades.css" />
 <link rel="stylesheet" href="css/General/error.css" />
+<link rel="stylesheet" href="css/Administrador/Tickets.css" />

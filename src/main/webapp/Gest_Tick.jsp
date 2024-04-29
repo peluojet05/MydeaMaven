@@ -4,6 +4,10 @@
     Author     : altro
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="Clases.Conexion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,6 +19,13 @@
     </head>
     <body>
         <jsp:include page="templates/Navegadores/Navegador_CA.jsp"/>
+         <%
+    HttpSession session1 = request.getSession(false);
+    if (session1.getAttribute("usuario") != null)
+    {
+
+%>
+ 
         <div class="gestion_tickets_container">
             <div class="controlls_gest_tick">
                 <span class="tt_acc_adm">Gestión de Tickets</span>
@@ -67,7 +78,43 @@
                 </div>
             </div>
             <div class="tickets_container" id="tickets_container">
+<%
+                        Conexion con;
+                        Connection c;
+                        Statement stmt;
+                        ResultSet rs, rs2, rs3, rs4, rs5, rs6, rs7;
 
+                       
+                        con = new Conexion();
+                        con.setCon();
+                        c = con.getCon();
+                        stmt = c.createStatement();
+                    %>
+                    <%    
+  String sql = "Select t.*, pr.pri_nombre, e.est_nombre, p.per_correo, p.per_foto, u.usu_nombre, ti.tip_nombre from Ticket t inner join Prioridad pr on "
+          + "t.pri_id=pr.pri_id inner join Estado e on t.est_id=e.est_id inner join Persona p on t.per_id = p.per_id inner join Usuario u on p.usu_id = u.usu_id "
+          + "inner join Tipo ti on t.tip_id = ti.tip_id where t.est_id=1";
+   rs=stmt.executeQuery(sql);
+                        
+                        if(rs!=null){
+                        
+                            while(rs.next()){
+                            
+                        String nomticket = rs.getString("tic_nombre");
+                        String descticket = rs.getString("tic_descripcion");
+                        String prioridad = rs.getString("pri_nombre");
+                        String estado = rs.getString("est_nombre");
+                        String imgticket = rs.getString("tic_imagen");
+                        String imgusuario = rs.getString("per_foto");
+                        String nombreusuario = rs.getString("usu_nombre");
+                        String correousuario = rs.getString("per_correo");
+                        String tema = rs.getString("tip_nombre");
+                        String fecha = rs.getString("tic_fecha");
+                        int id = rs.getInt("tic_id");
+                        //cuando quieras poner la imagen del usuario, su nombre, etc, pones esto <%=nombre de la variable% > (quitas el espacio entre el % y el >)
+                        //ejemplo: <span> Nombre de usuario: <%=nombreusuario% > (tammbien lo puedes usar en una etiqueta de html)\
+                       
+                        %>
                 <!--Ticket Abierto-->
                 <section class="ticket_prev">
                     <svg class="icon_ticket_prev" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
@@ -81,20 +128,51 @@
                           d="M309.424,170.713c-5.891,0.011-10.675-4.757-10.686-10.648c-0.005-2.84,1.123-5.565,3.134-7.571 l53.333-53.333c4.093-4.237,10.845-4.355,15.083-0.262c4.237,4.093,4.354,10.845,0.262,15.083c-0.086,0.089-0.173,0.176-0.262,0.262 l-53.333,53.333C314.96,169.579,312.251,170.707,309.424,170.713z" />
                     <circle style="fill:#097b20;" cx="394.758" cy="74.713" r="53.333" />
                     </svg>
-                    <span class="tt_tick_prev" id="tt_tick_prev">NOMBRE DEL TICKET</span>
-                    <span class="d-none" id="Desc_tick">Hola soy una descripcion de ticket owo</span>
-                    <img src="assets/cmn.png" class="d-none" id="img_ticket_prev">
-                    <input type="text" class="d-none" id="Prioridad" value="Media">
-                    <input type="text" class="d-none" id="Tema" value="Desconocido">
+                    <span class="tt_tick_prev" id="tt_tick_prev"><%=nomticket%></span>
+                    <span class="d-none" id="Desc_tick"><%=descticket%></span>
+                    <img src="<%=imgticket%>" class="d-none" id="img_ticket_prev">
+                    <input type="text" class="d-none" id="Prioridad" value="<%=prioridad%>">
+                    <input type="text" class="d-none" id="Tema" value="<%=tema%>">
                     <input type="text" class="d-none" id="Estado" value="Abierto">
-                    <input type="date" class="d-none" id="Fecha_tick" value="2024-04-10">
-                    <input type="text" class="d-none" disabled id="id_ticket_prev" value="1">
+                    <input type="date" class="d-none" id="Fecha_tick" value="<%=fecha%>">
+                    <input type="text" class="d-none" disabled id="id_ticket_prev" value="<%=id%>">
                     <section class="esp_tick">
                         <span>Ticket Abierto</span>
-                        <span>Prioridad: Media</span>
+                        <span>Prioridad: <%=prioridad%></span>
                     </section>
                 </section>
+<%
+    }
 
+}
+
+%>
+
+                    <%    
+  String sql2 = "Select t.*, pr.pri_nombre, e.est_nombre, p.per_correo, p.per_foto, u.usu_nombre, ti.tip_nombre from Ticket t inner join Prioridad pr on "
+          + "t.pri_id=pr.pri_id inner join Estado e on t.est_id=e.est_id inner join Persona p on t.per_id = p.per_id inner join Usuario u on p.usu_id = u.usu_id "
+          + "inner join Tipo ti on t.tip_id = ti.tip_id where t.est_id=2";
+   rs2=stmt.executeQuery(sql2);
+                        
+                        if(rs2!=null){
+                        
+                            while(rs2.next()){
+                            
+                        String nomticket = rs2.getString("tic_nombre");
+                        String descticket = rs2.getString("tic_descripcion");
+                        String prioridad = rs2.getString("pri_nombre");
+                        String estado = rs2.getString("est_nombre");
+                        String imgticket = rs2.getString("tic_imagen");
+                        String imgusuario = rs2.getString("per_foto");
+                        String nombreusuario = rs2.getString("usu_nombre");
+                        String correousuario = rs2.getString("per_correo");
+                        String tema = rs2.getString("tip_nombre");
+                        String fecha = rs2.getString("tic_fecha");
+                        int id = rs2.getInt("tic_id");
+                        //cuando quieras poner la imagen del usuario, su nombre, etc, pones esto <%=nombre de la variable% > (quitas el espacio entre el % y el >)
+                        //ejemplo: <span> Nombre de usuario: <%=nombreusuario% > (tammbien lo puedes usar en una etiqueta de html)\
+                       
+                        %>
                 <!--Ticket en Proceso-->
                 <section class="ticket_prev">
                     <svg class="icon_ticket_prev" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
@@ -108,21 +186,52 @@
                           d="M309.424,170.713c-5.891,0.011-10.675-4.757-10.686-10.648c-0.005-2.84,1.123-5.565,3.134-7.571 l53.333-53.333c4.093-4.237,10.845-4.355,15.083-0.262c4.237,4.093,4.354,10.845,0.262,15.083c-0.086,0.089-0.173,0.176-0.262,0.262 l-53.333,53.333C314.96,169.579,312.251,170.707,309.424,170.713z" />
                     <circle style="fill:#ff8000;" cx="394.758" cy="74.713" r="53.333" />
                     </svg>
-                    <span class="tt_tick_prev" id="tt_tick_prev">NOMBRE DEL TICKET</span>
-                    <span class="d-none" id="Desc_tick">Hola soy una descripcion de ticket owo</span>
-                    <img src="assets/cmn.png" class="d-none" id="img_ticket_prev">
-                    <input type="text" class="d-none" id="Prioridad" value="Alta">
-                    <input type="text" class="d-none" id="Tema" value="Negocio">
+                    <span class="tt_tick_prev" id="tt_tick_prev"><%=nomticket%></span>
+                    <span class="d-none" id="Desc_tick"><%=descticket%></span>
+                    <img src="<%=imgticket%>" class="d-none" id="img_ticket_prev">
+                    <input type="text" class="d-none" id="Prioridad" value="<%=prioridad%>">
+                    <input type="text" class="d-none" id="Tema" value="<%=tema%>">
                     <input type="text" class="d-none" id="Estado" value="En Proceso">
-                    <input type="date" class="d-none" id="Fecha_tick" value="2024-04-28">
-                    <input type="text" class="d-none" disabled id="id_ticket_prev" value="">
+                    <input type="date" class="d-none" id="Fecha_tick" value="<%=fecha%>">
+                    <input type="text" class="d-none" disabled id="id_ticket_prev" value="<%=id%>">
                     <section class="esp_tick">
                         <span>Ticket En Proceso</span>
-                        <span>Prioridad: Alta</span>
+                        <span>Prioridad: <%=prioridad%></span>
                     </section>
                 </section>
+<%
+    }
 
-                <!--Ticket Cerrado-->
+}
+
+%>
+
+                    <%    
+  String sql3 = "Select t.*, pr.pri_nombre, e.est_nombre, p.per_correo, p.per_foto, u.usu_nombre, ti.tip_nombre from Ticket t inner join Prioridad pr on "
+          + "t.pri_id=pr.pri_id inner join Estado e on t.est_id=e.est_id inner join Persona p on t.per_id = p.per_id inner join Usuario u on p.usu_id = u.usu_id "
+          + "inner join Tipo ti on t.tip_id = ti.tip_id where t.est_id=3";
+   rs3=stmt.executeQuery(sql3);
+                        
+                        if(rs3!=null){
+                        
+                            while(rs3.next()){
+                            
+                        String nomticket = rs3.getString("tic_nombre");
+                        String descticket = rs3.getString("tic_descripcion");
+                        String prioridad = rs3.getString("pri_nombre");
+                        String estado = rs3.getString("est_nombre");
+                        String imgticket = rs3.getString("tic_imagen");
+                        String imgusuario = rs3.getString("per_foto");
+                        String nombreusuario = rs3.getString("usu_nombre");
+                        String correousuario = rs3.getString("per_correo");
+                        String tema = rs3.getString("tip_nombre");
+                        String fecha = rs3.getString("tic_fecha");
+                        int id = rs3.getInt("tic_id");
+                        //cuando quieras poner la imagen del usuario, su nombre, etc, pones esto <%=nombre de la variable% > (quitas el espacio entre el % y el >)
+                        //ejemplo: <span> Nombre de usuario: <%=nombreusuario% > (tammbien lo puedes usar en una etiqueta de html)\
+                       
+                        %>
+<!--Ticket Cerrado-->
                 <section class="ticket_prev">
                     <svg class="icon_ticket_prev" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.092 512.092"
@@ -135,20 +244,29 @@
                           d="M309.424,170.713c-5.891,0.011-10.675-4.757-10.686-10.648c-0.005-2.84,1.123-5.565,3.134-7.571 l53.333-53.333c4.093-4.237,10.845-4.355,15.083-0.262c4.237,4.093,4.354,10.845,0.262,15.083c-0.086,0.089-0.173,0.176-0.262,0.262 l-53.333,53.333C314.96,169.579,312.251,170.707,309.424,170.713z" />
                     <circle style="fill:#a70909;" cx="394.758" cy="74.713" r="53.333" />
                     </svg>
-                    <span class="tt_tick_prev" id="tt_tick_prev">NOMBRE DEL TICKET</span>
-                    <span class="d-none" id="Desc_tick">Hola soy una descripcion de ticket owo</span>
-                    <img src="assets/cmn.png" class="d-none" id="img_ticket_prev">
-                    <input type="text" class="d-none" id="Prioridad" value="Baja">
-                    <input type="text" class="d-none" id="Tema" value="Editar">
+                   <span class="tt_tick_prev" id="tt_tick_prev"><%=nomticket%></span>
+                    <span class="d-none" id="Desc_tick"><%=descticket%></span>
+                    <img src="<%=imgticket%>" class="d-none" id="img_ticket_prev">
+                    <input type="text" class="d-none" id="Prioridad" value="<%=prioridad%>">
+                    <input type="text" class="d-none" id="Tema" value="<%=tema%>">
+                    
                     <input type="text" class="d-none" id="Estado" value="Cerrado">
-                    <input type="date" class="d-none" id="Fecha_tick" value="2024-04-20">
-                    <input type="text" class="d-none" disabled id="id_ticket_prev" value="">
+                    <input type="date" class="d-none" id="Fecha_tick" value="<%=fecha%>">
+                    <input type="text" class="d-none" disabled id="id_ticket_prev" value="<%=id%>">
                     <section class="esp_tick">
                         <span>Ticket Cerrado</span>
-                        <span>Prioridad: Baja</span>
+                        <span>Prioridad: <%=prioridad%></span>
                     </section>
                 </section>
+                         
+<%
+    }
+
+}
+
+%>
             </div>
+                   
         </div>
 
         <!--Vizualizacion del ticket-->
@@ -183,11 +301,11 @@
 
         <!--Ventana de edicion-->
         <div class="edicion_tick" id="edicion_tick">
-            <form action="" class="form_ed_tick" id="form_ed_tick" method="post">
+            <form action="EditarTicket" class="form_ed_tick" id="form_ed_tick" method="post">
                 <span class="tt_form" id="tt_form">Editar</span>
                 <section class="edit_tem" id="edit_tem">
                     <span id="amd_tem"></span>
-                    <select class="sect_edt" id="filtr_tem_edt">
+                    <select class="sect_edt" id="filtr_tem_edt" name="tipo">
                         <option selected disabled hidden>Escoger nuevo Tema</option>
                         <option value="Negocio">Problemas con los negocios</option>
                         <option value="Desconocido">Errores Desconocidos</option>
@@ -232,13 +350,20 @@
                         <button type="submit" class="btn_env_adm" id="btn_env_adm">Enviar</button>
                     </section>
                 </section>
-                <input type="text" disabled id="id_ticket">
-                <input type="text" disabled id="tem_edt">
-                <input type="text" disabled id="pri_edt">
-                <input type="text" disabled id="est_edt">
-                <input type="text" disabled id="com_edt">
+                <input type="text" disabled id="id_ticket" name="idt">
+                <input type="text" disabled id="tem_edt" name="atipo">
+                <input type="text" disabled id="pri_edt" name="apri">
+                <input type="text" disabled id="est_edt" name="aest">
+                <input type="text" disabled id="com_edt" name="acom">
             </form>
         </div>
+        <%
+                        } else
+                        {
+                            System.out.println("Error: Sesión no existe");
+                            response.sendRedirect("index.jsp");
+                        }
+                    %>
         <script src="js/Tickets.js"></script>
         <script>
             // Activar todos los tooltips
