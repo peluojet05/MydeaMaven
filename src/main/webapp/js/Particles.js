@@ -5,14 +5,14 @@
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    const numParticles = 30;
+    const numParticles = 10;
     const container = document.querySelector(".particles-container");
 
     for (let i = 0; i < numParticles; i++) {
         const particle = document.createElement("div");
         particle.classList.add("square");
 
-        const size = Math.floor(Math.random() * 200) + 10;
+        const size = Math.floor(Math.random() * 200) + 80;
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
 

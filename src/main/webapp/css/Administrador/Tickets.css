@@ -1,0 +1,525 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 28 abr 2024, 22:46:20
+    Author     : altro
+*/
+
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 18 abr 2024, 20:45:39
+    Author     : altro
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+.gestion_tickets_container {
+  height: 90%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+.controlls_gest_tick {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 25%;
+}
+.fltr_tickets {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1%;
+  background: #454545;
+  position: relative;
+  z-index: 1;
+}
+.tt_acc_adm {
+  width: 100%;
+  text-align: center;
+  border-bottom: 2.5px solid rgb(146, 146, 146);
+  font-size: 2.5rem;
+  font-weight: bolder;
+  padding: 1%;
+  background: white;
+  /*color: white;*/
+}
+.busq_admin_acc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  padding-right: 1%;
+}
+.busq_admin_acc i {
+  font-size: 1.5rem;
+}
+.fltr_tickets select {
+  padding: 5px;
+  height: 100%;
+  padding: 10px;
+  outline: none;
+}
+.select_adm {
+  border: none;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  outline: none;
+  background: none;
+  color: white;
+  font-size: 1rem;
+}
+.select_adm option {
+  color: black;
+}
+.opt_admin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#filtr_pri,
+#filtr_tem,
+#filtr_est,
+#filtr_fech {
+  border: 1px solid #fff;
+}
+.tickets_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px;
+  gap: 5%;
+  height: 75%;
+  overflow-y: scroll;
+  padding: 1%;
+}
+.tickets_container::-webkit-scrollbar {
+  background: none;
+  width: 5px;
+}
+.tickets_container::-webkit-scrollbar-thumb {
+  background: rgb(22, 40, 60);
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+.ticket_icon {
+  height: 300px;
+  width: 300px;
+}
+.ticket_icon path {
+  height: 100%;
+  width: 100%;
+}
+.ticket_prev {
+  height: 270px;
+  width: 270px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  filter: opacity(0.7);
+  -webkit-filter: opacity(0.7);
+}
+.ticket_prev:hover {
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  filter: opacity(1);
+  -webkit-filter: opacity(1);
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+}
+.ticket_prev:hover .sombra_sv {
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  display: block;
+}
+.ticket_prev:hover .tick_deg {
+  transition: 0.3s;
+  rotate: 0deg;
+  transform: translateY(0%);
+  -webkit-transform: translateY(0%);
+  -moz-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  -o-transform: translateY(0%);
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+.ticket_prev:hover .tt_tick_prev {
+  transition: 0.1s;
+  -webkit-transition: 0.1s;
+  -moz-transition: 0.1s;
+  -ms-transition: 0.1s;
+  -o-transition: 0.1s;
+  transform: rotate(-7deg);
+  -webkit-transform: rotate(-7deg);
+  -moz-transform: rotate(-7deg);
+  -ms-transform: rotate(-7deg);
+  -o-transform: rotate(-7deg);
+  margin-top: 10%;
+  margin-left: 15%;
+}
+.icon_ticket_prev {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+}
+.tt_tick_prev {
+  position: relative;
+  z-index: 1;
+  font-family: "Roboto Mono", monospace;
+  font-weight: bolder;
+  font-size: 1.2rem;
+  width: 60%;
+  text-align: center;
+  margin-top: 12%;
+  margin-left: 2%;
+}
+.sombra_sv {
+  display: none;
+}
+.tick_deg {
+  rotate: 6.5deg;
+  transform: translateY(-5%);
+  -webkit-transform: translateY(-5%);
+  -moz-transform: translateY(-5%);
+  -ms-transform: translateY(-5%);
+  -o-transform: translateY(-5%);
+}
+.bus_admin_acc {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0);
+  color: white;
+  outline: none;
+  color: rgba(0, 0, 0, 0.508);
+}
+.bus_admin_acc:focus {
+  background: none;
+  box-shadow: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+  outline: none;
+}
+.bus_admin_acc::placeholder {
+  color: rgba(0, 0, 0, 0.508);
+}
+.filtr_fech {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.opt_admin select:hover,
+.opt_admin select:focus {
+  outline: none;
+  background: none;
+}
+.fech_admin {
+  height: 80%;
+  background: rgba(255, 255, 255, 0.5);
+  outline: none;
+  border: 1px solid white;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  padding: 5px;
+  font-weight: bold;
+  color: white;
+}
+.ticket_viz {
+  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  justify-content: center;
+  align-items: end;
+  padding-bottom: 1%;
+  font-family: "Roboto Mono", monospace;
+  display: none;
+}
+.edicion_tick {
+  background: rgba(0, 0, 0, 0.3);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 4;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 1%;
+  font-family: "Roboto Mono", monospace;
+  display: none;
+}
+.form_ed_tick {
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  padding: 2%;
+  gap: 15px;
+}
+.edit_tem {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.edit_pri {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.edit_est {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.edit_com {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  font-size: 0.9rem;
+  text-align: justify;
+}
+.txt_ar_edit{
+    resize: none;
+    height: 30vh;
+    width: 30vw;
+}
+.tt_form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.ticket_conviz {
+  height: 90%;
+  width: 55%;
+  position: relative;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  gap: 1%;
+}
+.ticket_conviz svg {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.tt_tick_viz {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+.cont_tick {
+  display: flex;
+  height: 60%;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  padding: 1%;
+  gap: 1.5%;
+}
+.imgfech_tick {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2%;
+}
+.imgfech_tick img {
+  width: 100%;
+}
+.information_ticket {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 40%;
+  height: 100%;
+}
+.information_ticket span {
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.information_ticket span:hover {
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  color: white;
+  background: rgb(22, 40, 60);
+  cursor: pointer;
+}
+.Des_tick {
+  height: 30%;
+  width: 65%;
+  position: relative;
+  outline: none;
+  border: none;
+  padding: 1%;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  overflow-y: scroll;
+}
+.Des_tick::-webkit-scrollbar {
+  background: none;
+  width: 5px;
+}
+.Des_tick::-webkit-scrollbar-thumb {
+  background: rgb(255, 255, 255);
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+}
+.Des_tick:hover {
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  color: white;
+  background: rgb(22, 40, 60);
+  cursor: pointer;
+}
+.Tem_tick_viz {
+  font-size: 1.1rem;
+}
+.Pri_tick_viz {
+  font-size: 1.1rem;
+}
+.Est_tick_viz {
+  font-size: 1.2rem;
+  font-weight: bolder;
+}
+#fecha_tick_viz {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.esp_tick {
+  position: absolute;
+  bottom: -1%;
+  font-size: 0.8rem;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  font-weight: bold;
+}
+.btns_edt {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+.btns_edt button {
+  padding: 5px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.btn_canc_adm {
+  border: 3px solid rgb(101, 101, 101);
+  background: rgba(64, 64, 64, 0.5);
+}
+.btns_edt button:hover {
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  color: white;
+  font-size: 1.1rem;
+}
+.btn_env_adm {
+  border: 3px solid rgba(244, 55, 112, 1);
+  background: rgba(244, 55, 112, 0.5);
+}
+.btn_verd {
+  border: 3px solid #24b240;
+  background: #24b24081;
+}
+.btn_amar {
+  border: 3px solid #ffa000;
+  background: #ffa2007d;
+}
+.btn_rojo {
+  border: 3px solid #c02e2e;
+  background: #c02e2e7d;
+}
+.sect_edt {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border: 2px solid black;
+}
