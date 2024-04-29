@@ -7,112 +7,161 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     Author     : altro
 */
 
-.html_accadm{
-    overflow: hidden;
+.html_accadm {
+  overflow: hidden;
 }
-.adm_cont_admin{
-    height: 90vh;
-    width: 100vw;
-    position: absolute;
-    bottom: 0;
-    background: rgb(51, 9, 22);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.adm_cont_admin {
+  height: 90vh;
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+  background: rgb(51, 9, 22);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.adm_cont_admin_btt{
-    width: 75%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 40px;
-    cursor: auto;
+.adm_cont_admin_btt {
+  width: 75%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  cursor: auto;
 }
-.adm_cont_admin .btn_acc_adm{
-    position: relative;
-    height: 250px;
-    width: 230px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
+.adm_cont_admin .btn_acc_adm {
+  position: relative;
+  height: 250px;
+  width: 230px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
 }
-.hexagon{
-    position: absolute;
-    font-size: 230px;
-    color: rgba(250,250,250,.8);
-    cursor: pointer;
+.hexagon {
+  position: absolute;
+  font-size: 230px;
+  color: rgba(250, 250, 250, 0.8);
+  cursor: pointer;
 }
-.txt_btn{
-    position: relative;
-    z-index: 3;
+.txt_btn {
+  position: relative;
+  z-index: 3;
 }
-.txt_btn_bttm{
-    z-index: 1;
-    position: absolute;
-    bottom: 15px;
-    width: 100%;
-    text-align:center;
-    font-size: 1.2rem;
-    color: white;
-    font-weight: bold;
-    display: none;
-    justify-content: center;
-    align-items: center;
+.txt_btn_bttm {
+  z-index: 1;
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+  color: white;
+  font-weight: bold;
+  display: none;
+  justify-content: center;
+  align-items: center;
 }
-.btn_acc_adm:hover{
-    transition: .3s;
-    transform: translateY(-40px);
+.btn_acc_adm:hover {
+  transition: 0.3s;
+  transform: translateY(-40px);
 }
-.sect_btnadmin:hover .txt_btn_bttm{
-    display: flex;
+.sect_btnadmin:hover .txt_btn_bttm {
+  display: flex;
 }
-.btn_acc_adm:hover .usu_icon{
-    transition: .3s;
-    color: #008c8c;
+.btn_acc_adm:hover .usu_icon {
+  transition: 0.3s;
+  color: #008c8c;
 }
-.btn_acc_adm:hover i{
-    transition: .3s;
-    color: white;
+.btn_acc_adm:hover i {
+  transition: 0.3s;
+  color: white;
 }
-.btn_acc_adm:hover .neg_icon{
-    transition: .3s;
-    color: rgb(151, 26, 64);
+.btn_acc_adm:hover .neg_icon {
+  transition: 0.3s;
+  color: rgb(151, 26, 64);
 }
-.btn_acc_adm:hover .coment_icon{
-    transition: .3s;
-    color: rgb(224, 177, 23);
+.btn_acc_adm:hover .coment_icon {
+  transition: 0.3s;
+  color: rgb(224, 177, 23);
 }
-.btn_acc_adm:hover .nov_icon{
-    transition: .3s;
-    color: rgba(244, 55, 112, 1);
+.btn_acc_adm:hover .nov_icon {
+  transition: 0.3s;
+  color: rgba(244, 55, 112, 1);
 }
-.btn_acc_adm:hover .tick_icon{
-    transition: .3s;
-    color: #454545;
+.btn_acc_adm:hover .tick_icon {
+  transition: 0.3s;
+  color: #454545;
 }
-.sect_btnadmin{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.sect_btnadmin {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.icon_btnadmin{
-    font-size: 7rem;
-    color: rgba(0,0,0,1);
-    cursor: pointer;
+.icon_btnadmin {
+  font-size: 7rem;
+  color: rgba(0, 0, 0, 1);
+  cursor: pointer;
 }
 .square {
   position: absolute;
-  background-color: rgba(225,225,225,0.4);
-  animation: animate 3s linear infinite;
+  background-color: rgba(225, 225, 225, 0.4);
+  animation: animate 10s linear infinite;
   z-index: 0;
   filter: blur(5px);
   border-radius: 8px;
 }
-
+.btn_hamb {
+  outline: none;
+}
+.btn_hamb_icon {
+  font-size: 2.5rem;
+  color: white;
+}
+.input_search_admin {
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  outline: none !important;
+  color: #ffffffa8;
+}
+#input_search_admin::placeholder {
+  background: linear-gradient(to right, rgb(255, 255, 255), transparent);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+#input_search_admin:focus{
+    outline: none;
+    background: rgba(255, 255, 255, 0.3);
+    border-bottom: none;
+    box-shadow: 0 0 0 0.15rem rgba(255, 255, 255, 0.5);
+    color: white;
+}
+.btn_submit_admin {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  width: 10%;
+  background-color: #ffffff;
+  padding: 0px;
+  border: none;
+}
+#btn_submit_admin_icon {
+  font-weight: bolder;
+  font-size: 20px;
+  text-shadow: none;
+  color: black;
+}
+.btn_submit_admin:hover{
+    background: rgb(48, 90, 135);
+}
+.btn_submit_admin:hover #btn_submit_admin_icon{
+    color: white;
+}
+.btn_close_admin{
+    position: absolute;
+    left: -15%;
+    color: white;
+}
 @keyframes animate {
   0% {
     transform: translateY(0) rotate(0);
@@ -123,4 +172,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
   100% {
     transform: translateY(0) rotate(360deg);
   }
+}
+.nav_admin, .hamburger_admin, #Cuenta_des ul li:hover{
+  background: rgb(22, 40, 60);
+  color: white;
 }
