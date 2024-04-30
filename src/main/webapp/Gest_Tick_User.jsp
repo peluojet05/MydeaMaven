@@ -4,6 +4,7 @@
     Author     : altro
 --%>
 
+<%@page import="Clases.Persona"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
@@ -21,6 +22,11 @@
         <%
             HttpSession session1 = request.getSession(false);
             if (session1.getAttribute("usuario") != null) {
+            HttpSession misession= (HttpSession) request.getSession();
+            Persona per= (Persona) misession.getAttribute("persona");
+            String correo = per.getPer_correo();
+            
+            
 
         %>
         <div class="gestion_tickets_container">
@@ -29,8 +35,7 @@
                     <a href="indexCC.jsp" target="_blank">
                         <div class=" d-flex regr_mydea">
                             <i class="bi bi-caret-left-fill flecha_tick"></i>
-                            <section href="Acciones_Admin.jsp" class="myde_img_tick" target="_blank"><img src="assets/logo_mydea_comida.png" alt="logotipo" class="img-fluid logo"></section>
-                        </div>
+                            </div>
                     </a>
                     <span class="tt_tick_pag">Mis Tickets</span>
                     <section class="crear_ntck" id="crear_ntck">
@@ -96,11 +101,13 @@
                     con.setCon();
                     c = con.getCon();
                     stmt = c.createStatement();
+                    
+                    int idp = con.Pid(correo);
                 %>
                 <%
                     String sql = "Select t.*, pr.pri_nombre, e.est_nombre, p.per_correo, p.per_foto, u.usu_nombre, ti.tip_nombre from Ticket t inner join Prioridad pr on "
                             + "t.pri_id=pr.pri_id inner join Estado e on t.est_id=e.est_id inner join Persona p on t.per_id = p.per_id inner join Usuario u on p.usu_id = u.usu_id "
-                            + "inner join Tipo ti on t.tip_id = ti.tip_id where t.est_id=1";
+                            + "inner join Tipo ti on t.tip_id = ti.tip_id where t.est_id=1 and t.per_id="+idp+";";
                     rs = stmt.executeQuery(sql);
 
                     if (rs != null) {
@@ -117,6 +124,7 @@
                             String correousuario = rs.getString("per_correo");
                             String tema = rs.getString("tip_nombre");
                             String fecha = rs.getString("tic_fecha");
+                            String comentario = rs.getString("tic_comentario");
                             int id = rs.getInt("tic_id");
                             //cuando quieras poner la imagen del usuario, su nombre, etc, pones esto <%=nombre de la variable% > (quitas el espacio entre el % y el >)
                             //ejemplo: <span> Nombre de usuario: <%=nombreusuario% > (tammbien lo puedes usar en una etiqueta de html)\
@@ -136,12 +144,13 @@
                     <circle style="fill:#097b20;" cx="394.758" cy="74.713" r="53.333" />
                     </svg>
                     <span class="tt_tick_prev" id="tt_tick_prev"><%=nomticket%></span>
-                    <span class="d-none" id="Desc_tick"><%=descticket%></span>
+                    <span class="d-none" id="Desc_tick"><%=comentario%></span>
                     <img src="<%=imgticket%>" class="d-none" id="img_ticket_prev">
                     <input type="text" class="d-none" id="Prioridad" value="<%=prioridad%>">
                     <input type="text" class="d-none" id="Tema" value="<%=tema%>">
                     <input type="text" class="d-none" id="Estado" value="Abierto">
                     <input type="date" class="d-none" id="Fecha_tick" value="<%=fecha%>">
+                    <input type="text" class="d-none" id="descrealticket" value="Descripcion: <%=descticket%>">
                     <input type="text" class="d-none" disabled id="id_ticket_prev" value="<%=id%>">
                     <section class="esp_tick">
                         <span>Ticket Abierto</span>
@@ -157,7 +166,7 @@
 
                 <%                        String sql2 = "Select t.*, pr.pri_nombre, e.est_nombre, p.per_correo, p.per_foto, u.usu_nombre, ti.tip_nombre from Ticket t inner join Prioridad pr on "
                             + "t.pri_id=pr.pri_id inner join Estado e on t.est_id=e.est_id inner join Persona p on t.per_id = p.per_id inner join Usuario u on p.usu_id = u.usu_id "
-                            + "inner join Tipo ti on t.tip_id = ti.tip_id where t.est_id=2";
+                            + "inner join Tipo ti on t.tip_id = ti.tip_id where t.est_id=2 and t.per_id="+idp+";";
                     rs2 = stmt.executeQuery(sql2);
 
                     if (rs2 != null) {
@@ -174,6 +183,7 @@
                             String correousuario = rs2.getString("per_correo");
                             String tema = rs2.getString("tip_nombre");
                             String fecha = rs2.getString("tic_fecha");
+                            String comentario = rs2.getString("tic_comentario");
                             int id = rs2.getInt("tic_id");
                             //cuando quieras poner la imagen del usuario, su nombre, etc, pones esto <%=nombre de la variable% > (quitas el espacio entre el % y el >)
                             //ejemplo: <span> Nombre de usuario: <%=nombreusuario% > (tammbien lo puedes usar en una etiqueta de html)\
@@ -193,12 +203,13 @@
                     <circle style="fill:#ff8000;" cx="394.758" cy="74.713" r="53.333" />
                     </svg>
                     <span class="tt_tick_prev" id="tt_tick_prev"><%=nomticket%></span>
-                    <span class="d-none" id="Desc_tick"><%=descticket%></span>
+                    <span class="d-none" id="Desc_tick"><%=comentario%></span>
                     <img src="<%=imgticket%>" class="d-none" id="img_ticket_prev">
                     <input type="text" class="d-none" id="Prioridad" value="<%=prioridad%>">
                     <input type="text" class="d-none" id="Tema" value="<%=tema%>">
                     <input type="text" class="d-none" id="Estado" value="En Proceso">
                     <input type="date" class="d-none" id="Fecha_tick" value="<%=fecha%>">
+                    <input type="text" class="d-none" id="descrealticket" value="Descripcion: <%=descticket%>">
                     <input type="text" class="d-none" disabled id="id_ticket_prev" value="<%=id%>">
                     <section class="esp_tick">
                         <span>Ticket En Proceso</span>
@@ -214,7 +225,7 @@
 
                 <%                        String sql3 = "Select t.*, pr.pri_nombre, e.est_nombre, p.per_correo, p.per_foto, u.usu_nombre, ti.tip_nombre from Ticket t inner join Prioridad pr on "
                             + "t.pri_id=pr.pri_id inner join Estado e on t.est_id=e.est_id inner join Persona p on t.per_id = p.per_id inner join Usuario u on p.usu_id = u.usu_id "
-                            + "inner join Tipo ti on t.tip_id = ti.tip_id where t.est_id=3";
+                            + "inner join Tipo ti on t.tip_id = ti.tip_id where t.est_id=3 and t.per_id="+idp+";";
                     rs3 = stmt.executeQuery(sql3);
 
                     if (rs3 != null) {
@@ -231,6 +242,7 @@
                             String correousuario = rs3.getString("per_correo");
                             String tema = rs3.getString("tip_nombre");
                             String fecha = rs3.getString("tic_fecha");
+                            String comentario = rs3.getString("tic_comentario");
                             int id = rs3.getInt("tic_id");
                             //cuando quieras poner la imagen del usuario, su nombre, etc, pones esto <%=nombre de la variable% > (quitas el espacio entre el % y el >)
                             //ejemplo: <span> Nombre de usuario: <%=nombreusuario% > (tammbien lo puedes usar en una etiqueta de html)\
@@ -250,13 +262,14 @@
                     <circle style="fill:#a70909;" cx="394.758" cy="74.713" r="53.333" />
                     </svg>
                     <span class="tt_tick_prev" id="tt_tick_prev"><%=nomticket%></span>
-                    <span class="d-none" id="Desc_tick"><%=descticket%></span>
+                    <span class="d-none" id="Desc_tick"><%=comentario%></span>
                     <img src="<%=imgticket%>" class="d-none" id="img_ticket_prev">
                     <input type="text" class="d-none" id="Prioridad" value="<%=prioridad%>">
                     <input type="text" class="d-none" id="Tema" value="<%=tema%>">
 
                     <input type="text" class="d-none" id="Estado" value="Cerrado">
                     <input type="date" class="d-none" id="Fecha_tick" value="<%=fecha%>">
+                    <input type="text" class="d-none" id="descrealticket" value="Descripcion: <%=descticket%>">
                     <input type="text" class="d-none" disabled id="id_ticket_prev" value="<%=id%>">
                     <section class="esp_tick">
                         <span>Ticket Cerrado</span>
@@ -296,6 +309,7 @@
                         <span class="Est_tick_viz" id="Est_tick_viz"">Estado del ticket</span>
                     </section>
                 </section>
+                <span class="Des_tick" id="descreal" >hola chaval</span>
                 <span class="Des_tick" name="" id="Des_tick_viz">Descripcion del Ticket</span>
             </section>
         </div>

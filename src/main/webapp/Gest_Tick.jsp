@@ -132,7 +132,7 @@
                     <circle style="fill:#097b20;" cx="394.758" cy="74.713" r="53.333" />
                     </svg>
                     <span class="tt_tick_prev" id="tt_tick_prev"><%=nomticket%></span>
-                    <span class="d-none" id="Desc_tick">Comentario: <%=comentario%></span>
+                    <span class="d-none" id="Desc_tick"><%=comentario%></span>
                     <img src="<%=imgticket%>" class="d-none" id="img_ticket_prev">
                     <input type="text" class="d-none" id="Prioridad" value="<%=prioridad%>">
                     <input type="text" class="d-none" id="Tema" value="<%=tema%>">
@@ -351,6 +351,7 @@
                     </select>
                     <section class="btns_edt">
                         <button type="button" class="btn_canc_adm">Cancelar</button>
+                        <button type="submit" class="btn_env_adm">Enviar</button>
                     </section>
                 </section>
                 <section class="edit_com" id="edit_com">
@@ -364,18 +365,14 @@
                         <button type="submit" class="btn_env_adm" id="btn_env_adm">Enviar</button>
                     </section>
                 </section>
-                <input type="text" disabled id="id_ticket" name="idt"/>
-                <input type="text" disabled id="atipo" name="atipo"/>
-                <input type="text" disabled id="aest" name="aest"/>
-                <input type="text" disabled id="acom" name="acom"/>
-                <input type="text" disabled id="apri" name="apri"/>
+                <input type="hidden" id="prueba" name="hola" value="holaaaa"/>
+                <input type="hidden" id="prueba2" name="hola2" value="holaaaa"/>
+                <input type="hidden" id="prueba3" name="hola3" value="holaaaa"/>
+                <input type="hidden" id="prueba4" name="hola4" value="holaaaa"/>
+                <input type="hidden" id="prueba5" name="hola5" value="holaaaa"/>
             </form>
         </div>
-        <%            } else {
-                System.out.println("Error: Sesión no existe");
-                response.sendRedirect("index.jsp");
-            }
-        %>
+        
         <script src="js/Tickets.js"></script>
         <script>
             // Activar todos los tooltips
@@ -383,5 +380,27 @@
                 selector: '[data-bs-toggle="tooltip"]',
             });
         </script>
+            <%
+            if(request.getAttribute("mensaje")!=null) 
+            {  
+        %>          
+                <script>
+    window.onload=function() {
+       Swal.fire({
+  icon: "success",
+  title: "<%=request.getAttribute("mensaje")%>",
+  showConfirmButton: false,
+  timer: 5000
+});
+    };
+ </script>      
+        <%
+            }
+                %>
+                <%            } else {
+                System.out.println("Error: Sesión no existe");
+                response.sendRedirect("index.jsp");
+            }
+        %>
     </body>
 </html>

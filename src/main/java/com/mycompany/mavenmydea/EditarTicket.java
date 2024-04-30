@@ -4,8 +4,14 @@
  */
 package com.mycompany.mavenmydea;
 
+import Clases.Conexion;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,25 +39,102 @@ public class EditarTicket extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet EditarTicket</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Info del ticket</h1>");
-            out.println("<br> Id= "+request.getParameter("idt"));
-            out.println("<br> rrrTema antiguo= "+request.getParameter("atipo"));
-            out.println("<br> Tema nuevo= "+request.getParameter("tipo"));
-            out.println("<br> Prioridad antigua= "+request.getParameter("apri"));
-            out.println("<br> Prioridad nueva= "+request.getParameter("prioridad"));
-            out.println("<br> Estado antiguo= "+request.getParameter("aest"));
-             out.println("<br> Estado nuevo= "+request.getParameter("estado"));
-            out.println("<br> Comentario antiguo= "+request.getParameter("acom"));
-            out.println("<br> Comentario nuevo= "+request.getParameter("comentario"));
             
-            out.println("</body>");
-            out.println("</html>");
+            String id = request.getParameter("hola");
+            
+            String tipo = request.getParameter("tipo");
+            String atipo = request.getParameter("hola2");
+            
+            String prioridad = request.getParameter("prioridad");
+            String aprioridad = request.getParameter("hola3");
+            
+            String estado = request.getParameter("estado");
+            String aestado = request.getParameter("hola4");
+            
+            String comentario = request.getParameter("comentario");
+            String acomentario = request.getParameter("hola5");
+            
+            if(tipo == null){
+                tipo = atipo;
+            }
+            
+            if(prioridad == null){
+                prioridad=aprioridad;
+            }
+            
+            if(estado==null){
+                estado=aestado;
+            }
+            
+            switch(tipo){
+                case "Negocio":
+                    tipo="1";
+                    break;
+                case "Desconocido":
+                    tipo="2";
+                    break;
+                case "Ejecucion":
+                    tipo="3";
+                    break;
+                case "Editar":
+                    tipo="4";
+                    break;
+                case "Error":
+                    tipo="5";
+                    break;
+                case "Cuentas":
+                    tipo="6";
+                    break;
+                case "Funcionamiento":
+                    tipo="7";
+                    break;
+                case "Otro":
+                    tipo="8";
+                    break;
+
+            }
+            
+            switch(prioridad){
+                case "Alta":
+                    prioridad="1";
+                    break;
+                case "Media":
+                    prioridad="2";
+                    break;
+                case "Baja":
+                    prioridad="3";
+                    break;
+            }
+            
+            switch(estado){
+                case "Abierto":
+                    estado="1";
+                    break;
+                case "En Proceso":
+                    estado="2";
+                    break;
+                case "Cerrado":
+                    estado="3";
+                    break;
+            }
+            
+             Conexion con = new Conexion();
+            Connection c;
+            con.setCon();
+            c=con.getCon();
+            
+            String mensaje = con.ETicket(id, tipo, prioridad, estado, comentario);
+            
+            try {
+                c.close();
+            } catch (SQLException ex) {
+               
+            }
+            
+            request.setAttribute("mensaje", mensaje);
+          
+                   RequestDispatcher rd = request.getRequestDispatcher("Gest_Tick.jsp");
+                   rd.forward(request, response);
             
             
             

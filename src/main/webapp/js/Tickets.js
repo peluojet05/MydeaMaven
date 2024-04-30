@@ -166,16 +166,16 @@ function CopiarDatosTicket(ticket_clickeado) {
             break;
     }
     document.getElementById("tt_tick_viz").textContent = ticket_clickeado.querySelector("#tt_tick_prev").textContent;
-
-    document.getElementById("id_ticket").value = ticket_clickeado.querySelector("#id_ticket_prev").value;
+  
+    document.getElementById("prueba2").value = ticket_clickeado.querySelector("#Tema").value;
     
-    document.getElementById("atipo").value = ticket_clickeado.querySelector("#Tema").value;
+    document.getElementById("prueba5").value = ticket_clickeado.querySelector("#Desc_tick").textContent;
     
-    document.getElementById("acom").value = ticket_clickeado.querySelector("#Desc_tick").textContent;
+    document.getElementById("prueba3").value = ticket_clickeado.querySelector("#Prioridad").value;
     
-    document.getElementById("apri").value = ticket_clickeado.querySelector("#Prioridad").value;
+    document.getElementById("prueba4").value = ticket_clickeado.querySelector("#Estado").value;
     
-    document.getElementById("aest").value = ticket_clickeado.querySelector("#Estado").value;
+    document.getElementById("prueba").value = ticket_clickeado.querySelector("#id_ticket_prev").value;
 
     document.getElementById("img_ticket").src = ticket_clickeado.querySelector("#img_ticket_prev").src;
 

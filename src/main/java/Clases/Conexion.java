@@ -31,7 +31,7 @@ public class Conexion {
            
       //POSTGRE HOST, CON ESTE HACEN LA PULL REQUESTT
      
-     /*
+     //
      String dbDriver = "org.postgresql.Driver";
      String dbURL = "jdbc:postgresql://ec2-100-26-73-144.compute-1.amazonaws.com/db3v6hean6n35q";
                           
@@ -41,7 +41,7 @@ public class Conexion {
      Class.forName(dbDriver).newInstance();
      con = DriverManager.getConnection(dbURL,dbUsername, dbPassword);
      
-     */
+     //
      //MYSQL LOCAL CAMBIEN LA CONTRASEÑA
      /*
      String dbDriver = "com.mysql.jdbc.Driver";
@@ -55,18 +55,18 @@ public class Conexion {
      dbUsername,
      dbPassword); 
      */
-     // POSTGRE SQL LOCAL POR FAVOR USEN ESTA Y HAGAN TODOS LOS COMMMITS CON ESTA (llamenla MydeaLocal para que no tengan que cambiarlo aqui)
+     /* POSTGRE SQL LOCAL POR FAVOR USEN ESTA Y HAGAN TODOS LOS COMMMITS CON ESTA (llamenla MydeaLocal para que no tengan que cambiarlo aqui)
      
      String dbDriver = "org.postgresql.Driver";
      String dbURL = "jdbc:postgresql://localhost/MydeaLocal";
                           
              
      String dbUsername = "postgres";
-     String dbPassword = "20232707";
+     String dbPassword = "Sn0w.2017";
      Class.forName(dbDriver).newInstance();
      con = DriverManager.getConnection(dbURL,dbUsername, dbPassword);
      
-     //
+     */
       
       } catch (Exception e ) {
             System.out.println("erore");
@@ -836,6 +836,46 @@ public class Conexion {
         return mensaje;
     }
     
+    public String ETicket(String id, String tipo, String prioridad, String estado, String comentario){
+        String mensaje = "Ticket actualizado";
+        try{
+          
+            
+            
+            String sql3 = "Update Ticket set tip_id="+tipo+", pri_id="+prioridad+", est_id="+estado+", tic_comentario='"+comentario+"' where tic_id="+id+";";
+            Statement stmt =con.createStatement();
+            stmt.execute(sql3);
+            
+            
+        } catch (Exception e ) {
+                System.err.println("Error"+e);
+        }
+        return mensaje;
+    }
     
+    public String ATicket(String id, String nombre, String descripcion, String tipo, String prioridad, String estado, String img, String fecha){
+        String mensaje = "Ticket actualizado";
+        try{
+          
+            
+            
+            String sql3 = "insert into Ticket(per_id, tic_fecha, tic_descripcion, tic_nombre, tic_imagen, est_id, tip_id, pri_id) values(?, ?, ?, ?, ?, ?, ?, ?);";
+            PreparedStatement ps = con.prepareStatement(sql3);
+            ps.setInt(1, Integer.parseInt(id));
+            ps.setString(2, fecha);
+            ps.setString(3, descripcion);
+            ps.setString(4, nombre);
+            ps.setString(5, img);
+            ps.setInt(6, Integer.parseInt(estado));
+            ps.setInt(7, Integer.parseInt(tipo));
+            ps.setInt(8, Integer.parseInt(prioridad));
+            ps.execute();
+            
+            
+        } catch (Exception e ) {
+                System.err.println("Error"+e);
+        }
+        return mensaje;
+    }
     
 }

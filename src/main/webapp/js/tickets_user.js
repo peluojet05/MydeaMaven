@@ -87,6 +87,8 @@ function CopiarDatosTicket(ticket_clickeado) {
     document.getElementById("fecha_tick_viz").textContent = ticket_clickeado.querySelector("#Fecha_tick").value;
 
     document.getElementById("Des_tick_viz").textContent = ticket_clickeado.querySelector("#Desc_tick").textContent;
+    
+    document.getElementById("descreal").textContent = ticket_clickeado.querySelector("#descrealticket").value;
 }
 
 viz_ticket.addEventListener("click", (e) => {
