@@ -15,9 +15,6 @@ let edit_pri = document.getElementById("edit_pri");
 let edit_est = document.getElementById("edit_est");
 let edit_com = document.getElementById("edit_com");
 let Cancelar = document.querySelectorAll(".btn_canc_adm");
-let edit_pri_inp = document.getElementById("pri_edt");
-let edit_est_inp = document.getElementById("est_edt");
-let edit_com_inp = document.getElementById("com_edt");
 let tt_form = document.getElementById("tt_form");
 let amd_tem = document.getElementById("amd_tem");
 let amd_pri = document.getElementById("amd_pri");
@@ -33,22 +30,31 @@ let est_cer_edt = document.getElementById("est_cer_edt");
 let Desc_edt = document.getElementById("Desc_edt");
 let btn_env_adm = document.getElementById("btn_env_adm");
 var ListaOg = [];
+let filtros = document.querySelectorAll(".select_adm");
 
-btn_env_adm.addEventListener("click", function () {
-    edit_com_inp.value = Desc_edt.value;
+filtros.forEach(function (sel) {
+    sel.addEventListener("change", function () {
+        sel.style.background = "rgba(255, 255, 255, 0.3)";
+        sel.style.color = "#fff";
+        sel.style.fontWeight = "bolder";
+    });
 });
 
-est_abi_edt.addEventListener("click", function () {
-    edit_est_inp.value = "Abierto";
-});
-
-est_pro_edt.addEventListener("click", function () {
-    edit_est_inp.value = "En Proceso";
-});
-
-est_cer_edt.addEventListener("click", function () {
-    edit_est_inp.value = "Cerrado";
-});
+/*btn_env_adm.addEventListener("click", function () {
+ edit_com_inp.value = Desc_edt.value;
+ });
+ 
+ est_abi_edt.addEventListener("click", function () {
+ edit_est_inp.value = "Abierto";
+ });
+ 
+ est_pro_edt.addEventListener("click", function () {
+ edit_est_inp.value = "En Proceso";
+ });
+ 
+ est_cer_edt.addEventListener("click", function () {
+ edit_est_inp.value = "Cerrado";
+ });*/
 
 form_edit.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -77,21 +83,21 @@ Tema.addEventListener("click", function () {
     tt_form.textContent = "EDITAR TEMA DEL TICKET";
 });
 
-cambiar_tem.addEventListener("change", function () {
-    document.getElementById("tem_edt").value = cambiar_tem.value;
-});
-
-pri_baj_edt.addEventListener("click", function () {
-    edit_pri_inp.value = "Bajo";
-});
-
-pri_med_edt.addEventListener("click", function () {
-    edit_pri_inp.value = "Media";
-});
-
-pri_alt_edt.addEventListener("click", function () {
-    edit_pri_inp.value = "Alta";
-});
+/*cambiar_tem.addEventListener("change", function () {
+ document.getElementById("tem_edt").value = cambiar_tem.value;
+ });
+ 
+ pri_baj_edt.addEventListener("click", function () {
+ edit_pri_inp.value = "Bajo";
+ });
+ 
+ pri_med_edt.addEventListener("click", function () {
+ edit_pri_inp.value = "Media";
+ });
+ 
+ pri_alt_edt.addEventListener("click", function () {
+ edit_pri_inp.value = "Alta";
+ });*/
 
 Prioridad.addEventListener("click", function () {
     edit_ticket.style.display = "flex";
@@ -123,20 +129,20 @@ Descripcion.addEventListener("click", function () {
 edit_ticket.addEventListener("click", (e) => {
     if (e.target === edit_ticket) {
         edit_ticket.style.display = "none";
-        document.getElementById("tem_edt").value = ListaOg[0];
-        edit_pri_inp.value = ListaOg[1];
-        edit_est_inp.value = ListaOg[2];
-        edit_com_inp.value = ListaOg[3];
+        /*document.getElementById("tem_edt").value = ListaOg[0];
+         edit_pri_inp.value = ListaOg[1];
+         edit_est_inp.value = ListaOg[2];
+         edit_com_inp.value = ListaOg[3];*/
     }
 });
 
 Cancelar.forEach(function (cancel) {
     cancel.addEventListener("click", () => {
         edit_ticket.style.display = "none";
-        document.getElementById("tem_edt").value = ListaOg[0];
-        edit_pri_inp.value = ListaOg[1];
-        edit_est_inp.value = ListaOg[2];
-        edit_com_inp.value = ListaOg[3];
+        /*document.getElementById("tem_edt").value = ListaOg[0];
+         edit_pri_inp.value = ListaOg[1];
+         edit_est_inp.value = ListaOg[2];
+         edit_com_inp.value = ListaOg[3];*/
     });
 });
 
@@ -169,57 +175,57 @@ function CopiarDatosTicket(ticket_clickeado) {
     switch (Tema) {
         case "Negocio":
             document.getElementById("Tem_tick_viz").textContent = "No se creó de forma correcta mi negocio, producto o novedad o no se ven datos/imagenes en estos";
-            document.getElementById("tem_edt").value = "Negocio";
+            //document.getElementById("tem_edt").value = "Negocio";
             amd_tem.textContent = "Tema Actual: No se creó de forma correcta mi negocio, producto o novedad o no se ven datos/imagenes en estos";
             break;
         case "Desconocido":
             document.getElementById("Tem_tick_viz").textContent = "Tengo un error desconocido.";
-            document.getElementById("tem_edt").value = "Desconocido";
+            //document.getElementById("tem_edt").value = "Desconocido";
             amd_tem.textContent = "Tema Actual: Tengo un error desconocido.";
             break;
         case "Ejecucion":
-            document.getElementById("tem_edt").value = "Ejecucion";
+            //document.getElementById("tem_edt").value = "Ejecucion";
             document.getElementById("Tem_tick_viz").textContent = "La pagina web o algunas de las funcionalidades de este no se ejecutan correctamente.";
             amd_tem.textContent = "Tema Actual: La pagina web o algunas de las funcionalidades de este no se ejecutan correctamente.";
             break;
         case "Editar":
-            document.getElementById("tem_edt").value = "Editar";
+            //document.getElementById("tem_edt").value = "Editar";
             document.getElementById("Tem_tick_viz").textContent = "No se edito de forma correcta mi perfil, negocio, producto o novedad.";
             amd_tem.textContent = "Tema Actual: No se edito de forma correcta mi perfil, negocio, producto o novedad.";
             break;
         case "Error":
-            document.getElementById("tem_edt").value = "Error";
+            //document.getElementById("tem_edt").value = "Error";
             document.getElementById("Tem_tick_viz").textContent = "Me aparece una pagina de error al momento de cambiar de pagina.";
             amd_tem.textContent = "Tema Actual: Me aparece una pagina de error al momento de cambiar de pagina.";
             break;
         case "Cuentas":
-            document.getElementById("tem_edt").value = "Cuentas";
+            //document.getElementById("tem_edt").value = "Cuentas";
             document.getElementById("Tem_tick_viz").textContent = "Tengo problemas con mi cuenta o me gustria combiar mi tipo de usuario.";
             amd_tem.textContent = "Tema Actual: Tengo problemas con mi cuenta o me gustria combiar mi tipo de usuario.";
             break;
         case "Funcionamiento":
-            document.getElementById("tem_edt").value = "Funcionamiento";
+            //document.getElementById("tem_edt").value = "Funcionamiento";
             document.getElementById("Tem_tick_viz").textContent = "Tengo una duda respecto al funcionamiento de la pagina web.";
             amd_tem.textContent = "Tema Actual: Tengo una duda respecto al funcionamiento de la pagina web.";
             break;
         case "Otro":
-            document.getElementById("tem_edt").value = "Otro";
+            //document.getElementById("tem_edt").value = "Otro";
             document.getElementById("Tem_tick_viz").textContent = "Otro";
             amd_tem.textContent = "Tema Actual: Otro.";
             break;
     }
 
     document.getElementById("Pri_tick_viz").textContent = "Prioridad: " + ticket_clickeado.querySelector("#Prioridad").value;
-    edit_pri_inp.value = ticket_clickeado.querySelector("#Prioridad").value;
+    //edit_pri_inp.value = ticket_clickeado.querySelector("#Prioridad").value;
 
     document.getElementById("Est_tick_viz").textContent = "Estado: " + ticket_clickeado.querySelector("#Estado").value;
-    edit_est_inp.value = ticket_clickeado.querySelector("#Estado").value;
+    //edit_est_inp.value = ticket_clickeado.querySelector("#Estado").value;
 
     document.getElementById("fecha_tick_viz").textContent = ticket_clickeado.querySelector("#Fecha_tick").value;
 
     document.getElementById("Des_tick_viz").textContent = ticket_clickeado.querySelector("#Desc_tick").textContent;
     document.getElementById("Desc_edt").value = ticket_clickeado.querySelector("#Desc_tick").textContent;
-    edit_com_inp.value = ticket_clickeado.querySelector("#Desc_tick").textContent;
+    //edit_com_inp.value = ticket_clickeado.querySelector("#Desc_tick").textContent;
 
     let Tem_list = ticket_clickeado.querySelector("#Tema").value;
     let Prioridad_list = ticket_clickeado.querySelector("#Prioridad").value;
@@ -376,6 +382,6 @@ function FechaCreacion(inpFech, selectFech) {
                     busq.style.display = "none";
                 }
                 break;
-        }
-    });
+             }
+        });
 }

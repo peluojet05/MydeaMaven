@@ -18,7 +18,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 .gestion_tickets_container {
-  height: 90%;
+  height: 100%;
   width: 100%;
   position: absolute;
   bottom: 0;
@@ -29,7 +29,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 25%;
+  height: 23%;
+}
+#controlls_gest_tick{
+    height: 12%
 }
 .fltr_tickets {
   width: 100%;
@@ -39,6 +42,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
   background: #454545;
   position: relative;
   z-index: 1;
+  gap: 0.5%;
 }
 .tt_acc_adm {
   width: 100%;
@@ -63,13 +67,22 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
   padding-right: 1%;
 }
 .busq_admin_acc i {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 .fltr_tickets select {
   padding: 5px;
   height: 100%;
   padding: 10px;
   outline: none;
+  font-size: 1rem;
+}
+.fltr_tickets select:hover{
+    transition: 0.3s;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.2);
+}
+#filtr_tem{
+    width: 90%;
 }
 .select_adm {
   border: none;
@@ -104,9 +117,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
   flex-wrap: wrap;
   padding: 10px;
   gap: 5%;
-  height: 75%;
+  height: 77%;
   overflow-y: scroll;
   padding: 1%;
+}
+#tickets_container_form{
+   height: 88%; 
 }
 .tickets_container::-webkit-scrollbar {
   background: none;
@@ -243,7 +259,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 .opt_admin select:hover,
 .opt_admin select:focus {
   outline: none;
-  background: none;
 }
 .fech_admin {
   height: 80%;
@@ -522,4 +537,81 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   border: 2px solid black;
+}
+
+.flecha_tick{
+    color: white;
+    display: none;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+.regr_mydea{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.regr_mydea:hover i{
+    transition: 0.3s;
+    font-size: 2rem;
+}
+.nav_ticket{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 1%;
+}
+.tt_tick_pag{
+    font-size: 2rem;
+    font-weight: bolder;
+}
+.regr_mydea:hover .myde_img_tick{
+    transition: 0.2s;
+    transform: scale(1.08);
+}
+.regr_mydea:hover .flecha_tick{
+    transition: 0.3s;
+    display: flex;
+}
+.crear_ntck{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    gap: 10px;
+    padding: 0.5%;
+    border-radius: 15px;
+}
+.crear_ntck:hover{
+    transition: 0.2s;
+    background: rgba(255, 255, 255, 0.3);
+    font-weight: bolder;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+#Des_tick_viz_crear{
+    cursor: initial;
+    resize: none;
+}
+#tt_tick_viz_crear{
+    border-radius: 5px;
+    background: rgba(0,0,0,0.2);
+}
+.img_ticket{
+    width: 95%;
+    height: 80%;
+}
+.ct_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.nav_user_tick{
+    background-color: #bf543c;
+    color: white;
 }

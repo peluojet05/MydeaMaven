@@ -22,5 +22,5 @@ nov_btn_adm.addEventListener("click", ()=>{
     window.location.href = "Gest_Nov.jsp";
 });
 tik_btn_adm.addEventListener("click", ()=>{
-    window.location.href = "Gest_Tick.jsp";
+    window.window.open("Gest_Tick.jsp", '_blank');
 });

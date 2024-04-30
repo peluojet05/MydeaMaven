@@ -9,7 +9,11 @@ let fomr = document.getElementById("formcerrar");
 let edt_h = document.getElementById("btn_edit_h");
 let sav_h = document.getElementById("btn_guardado_h");
 let lgout_h = document.getElementById("btn_lgout_h");
+let tick_n = document.getElementById("btn_ticket_nav");
 
+tick_n.addEventListener("click", () => {
+    window.window.open("Gest_Tick_User.jsp", '_blank');
+});
 
 count_n.addEventListener("click", () => {
     window.location.href = "Cuenta_Usuario.jsp";
