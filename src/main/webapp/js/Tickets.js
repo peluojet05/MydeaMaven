@@ -33,6 +33,15 @@ let est_cer_edt = document.getElementById("est_cer_edt");
 let Desc_edt = document.getElementById("Desc_edt");
 let btn_env_adm = document.getElementById("btn_env_adm");
 var ListaOg = [];
+let filtros = document.querySelectorAll(".select_adm");
+
+filtros.forEach(function(sel){
+    sel.addEventListener("change", function(){
+        sel.style.background = "rgba(255, 255, 255, 0.3)";
+        sel.style.color = "#fff";
+        sel.style.fontWeight = "bolder";
+    });
+});
 
 btn_env_adm.addEventListener("click", function () {
     edit_com_inp.value = Desc_edt.value;
