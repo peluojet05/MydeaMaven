@@ -40,12 +40,16 @@ public class EditarTicket extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Info del ticket</h1>");
-            out.println("Id= "+request.getParameter("idt"));
-            out.println("Tema antiguo= "+request.getParameter("atipo"));
-            out.println("Prioridad antigua= "+request.getParameter("apri"));
-            out.println("Estado antiguo= "+request.getParameter("aest"));
-            out.println("Comentario antiguo antiguo= "+request.getParameter("acom"));
-            out.println("Tema nuevo= "+request.getParameter("tipo"));
+            out.println("<br> Id= "+request.getParameter("idt"));
+            out.println("<br> rrrTema antiguo= "+request.getParameter("atipo"));
+            out.println("<br> Tema nuevo= "+request.getParameter("tipo"));
+            out.println("<br> Prioridad antigua= "+request.getParameter("apri"));
+            out.println("<br> Prioridad nueva= "+request.getParameter("prioridad"));
+            out.println("<br> Estado antiguo= "+request.getParameter("aest"));
+             out.println("<br> Estado nuevo= "+request.getParameter("estado"));
+            out.println("<br> Comentario antiguo= "+request.getParameter("acom"));
+            out.println("<br> Comentario nuevo= "+request.getParameter("comentario"));
+            
             out.println("</body>");
             out.println("</html>");
             

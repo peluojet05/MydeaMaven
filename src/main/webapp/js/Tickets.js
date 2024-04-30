@@ -123,7 +123,7 @@ Descripcion.addEventListener("click", function () {
     edit_pri.style.display = "none";
     edit_est.style.display = "none";
     edit_com.style.display = "flex";
-    tt_form.textContent = "EDITAR DESCRIPCION DEL TICKET";
+    tt_form.textContent = "EDITAR COMENTARIO DEL TICKET";
 });
 
 edit_ticket.addEventListener("click", (e) => {
@@ -168,6 +168,14 @@ function CopiarDatosTicket(ticket_clickeado) {
     document.getElementById("tt_tick_viz").textContent = ticket_clickeado.querySelector("#tt_tick_prev").textContent;
 
     document.getElementById("id_ticket").value = ticket_clickeado.querySelector("#id_ticket_prev").value;
+    
+    document.getElementById("atipo").value = ticket_clickeado.querySelector("#Tema").value;
+    
+    document.getElementById("acom").value = ticket_clickeado.querySelector("#Desc_tick").textContent;
+    
+    document.getElementById("apri").value = ticket_clickeado.querySelector("#Prioridad").value;
+    
+    document.getElementById("aest").value = ticket_clickeado.querySelector("#Estado").value;
 
     document.getElementById("img_ticket").src = ticket_clickeado.querySelector("#img_ticket_prev").src;
 
@@ -222,6 +230,8 @@ function CopiarDatosTicket(ticket_clickeado) {
     //edit_est_inp.value = ticket_clickeado.querySelector("#Estado").value;
 
     document.getElementById("fecha_tick_viz").textContent = ticket_clickeado.querySelector("#Fecha_tick").value;
+
+    document.getElementById("descreal").textContent = ticket_clickeado.querySelector("#descrealticket").value;
 
     document.getElementById("Des_tick_viz").textContent = ticket_clickeado.querySelector("#Desc_tick").textContent;
     document.getElementById("Desc_edt").value = ticket_clickeado.querySelector("#Desc_tick").textContent;

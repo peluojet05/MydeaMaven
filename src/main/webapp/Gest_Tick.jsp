@@ -29,8 +29,7 @@
                     <a href="Acciones_Admin.jsp" target="_blank">
                         <div class=" d-flex regr_mydea">
                             <i class="bi bi-caret-left-fill flecha_tick"></i>
-                            <section href="Acciones_Admin.jsp" class="myde_img_tick" target="_blank"><img src="assets/logo_mydea_comida.png" alt="logotipo" class="img-fluid logo"></section>
-                        </div>
+                           </div>
                     </a>
                     <span class="tt_tick_pag">Gestión de Tickets</span>
                     <section class="busq_admin_acc">
@@ -113,6 +112,7 @@
                             String correousuario = rs.getString("per_correo");
                             String tema = rs.getString("tip_nombre");
                             String fecha = rs.getString("tic_fecha");
+                           String comentario = rs.getString("tic_comentario");
                             int id = rs.getInt("tic_id");
                             //cuando quieras poner la imagen del usuario, su nombre, etc, pones esto <%=nombre de la variable% > (quitas el espacio entre el % y el >)
                             //ejemplo: <span> Nombre de usuario: <%=nombreusuario% > (tammbien lo puedes usar en una etiqueta de html)\
@@ -132,12 +132,13 @@
                     <circle style="fill:#097b20;" cx="394.758" cy="74.713" r="53.333" />
                     </svg>
                     <span class="tt_tick_prev" id="tt_tick_prev"><%=nomticket%></span>
-                    <span class="d-none" id="Desc_tick"><%=descticket%></span>
+                    <span class="d-none" id="Desc_tick">Comentario: <%=comentario%></span>
                     <img src="<%=imgticket%>" class="d-none" id="img_ticket_prev">
                     <input type="text" class="d-none" id="Prioridad" value="<%=prioridad%>">
                     <input type="text" class="d-none" id="Tema" value="<%=tema%>">
                     <input type="text" class="d-none" id="Estado" value="Abierto">
                     <input type="date" class="d-none" id="Fecha_tick" value="<%=fecha%>">
+                    <input type="text" class="d-none" id="descrealticket" value="Descripcion: <%=descticket%>">
                     <input type="text" class="d-none" disabled id="id_ticket_prev" value="<%=id%>">
                     <section class="esp_tick">
                         <span>Ticket Abierto</span>
@@ -171,6 +172,7 @@
                             String tema = rs2.getString("tip_nombre");
                             String fecha = rs2.getString("tic_fecha");
                             int id = rs2.getInt("tic_id");
+                            String comentario = rs2.getString("tic_comentario");
                             //cuando quieras poner la imagen del usuario, su nombre, etc, pones esto <%=nombre de la variable% > (quitas el espacio entre el % y el >)
                             //ejemplo: <span> Nombre de usuario: <%=nombreusuario% > (tammbien lo puedes usar en una etiqueta de html)\
 
@@ -189,12 +191,13 @@
                     <circle style="fill:#ff8000;" cx="394.758" cy="74.713" r="53.333" />
                     </svg>
                     <span class="tt_tick_prev" id="tt_tick_prev"><%=nomticket%></span>
-                    <span class="d-none" id="Desc_tick"><%=descticket%></span>
+                    <span class="d-none" id="Desc_tick"><%=comentario%></span>
                     <img src="<%=imgticket%>" class="d-none" id="img_ticket_prev">
                     <input type="text" class="d-none" id="Prioridad" value="<%=prioridad%>">
                     <input type="text" class="d-none" id="Tema" value="<%=tema%>">
                     <input type="text" class="d-none" id="Estado" value="En Proceso">
                     <input type="date" class="d-none" id="Fecha_tick" value="<%=fecha%>">
+                    <input type="text" class="d-none" id="descrealticket" value="Descripcion: <%=descticket%>">
                     <input type="text" class="d-none" disabled id="id_ticket_prev" value="<%=id%>">
                     <section class="esp_tick">
                         <span>Ticket En Proceso</span>
@@ -227,6 +230,7 @@
                             String correousuario = rs3.getString("per_correo");
                             String tema = rs3.getString("tip_nombre");
                             String fecha = rs3.getString("tic_fecha");
+                            String comentario = rs3.getString("tic_comentario");
                             int id = rs3.getInt("tic_id");
                             //cuando quieras poner la imagen del usuario, su nombre, etc, pones esto <%=nombre de la variable% > (quitas el espacio entre el % y el >)
                             //ejemplo: <span> Nombre de usuario: <%=nombreusuario% > (tammbien lo puedes usar en una etiqueta de html)\
@@ -246,13 +250,14 @@
                     <circle style="fill:#a70909;" cx="394.758" cy="74.713" r="53.333" />
                     </svg>
                     <span class="tt_tick_prev" id="tt_tick_prev"><%=nomticket%></span>
-                    <span class="d-none" id="Desc_tick"><%=descticket%></span>
+                    <span class="d-none" id="Desc_tick"><%=comentario%></span>
                     <img src="<%=imgticket%>" class="d-none" id="img_ticket_prev">
                     <input type="text" class="d-none" id="Prioridad" value="<%=prioridad%>">
                     <input type="text" class="d-none" id="Tema" value="<%=tema%>">
 
                     <input type="text" class="d-none" id="Estado" value="Cerrado">
                     <input type="date" class="d-none" id="Fecha_tick" value="<%=fecha%>">
+                    <input type="text" class="d-none" id="descrealticket" value="Descripcion: <%=descticket%>">
                     <input type="text" class="d-none" disabled id="id_ticket_prev" value="<%=id%>">
                     <section class="esp_tick">
                         <span>Ticket Cerrado</span>
@@ -295,14 +300,15 @@
                               data-bs-title="CLICK PARA EDITAR ESTADO">Estado del ticket</span>
                     </section>
                 </section>
+                <span class="Des_tick" id="descreal" >hola chaval</span>
                 <span class="Des_tick" name="" id="Des_tick_viz" data-bs-toggle="tooltip" data-bs-placement="left"
-                      data-bs-title="CLICK PARA EDITAR DESCRIPCION">Descripcion del Ticket</span>
+                      data-bs-title="CLICK PARA EDITAR EL COMENTARIO">Comentario del Ticket</span>
             </section>
         </div>
 
         <!--Ventana de edicion-->
         <div class="edicion_tick" id="edicion_tick">
-            <form action="EditarTicket" class="form_ed_tick" id="form_ed_tick" method="post">
+            <form action="EditarTicket" class="form_ed_tick" id="form_ed_tick" method="post">              
                 <span class="tt_form" id="tt_form">Editar</span>
                 <section class="edit_tem" id="edit_tem">
                     <span id="amd_tem"></span>
@@ -348,8 +354,9 @@
                     </section>
                 </section>
                 <section class="edit_com" id="edit_com">
-                    <span>Descripcion del ticket:</span>
-                    <textarea class="txt_ar_edit" name="" id="Desc_edt">Lorem ipsum dolor sit amet consectetur adipisicing
+                    <span>Comentario del ticket:</span>
+                    
+                    <textarea class="txt_ar_edit" name="comentario" id="Desc_edt">Lorem ipsum dolor sit amet consectetur adipisicing
                     elit. Suscipit aliquid aut quia optio ullam dolorem! Dolores dicta voluptatem dolorem porro soluta
                     laudantium eaque quae impedit sint vitae, a earum necessitatibus.</textarea>
                     <section class="btns_edt">
@@ -357,7 +364,11 @@
                         <button type="submit" class="btn_env_adm" id="btn_env_adm">Enviar</button>
                     </section>
                 </section>
-                <input type="text" disabled id="id_ticket">
+                <input type="text" disabled id="id_ticket" name="idt"/>
+                <input type="text" disabled id="atipo" name="atipo"/>
+                <input type="text" disabled id="aest" name="aest"/>
+                <input type="text" disabled id="acom" name="acom"/>
+                <input type="text" disabled id="apri" name="apri"/>
             </form>
         </div>
         <%            } else {

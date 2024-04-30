@@ -4,8 +4,8 @@ EditarNegocio.class
 VerificacionCorreo_I.class
 Guardar2.class
 Clases\Negocio.class
-com\mycompany\mavenmydea\EditarTicket.class
 com\mycompany\mavenmydea\EliminarNegocioA.class
+com\mycompany\mavenmydea\EditarTicket.class
 EditarCuenta.class
 EditarCuenta2.class
 VerificacionCorreo_R$1.class
@@ -23,12 +23,12 @@ SubirNovedad.class
 CrearProducto.class
 Clases\Persona.class
 com\mycompany\mavenmydea\EliminarNovedadA.class
-CerrarSesion.class
 com\mycompany\mavenmydea\EliminarProductoA.class
+CerrarSesion.class
 com\mycompany\mavenmydea\resources\JakartaEE8Resource.class
 VerificacionCorreo_I$1.class
 VerificacionCorreo_R.class
 EliminarNegocio.class
-Clases\Usuario.class
 com\mycompany\mavenmydea\EliminarUsuario.class
+Clases\Usuario.class
 com\mycompany\mavenmydea\EliminarComentarioA.class
