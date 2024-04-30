@@ -29,6 +29,7 @@
                     <li class="dropdown-item" id="btn_edit_nav">Editar Cuenta</li>
                     <li class="dropdown-item" id="btn_sav2_nav">Guardados</li>
                     <li class="dropdown-item" id="btn_res_nav">Reseñas</li>
+                    <li class="dropdown-item" id="btn_ticket_nav">Tickets</li>
                     
                     <li>
                         <hr class="dropdown-divider">

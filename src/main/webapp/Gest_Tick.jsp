@@ -316,7 +316,6 @@
                         <option value="Cuentas">Problemas con las cuentas</option>
                         <option value="Funcionamiento">Confución con el Funcionamiento</option>
                         <option value="Otro">Otro</option>
-                        <option value="General">Cualquiera</option>
                     </select>
                     <section class="btns_edt">
                         <button type="button" class="btn_canc_adm">Cancelar</button>
@@ -325,20 +324,27 @@
                 </section>
                 <section class="edit_pri" id="edit_pri">
                     <span id="amd_pri"></span>
+                    <select class="sect_edt" id="filtr_tem_edt" name="prioridad">
+                        <option selected disabled hidden>Reasignar Prioridad</option>
+                        <option value="Baja">Baja</option>
+                        <option value="Media">Media</option>
+                        <option value="Alta">Alta</option>
+                    </select>
                     <section class="btns_edt">
                         <button type="button" class="btn_canc_adm">Cancelar</button>
-                        <button class="btn_verd" id="pri_baj_edt" type="submit">Baja</button>
-                        <button class="btn_amar" id="pri_med_edt" type="submit">Media</button>
-                        <button class="btn_rojo" id="pri_alt_edt" type="submit">Alta</button>
+                        <button type="submit" class="btn_env_adm">Enviar</button>
                     </section>
                 </section>
                 <section class="edit_est" id="edit_est">
                     <span id="amd_est"></span>
+                    <select class="sect_edt" id="filtr_tem_edt" name="estado">
+                        <option selected disabled hidden>Reasignar Estado Actual</option>
+                        <option value="Abierto">Abierto</option>
+                        <option value="En Proceso">En Proceso</option>
+                        <option value="Cerrado">Cerrado</option>
+                    </select>
                     <section class="btns_edt">
                         <button type="button" class="btn_canc_adm">Cancelar</button>
-                        <button class="btn_verd" id="est_abi_edt" type="submit">Abierto</button>
-                        <button class="btn_amar" id="est_pro_edt" type="submit">En Proceso</button>
-                        <button class="btn_rojo" id="est_cer_edt" type="submit">Cerrado</button>
                     </section>
                 </section>
                 <section class="edit_com" id="edit_com">
@@ -351,11 +357,7 @@
                         <button type="submit" class="btn_env_adm" id="btn_env_adm">Enviar</button>
                     </section>
                 </section>
-                <input type="text" disabled id="id_ticket" name="idt" value="">
-                <input type="text" disabled id="tem_edt" name="atipo" value="">
-                <input type="text" disabled id="pri_edt" name="apri" value="">
-                <input type="text" disabled id="est_edt" name="aest" value="">
-                <input type="text" disabled id="com_edt" name="acom" value="">
+                <input type="text" disabled id="id_ticket">
             </form>
         </div>
         <%            } else {

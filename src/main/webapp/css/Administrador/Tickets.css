@@ -31,6 +31,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
   align-items: center;
   height: 23%;
 }
+#controlls_gest_tick{
+    height: 12%
+}
 .fltr_tickets {
   width: 100%;
   display: flex;
@@ -117,6 +120,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
   height: 77%;
   overflow-y: scroll;
   padding: 1%;
+}
+#tickets_container_form{
+   height: 88%; 
 }
 .tickets_container::-webkit-scrollbar {
   background: none;
@@ -570,4 +576,42 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 .regr_mydea:hover .flecha_tick{
     transition: 0.3s;
     display: flex;
+}
+.crear_ntck{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    gap: 10px;
+    padding: 0.5%;
+    border-radius: 15px;
+}
+.crear_ntck:hover{
+    transition: 0.2s;
+    background: rgba(255, 255, 255, 0.3);
+    font-weight: bolder;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+#Des_tick_viz_crear{
+    cursor: initial;
+    resize: none;
+}
+#tt_tick_viz_crear{
+    border-radius: 5px;
+    background: rgba(0,0,0,0.2);
+}
+.img_ticket{
+    width: 95%;
+    height: 80%;
+}
+.ct_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.nav_user_tick{
+    background-color: #bf543c;
+    color: white;
 }
