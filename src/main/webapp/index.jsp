@@ -51,8 +51,7 @@
             String[] img2 = new String[3];
             int[] idg = new int[7];
 
-            while (r.next())
-            {
+            while (r.next()) {
 
                 nombreg[k] = r.getString("neg_nombre");
                 dd[k] = r.getString("neg_descripcion");
@@ -69,12 +68,15 @@
                     <img src="<%=img2[0]%>" class="d-block w-100 h-100 imgn" alt="...">
                     <div class="neg d-flex justify-content-center align-items-center">
                         <section class="w-100 h-100 d-flex flex-column justify-content-center section_neg">
-                            <span class="Nom_neg_indx d-flex align-items-center"><%=nombreg[0]%></span>
+                            <section class="Nom_neg_indx_sect">
+                                <span class="Nom_neg_indx d-flex align-items-center"><%=nombreg[0]%>.</span>
+                                <hr>
+                            </section>
                             <section class="d-flex flex-column desc justify-content-between">
                                 <span class="Des_neg_indx"><%=dd[0]%></span>
                                 <form action="NegocioSC.jsp">
                                     <input type="hidden" name="idn" value="<%=idg[0]%>"/>
-                                    <button type="submit" class="btn btn_exp">Explorar</button>
+                                    <button type="submit" class="btn btn_exp">Explorar <i class="bi bi-caret-right"></i></button>
                                 </form>
                             </section>
                         </section>
@@ -181,8 +183,8 @@
         </div>
         <!--LOS MEJORES NEGOCIOS-->
         <!--Luego se borra-->
-                
-        <button onclick="location.href='GraficasAdmin.jsp';">graficas</button>
+
+        <button onclick="location.href = 'GraficasAdmin.jsp';">graficas</button>
         <div class="padd_lds">
             <div class="slid_neg d-flex flex-column">
                 <span class="w-100">Los Mejores Negocios</span>                
@@ -198,8 +200,7 @@
                         rs = stmt.executeQuery("select d.*, n.*, p.usu_id, u.usu_nombre from Direccion d inner join Negocio n on d.dir_id=n.dir_id inner join Persona "
                                 + "p on n.per_id = p.per_id inner join Usuario u on p.usu_id = u.usu_id where n.neg_activo=true;");
 
-                        while (rs.next())
-                        {
+                        while (rs.next()) {
 
                             String nombre = rs.getString("neg_nombre");
                             String nombreu = rs.getString("usu_nombre");
@@ -261,8 +262,7 @@
 
                     pr = stmt.executeQuery(sl);
 
-                    while (pr.next())
-                    {
+                    while (pr.next()) {
 
                         String np = pr.getString("pro_nombre");
                         int pre = pr.getInt("pro_precio");
@@ -275,9 +275,9 @@
                     <span class="pre_sl">$<div class="pre_most_pro" id="pre_most_pro"><%=pre%>
                         </div>
                     </span>
+                    <span class="card-title tt_pro_most" id="tt_pro_most"><%=np%></span>
                     <img src="<%=pi%>" class="card-img-top img_most" alt="..." id="card-img-top">
                     <input type="text" class="dis_most_pro" value="<%=dis%>" disabled>
-                    <span class="card-title tt_pro_most" id="tt_pro_most"><%=np%></span>
                     <span class="card-text dis_most_pro" id="desc_com_pro"><%=pd%></span>
                 </section>
                 <%
@@ -302,8 +302,7 @@
 
                     pr2 = stmt.executeQuery(sl2);
 
-                    while (pr2.next())
-                    {
+                    while (pr2.next()) {
 
                         String np = pr2.getString("nov_nombre");
                         int pre = pr2.getInt("neg_id");
@@ -400,22 +399,26 @@
          id="producto_epecifico">
         <div class="producto_epecifico_contenedor">
             <section class="btns_pro_most_esp_res">
-                <button class="btn btns_pro_most bpmer_active" id="IDP">Información del producto</button>
+                <section class="btn btns_pro_most bpmer_active" id="IDP">Información del producto</section>
             </section>
             <div class="Prod_most_espe_cont justify-content-around">
-                <div class="Prod_most_espe_cont1 w-100 h-100" id="Prod_most_espe_cont1">
-                    <img src="assets/neg1.jpg" alt="" class="h-100 img_pro_mosr_espe" id="img_pro_mosr_espe">
-                    <section class="d-flex flex-column h-100 secc_pro_most_espe">
-                        <span id="npv_pro_esp">Nombre del Producto Vendido</span>
-                        <span id="pre_pro_esp">$000000.00</span>
-                        <span id="des_pro_esp">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat eum
-                            distinctio ipsum nostrum
-                            labore veritatis id quia reiciendis animi at odio sunt maxime eaque ipsa natus iusto,
-                            possimus
-                            facere vitae.</span>
-                        <span id="dis_pro_esp">Disponibilidad</span>
-                    </section>
+                <div class="w-100 h-100 sep_dis_pro">
+                    <div class="Prod_most_espe_cont1 w-100 h-100" id="Prod_most_espe_cont1">
+                        <section class="d-flex flex-column secc_pro_most_espe">
+                            <span id="npv_pro_esp">Nombre del Producto Vendido</span>
+                            <span id="des_pro_esp">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat eum
+                                distinctio ipsum nostrum
+                                labore veritatis id quia reiciendis animi at odio sunt maxime eaque ipsa natus iusto,
+                                possimus
+                                facere vitae.</span>
+                            <span id="pre_pro_esp">$000000.00</span>
+                            <span id="dis_pro_esp">Disponibilidad</span>
+                        </section>
+                    </div>
                 </div>
+                <section class="img_pro_mosr_espe">
+                    <img src="assets/neg1.jpg" alt="" id="img_pro_mosr_espe">
+                </section>
             </div>
         </div>
         <span class="text_inst_pro_espe">Si desea salir dé click fuera de esta ventana emergente</span>

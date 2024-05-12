@@ -776,7 +776,7 @@
              id="producto_epecifico">
             <div class="producto_epecifico_contenedor">
                 <section class="btns_pro_most_esp_res">
-                    <button class="btn btns_pro_most bpmer_active" id="IDP">Información del producto</button>
+                    <section class="btns_pro_most bpmer_active" id="IDP">Información del producto</section>
                     <button class="btn btns_pro_most d-none" id="Resn">Reseñas</button>
                 </section>
                 <div class="Prod_most_espe_cont justify-content-around">

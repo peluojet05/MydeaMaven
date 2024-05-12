@@ -12,7 +12,7 @@
         <div class="content_registro d-flex flex-column justify-content-between" data-aos="fade-up">
             <section class="color1_reg deslizari" id="barr1"></section>
             <section class="color2_reg deslizari" id="barr2"></section>
-            <form class="w-100 container_reg align-items-center justify-content-center flex-column subir" method="post" action="Registro">
+            <form class="w-100 container_reg align-items-center justify-content-center flex-column subir" method="post" action="Registro" id="Registro">
                 <div class="reg_form_container justify-content-between align-items-center">
                     <section class="Txt_reg d-flex flex-column justify-content-center align-items-center">
                         <span>BIENVENIDO.</span>

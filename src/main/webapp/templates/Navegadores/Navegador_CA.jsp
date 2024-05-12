@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:include page="../Referencias/Loader.jsp"/>
 <nav class="bg-body-tertiary container-fluid nav_admin">
     <div class="row d-flex align-items-center p-1 h-100">
         <div class="col-3 d-flex">

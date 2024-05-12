@@ -32,11 +32,6 @@
         <div class="gestion_tickets_container">
             <div class="controlls_gest_tick">
                 <div class="nav_user_tick bg-body-tertiary container-fluid nav_ticket">
-                    <a href="indexCC.jsp" target="_blank">
-                        <div class=" d-flex regr_mydea">
-                            <i class="bi bi-caret-left-fill flecha_tick"></i>
-                            </div>
-                    </a>
                     <span class="tt_tick_pag">Mis Tickets</span>
                     <section class="crear_ntck" id="crear_ntck">
                         <span>Crear un Ticket</span>

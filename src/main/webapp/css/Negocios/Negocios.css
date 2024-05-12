@@ -18,13 +18,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 
 @import url("https://fonts.googleapis.com/css2?family=Jomhuria&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inria+Sans&display=swap");
+@import url("../General/colors.css");
+@import url("../General/fuentes.css");
 .scroll_none {
     overflow-y: hidden;
 }
 .nego_neg {
     overflow-y: hidden;
     overflow-x: hidden;
-    background-color: #f3f3f3;
+    background-color: #ebece2;
 }
 .scroll_none nav {
     position: fixed;
@@ -32,6 +34,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 .cont_neg {
     position: absolute;
     top: 10vh;
+    background: #ebece2;
 }
 .prestn_neg {
     height: 90vh;
@@ -484,7 +487,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     padding: 5px;
     flex: 0 0 auto;
     margin-right: 25px;
-    box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.7);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
     cursor: pointer;
     position: relative;
 }
@@ -508,18 +511,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     color: black;
 }
 .img_most {
-    height: 90%;
-    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+    position: absolute;
+    right: -16.6%;
+    bottom: -13.6%;
+    border: 8px solid white;
 }
 .tt_pro_most {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: bolder;
     margin: 0px;
     width: 100%;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin-bottom: 1%;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
@@ -586,61 +590,52 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     z-index: 15;
 }
 .Prod_most_espe_cont {
-    background-color: rgb(255, 255, 255);
-    padding: 1%;
+    background-color: #fff7d1;
+    padding: 2%;
     border-top-right-radius: 5px;
     border-top-left-radius: 0px;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
-    box-shadow: 5px 5px 1px black;
+    box-shadow: 4px 4px 5px rgba(0,0,0,0.5);
     height: 90%;
 }
 .Prod_most_espe_cont1 {
     display: flex;
     height: 100%;
     width: 100%;
-    gap: 2%;
-}
-.img_pro_mosr_espe {
-    width: 55%;
+    gap: 4%;
     border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
+    padding: 1%;
 }
 .secc_pro_most_espe {
-    width: 45%;
+    width: 52%;
     font-family: "Josefin Sans", sans-serif;
-    align-items: center;
     justify-content: space-evenly;
 }
 .btns_pro_most_esp_res {
     width: 60%;
 }
 .secc_pro_most_espe span:first-child {
-    font-size: 3rem;
-    font-weight: bolder;
-    color: #ffb62e;
-    text-shadow: 1.5px 1.5px 0px #000;
+    font-size: 2.5rem;
+    font-weight: bold;
+    /*font-weight: bolder;*/
+    color: black;
+    /*text-shadow: 1.5px 1.5px 0px #000;*/
     width: 100%;
-    text-align: center;
 }
 .secc_pro_most_espe span i {
     color: #ffb62e;
 }
 .secc_pro_most_espe span:nth-child(2) {
-    font-size: 2rem;
-    font-weight: bolder;
+    font-size: 1rem;
 }
 .secc_pro_most_espe span:nth-child(3) {
     font-size: 1rem;
 }
 .secc_pro_most_espe span:last-child, #dis_pro_esp {
-    background-color: #ffb62e;
+    background-color: var(--bg_base);
     font-size: 1.3rem;
     width: fit-content;
-    font-weight: bold;
     padding: 5px;
     border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -653,7 +648,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     bottom: 0;
 }
 .btns_pro_most {
-    background-color: #ffb62e;
+    background-color: #ebece2;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
     border-bottom-right-radius: 0px;
@@ -671,12 +666,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 }
 .bpmer_active {
     font-weight: 700;
-    background-color: #ffffff;
+    background-color: #fff7d1;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
     color: rgb(0, 0, 0);
+    font-family: var(--text);
 }
 .Prod_most_espe_cont2 {
     display: none;
@@ -907,6 +903,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 .producto_epecifico_contenedor {
     height: 68%;
     width: 60%;
+    position: relative;
 }
 .text_inst_pro_espe {
     color: white;
@@ -1484,9 +1481,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
         margin-right: 0;
         margin-bottom: 2%;
     }
-    .tt_pro_most{
-        font-size: 0.8rem;
-    }
     .pr_inf_n span:last-child{
         font-size: 1.3rem;
     }
@@ -1511,9 +1505,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     .btns_pro_most_esp_res{
         width: 100%;
     }
-    .secc_pro_most_espe span:nth-child(3){
+    /*.secc_pro_most_espe span:nth-child(3){
         text-align: center;
-    }
+    }*/
     .nomneg_neg{
         text-align: center;
         line-height: 0.8;

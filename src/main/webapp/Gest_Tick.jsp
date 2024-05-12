@@ -13,7 +13,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <jsp:include page="templates/Referencias/Todas_Ref.jsp"/>
+        <jsp:include page="templates/Referencias/Ref_Admin.jsp"/>
         <link rel="stylesheet" href="css/Administrador/Tickets.css" />
         <title>Gestionar Tickets</title>
     </head>
@@ -26,11 +26,6 @@
         <div class="gestion_tickets_container">
             <div class="controlls_gest_tick">
                 <div class="nav_admin bg-body-tertiary container-fluid nav_ticket">
-                    <a href="Acciones_Admin.jsp" target="_blank">
-                        <div class=" d-flex regr_mydea">
-                            <i class="bi bi-caret-left-fill flecha_tick"></i>
-                           </div>
-                    </a>
                     <span class="tt_tick_pag">Gestión de Tickets</span>
                     <section class="busq_admin_acc">
                         <input class="form-control bus_admin_acc" id="bus_admin_acc" type="text"
@@ -281,7 +276,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="36.5 35 183 182" preserveAspectRatio="none">
                 <path
                     d="M156.7,216H48a8,8,0,0,1-8-8V48a8,8,0,0,1,8-8H208a8,8,0,0,1,8,8V156.7a7.9,7.9,0,0,1-2.3,5.6l-51.4,51.4A7.9,7.9,0,0,1,156.7,216Z"
-                    fill="#fff" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" />
+                    id="tick_color" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" />
                 <polyline fill="none" points="215.3 160 160 160 160 215.3" stroke="#000" stroke-linecap="round"
                           stroke-linejoin="round" stroke-width="1" />
                 </svg>
