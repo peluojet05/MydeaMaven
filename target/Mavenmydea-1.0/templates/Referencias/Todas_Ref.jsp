@@ -42,4 +42,5 @@ crossorigin="anonymous"></script>
 <link rel="stylesheet" href="css/General/error.css?v=<%=version%>" />
 <link rel="stylesheet" href="css/Administrador/Tickets.css?v=<%=version%>" />
 <link rel="stylesheet" href="css/preloud.css?v=<%=version%>" />
+<link rel="stylesheet" href="css/Negocios/productos.css?v=<%=version%>" />
 <script src="js/submit.js"></script>

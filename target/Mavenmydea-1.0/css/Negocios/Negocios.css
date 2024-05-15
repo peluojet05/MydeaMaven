@@ -150,7 +150,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 .nav_neg span:first-child {
     font-size: 2rem;
     font-weight: 700;
-    border-bottom: 2px solid gray;
+    border-bottom: 3px solid var(--bg_oro);
     margin-bottom: 15px;
 }
 .nav_neg section {
@@ -159,8 +159,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 .btn_bl {
     background: white;
     padding: 5px;
-    border: 2px solid black;
-    box-shadow: 3px 3px 1px black;
+    border: 2px solid var(--bg_oro);
+    box-shadow: 3px 3px 1px var(--bg_oro);
 }
 .btn_bl:hover {
     transition: 0.3s;
@@ -168,7 +168,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     -moz-transition: 0.3s;
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
-    background: black;
+    background: var(--bg_oro);
     color: white;
 }
 #line_hn {
@@ -183,8 +183,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
-    border: 3px solid black;
-    box-shadow: 3px 3px 1px black;
+    box-shadow: 6px 8px 0px 0px rgba(0, 0, 0, 0.5);
     position: relative;
     display: flex;
 }
@@ -296,13 +295,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 }
 .icnsc_section_n {
     padding: 10px;
-    border: 3px solid black;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
-    box-shadow: 3px 3px black;
+    box-shadow: 6px 8px 0px 0px rgba(0, 0, 0, 0.5);
     background: white;
     gap: 20px;
 }
@@ -334,13 +332,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     width: 25%;
     height: 85vh;
     padding: 10px;
-    border: 3px solid black;
+    border: 3px solid var(--bg_base);
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
-    box-shadow: 3px 3px 1px black;
+    box-shadow: 3px 3px 1px var(--bg_base);
     background-color: white;
 }
 .sp_div_n_desactive {
@@ -358,14 +356,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     -moz-transition: 0.3s;
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
-    background-color: rgb(255, 101, 67);
+    background-color: var(--bg_oro);
     transform: scale(1.05);
     -webkit-transform: scale(1.05);
     -moz-transform: scale(1.05);
     -ms-transform: scale(1.05);
     -o-transform: scale(1.05);
     font-weight: bolder;
-    border: 2px solid rgb(255, 101, 67);
+    border: 2px solid var(--bg_oro);
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -377,9 +375,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     padding-right: 2vh;
 }
 .btn_active {
-    background: rgba(255, 102, 67, 0.165);
+    background: var(--bg_clr);
     color: rgb(0, 0, 0);
-    border: 2px solid rgb(255, 101, 67);
+    border: 3px solid var(--bg_oro);
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -434,8 +432,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     justify-content: space-between;
     height: 90%;
     width: 100%;
-    border: 3px solid black;
-    box-shadow: 3px 3px 1px black;
+    border: 3px solid var(--bg_base);
+    box-shadow: 3px 3px 1px var(--bg_base);
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -449,7 +447,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     display: flex;
     font-size: 2rem;
     font-weight: 700;
-    border-bottom: 2px solid gray;
+    border-bottom: 3px solid var(--bg_oro);
     margin-bottom: 15px;
 }
 .Mostrar_Productos_busq {
@@ -502,7 +500,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 }
 .card_pro_most:hover {
     transition: 0.3s;
-    background-color: rgba(0,0,0,0.9);
+    background-color: black;
     color: white;
 }
 .card_pro_most:hover .pr_inf_n span:last-child{
@@ -571,7 +569,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     -ms-transform: scale(1.05);
     -o-transform: scale(1.05);
     font-weight: bolder;
-    border: 2px solid rgb(255, 101, 67);
+    border: 2px solid var(--bg_base);
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -924,8 +922,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 .most_img_div {
     width: 100%;
     background: white;
-    border: 3px solid black;
-    box-shadow: 4px 4px 1px black;
+    border: 3px solid var(--bg_base);
+    box-shadow: 3px 3px 1px var(--bg_base);
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -949,8 +947,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
-    border: 3px solid black;
-    box-shadow: 3px 3px 1px black;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
     cursor: pointer;
 }
 .imgneg img:hover {
@@ -981,8 +978,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
-    border: 3px solid black;
-    box-shadow: 3px 3px 1px black;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
     cursor: pointer;
 }
 .imgpro img:hover {
@@ -1017,12 +1013,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 }
 .bnts_img_sec_active {
     background-color: white;
-    border: 3px solid black;
+    border: 3px solid var(--bg_base);
     border-bottom: none;
 }
 .bnts_img_sec_des {
-    background-color: rgb(0, 0, 0);
-    border: 3px solid black;
+    background-color: var(--bg_oro);
+    border: 3px solid var(--bg_oro);
     border-bottom: none;
     color: white;
 }
@@ -1041,8 +1037,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     width: 99%;
     display: flex;
     padding: 10px;
-    border: 3px solid black;
-    box-shadow: 5px 5px 1px black;
+    border: 3px solid var(--bg_base);
+    box-shadow: 5px 5px 1px var(--bg_base);
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -1052,7 +1048,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 }
 .res_neg_ou_div{
     gap: 30px;
-    overflow: hidden;
     scroll-behavior: smooth;
 }
 .resenas_otros_usuarios {
@@ -1064,14 +1059,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     width: 325px;
     background: white;
     border-radius: 10px;
-    box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.4);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
     position: relative;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
     flex: 0 0 auto;
-    border: 2px solid black;
 }
 .resena_usua_esp section:first-child {
     margin-bottom: 10px;
@@ -1139,7 +1133,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     -ms-border-radius: 100%;
     -o-border-radius: 100%;
     padding: 3px;
-    border: 3px solid rgb(151, 26, 64);
+    border: 3px solid var(--bg_oro);
     margin-right: 5px;
 }
 .resena_usua_esp section:first-child span {
@@ -1153,7 +1147,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     align-items: center;
     padding-right: 20%;
     padding-left: 2.5%;
-    background: rgb(151, 26, 64);
+    background: var(--bg_oro);
     color: white;
     border-radius: 0px 25px 25px 0px;
     position: absolute;
@@ -1162,15 +1156,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     box-shadow: 3px 3px 0px rgba(0,0,0,0.4);
 }
 .resena_usua_esp i{
-    color: rgb(151, 26, 64);
+    color: var(--bg_oro);
 }
 .resena_usua_esp section:first-child span:nth-child(2) {
     font-weight: bold;
 }
 .esc_res {
     margin-bottom: 10px;
-    border: 3px solid black;
-    background-color: black;
+    border: 3px solid var(--bg_oro);
+    background-color: var(--bg_oro);
     color: white;
     padding: 5px;
     font-size: 1.1rem;
@@ -1182,8 +1176,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 }
 .esc_res:hover {
     margin-bottom: 10px;
-    border: 3px solid black;
-    background-color: rgb(255, 255, 255);
+    border: 3px solid var(--bg_oro);
+    background-color: var(--bg_clr);
     color: rgb(0, 0, 0);
     transition: 0.3s;
     -webkit-transition: 0.3s;
@@ -1418,6 +1412,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 }
 .hormap_n{
     height: 75%;
+}
+#des_pro_esp{
+    font-size: 1.3rem;
+}
+#pre_pro_esp{
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+#horarios_cnf .h_cnf .inph_cnf .inpb_cnf{
+    border: 3px solid var(--bg_base);
+    background: var(--bg_clr);
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.5);
+}
+.btns_ch button{
+    display: flex;
+}
+.btns_ch i{
+    font-size: 1.2rem;
 }
 @media screen and (max-width:1024px){
     .prestn_neg{

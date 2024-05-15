@@ -61,8 +61,12 @@
             </div>
         </div>
     </div>
-
-
 </nav>
-
+<div class="cursor"></div>
+<div class="cursor2"></div>
+<audio id="myAudio">
+    <source src="assets/click.mp3" type="audio/mpeg">
+    Tu navegador no soporta el elemento de audio.
+</audio>
+<script src="js/click.js"></script>
 <script src="js/Nav_CA.js"></script>

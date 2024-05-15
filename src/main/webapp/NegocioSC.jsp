@@ -231,7 +231,7 @@
                                                     </li>
                                                 </ul>
                                                 <div
-                                                    class="inph_cnf d-flex flex-column justify-content-center align-items-center">
+                                                    class="inph_cnf d-flex flex-column justify-content-center align-items-center" id="inph_cnf">
                                                     <!--Horas Lunes-->
                                                     <section
                                                         class="inpb_cnf flex-column justify-content-evenly align-items-center"
@@ -500,7 +500,7 @@
                                     <option value="General">General</option>
                                 </select>
                             </div>
-                            <div class="d-flex flex-column justify-content-between productos_most p-2">
+                            <div class="d-flex flex-column justify-content-between productos_most">
                                 <section class="w-100 d-flex buscpro_form_n">
                                     <input type="text" class="form-control" placeholder="Buscar un producto específico" id="Busq_Pro_inp_n">
                                 </section>

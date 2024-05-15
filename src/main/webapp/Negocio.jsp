@@ -156,7 +156,7 @@
                         <span class="nomneg_neg"><%=nombre%></span>
                         <span class="descneg_neg"><%=desc%></span>
                         <button class="btn btn_Sen" id="btn_Sen">SEGUIR EXPLORANDO ESTE NEGOCIO</button>
-                        <a href="index.jsp" class="link_salir">Salir de este Negocio</a>
+                        <a href="indexCC.jsp" class="link_salir">Salir de este Negocio</a>
                         <span class="heart_neg"><i class="bi bi-heart-fill"></i> <%=lk%></span>
 
                     </div>
