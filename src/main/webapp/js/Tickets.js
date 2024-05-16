@@ -34,7 +34,7 @@ let filtros = document.querySelectorAll(".select_adm");
 
 filtros.forEach(function (sel) {
     sel.addEventListener("change", function () {
-        sel.style.background = "rgba(255, 255, 255, 0.3)";
+        sel.style.background = "rgba(255, 255, 255, 1)";
         sel.style.color = "#fff";
         sel.style.fontWeight = "bolder";
     });
@@ -153,16 +153,21 @@ ticket.forEach(function (ticket_click) {
     });
 });
 
+let tick_color = document.getElementById("tick_color");
+
 function CopiarDatosTicket(ticket_clickeado) {
     switch (ticket_clickeado.querySelector("#Estado").value) {
         case "En Proceso":
             document.getElementById("tt_tick_viz").style.background = "#FFA000";
+            tick_color.style.fill = "#fff4d7";
             break;
         case "Abierto":
             document.getElementById("tt_tick_viz").style.background = "#24b240";
+            tick_color.style.fill = "#ecfff3";
             break;
         case "Cerrado":
             document.getElementById("tt_tick_viz").style.background = "#c02e2e";
+            tick_color.style.fill = "#ffe4e4";
             break;
     }
     document.getElementById("tt_tick_viz").textContent = ticket_clickeado.querySelector("#tt_tick_prev").textContent;

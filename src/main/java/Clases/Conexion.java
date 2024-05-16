@@ -29,7 +29,7 @@ public class Conexion {
     public void setCon() {
        try{
            
-      //POSTGRE HOST, CON ESTE HACEN LA PULL REQUESTT
+     //POSTGRE HOST, CON ESTE HACEN LA PULL REQUESTT
      
      /*
      String dbDriver = "org.postgresql.Driver";
@@ -66,7 +66,7 @@ public class Conexion {
      Class.forName(dbDriver).newInstance();
      con = DriverManager.getConnection(dbURL,dbUsername, dbPassword);
      
-    //
+     //
       
       } catch (Exception e ) {
             System.out.println("erore");

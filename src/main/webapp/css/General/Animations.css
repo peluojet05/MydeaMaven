@@ -73,3 +73,31 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
         opacity: 1;
     }
 }
+
+.cursor{
+    position:fixed;
+    width: 50px;
+    height: 50px;
+    border: 2px solid rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.2);
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: .1s;
+    z-index: 100;
+}
+.cursor2{
+    position:fixed;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: .15s;
+    z-index: 100;
+}

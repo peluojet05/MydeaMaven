@@ -10,7 +10,7 @@
     HttpSession session1 = request.getSession(false);
     if (session1.getAttribute("usuario") != null) {
 
-    %>
+%>
 
 <%@page session="true"%>
 <%@page import="Clases.Usuario" %>
@@ -28,8 +28,7 @@
     </head>
     <body>
         <jsp:include page="templates/Navegadores/Navegador_CV.jsp"/>
-        <%
-            HttpSession misession = (HttpSession) request.getSession();
+        <%            HttpSession misession = (HttpSession) request.getSession();
             Usuario usuario = (Usuario) misession.getAttribute("usuario");
             String nombre = usuario.getUsu_nom();
             String pass = usuario.getUsu_pass();
@@ -53,8 +52,7 @@
             stmt = c.createStatement();
             rs2 = stmt.executeQuery("Select n.neg_id, p.per_id from Negocio n inner Join Persona p on p.per_id=n.per_id where p.per_correo='" + correo + "' and n.neg_activo=true;");
             int num = 0;
-            while (rs2.next())
-            {
+            while (rs2.next()) {
                 num = num + 1;
                 pid = rs2.getInt("per_id");
             }
@@ -75,7 +73,7 @@
                                     <span class="num_span_n"><%=num%></span>
                                     <span class="txt_span_n">Número de Negocios</span>
                                 </section>
-                               
+
                             </section>
                         </section>
 
@@ -92,11 +90,9 @@
                            data-bs-title="<%=correo%>"></i>
 
                         <%
-                            if (fb.equals("Sin configurar"))
-                            {
+                            if (fb.equals("Sin configurar")) {
 
-                            } else
-                            {
+                            } else {
 
                         %>
                         <a href="<%=fb%>" class="contact_red_cu"><i class="bi bi-facebook" data-bs-toggle="tooltip" data-bs-placement="bottom"
@@ -104,33 +100,27 @@
                             <%
                                 }
 
-                                if (ig.equals("Sin configurar"))
-                                {
+                                if (ig.equals("Sin configurar")) {
 
-                                } else
-                                {
+                                } else {
                             %>
                         <a href="<%=ig%>" class="contact_red_cu"><i class="bi bi-instagram" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                                     data-bs-title="Instagram"></i></a>
                             <%
                                 }
 
-                                if (tw.equals("Sin configurar"))
-                                {
+                                if (tw.equals("Sin configurar")) {
 
-                                } else
-                                {
+                                } else {
                             %>                               
                         <a href="<%=tw%>" class="contact_red_cu"><i class="bi bi-twitter" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                                     data-bs-title="Twitter"></i></a>
                             <%
                                 }
 
-                                if (web.equals("Sin configurar"))
-                                {
+                                if (web.equals("Sin configurar")) {
 
-                                } else
-                                {
+                                } else {
                             %>  
                         <a href="<%=web%>" class="contact_red_cu"><i class="bi bi-globe2 " data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                                      data-bs-title="Web"></i></a>
@@ -149,8 +139,7 @@
                     <%                       rs3 = stmt.executeQuery("Select * from Negocio where neg_activo=true and per_id=" + pid + ";");
                         int contador = 0;
                         int contador2 = 1;
-                        while (rs3.next())
-                        {
+                        while (rs3.next()) {
 
                             String nnom = rs3.getString("neg_nombre");
                             String descr = rs3.getString("neg_descripcion");
@@ -172,49 +161,48 @@
                             </section>
                             <section class="d-flex justify-content-between w-100">
                                 <section class="btns_ch w-100 justify-content-between">
-
                                     <form action="Editar_Negocio.jsp" method="post" class="btn_mn">
                                         <input type="hidden" name="idn" value="<%=idn%>"/>
-                                        <button type="submit" class="btn btn_visitar_busq">Editar</button>
+                                        <button type="submit" class="btn btn_visitar_busq" data-bs-toggle="tooltip" id="btn_sav_nav"
+                                                data-bs-placement="bottom" data-bs-title="Editar Datos del Negocio"><i class="bi bi-pencil-square"></i></button>
                                     </form>
-                                        
                                     <form action="CrearNegocio_Formulario.jsp" method="post" class="btn_mn">
                                         <input type="hidden" name="neid" value="<%=idn%>"/>
-                                        <button type="submit" class="btn btn_visitar_busq">Agregar Productos</button>
+                                        <button type="submit" class="btn btn_visitar_busq" data-bs-toggle="tooltip" id="btn_sav_nav"
+                                                data-bs-placement="bottom" data-bs-title="Agregar Productos"><i class="bi bi-plus"></i><i class="bi bi-basket2-fill"></i></button>
                                     </form>
-
                                     <form action="Subir_Novedad.jsp" method="post" class="btn_mn">
                                         <input type="hidden" name="idn" value="<%=idn%>"/>
-                                        <button type="submit" class="btn btn_visitar_busq">Novedades</button>
+                                        <button type="submit" class="btn btn_visitar_busq" data-bs-toggle="tooltip" id="btn_sav_nav"
+                                                data-bs-placement="bottom" data-bs-title="Subir Novedad"><i class="bi bi-megaphone-fill"></i></button>
                                     </form>
-
                                     <form action="Feedback.jsp" method="post" class="btn_mn">
                                         <input type="hidden" name="idn" value="<%=idn%>"/>
-                                        <button type="submit" class="btn btn_visitar_busq">Feedback</button>
+                                        <button type="submit" class="btn btn_visitar_busq" data-bs-toggle="tooltip" id="btn_sav_nav"
+                                                data-bs-placement="bottom" data-bs-title="Consultar Feedback"><i class="bi bi-chat-left-text-fill"></i></button>
                                     </form>
-
                                     <form action="NegocioCV.jsp" method="post" class="btn_mn">
                                         <input type="hidden" name="idn" value="<%=idn%>"/>
-                                        <button type="submit" class="btn btn_visitar_busq">Visitar</button>
+                                        <button type="submit" class="btn btn_visitar_busq" data-bs-toggle="tooltip" id="btn_sav_nav"
+                                                data-bs-placement="bottom" data-bs-title="Visitar Negocio"><i class="bi bi-eye-fill"></i></button>
                                     </form>
-                                        
-                                    <form action="Editar_Producto.jsp" method="post" class="btn_mn">
+
+                                    <form action="Productos.jsp" method="post" class="btn_mn">
                                         <input type="hidden" name="idn" value="<%=idn%>"/>
-                                        <button type="submit" class="btn btn_visitar_busq">Editar Productos</button>
+                                        <button type="submit" class="btn btn_visitar_busq" data-bs-toggle="tooltip" id="btn_sav_nav"
+                                                data-bs-placement="bottom" data-bs-title="Consultar Productos"><i class="bi bi-basket2-fill"></i></button>
                                     </form>  
-                                           
-                                        <form action="EliminarNegocio" method="post" id="forme<%=contador%>">
+                                    <form action="EliminarNegocio" method="post" id="forme<%=contador%>">
                                         <input type="hidden" name="idn" value="<%=idn%>"/>
-                                        <button type="submit" class="btn btn_elim_busq" id="btnsubmit<%=contador%>">Eliminar</button>
+                                        <button type="submit" class="btn btn_elim_busq" id="btnsubmit<%=contador%>" data-bs-toggle="tooltip" id="btn_sav_nav"
+                                                data-bs-placement="bottom" data-bs-title="Eliminar Negocio"><i class="bi bi-trash3-fill"></i></button>
                                     </form>
-                                      
-                                    
                                 </section>
                             </section>
                         </section>
                     </section>
                     <%
-                        contador = contador +1;
+                            contador = contador + 1;
                         }
                         c.close();
                     %>
@@ -222,7 +210,7 @@
                 </div>
             </div>
         </div>
-                
+
         <script>
             // Activar todos los tooltips
             var tooltips = new bootstrap.Tooltip(document.body, {
@@ -231,8 +219,7 @@
 
         </script>
         <%
-            if (request.getAttribute("mensaje") != null)
-            {
+            if (request.getAttribute("mensaje") != null) {
         %>          
         <script>
             window.onload = function () {
@@ -242,13 +229,13 @@
         <%
             }
         %>
-                                                                    <%
-            }else{
-    System.out.println("Error: Sesión no existe");
-    response.sendRedirect("index.jsp");
-}
-            %>
-            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-            <script src="js/vp.js"></script>
+        <%
+            } else {
+                System.out.println("Error: Sesión no existe");
+                response.sendRedirect("index.jsp");
+            }
+        %>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="js/vp.js"></script>
     </body>
 </html>

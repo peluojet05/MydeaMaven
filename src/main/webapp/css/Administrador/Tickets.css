@@ -612,6 +612,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     align-items: center;
 }
 .nav_user_tick{
-    background-color: #bf543c;
+    background-color: #ff5d38;
+    color: white;
+}
+.tt_tick_viz{
     color: white;
 }

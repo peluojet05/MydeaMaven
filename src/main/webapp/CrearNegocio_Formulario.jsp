@@ -19,8 +19,6 @@
     </head>
     <jsp:include page="templates/Navegadores/Navegador_CV.jsp"/>
     <body>
-
-
         <div class="d-flex flex-column w-100 justify-content-between cnf1 Inria">
             <section class="color1"></section>
             <section class="color2"></section>

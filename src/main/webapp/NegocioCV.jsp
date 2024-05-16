@@ -14,8 +14,7 @@
 <%@page import="java.util.ArrayList" %>
 <%
     HttpSession session1 = request.getSession(false);
-    if (session1.getAttribute("usuario") != null)
-    {
+    if (session1.getAttribute("usuario") != null) {
 
 %>
 <!DOCTYPE html>
@@ -45,18 +44,15 @@
         c = con.getCon();
         stmt = c.createStatement();
 
-        if (request.getAttribute("neid") != null)
-        {
+        if (request.getAttribute("neid") != null) {
 
             rs = stmt.executeQuery("select n.*, u.usu_nombre, p.per_foto, p.per_correo from Negocio n inner join Persona p on p.per_id=n.per_id"
                     + " inner join Usuario u on p.usu_id=u.usu_id where n.neg_id=" + request.getAttribute("neid") + ";");
-        } else
-        {
+        } else {
             rs = stmt.executeQuery("select n.*, u.usu_nombre, p.per_foto, p.per_correo from Negocio n inner join Persona p on p.per_id=n.per_id"
                     + " inner join Usuario u on p.usu_id=u.usu_id where n.neg_id=" + id + ";");
         }
-        while (rs.next())
-        {
+        while (rs.next()) {
             logo = rs.getString("neg_logo");
             nombre = rs.getString("neg_nombre");
             desc = rs.getString("neg_descripcion");
@@ -83,8 +79,7 @@
         String[] Especial = new String[7];
 
         int a = 0;
-        while (rs2.next())
-        {
+        while (rs2.next()) {
 
             Abierto[a] = rs2.getString("hor_abierto");
             Cerrado[a] = rs2.getString("hor_cerrado");
@@ -96,16 +91,14 @@
 
         ResultSet rs4 = stmt.executeQuery("Select n.neg_id, p.per_id from Negocio n inner Join Persona p on p.per_id=n.per_id where p.per_correo='" + correop + "';");
         int num = 0;
-        while (rs4.next())
-        {
+        while (rs4.next()) {
             num = num + 1;
             pid = rs4.getInt("per_id");
         }
 
         ResultSet rs5 = stmt.executeQuery("Select * from Feedback where neg_id=" + neid + ";");
         int num2 = 0;
-        while (rs5.next())
-        {
+        while (rs5.next()) {
             num2 = num2 + 1;
 
         }
@@ -115,8 +108,7 @@
         ResultSet rs8 = stmt.executeQuery("select d.*, n.*, p.usu_id, u.usu_nombre from Direccion d inner join Negocio n on d.dir_id=n.dir_id"
                 + " inner join Persona p on n.per_id = p.per_id inner join Usuario u on p.usu_id = u.usu_id where n.neg_id=" + neid + ";");
 
-        while (rs8.next())
-        {
+        while (rs8.next()) {
             String colonia = rs8.getString("dir_colonia");
             String calle = rs8.getString("dir_calle");
             int numero = rs8.getInt("dir_numero");
@@ -129,8 +121,7 @@
 
         int lk = 0;
 
-        while (rm.next())
-        {
+        while (rm.next()) {
             lk = lk + 1;
         }
 
@@ -155,7 +146,7 @@
                     <span class="nomneg_neg"><%=nombre%></span>
                     <span class="descneg_neg"><%=desc%></span>
                     <button class="btn btn_Sen" id="btn_Sen">SEGUIR EXPLORANDO ESTE NEGOCIO</button>
-                    <a href="index.jsp" class="link_salir">Salir de este Negocio</a>
+                    <a href="indexCV.jsp" class="link_salir">Salir de este Negocio</a>
                     <span class="heart_neg"><i class="bi bi-heart-fill"></i><%=lk%></span>
 
 
@@ -179,28 +170,26 @@
                                     <button class="btn btn_bl">Reseñas</button>
                                 </a>
                                 <%
-                                    if (request.getAttribute("neid") != null)
-        {
-                                    %>
+                                    if (request.getAttribute("neid") != null) {
+                                %>
                                 <form action="Guardar2">
                                     <input type="hidden" name="idn" value="<%=request.getAttribute("neid")%>"/>
-                                    
+
                                     <button class="btn btn_bl">Guardar Negocio</button>
                                 </form>
-                                    <%
-                                        }
-else{
-                                        %>
-                                        
-                                        <form action="Guardar2">
+                                <%
+                                } else {
+                                %>
+
+                                <form action="Guardar2">
                                     <input type="hidden" name="idn" value="<%=id%>"/>
-                                    
+
                                     <button class="btn btn_bl">Guardar Negocio</button>
                                 </form>
-                                    
-                                    <%
-                                    
-                                        }%>
+
+                                <%
+
+                                    }%>
                             </section>
                         </section>
                         <!--Horarios-->
@@ -274,13 +263,11 @@ else{
                                                     <section class="d-flex flex-column">
                                                         <span>Lunes:</span>
                                                         <%
-                                                            if (Abierto[0].equals("No"))
-                                                            {
+                                                            if (Abierto[0].equals("No")) {
                                                         %>
                                                         <span><%=Especial[0]%></span>
                                                         <%
-                                                        } else
-                                                        {
+                                                        } else {
                                                         %>
                                                         <span><%=Abierto[0]%> - <%=Cerrado[0]%></span>
 
@@ -296,13 +283,11 @@ else{
                                                     <section class="d-flex flex-column">
                                                         <span>Martes:</span>
                                                         <%
-                                                            if (Abierto[1].equals("No"))
-                                                            {
+                                                            if (Abierto[1].equals("No")) {
                                                         %>
                                                         <span><%=Especial[1]%></span>
                                                         <%
-                                                        } else
-                                                        {
+                                                        } else {
                                                         %>
                                                         <span><%=Abierto[1]%> - <%=Cerrado[1]%></span>
 
@@ -318,13 +303,11 @@ else{
                                                     <section class="d-flex flex-column">
                                                         <span>Miércoles:</span>
                                                         <%
-                                                            if (Abierto[2].equals("No"))
-                                                            {
+                                                            if (Abierto[2].equals("No")) {
                                                         %>
                                                         <span><%=Especial[2]%></span>
                                                         <%
-                                                        } else
-                                                        {
+                                                        } else {
                                                         %>
                                                         <span><%=Abierto[2]%> - <%=Cerrado[2]%></span>
 
@@ -340,13 +323,11 @@ else{
                                                     <section class="d-flex flex-column">
                                                         <span>Jueves:</span>
                                                         <%
-                                                            if (Abierto[3].equals("No"))
-                                                            {
+                                                            if (Abierto[3].equals("No")) {
                                                         %>
                                                         <span><%=Especial[3]%></span>
                                                         <%
-                                                        } else
-                                                        {
+                                                        } else {
                                                         %>
                                                         <span><%=Abierto[3]%> - <%=Cerrado[3]%></span>
 
@@ -362,13 +343,11 @@ else{
                                                     <section class="d-flex flex-column">
                                                         <span>Viernes:</span>
                                                         <%
-                                                            if (Abierto[4].equals("No"))
-                                                            {
+                                                            if (Abierto[4].equals("No")) {
                                                         %>
                                                         <span><%=Especial[4]%></span>
                                                         <%
-                                                        } else
-                                                        {
+                                                        } else {
                                                         %>
                                                         <span><%=Abierto[4]%> - <%=Cerrado[4]%></span>
 
@@ -384,13 +363,11 @@ else{
                                                     <section class="d-flex flex-column">
                                                         <span>Sábado:</span>
                                                         <%
-                                                            if (Abierto[5].equals("No"))
-                                                            {
+                                                            if (Abierto[5].equals("No")) {
                                                         %>
                                                         <span><%=Especial[5]%></span>
                                                         <%
-                                                        } else
-                                                        {
+                                                        } else {
                                                         %>
                                                         <span><%=Abierto[5]%> - <%=Cerrado[5]%></span>
 
@@ -406,13 +383,11 @@ else{
                                                     <section class="d-flex flex-column">
                                                         <span>Domingo:</span>
                                                         <%
-                                                            if (Abierto[6].equals("No"))
-                                                            {
+                                                            if (Abierto[6].equals("No")) {
                                                         %>
                                                         <span><%=Especial[6]%></span>
                                                         <%
-                                                        } else
-                                                        {
+                                                        } else {
                                                         %>
                                                         <span><%=Abierto[6]%> - <%=Cerrado[6]%></span>
 
@@ -483,10 +458,8 @@ else{
                                    data-bs-placement="bottom" data-bs-title="<%=correo%>"></i>
 
                                 <%
-                                    if (fb.equals(""))
-                                    {
-                                    } else
-                                    {
+                                    if (fb.equals("")) {
+                                    } else {
 
                                 %>
                                 <a href="<%=fb%>" class="contact_red_cu"><i
@@ -495,10 +468,8 @@ else{
                                     <%
                                         }
 
-                                        if (ig.equals(""))
-                                        {
-                                        } else
-                                        {
+                                        if (ig.equals("")) {
+                                        } else {
                                     %>
                                 <a href="<%=ig%>" class="contact_red_cu"><i
                                         class="bi bi-instagram contact_red_cu" data-bs-toggle="tooltip"
@@ -506,10 +477,8 @@ else{
                                     <%
                                         }
 
-                                        if (tw.equals(""))
-                                        {
-                                        } else
-                                        {
+                                        if (tw.equals("")) {
+                                        } else {
                                     %>                               
                                 <a href="<%=tw%>" class="contact_red_cu"><i
                                         class="bi bi-twitter contact_red_cu" data-bs-toggle="tooltip"
@@ -517,10 +486,8 @@ else{
                                     <%
                                         }
 
-                                        if (web.equals(""))
-                                        {
-                                        } else
-                                        {
+                                        if (web.equals("")) {
+                                        } else {
                                     %>  
                                 <a href="<%=web%>" class="contact_red_cu"><i
                                         class="bi bi-globe2 contact_red_cu" data-bs-toggle="tooltip"
@@ -575,8 +542,7 @@ else{
 
                                         it = stmt.executeQuery(sl);
                                         int z = 0;
-                                        while (it.next())
-                                        {
+                                        while (it.next()) {
                                             z = z + 1;
                                         }
 
@@ -586,8 +552,7 @@ else{
 
                                         pr = stmt.executeQuery(sq);
                                         int y = 0;
-                                        while (pr.next())
-                                        {
+                                        while (pr.next()) {
 
                                             String np = pr.getString("pro_nombre");
                                             int pre = pr.getInt("pro_precio");
@@ -637,8 +602,7 @@ else{
                         </section>
 
                         <%
-                            for (int q = 0; q < y; q++)
-                            {
+                            for (int q = 0; q < y; q++) {
 
 
                         %>
@@ -692,8 +656,7 @@ else{
                                 ResultSet rs7 = stmt.executeQuery("select u.usu_nombre, f.fed_comentario, f.fed_like, p.per_foto from Usuario u inner join Persona p "
                                         + "on p.usu_id = u.usu_id inner join Feedback f on f.per_id = p.per_id where f.neg_id=" + neid + ";");
 
-                                while (rs7.next())
-                                {
+                                while (rs7.next()) {
 
                                     String nomu = rs7.getString("usu_nombre");
                                     String ft = rs7.getString("per_foto");
@@ -708,8 +671,7 @@ else{
                                 </section>
                                 <span class="texto_res_usu"><%=comentario%></span>
                                 <%
-                                    if (like == true)
-                                    {
+                                    if (like == true) {
                                 %>
                                 <span class="liornli"><i class="bi bi-heart-fill"></i> Le gustó este Negocio</span>
                                 <%
@@ -799,123 +761,26 @@ else{
          id="producto_epecifico">
         <div class="producto_epecifico_contenedor">
             <section class="btns_pro_most_esp_res">
-                <button class="btn btns_pro_most bpmer_active" id="IDP">Información del producto</button>
-                <button class="btn btns_pro_most d-none" id="Resn">Reseñas</button>
+                <section class="btn btns_pro_most bpmer_active" id="IDP">Información del producto</section>
             </section>
             <div class="Prod_most_espe_cont justify-content-around">
-                <div class="Prod_most_espe_cont1 w-100 h-100 justify-content-around" id="Prod_most_espe_cont1">
-                    <img src="assets/neg1.jpg" alt="" class="h-100 img_pro_mosr_espe" id="img_pro_mosr_espe" >
-                    <section class="d-flex flex-column h-100 secc_pro_most_espe">
-                        <span id="npv_pro_esp">Nombre del Producto Vendido</span>
-                        <span id="pre_pro_esp">$000000.00</span>
-                        <span id="des_pro_esp">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat eum
-                            distinctio ipsum nostrum
-                            labore veritatis id quia reiciendis animi at odio sunt maxime eaque ipsa natus iusto,
-                            possimus
-                            facere vitae.</span>
-                        <span id="dis_pro_esp">Disponibilidad</span>
-                    </section>
-                </div>
-                <div class="Prod_most_espe_cont2 flex-column w-100 h-100" id="Prod_most_espe_cont2">
-                    <span class="Tittle_coment_res">Calificar este Producto</span>
-                    <form class="d-flex w-100 w-75 comment_realizar_div" method="post">
-                        <section class="comment_realizar">
-                            <textarea name="coment_prod_usu" id="coment_prod_usu" class="coment_prod_usu"
-                                      placeholder="Escribir un comentario"></textarea>
-                            <hr>
-                            <button type="submit">Comentar</button>
+                <div class="w-100 h-100 sep_dis_pro">
+                    <div class="Prod_most_espe_cont1 w-100 h-100" id="Prod_most_espe_cont1">
+                        <section class="d-flex flex-column secc_pro_most_espe">
+                            <span id="npv_pro_esp">Nombre del Producto Vendido</span>
+                            <span id="des_pro_esp">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat eum
+                                distinctio ipsum nostrum
+                                labore veritatis id quia reiciendis animi at odio sunt maxime eaque ipsa natus iusto,
+                                possimus
+                                facere vitae.</span>
+                            <span id="pre_pro_esp">$000000.00</span>
+                            <span id="dis_pro_esp">Disponibilidad</span>
                         </section>
-                        <section class="heart_pro_res d-flex flex-column">
-                            <i class="bi bi-heart h_sc" id="h_sc" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                               data-bs-title="Me Gusta"></i>
-                            <i class="bi bi-heart-fill h_cc" id="h_cc" data-bs-toggle="tooltip"
-                               data-bs-placement="bottom" data-bs-title="Ya no me Gusta"></i>
-                        </section>
-                    </form>
-                    <span class="Tittle_coment_res">Reseñas de otros Usuarios</span>
-                    <div class="res_otr_usu d-flex">
-                        <button id="prev_cr" class="btn prev_cr"><i class="bi bi-caret-left"></i></button>
-                        <button id="next_cr" class="btn next_cr"><i class="bi bi-caret-right"></i></button>
-                        <div class="w-100 h-100 d-flex" id="res_otr_usu">
-                            <section class="d-flex flex-column resena_usu_pro">
-                                <section class="d-flex justify-content-between">
-                                    <img src="assets/Logo_Icon.png" alt="" class="img_usu_res_pro">
-                                    <section class="w-75">
-                                        <span>Nombre de Usuario</span>
-                                        <section><i class="bi bi-heart-fill"></i><span> Le gusta</span></section>
-                                        <span>Comentarios Hechos: 000000</span>
-                                    </section>
-                                </section>
-                                <section class="d-flex flex-column">
-                                    <span>00-Mont-0000</span>
-                                    <span>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ea velit, illum
-                                        nisi
-                                        pariatur consequatur eum cupiditate dolore magni deleniti repellendus laboriosam
-                                        esse neque, nobis nesciunt explicabo et culpa maxime.
-                                    </span>
-                                </section>
-                            </section>
-                            <section class="d-flex flex-column resena_usu_pro">
-                                <section class="d-flex justify-content-between">
-                                    <img src="assets/Logo_Icon.png" alt="" class="img_usu_res_pro">
-                                    <section class="w-75">
-                                        <span>Nombre de Usuario</span>
-                                        <section><i class="bi bi-heart-fill"></i><span> Le gusta</span></section>
-                                        <span>Comentarios Hechos: 000000</span>
-                                    </section>
-                                </section>
-                                <section class="d-flex flex-column">
-                                    <span>00-Mont-0000</span>
-                                    <span>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ea velit, illum
-                                        nisi
-                                        pariatur consequatur eum cupiditate dolore magni deleniti repellendus laboriosam
-                                        esse neque, nobis nesciunt explicabo et culpa maxime.
-                                    </span>
-                                </section>
-                            </section>
-                            <section class="d-flex flex-column resena_usu_pro">
-                                <section class="d-flex justify-content-between">
-                                    <img src="assets/Logo_Icon.png" alt="" class="img_usu_res_pro">
-                                    <section class="w-75">
-                                        <span>Nombre de Usuario</span>
-                                        <section><i class="bi bi-heart-fill"></i><span> Le gusta</span></section>
-                                        <span>Comentarios Hechos: 000000</span>
-                                    </section>
-                                </section>
-                                <section class="d-flex flex-column">
-                                    <span>00-Mont-0000</span>
-                                    <span>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ea velit, illum
-                                        nisi
-                                        pariatur consequatur eum cupiditate dolore magni deleniti repellendus laboriosam
-                                        esse neque, nobis nesciunt explicabo et culpa maxime.
-                                    </span>
-                                </section>
-                            </section>
-                            <section class="d-flex flex-column resena_usu_pro">
-                                <section class="d-flex justify-content-between">
-                                    <img src="assets/Logo_Icon.png" alt="" class="img_usu_res_pro">
-                                    <section class="w-75">
-                                        <span>Nombre de Usuario</span>
-                                        <section><i class="bi bi-heart-fill"></i><span> Le gusta</span></section>
-                                        <span>Comentarios Hechos: 000000</span>
-                                    </section>
-                                </section>
-                                <section class="d-flex flex-column">
-                                    <span>00-Mont-0000</span>
-                                    <span>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ea velit, illum
-                                        nisi
-                                        pariatur consequatur eum cupiditate dolore magni deleniti repellendus laboriosam
-                                        esse neque, nobis nesciunt explicabo et culpa maxime.
-                                    </span>
-                                </section>
-                            </section>
-                        </div>
                     </div>
                 </div>
+                <section class="img_pro_mosr_espe">
+                    <img src="assets/neg1.jpg" alt="" id="img_pro_mosr_espe">
+                </section>
             </div>
         </div>
         <span class="text_inst_pro_espe">Si desea salir dé click fuera de esta ventana emergente</span>
@@ -1014,67 +879,63 @@ let esc_res = document.getElementById("esc_res");
 let hacer_resena_neg = document.getElementById("hacer_resena_neg");
 let cancelar_resena_neg = document.getElementById("cancelar_resena_neg");
          
-         esc_res.addEve nt Listene r (        "click", ()=>{
+         esc_res.addEve nt Listene r (          "click", ()=>{
         hacer_resena_neg.style.display = "flex";
          });
-         cancelar_resena_neg.ad  dE  ventL  is      te ne r("click", ()=>{
+         cancelar_resena_neg.ad  dE  ventL  is        te ne r("click", ()=>{
                 hacer_resena_neg.style.display = "none";
-        });
+});
         
-        </script>
+</script>
+<%
+    c.close();
+%>
+
+<script>
+    // Activar todos los tooltips         var tooltips = new bootstrap.Tooltip(document.body, {
+            selector: '[data-bs-toggle="tooltip"]',
+    });
+</sc    ript>
     <%
-        c.close();
-    %>
+        if (request.getAttribute("mensaje") != null) {
 
-        <script>
-        // Activar todos los tooltips         var tooltips = new bootstrap.Tooltip(document.body, {
-                selector: '[data-bs-toggle="tooltip"]',
-        });
-        </script>
-            <%
-                if (request.getAttribute("mensaje") != null)
-                {
-
-                    if (request.getAttribute("mensaje").equals("Ya has guardado este negocio"))
-                    {
-            %>          
-        <script>
+            if (request.getAttribute("mensaje").equals("Ya has guardado este negocio")) {
+    %>          
+    <script>
         
-        Swal.fire({
-                icon: "error",
-                title: "<%=request.getAttribute("mensaje")%>",
-                showConfirmButton: false,
-                timer: 5000
+    Swal.fire({
+            icon: "error",
+            title: "<%=request.getAttribute("mensaje")%>",
+            showConfirmButton: false,
+            timer: 5000
+    });
+</script>      
+    <%
+    } else {
+    %>          
+    <script>
+    Swal.fire({
+            icon: "success",
+            title: "<%=request.getAttribute("mensaje")%>",
+            showConfirmButton: false,
+            timer: 5000
         });
-        </script>      
-                    <%
-                    } else
-                    {
-                    %>          
-        <script>
-        Swal.fire({
-                icon: "success",
-                title: "<%=request.getAttribute("mensaje")%>",
-                showConfirmButton: false,
-                timer: 5000
-            });
             
-            </script>      
-                    <%
+    </script>      
+    <%
 
-                            }
-                        }
-                    %>
-                    <%
-                        } else
-                        {
-                            System.out.println("Error: Sesión no existe");
-                            response.sendRedirect("index.jsp");
-                        }
-                    %>
-                    <script src="js/Nav.js"></script>
-                    <script src="js/negocio.js"></script>
-                    <script src="js/cu.js"></script>
+            }
+        }
+    %>
+    <%
+        } else {
+            System.out.println("Error: Sesión no existe");
+            response.sendRedirect("index.jsp");
+        }
+    %>
+    <script src="js/Nav.js"></script>
+    <script src="js/negocio.js"></script>
+    <script src="js/cu.js"></script>
 
-                </body>
-            </html>
+</body>
+</html>

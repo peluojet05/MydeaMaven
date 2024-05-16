@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:include page="../Referencias/Loader.jsp"/>
 <nav class="bg-body-tertiary container-fluid bg-white">
     <div class="row d-flex align-items-center p-1 h-100">
         <div class="col-3 d-flex">
@@ -15,7 +16,7 @@
                    aria-label="Search" name="txt" >
             <button class="btn button_search" type="submit"><i class="bi bi-search text-white"></i></button>
         </form>
-        
+
         <div class="col-3 d-flex justify-content-evenly">
             <div class="btn-group Cuenta_des w-50">
                 <button type="button" class="btn btn-sm btn-secondary btn_count" id="btn_count_nav"><i
@@ -30,7 +31,7 @@
                     <li class="dropdown-item" id="btn_sav2_nav">Guardados</li>
                     <li class="dropdown-item" id="btn_res_nav">Reseñas</li>
                     <li class="dropdown-item" id="btn_ticket_nav">Tickets</li>
-                    
+
                     <li>
                         <hr class="dropdown-divider">
                     </li>
@@ -46,8 +47,12 @@
             </button>
         </div>
     </div>
-
-
 </nav>
-
+<div class="cursor"></div>
+<div class="cursor2"></div>
+<audio id="myAudio">
+    <source src="assets/click.mp3" type="audio/mpeg">
+    Tu navegador no soporta el elemento de audio.
+</audio>
+<script src="js/click.js"></script>
 <script src="js/Nav_CC.js"></script>
