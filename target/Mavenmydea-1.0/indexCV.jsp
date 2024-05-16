@@ -569,6 +569,29 @@
         <span class="text_inst_pro_espe">Si desea salir dé click fuera de esta ventana emergente</span>
     </div>
     <%
+        HttpSession misession= (HttpSession) request.getSession();
+        Persona per= (Persona) misession.getAttribute("persona");
+        String correo = per.getPer_correo();
+        int idp = con.Pid(correo);
+        
+        ResultSet ticket = null;
+        
+        String sql="select l.*, t.* from Log l inner join Ticket t on l.tic_id = t.tic_id where t.per_id="+idp+" and l.log_visto = false;";
+        ticket = stmt.executeQuery(sql);
+        while(ticket.next()){
+        %>          
+        <script>
+        Swal.fire({
+                icon: "warning",
+                title: "Tienes actualizaciones de tickets sin revisar.",
+                showConfirmButton: false,
+                timer: 5000
+            });
+            
+            </script>      
+                    <%
+                        break;
+        }
         c.close();
     %>
     <script>

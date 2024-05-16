@@ -101,8 +101,30 @@
                     con.setCon();
                     c = con.getCon();
                     stmt = c.createStatement();
-                    
+                    int contador = 0;
                     int idp = con.Pid(correo);
+                    String sqlt = "Select * from Log l inner join Ticket t on t.tic_id = l.tic_id where t.per_id="+idp+" and l.log_visto = false; ";
+                    ResultSet ticontador = stmt.executeQuery(sqlt);
+                    
+                    while(ticontador.next()){
+                    contador = contador + 1;
+                    }
+                    
+                    int[] ids = new int[contador];
+                    contador = 0;
+                    String sqlt2 = "Select * from Log l inner join Ticket t on t.tic_id = l.tic_id where t.per_id="+idp+" and l.log_visto = false; ";
+                    ResultSet ticket = stmt.executeQuery(sqlt2);
+                    
+                    while(ticket.next()){
+                    ids[contador] = ticket.getInt("log_id");
+                    contador = contador + 1;
+                    }
+                    
+                    for (int f = 0; f < contador; f++) {
+                           
+                           con.LogVisto(ids[f]);
+                        }
+
                 %>
                 <%
                     String sql = "Select t.*, pr.pri_nombre, e.est_nombre, p.per_correo, p.per_foto, u.usu_nombre, ti.tip_nombre from Ticket t inner join Prioridad pr on "

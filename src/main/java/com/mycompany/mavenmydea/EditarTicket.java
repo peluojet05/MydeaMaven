@@ -41,7 +41,8 @@ public class EditarTicket extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             
             String id = request.getParameter("hola");
-            
+            String uid = request.getParameter("hola6");
+            String nombre = "";
             String tipo = request.getParameter("tipo");
             String atipo = request.getParameter("hola2");
             
@@ -56,15 +57,23 @@ public class EditarTicket extends HttpServlet {
             
             if(tipo == null){
                 tipo = atipo;
+            }else{
+                nombre="Cambio en el tema del ticket";
             }
             
             if(prioridad == null){
                 prioridad=aprioridad;
+            }else{
+                nombre="Cambio en la prioridad del ticket";
             }
+            
             
             if(estado==null){
                 estado=aestado;
+            }else{
+                nombre="Cambio en el estado del ticket";
             }
+            
             
             switch(tipo){
                 case "Negocio":
@@ -118,12 +127,16 @@ public class EditarTicket extends HttpServlet {
                     break;
             }
             
+            if(!comentario.equals(acomentario)){
+                nombre="Cambio en el comentario del ticket";
+            }
+            
              Conexion con = new Conexion();
             Connection c;
             con.setCon();
             c=con.getCon();
             
-            String mensaje = con.ETicket(id, tipo, prioridad, estado, comentario);
+            String mensaje = con.ETicket(id, tipo, prioridad, estado, comentario, nombre, uid);
             
             try {
                 c.close();

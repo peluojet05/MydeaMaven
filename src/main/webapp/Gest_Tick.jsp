@@ -4,6 +4,7 @@
     Author     : altro
 --%>
 
+<%@page import="Clases.Persona"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
@@ -84,6 +85,7 @@
             <div class="tickets_container" id="tickets_container">
                 <%    Conexion con;
                     Connection c;
+                    
                     Statement stmt;
                     ResultSet rs, rs2, rs3, rs4, rs5, rs6, rs7;
 
@@ -91,6 +93,11 @@
                     con.setCon();
                     c = con.getCon();
                     stmt = c.createStatement();
+                    
+ HttpSession misession= (HttpSession) request.getSession();
+        Persona per= (Persona) misession.getAttribute("persona");
+        String correo = per.getPer_correo();
+        int idp = con.Pid(correo);
                 %>
                 <%
                     String sql = "Select t.*, pr.pri_nombre, e.est_nombre, p.per_correo, p.per_foto, u.usu_nombre, ti.tip_nombre from Ticket t inner join Prioridad pr on "
@@ -370,6 +377,7 @@
                 <input type="hidden" id="prueba3" name="hola3" value="holaaaa"/>
                 <input type="hidden" id="prueba4" name="hola4" value="holaaaa"/>
                 <input type="hidden" id="prueba5" name="hola5" value="holaaaa"/>
+                <input type="hidden" id="prueba6" name="hola6" value="<%=idp%>"/>
             </form>
         </div>
         
