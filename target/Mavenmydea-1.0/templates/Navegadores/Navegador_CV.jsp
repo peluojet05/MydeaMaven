@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:include page="../Referencias/Loader.jsp"/>
 <nav class="bg-body-tertiary container-fluid bg-white">
     <div class="row d-flex align-items-center p-1 h-100">
         <div class="col-3 d-flex">
@@ -54,7 +55,13 @@
             </button>
         </div>
     </div>
-
-
 </nav>
+
+<div class="cursor"></div>
+<div class="cursor2"></div>
+<audio id="myAudio">
+    <source src="assets/click.mp3" type="audio/mpeg">
+    Tu navegador no soporta el elemento de audio.
+</audio>
+<script src="js/click.js"></script>
 <script src="js/Nav_CV.js"></script>

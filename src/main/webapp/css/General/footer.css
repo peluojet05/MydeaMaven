@@ -9,6 +9,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url("colors.css");
 .footeri {
   width: 100%;
   display: flex;
@@ -22,7 +23,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #953030;
+  background-color: var(--bg_color_op);
   font-family: "Lato", sans-serif;
   font-weight: bold;
   color: white;

@@ -17,7 +17,7 @@
 <html>
     <head>
         <meta name="viewport" http-equiv="Content-Type" content="width=device-width, initial-scale=1, charset=UTF-8">
-        <jsp:include page="templates/Referencias/Todas_Ref.jsp"/>
+        <jsp:include page="templates/Referencias/Ref_Admin.jsp"/>
         <title>Difunde tú negocio con Mydea</title>
     </head>
     <body class="index">
@@ -405,7 +405,7 @@
                 </section>
             </div>
             <div class="footer-section">
-                <img src="assets/mydea_com.png" alt="logo-footer" class="logo-footer">
+                <img src="assets/Mydea_admin.png" alt="logo-footer" class="logo-footer">
                 <span class="ethev">Todos los derechos de uso son exclusivos de ETHEV</span>
                 <section class="line-footer2"></section>
                 <div class="more-footer">

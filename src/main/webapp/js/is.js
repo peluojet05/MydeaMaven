@@ -10,23 +10,23 @@ let VerC = document.getElementById("eyescs");
 let NVerC = document.getElementById("eyencs");
 let CS = document.getElementById("Con_is");
 
-document.addEventListener('keyup', ()=>{
-    if(Nom_usu_is.value !=="" && Email_is.value !=="" && Con_is.value !==""){
+document.addEventListener('keyup', () => {
+    if (Nom_usu_is.value !== "" && Email_is.value !== "" && Con_is.value !== "") {
         Boton_is.classList.remove("btns_is");
         Boton_is.classList.add("btns_is_active");
-    }else{
+    } else {
         Boton_is.classList.add("btns_is");
         Boton_is.classList.remove("btns_is_active");
     }
 });
 
-VerC.addEventListener("click", ()=>{
+VerC.addEventListener("click", () => {
     VerC.style.display = "none";
     NVerC.style.display = "block";
     CS.type = "text";
 });
 
-NVerC.addEventListener("click", ()=>{
+NVerC.addEventListener("click", () => {
     VerC.style.display = "block";
     NVerC.style.display = "none";
     CS.type = "password";

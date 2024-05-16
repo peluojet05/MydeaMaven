@@ -1,0 +1,18 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 11 may 2024, 23:53:15
+    Author     : altro
+*/
+
+:root{
+    --btn: #ffd036;
+    --btn_hover: #b89715;
+    --line: #b89715;
+    --bg_color_op: #c69a15;
+    --bg_base: #f7c963;
+    --bg_clr: #fff7d1;
+    --bg_oro: #d1a317;
+}

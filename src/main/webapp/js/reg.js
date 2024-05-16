@@ -65,3 +65,14 @@ Tvendedor.addEventListener("change", ()=>{
         barr2.style.background = "#D95538";
     }
 });
+
+$(document).ready(function () {
+    $('#Registro').on('submit', function (evento) {
+        // Muestra el icono de carga cuando se envía el formulario
+        $('#load').show();
+    });
+
+    window.onblur = function () {
+        $('#load').hide();
+    };
+});

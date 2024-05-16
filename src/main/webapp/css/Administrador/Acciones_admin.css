@@ -8,14 +8,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 */
 
 .html_accadm {
-  overflow: hidden;
+  overflow: hidden !important;
 }
 .adm_cont_admin {
   height: 90vh;
   width: 100vw;
   position: absolute;
   bottom: 0;
-  background: rgb(51, 9, 22);
+  background: rgb(6, 21, 39);
   display: flex;
   justify-content: center;
   align-items: center;

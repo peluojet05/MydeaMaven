@@ -1,0 +1,85 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 12 may 2024, 23:50:15
+    Author     : altro
+*/
+@import url("../General/colors.css");
+@import url("../General/fuentes.css");
+.color_pro1, .color_pro2{
+    background: var(--bg_base);
+    width: 100%;
+}
+.color_pro1{
+    height: 30%;
+}
+.color_pro2{
+    height: 15%;
+}
+.Products_cont{
+    border: 3px solid rgba(0,0,0,0.7);
+    box-shadow: 3px 4px 0px rgba(0,0,0,0.7);
+    background: white;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#pro_cons{
+    border: 4px solid var(--bg_oro);
+    border-left: none;
+}
+#pro_cons:hover{
+    background: var(--bg_base);
+    color: black;
+}
+#pro_cons:hover #ivsy{
+    display: none;
+}
+.busq_pr_cons{
+    width: auto;
+    height: auto;
+}
+.cons_pro{
+    display: flex;
+    width: 100%;
+    gap: 1%;
+    height: 90%;
+}
+.cons_pro section:first-child{
+    width: 55%;
+    font-family: var(--text);
+}
+.cons_pro section:last-child{
+    width: 45%;
+    font-family: var(--text);
+}
+.prod_cons_most{
+    overflow-y: scroll;
+    height: 100%;
+    padding-right: 1%;
+    display: flex;
+    flex-direction: column;
+    gap: 3%;
+}
+.prod_cons_most::-webkit-scrollbar{
+    width: 5px;
+}
+.prod_cons_most::-webkit-scrollbar-thumb{
+    background: black;
+    border-radius: 15px;
+}
+.txt_pro_cont{
+    padding: 1%;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    font-family: var(--text);
+    font-weight: bold;
+}

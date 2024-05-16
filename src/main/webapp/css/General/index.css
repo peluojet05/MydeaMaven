@@ -7,9 +7,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     Author     : altro
 */
 
-@import url("https://fonts.googleapis.com/css2?family=Jomhuria&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+
+@import url("colors.css");
+@import url("fuentes.css");
 html {
     overflow-x: hidden;
     background-color: #e9e9e9;
@@ -51,8 +51,9 @@ nav {
 }
 .Des_neg_indx {
     font-size: 0.8rem;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: var(--text_imp);
     overflow-y: scroll;
+    font-weight: 100;
 }
 .Des_neg_indx::-webkit-scrollbar{
     width: 5px;
@@ -62,15 +63,26 @@ nav {
     border-radius: 5px;
 }
 .Nom_neg_indx {
-    font-family: "Jomhuria", serif;
+    font-family: var(--text);
     font-size: 8rem;
     line-height: 0.7;
+    font-weight: bold;
+}
+.Nom_neg_indx_sect{
     height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
 }
 .btn_exp {
-    background-color: #ff4105;
-    font-weight: bold;
     color: white;
+    border: 1px solid white;
+    width: 15.5%;
+    display: flex;
+    justify-content: center;
+}
+.btn_exp i{
+    text-shadow: none;
 }
 .btn_exp:hover {
     transition: 0.3s;
@@ -78,20 +90,35 @@ nav {
     -moz-transition: 0.3s;
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
-    background-color: #a52600;
-    color: white;
+    background-color: var(--btn);
+    border: 1px solid var(--btn);
+    font-weight: bold;
+    justify-content: space-between;
 }
 .desc {
-    max-height: 55%;
+    max-height: 40%;
+    height: 30%;
     min-height: 25%;
     padding: 1%;
-    border-left: 3px solid white;
+    gap: 2%;
+}
+.section_neg{
+    gap: 5%;
+}
+.section_neg hr{
+    height: 2px;
+    width: 90%;
+    color: white;
+    background: white;
+    opacity: 1;
 }
 .desc span {
     height: 70%;
 }
 .img_lg_crrs {
-    height: 60%;
+    aspect-ratio: 1 / 1;
+    height: 85%;
+    border-radius: 100%;
 }
 .slider_i {
     display: flex;
@@ -122,11 +149,9 @@ nav {
 .slid_neg {
     padding: 45px;
     padding-top: 0px;
-    margin-bottom: 35px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: white;
     font-family: "Josefin Sans", sans-serif;
 }
 .slid_neg span:first-child {
@@ -250,8 +275,8 @@ nav {
     margin: 0px;
 }
 .cf_sli_n {
-  font-size: 1.4rem;
-  /*height: 2rem;*/
+    font-size: 1.4rem;
+    /*height: 2rem;*/
 }
 .dir_sli_n i {
     font-size: 1.8rem;
@@ -325,13 +350,14 @@ nav {
     background: white;
     display: flex;
     padding: 0.5%;
-    margin-top: 3%;
+    margin-top: 13%;
     border-radius: 0px 5px 5px 0px;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
 }
 .card_pro_most {
     background-color: white;
     border-radius: 15px;
+    overflow: hidden;
 }
 .Novedades_i {
     width: 100%;
@@ -737,15 +763,15 @@ nav {
     width: 100%;
 }
 .img_card_cm{
-  position: relative;
-  left: 50%;
-  top: 0;
-  transform: translate(-50%);
-  -webkit-transform: translate(-50%);
-  -moz-transform: translate(-50%);
-  -ms-transform: translate(-50%);
-  -o-transform: translate(-50%);
-  height: 75%;
+    position: relative;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%);
+    -webkit-transform: translate(-50%);
+    -moz-transform: translate(-50%);
+    -ms-transform: translate(-50%);
+    -o-transform: translate(-50%);
+    height: 75%;
 }
 #img_card_eib{
     width: 100%;
@@ -768,7 +794,7 @@ nav {
     transform: translateY(-40px);
 }
 .index{
-    background-color: #E9E9E9;
+    background-color: #ebece2;
 }
 .index nav{
     position: fixed;
@@ -844,6 +870,34 @@ nav {
     justify-content: center;
     align-items: center;
 }
+.sep_dis_pro{
+    border: 3px solid var(--line);
+    padding: 2%;
+    border-radius: 5px;
+    position: relative;
+    z-index: 2;
+}
+.img_pro_mosr_espe{
+    position: absolute;
+    top: 8.9%;
+    right: 0%;
+    height: 90%;
+    width: 48%;
+    border-radius: 0px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: flex;
+}
+.img_pro_mosr_espe img{
+    height: 100%;
+    width: 100%;
+    border-radius: 0px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+#myAudio{
+    display: none;
+}
 @media screen and (max-width:1024px){
     #carouselExampleInterval{
         padding-top: 9vh;
@@ -852,7 +906,7 @@ nav {
         flex-direction: column;
     }
     .section_imagen_neg{
-       order: 1; 
+        order: 1;
     }
     .section_neg{
         order: 2;
@@ -919,10 +973,17 @@ nav {
         align-items: center;
     }
     .img_pro_mosr_espe{
-        width: 95%;
+        width: 100%;
+        height: 40%;
     }
     .secc_pro_most_espe{
         width: 100%;
+        height: 55%;
+        align-items:center;
+    }
+    .Prod_most_espe_cont1 {
+        justify-content: end;
+        align-items: center;
     }
     .producto_epecifico_contenedor{
         height: 85%;
@@ -946,11 +1007,20 @@ nav {
     .more-footer a{
         font-size: 0.6rem;
     }
-    .secc_pro_most_espe span:first-child{
+    /*.secc_pro_most_espe span:first-child{
         font-size: 2.9rem;
-    }
+    }*/
     .Nom_neg_indx{
         height: auto;
+    }
+    #npv_pro_esp{
+        text-align: center;
+    }
+    .img_pro_mosr_espe{
+        top: 7.6%;
+    }
+    .img_pro_mosr_espe img{
+        border-bottom-right-radius: 0px;
     }
 }
 @media screen and (max-height:741px){
@@ -961,12 +1031,10 @@ nav {
         font-size: 1rem;
         margin-bottom: 5px;
     }
-    .secc_pro_most_espe span:first-child{
+    /*.secc_pro_most_espe span:first-child{
         font-size: 1.9rem;
     }
-    .img_pro_mosr_espe{
-        width: 80%;
-    }
+    */
 }
 @media screen and (min-height:1366px){
     #carouselExampleInterval{

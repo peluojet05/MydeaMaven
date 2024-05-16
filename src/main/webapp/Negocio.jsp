@@ -156,7 +156,7 @@
                         <span class="nomneg_neg"><%=nombre%></span>
                         <span class="descneg_neg"><%=desc%></span>
                         <button class="btn btn_Sen" id="btn_Sen">SEGUIR EXPLORANDO ESTE NEGOCIO</button>
-                        <a href="index.jsp" class="link_salir">Salir de este Negocio</a>
+                        <a href="indexCC.jsp" class="link_salir">Salir de este Negocio</a>
                         <span class="heart_neg"><i class="bi bi-heart-fill"></i> <%=lk%></span>
 
                     </div>
@@ -776,7 +776,7 @@
              id="producto_epecifico">
             <div class="producto_epecifico_contenedor">
                 <section class="btns_pro_most_esp_res">
-                    <button class="btn btns_pro_most bpmer_active" id="IDP">Información del producto</button>
+                    <section class="btns_pro_most bpmer_active" id="IDP">Información del producto</section>
                     <button class="btn btns_pro_most d-none" id="Resn">Reseñas</button>
                 </section>
                 <div class="Prod_most_espe_cont justify-content-around">
