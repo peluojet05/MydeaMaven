@@ -488,6 +488,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
     cursor: pointer;
     position: relative;
+    height: 100%;
 }
 .card_pro_most .card-body {
     padding: 0.7% 0px 2% 0px;
