@@ -15,8 +15,8 @@
     <body class="pro_cont">
         <jsp:include page="templates/Navegadores/Navegador_CV.jsp"/>
         <div class="d-flex flex-column w-100 justify-content-between cnf1 Inria">
-            <section class="color_pro1"></section>
-            <section class="color_pro2"></section>
+            <section class="color_pro1 deslizard"></section>
+            <section class="color_pro2 deslizard"></section>
             <div class="content_form w-100">
                 <section class="d-flex align-items-center p1_cnf">
                     <span class="txt_prin_cnf fw-bolder">Consulta, Edita y/o Elimina tus Productos</span>
@@ -25,181 +25,64 @@
                 </section>
                 <div class="p2_cnf d-flex flex-column Products_cont" method="post" id="FORM_CNF">
                     <section class="txt_pro_cont">
-                        <span>Productos</span>
+                        <span>Lista de mis Productos <span class="instr_prepro">(Clickea tu producto para consultarlo, editarlo o eliminarlo)</span></span>
                         <span>Previzualización</span>
                     </section>
                     <div class="cons_pro">
                         <section class="prod_cons_most">
-                            <form class="busq_pr_cons busq_pr" id="pro_cons" method="post" action="" >
-                                <input class="d-none" type="text" disabled>
+                            <div class="busq_pr_cons busq_pr" id="pro_cons">
+                                <input class="d-none disponibilidad_prepro" type="text" value="Disponibilidad del negocio" disabled>
                                 <button class="d-none" type="submit" id="btn_smt_pro"></button>
-                                <img class="img_pro_busq ipb1" src=""/>
+                                <img class="img_pro_busq ipb1" src="assets/eib.png"/>
                                 <section class="ivbs" id="ivsy">
-                                    <span id="ivsy">De: Negocio</span>
-                                    <img class="img_vd_busq ivb1" src=""/>
+                                    <span id="ivsy">De: <span class="nn_prepro">Negocio</span></span>
+                                    <img class="img_vd_busq ivb1" src="assets/LogoOG.png"/>
                                 </section>
-                                <img class="img_pro_busq ipb2" src=""/>
+                                <img class="img_pro_busq ipb2" src="assets/LogoOG.png"/>
                                 <section class="ivbs ivbsn">
-                                    <span>Ofrece: Producto</span>
-                                    <img class="img_vd_busq ivb2" src=""/>
+                                    <span>Ofrece: <span class="np_prepro"></span></span>
+                                    <img class="img_vd_busq ivb2" src="assets/eib.png"/>
                                 </section>
                                 <section
                                     class="num_pro_busq">
                                     <span class="nb_busq nb">Titulo</span>
-                                    <span>Descripcion</span>
+                                    <span class="des_prepro">Descripcion del Producto</span>
                                     <hr id="lnngbs">
-                                    <section class="lkpr">
-                                        <span>$100</span>
-                                    </section>
+                                    <section class="lkpr_prepro">$<span class="pre_prepro">100</span></section>
                                 </section>
-                                <input type="hidden" name="idn" value=""/>
-                            </form>
-                            <form class="busq_pr_cons busq_pr" id="pro_cons" method="post" action="" >
-                                <input class="d-none" type="text" disabled>
-                                <button class="d-none" type="submit" id="btn_smt_pro"></button>
-                                <img class="img_pro_busq ipb1" src=""/>
-                                <section class="ivbs" id="ivsy">
-                                    <span id="ivsy">De: Negocio</span>
-                                    <img class="img_vd_busq ivb1" src=""/>
-                                </section>
-                                <img class="img_pro_busq ipb2" src=""/>
-                                <section class="ivbs ivbsn">
-                                    <span>Ofrece: Producto</span>
-                                    <img class="img_vd_busq ivb2" src=""/>
-                                </section>
-                                <section
-                                    class="num_pro_busq">
-                                    <span class="nb_busq nb">Titulo</span>
-                                    <span>Descripcion</span>
-                                    <hr id="lnngbs">
-                                    <section class="lkpr">
-                                        <span>$100</span>
-                                    </section>
-                                </section>
-                                <input type="hidden" name="idn" value=""/>
-                            </form>
-                            <form class="busq_pr_cons busq_pr" id="pro_cons" method="post" action="" >
-                                <input class="d-none" type="text" disabled>
-                                <button class="d-none" type="submit" id="btn_smt_pro"></button>
-                                <img class="img_pro_busq ipb1" src=""/>
-                                <section class="ivbs" id="ivsy">
-                                    <span id="ivsy">De: Negocio</span>
-                                    <img class="img_vd_busq ivb1" src=""/>
-                                </section>
-                                <img class="img_pro_busq ipb2" src=""/>
-                                <section class="ivbs ivbsn">
-                                    <span>Ofrece: Producto</span>
-                                    <img class="img_vd_busq ivb2" src=""/>
-                                </section>
-                                <section
-                                    class="num_pro_busq">
-                                    <span class="nb_busq nb">Titulo</span>
-                                    <span>Descripcion</span>
-                                    <hr id="lnngbs">
-                                    <section class="lkpr">
-                                        <span>$100</span>
-                                    </section>
-                                </section>
-                                <input type="hidden" name="idn" value=""/>
-                            </form>
-                            <form class="busq_pr_cons busq_pr" id="pro_cons" method="post" action="" >
-                                <input class="d-none" type="text" disabled>
-                                <button class="d-none" type="submit" id="btn_smt_pro"></button>
-                                <img class="img_pro_busq ipb1" src=""/>
-                                <section class="ivbs" id="ivsy">
-                                    <span id="ivsy">De: Negocio</span>
-                                    <img class="img_vd_busq ivb1" src=""/>
-                                </section>
-                                <img class="img_pro_busq ipb2" src=""/>
-                                <section class="ivbs ivbsn">
-                                    <span>Ofrece: Producto</span>
-                                    <img class="img_vd_busq ivb2" src=""/>
-                                </section>
-                                <section
-                                    class="num_pro_busq">
-                                    <span class="nb_busq nb">Titulo</span>
-                                    <span>Descripcion</span>
-                                    <hr id="lnngbs">
-                                    <section class="lkpr">
-                                        <span>$100</span>
-                                    </section>
-                                </section>
-                                <input type="hidden" name="idn" value=""/>
-                            </form>
-                            <form class="busq_pr_cons busq_pr" id="pro_cons" method="post" action="" >
-                                <input class="d-none" type="text" disabled>
-                                <button class="d-none" type="submit" id="btn_smt_pro"></button>
-                                <img class="img_pro_busq ipb1" src=""/>
-                                <section class="ivbs" id="ivsy">
-                                    <span id="ivsy">De: Negocio</span>
-                                    <img class="img_vd_busq ivb1" src=""/>
-                                </section>
-                                <img class="img_pro_busq ipb2" src=""/>
-                                <section class="ivbs ivbsn">
-                                    <span>Ofrece: Producto</span>
-                                    <img class="img_vd_busq ivb2" src=""/>
-                                </section>
-                                <section
-                                    class="num_pro_busq">
-                                    <span class="nb_busq nb">Titulo</span>
-                                    <span>Descripcion</span>
-                                    <hr id="lnngbs">
-                                    <section class="lkpr">
-                                        <span>$100</span>
-                                    </section>
-                                </section>
-                                <input type="hidden" name="idn" value=""/>
-                            </form>
-                            <form class="busq_pr_cons busq_pr" id="pro_cons" method="post" action="" >
-                                <input class="d-none" type="text" disabled>
-                                <button class="d-none" type="submit" id="btn_smt_pro"></button>
-                                <img class="img_pro_busq ipb1" src=""/>
-                                <section class="ivbs" id="ivsy">
-                                    <span id="ivsy">De: Negocio</span>
-                                    <img class="img_vd_busq ivb1" src=""/>
-                                </section>
-                                <img class="img_pro_busq ipb2" src=""/>
-                                <section class="ivbs ivbsn">
-                                    <span>Ofrece: Producto</span>
-                                    <img class="img_vd_busq ivb2" src=""/>
-                                </section>
-                                <section
-                                    class="num_pro_busq">
-                                    <span class="nb_busq nb">Titulo</span>
-                                    <span>Descripcion</span>
-                                    <hr id="lnngbs">
-                                    <section class="lkpr">
-                                        <span>$100</span>
-                                    </section>
-                                </section>
-                                <input type="hidden" name="idn" value=""/>
-                            </form>
-                            <form class="busq_pr_cons busq_pr" id="pro_cons" method="post" action="" >
-                                <input class="d-none" type="text" disabled>
-                                <button class="d-none" type="submit" id="btn_smt_pro"></button>
-                                <img class="img_pro_busq ipb1" src=""/>
-                                <section class="ivbs" id="ivsy">
-                                    <span id="ivsy">De: Negocio</span>
-                                    <img class="img_vd_busq ivb1" src=""/>
-                                </section>
-                                <img class="img_pro_busq ipb2" src=""/>
-                                <section class="ivbs ivbsn">
-                                    <span>Ofrece: Producto</span>
-                                    <img class="img_vd_busq ivb2" src=""/>
-                                </section>
-                                <section
-                                    class="num_pro_busq">
-                                    <span class="nb_busq nb">Titulo</span>
-                                    <span>Descripcion</span>
-                                    <hr id="lnngbs">
-                                    <section class="lkpr">
-                                        <span>$100</span>
-                                    </section>
-                                </section>
-                                <input type="hidden" name="idn" value=""/>
-                            </form>
+                                <input type="hidden" class="idn" value="1"/>
+                            </div>
                         </section>
-                        <section></section>
+                        <section class="pre_mypro">
+                            <div class="cont_prepro" id="cont_prepro">
+                                <div class="cont_prepro_prev">
+                                    <img class="img_prepro" src="assets/neg1.jpg" id="img_pro_prepro"/>
+                                    <div class="cont_prepro_prev_inf">
+                                        <span class="Nom_prepro" id="nom_pro_prepro">Nombre del Producto</span>
+                                        <div class="neg_prepro">
+                                            <img src="assets/Logo_Icon.png" id="negimg_pro_prepro" alt="alt"/>
+                                            <span id="negnom_pro_prepro">Dueño</span>
+                                        </div>
+                                        <span class="desc_prepro" id="desc_pro_prepro">Descripcion</span>
+                                        <hr>
+                                        <div class="dispre_prepro">
+                                            <span class="disp_prepro" id="disp_pro_prepro">Disponibilidad</span>
+                                            <span>$ <span id="pre_pro_prepro"></span></span>
+                                        </div>
+                                        <div class="btns_prepro">
+                                            <form action="action" method="post" class="edit_form_prepro">
+                                                <input type="hidden" id="id_edit_prepro" name="idn" value=""/>
+                                                <button class="edit_btn_prepro"><i class="bi bi-pencil-square"></i> Editar Datos</button>
+                                            </form>
+                                            <form action="action" method="post">
+                                                <input type="hidden" id="id_elim_prepro" name="idn" value=""/>
+                                                <button class="elim_btn_prepro"><i class="bi bi-trash3-fill"></i> Eliminar Producto</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>
@@ -211,4 +94,5 @@
             selector: '[data-bs-toggle="tooltip"]',
         });
     </script>
+    <script src="js/producto.js"></script>
 </html>

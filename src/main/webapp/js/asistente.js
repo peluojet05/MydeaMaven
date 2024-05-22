@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
  */
 
-const API_KEY = 'sk-proj-lMZdmjYoao9x9w4LMXcMT3BlbkFJW77JFC0xswv9y9lgvUhS';
+const _API_KEY = 'sk-proj-lMZdmjYoao9x9w4LMXcMT3BlbkFJW77JFC0xswv9y9lgvUhS';
 const conversacion = [];
 
 
@@ -18,7 +18,7 @@ async function getCompletion(prompt) {
   }, {
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + API_KEY
+      'Authorization': 'Bearer ' + _API_KEY
     }
   });
 
