@@ -89,12 +89,15 @@
                     <img src="<%=img2[1]%>" class="d-block w-100 h-100 imgn" alt="...">
                     <div class="neg d-flex justify-content-center align-items-center">
                         <section class="w-100 h-100 d-flex flex-column justify-content-center section_neg">
-                            <span class="Nom_neg_indx d-flex align-items-center"><%=nombreg[1]%></span>
+                            <section class="Nom_neg_indx_sect">
+                                <span class="Nom_neg_indx d-flex align-items-center"><%=nombreg[1]%>.</span>
+                                <hr>
+                            </section>
                             <section class="d-flex flex-column desc justify-content-between">
                                 <span class="Des_neg_indx"><%=dd[1]%></span>
                                 <form action="NegocioSC.jsp">
                                     <input type="hidden" name="idn" value="<%=idg[1]%>"/>
-                                    <button type="submit" class="btn btn_exp">Explorar</button>
+                                    <button type="submit" class="btn btn_exp">Explorar <i class="bi bi-caret-right"></i></button>
                                 </form>
                             </section>
                         </section>
@@ -107,12 +110,15 @@
                     <img src="<%=img2[2]%>" class="d-block w-100 h-100 imgn" alt="...">
                     <div class="neg d-flex justify-content-center align-items-center">
                         <section class="w-100 h-100 d-flex flex-column justify-content-center section_neg">
-                            <span class="Nom_neg_indx d-flex align-items-center"><%=nombreg[2]%></span>
+                            <section class="Nom_neg_indx_sect">
+                                <span class="Nom_neg_indx d-flex align-items-center"><%=nombreg[2]%>.</span>
+                                <hr>
+                            </section>
                             <section class="d-flex flex-column desc justify-content-between">
                                 <span class="Des_neg_indx"><%=dd[2]%></span>
                                 <form action="NegocioSC.jsp">
                                     <input type="hidden" name="idn" value="<%=idg[2]%>"/>
-                                    <button type="submit" class="btn btn_exp">Explorar</button>
+                                    <button type="submit" class="btn btn_exp">Explorar <i class="bi bi-caret-right"></i></button>
                                 </form>
                             </section>
                         </section>

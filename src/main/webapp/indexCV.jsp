@@ -14,8 +14,7 @@
 <%@page import="java.util.ArrayList" %>
 <%
     HttpSession session1 = request.getSession(false);
-    if (session1.getAttribute("usuario") != null)
-    {
+    if (session1.getAttribute("usuario") != null) {
 
 %>
 <!DOCTYPE html>
@@ -52,8 +51,7 @@
             String[] img2 = new String[3];
             int[] idg = new int[7];
 
-            while (r.next())
-            {
+            while (r.next()) {
 
                 nombreg[k] = r.getString("neg_nombre");
                 dd[k] = r.getString("neg_descripcion");
@@ -68,54 +66,63 @@
             <div class="carousel-inner h-100">
                 <div class="carousel-item active h-100" data-bs-interval="10000">
                     <img src="<%=img2[0]%>" class="d-block w-100 h-100 imgn" alt="...">
-                    <div class="neg d-flex">
-                        <section class="w-100 h-100 d-flex flex-column justify-content-around">
-                            <span class="Nom_neg_indx d-flex align-items-center"><%=nombreg[0]%></span>
+                    <div class="neg d-flex justify-content-center align-items-center">
+                        <section class="w-100 h-100 d-flex flex-column justify-content-center section_neg">
+                            <section class="Nom_neg_indx_sect">
+                                <span class="Nom_neg_indx d-flex align-items-center"><%=nombreg[0]%>.</span>
+                                <hr>
+                            </section>
                             <section class="d-flex flex-column desc justify-content-between">
                                 <span class="Des_neg_indx"><%=dd[0]%></span>
-                                <form action="NegocioCV.jsp">
+                                <form action="NegocioSC.jsp">
                                     <input type="hidden" name="idn" value="<%=idg[0]%>"/>
-                                    <button type="submit" class="btn btn_exp">Explorar</button>
+                                    <button type="submit" class="btn btn_exp">Explorar <i class="bi bi-caret-right"></i></button>
                                 </form>
                             </section>
                         </section>
-                        <section class="w-50 h-100 d-flex justify-content-center align-items-center">
+                        <section class="w-50 h-100 d-flex justify-content-center align-items-center section_imagen_neg">
                             <img src="<%=imgg[0]%>" alt="" class="img_lg_crrs">
                         </section>
                     </div>
                 </div>
                 <div class="carousel-item h-100" data-bs-interval="2000">
                     <img src="<%=img2[1]%>" class="d-block w-100 h-100 imgn" alt="...">
-                    <div class="neg d-flex">
-                        <section class="w-100 h-100 d-flex flex-column justify-content-around">
-                            <span class="Nom_neg_indx d-flex align-items-center"><%=nombreg[1]%></span>
+                    <div class="neg d-flex justify-content-center align-items-center">
+                        <section class="w-100 h-100 d-flex flex-column justify-content-center section_neg">
+                            <section class="Nom_neg_indx_sect">
+                                <span class="Nom_neg_indx d-flex align-items-center"><%=nombreg[1]%>.</span>
+                                <hr>
+                            </section>
                             <section class="d-flex flex-column desc justify-content-between">
                                 <span class="Des_neg_indx"><%=dd[1]%></span>
-                                <form action="NegocioCV.jsp">
+                                <form action="NegocioSC.jsp">
                                     <input type="hidden" name="idn" value="<%=idg[1]%>"/>
-                                    <button type="submit" class="btn btn_exp">Explorar</button>
+                                    <button type="submit" class="btn btn_exp">Explorar <i class="bi bi-caret-right"></i></button>
                                 </form>
                             </section>
                         </section>
-                        <section class="w-50 h-100 d-flex justify-content-center align-items-center">
+                        <section class="w-50 h-100 d-flex justify-content-center align-items-center section_imagen_neg">
                             <img src="<%=imgg[1]%>" alt="" class="img_lg_crrs">
                         </section>
                     </div>
                 </div>
                 <div class="carousel-item h-100">
                     <img src="<%=img2[2]%>" class="d-block w-100 h-100 imgn" alt="...">
-                    <div class="neg d-flex">
-                        <section class="w-100 h-100 d-flex flex-column justify-content-around">
-                            <span class="Nom_neg_indx d-flex align-items-center"><%=nombreg[2]%></span>
+                    <div class="neg d-flex justify-content-center align-items-center">
+                        <section class="w-100 h-100 d-flex flex-column justify-content-center section_neg">
+                            <section class="Nom_neg_indx_sect">
+                                <span class="Nom_neg_indx d-flex align-items-center"><%=nombreg[2]%>.</span>
+                                <hr>
+                            </section>
                             <section class="d-flex flex-column desc justify-content-between">
                                 <span class="Des_neg_indx"><%=dd[2]%></span>
-                                <form action="NegocioCV.jsp">
+                                <form action="NegocioSC.jsp">
                                     <input type="hidden" name="idn" value="<%=idg[2]%>"/>
-                                    <button type="submit" class="btn btn_exp">Explorar</button>
+                                    <button type="submit" class="btn btn_exp">Explorar <i class="bi bi-caret-right"></i></button>
                                 </form>
                             </section>
                         </section>
-                        <section class="w-50 h-100 d-flex justify-content-center align-items-center">
+                        <section class="w-50 h-100 d-flex justify-content-center align-items-center section_imagen_neg">
                             <img src="<%=imgg[2]%>" alt="" class="img_lg_crrs">
                         </section>
                     </div>
@@ -175,8 +182,7 @@
                         rs = stmt.executeQuery("select d.*, n.*, p.usu_id, u.usu_nombre from Direccion d inner join Negocio n on d.dir_id=n.dir_id inner join Persona "
                                 + "p on n.per_id = p.per_id inner join Usuario u on p.usu_id = u.usu_id where n.neg_activo=true;");
 
-                        while (rs.next())
-                        {
+                        while (rs.next()) {
 
                             String nombre = rs.getString("neg_nombre");
                             String nombreu = rs.getString("usu_nombre");
@@ -241,8 +247,7 @@
 
                     pr = stmt.executeQuery(sl);
 
-                    while (pr.next())
-                    {
+                    while (pr.next()) {
 
                         String np = pr.getString("pro_nombre");
                         int pre = pr.getInt("pro_precio");
@@ -456,8 +461,7 @@
 
                     pr2 = stmt.executeQuery(sl2);
 
-                    while (pr2.next())
-                    {
+                    while (pr2.next()) {
 
                         String np = pr2.getString("nov_nombre");
                         int pre = pr2.getInt("neg_id");
@@ -548,22 +552,26 @@
          id="producto_epecifico">
         <div class="producto_epecifico_contenedor">
             <section class="btns_pro_most_esp_res">
-                <button class="btn btns_pro_most bpmer_active" id="IDP">Información del producto</button>
+                <section class="btn btns_pro_most bpmer_active" id="IDP">Información del producto</section>
             </section>
             <div class="Prod_most_espe_cont justify-content-around">
-                <div class="Prod_most_espe_cont1 w-100 h-100" id="Prod_most_espe_cont1">
-                    <img src="assets/neg1.jpg" alt="" class="h-100 img_pro_mosr_espe" id="img_pro_mosr_espe">
-                    <section class="d-flex flex-column h-100 secc_pro_most_espe">
-                        <span id="npv_pro_esp">Nombre del Producto Vendido</span>
-                        <span id="pre_pro_esp">$000000.00</span>
-                        <span id="des_pro_esp">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat eum
-                            distinctio ipsum nostrum
-                            labore veritatis id quia reiciendis animi at odio sunt maxime eaque ipsa natus iusto,
-                            possimus
-                            facere vitae.</span>
-                        <span id="dis_pro_esp">Disponibilidad</span>
-                    </section>
+                <div class="w-100 h-100 sep_dis_pro">
+                    <div class="Prod_most_espe_cont1 w-100 h-100" id="Prod_most_espe_cont1">
+                        <section class="d-flex flex-column secc_pro_most_espe">
+                            <span id="npv_pro_esp">Nombre del Producto Vendido</span>
+                            <span id="des_pro_esp">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat eum
+                                distinctio ipsum nostrum
+                                labore veritatis id quia reiciendis animi at odio sunt maxime eaque ipsa natus iusto,
+                                possimus
+                                facere vitae.</span>
+                            <span id="pre_pro_esp">$000000.00</span>
+                            <span id="dis_pro_esp">Disponibilidad</span>
+                        </section>
+                    </div>
                 </div>
+                <section class="img_pro_mosr_espe">
+                    <img src="assets/neg1.jpg" alt="" id="img_pro_mosr_espe">
+                </section>
             </div>
         </div>
         <span class="text_inst_pro_espe">Si desea salir dé click fuera de esta ventana emergente</span>
@@ -601,8 +609,7 @@
         });
     </script>
     <%
-        } else
-        {
+        } else {
             System.out.println("Error: Sesión no existe");
             response.sendRedirect("index.jsp");
         }
