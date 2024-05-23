@@ -18,6 +18,28 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 .color_pro2{
     height: 15%;
 }
+.color_ep1, .color_ep2{
+    background-image: linear-gradient(
+        165deg,
+        #803357 0,
+        #81345e 16.67%,
+        #742e5d 33.33%,
+        #641d54 50%,
+        #530a4c 66.67%,
+        #440046 83.33%,
+        #350043 100%
+        );
+    width: 100%;
+    position: absolute
+}
+.color_ep1{
+    height: 30%;
+    top: 8%;
+}
+.color_ep2{
+    height: 15%;
+    bottom: 0;
+}
 .Products_cont{
     border: 3px solid rgba(0,0,0,0.7);
     box-shadow: 3px 4px 0px rgba(0,0,0,0.7);
@@ -128,7 +150,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     z-index: 1;
     background: rgba(0,0,0,0.6);
     padding: 2%;
-    padding-top: 6%; 
+    padding-top: 6%;
     border-radius: 15px;
     justify-content: space-around;
     align-items: center;
@@ -263,11 +285,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     cursor: pointer;
 }
 .inp_dp_edit::-webkit-scrollbar {
-  width: 5px;
+    width: 5px;
 }
 .inp_dp_edit::-webkit-scrollbar-thumb {
-  background: black; 
-  border-radius: 6px;
+    background: black;
+    border-radius: 6px;
 }
 .inp_dp_edit:focus{
     transition: 0.2s;

@@ -28,6 +28,8 @@
     <body>
         <jsp:include page="templates/Navegadores/Navegador_CV.jsp"/>
         <div class="Prod_most_espe_edit" id="producto_epecifico">
+            <section class="color_ep1 deslizard"></section>
+            <section class="color_ep2 deslizard"></section>
             <form action="" class="producto_epecifico_contenedor_edit" method="post">
                 <section class="btns_pro_most_esp_res">
                     <section class="btn btns_pro_most bpmer_active" id="IDP">Clickea el dato que deseas editar</section>
