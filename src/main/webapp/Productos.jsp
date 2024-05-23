@@ -70,10 +70,12 @@
                                             <span>$ <span id="pre_pro_prepro"></span></span>
                                         </div>
                                         <div class="btns_prepro">
-                                            <form action="action" method="post" class="edit_form_prepro">
-                                                <input type="hidden" id="id_edit_prepro" name="idn" value=""/>
-                                                <button class="edit_btn_prepro"><i class="bi bi-pencil-square"></i> Editar Datos</button>
-                                            </form>
+                                            <a href="Editar_Producto.jsp">
+                                                <div action="action" method="post" class="edit_form_prepro">
+                                                    <input type="hidden" id="id_edit_prepro" name="idn" value=""/>
+                                                    <button class="edit_btn_prepro"><i class="bi bi-pencil-square"></i> Editar Datos</button>
+                                                </div>
+                                            </a>
                                             <form action="action" method="post">
                                                 <input type="hidden" id="id_elim_prepro" name="idn" value=""/>
                                                 <button class="elim_btn_prepro"><i class="bi bi-trash3-fill"></i> Eliminar Producto</button>
