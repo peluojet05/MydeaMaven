@@ -190,7 +190,7 @@
         <!--LOS MEJORES NEGOCIOS-->
         <!--Luego se borra-->
 
-        <button onclick="location.href = 'GraficasAdmin.jsp';">graficas</button>
+        <button onclick="location.href = 'Asistente.jsp';">asistente</button>
         <div class="padd_lds">
             <div class="slid_neg d-flex flex-column">
                 <span class="w-100">Los Mejores Negocios</span>                
