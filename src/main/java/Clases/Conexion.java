@@ -62,7 +62,7 @@ public class Conexion {
                           
              
      String dbUsername = "postgres";
-     String dbPassword = "20232707";
+     String dbPassword = "Sn0w.2017";
      Class.forName(dbDriver).newInstance();
      con = DriverManager.getConnection(dbURL,dbUsername, dbPassword);
      
