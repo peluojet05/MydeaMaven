@@ -18,6 +18,28 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 .color_pro2{
     height: 15%;
 }
+.color_ep1, .color_ep2{
+    background-image: linear-gradient(
+        165deg,
+        #803357 0,
+        #81345e 16.67%,
+        #742e5d 33.33%,
+        #641d54 50%,
+        #530a4c 66.67%,
+        #440046 83.33%,
+        #350043 100%
+        );
+    width: 100%;
+    position: absolute
+}
+.color_ep1{
+    height: 30%;
+    top: 8%;
+}
+.color_ep2{
+    height: 15%;
+    bottom: 0;
+}
 .Products_cont{
     border: 3px solid rgba(0,0,0,0.7);
     box-shadow: 3px 4px 0px rgba(0,0,0,0.7);
@@ -128,7 +150,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     z-index: 1;
     background: rgba(0,0,0,0.6);
     padding: 2%;
-    padding-top: 6%; 
+    padding-top: 6%;
     border-radius: 15px;
     justify-content: space-around;
     align-items: center;
@@ -221,8 +243,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 }
 .edit_form_prepro{
     position: absolute;
-    top: 1%;
-    left: 1%;
+    top: 2.5%;
+    left: 2.5%;
 }
 .lkpr_prepro{
     display: flex;
@@ -230,4 +252,95 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     justify-content: center;
     font-weight: bold;
     font-size: 1.2rem;
+}
+.inp_np_edit{
+    border: none;
+    background: none;
+    width: 90%;
+    outline: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 3px;
+    color: rgba(0,0,0,0.6);
+    cursor: pointer;
+}
+.inp_np_edit:focus{
+    transition: 0.2s;
+    border-bottom: 3px solid var(--line);
+    color: black;
+}
+.inp_dp_edit{
+    width: 90%;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1rem;
+    height: 30%;
+    resize: none;
+    box-shadow: none;
+    background: var(--bg_base);
+    padding: 1%;
+    border-radius: 5px;
+    color: rgba(0,0,0,0.6);
+    cursor: pointer;
+}
+.inp_dp_edit::-webkit-scrollbar {
+    width: 5px;
+}
+.inp_dp_edit::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 6px;
+}
+.inp_dp_edit:focus{
+    transition: 0.2s;
+    background: var(--bg_base);
+    color: black;
+}
+.inp_pp_edit{
+    background: none;
+    border: none;
+    outline: none;
+    color: rgba(0,0,0,0.6);
+    cursor: pointer;
+}
+.inp_pp_edit:focus{
+    transition: 0.2s;
+    color: black;
+    border-bottom: 3px solid var(--line);
+}
+#txt_np_edit{
+    font-size: 1rem;
+    font-weight: initial;
+}
+.cont_inpts_edit select{
+    border: none;
+    cursor: pointer;
+}
+.cont_inpts_edit option{
+    background: white;
+    cursor: pointer;
+}
+.txt_img_edit{
+    position: absolute;
+    color: white;
+    top: 3%;
+    left: 3%;
+    z-index: 3;
+    font-size: 1rem;
+    font-weight: bold;
+}
+.btn_pro_edit{
+    width: 50%;
+    font-size: 1.1rem;
+    margin-top: 10px;
+    border: 3px solid var(--bg_color_op);
+    outline: none;
+    background: white;
+    padding: 1%;
+    border-radius: 25px;
+}
+.btn_pro_edit:hover{
+    transition: 0.3s;
+    color: white;
+    background: var(--bg_color_op);
 }

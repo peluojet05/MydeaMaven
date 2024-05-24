@@ -18,11 +18,10 @@
     </head>
     <body class="pro_cont">
         <%
-    HttpSession session1 = request.getSession(false);
-    if (session1.getAttribute("usuario") != null)
-    {
+            HttpSession session1 = request.getSession(false);
+            if (session1.getAttribute("usuario") != null) {
 
-%>
+        %>
         <jsp:include page="templates/Navegadores/Navegador_CV.jsp"/>
         <div class="d-flex flex-column w-100 justify-content-between cnf1 Inria">
             <section class="color_pro1 deslizard"></section>
@@ -40,39 +39,38 @@
                     </section>
                     <div class="cons_pro">
                         <section class="prod_cons_most">
-<%
-    Conexion con;
-        Connection c;
-        Statement stmt;
-        ResultSet rs, rs2 = null, rs3;
-        con = new Conexion();
-        con.setCon();
-        c = con.getCon();
-        stmt = c.createStatement();
-    
-        String id = request.getParameter("idn");
-        
-        if (request.getAttribute("neid") != null) {
+                            <%    Conexion con;
+                                Connection c;
+                                Statement stmt;
+                                ResultSet rs, rs2 = null, rs3;
+                                con = new Conexion();
+                                con.setCon();
+                                c = con.getCon();
+                                stmt = c.createStatement();
 
-            rs = stmt.executeQuery("select p.*, n.neg_logo,n.neg_nombre, d.dis_nombre from producto p inner join Negocio n on p.neg_id = n.neg_id"+
-" inner join Disponibilidad d on p.dis_id = d.dis_id where p.pro_activo = true and p.neg_id=" + request.getAttribute("neid") + ";");
-        } else {
-            rs = stmt.executeQuery("select p.*, n.neg_logo,n.neg_nombre, d.dis_nombre from producto p inner join Negocio n on p.neg_id = n.neg_id"+
-" inner join Disponibilidad d on p.dis_id = d.dis_id where p.pro_activo = true and p.neg_id=" + id + ";");
-        }
-    
-        while(rs.next()){
-        
-    String fotop = rs.getString("pro_imagen");
-    String foton = rs.getString("neg_logo");
-    String nombre = rs.getString("pro_nombre");
-    String desc = rs.getString("pro_descripcion");
-    int precio = rs.getInt("pro_precio");
-    String disponibilidad = rs.getString("dis_nombre");
-    String nombren = rs.getString("neg_nombre");
-    int idp = rs.getInt("pro_id");
-    
-    %>
+                                String id = request.getParameter("idn");
+
+                                if (request.getAttribute("neid") != null) {
+
+                                    rs = stmt.executeQuery("select p.*, n.neg_logo,n.neg_nombre, d.dis_nombre from producto p inner join Negocio n on p.neg_id = n.neg_id"
+                                            + " inner join Disponibilidad d on p.dis_id = d.dis_id where p.pro_activo = true and p.neg_id=" + request.getAttribute("neid") + ";");
+                                } else {
+                                    rs = stmt.executeQuery("select p.*, n.neg_logo,n.neg_nombre, d.dis_nombre from producto p inner join Negocio n on p.neg_id = n.neg_id"
+                                            + " inner join Disponibilidad d on p.dis_id = d.dis_id where p.pro_activo = true and p.neg_id=" + id + ";");
+                                }
+
+                                while (rs.next()) {
+
+                                    String fotop = rs.getString("pro_imagen");
+                                    String foton = rs.getString("neg_logo");
+                                    String nombre = rs.getString("pro_nombre");
+                                    String desc = rs.getString("pro_descripcion");
+                                    int precio = rs.getInt("pro_precio");
+                                    String disponibilidad = rs.getString("dis_nombre");
+                                    String nombren = rs.getString("neg_nombre");
+                                    int idp = rs.getInt("pro_id");
+
+                            %>
                             <div class="busq_pr_cons busq_pr" id="pro_cons">
                                 <input class="d-none disponibilidad_prepro" type="text" value="<%=disponibilidad%>" disabled>
                                 <button class="d-none" type="submit" id="btn_smt_pro"></button>
@@ -95,7 +93,7 @@
                                 </section>
                                 <input type="hidden" class="idn" value="<%=idp%>"/>
                             </div>
-                            
+
                             <%
                                 }
                             %>
@@ -137,34 +135,32 @@
 
     </body>
     <%
-            if(request.getAttribute("mensaje")!=null) 
-            {  
-        %>          
-                <script>
-    window.onload=function() {
-       Swal.fire({
-  icon: "success",
-  title: "<%=request.getAttribute("mensaje")%>",
-  showConfirmButton: false,
-  timer: 5000
-});
-    };
- </script>      
-        <%
-            }
-                %>
+        if (request.getAttribute("mensaje") != null) {
+    %>          
+    <script>
+        window.onload = function () {
+            Swal.fire({
+                icon: "success",
+                title: "<%=request.getAttribute("mensaje")%>",
+                showConfirmButton: false,
+                timer: 5000
+            });
+        };
+    </script>      
+    <%
+        }
+    %>
     <script>
         // Activar todos los tooltips
         var tooltips = new bootstrap.Tooltip(document.body, {
             selector: '[data-bs-toggle="tooltip"]',
         });
     </script>
-                                 <%
-                    } else
-                    {
-                        System.out.println("Error: Sesión no existe");
-                        response.sendRedirect("index.jsp");
-                    }
-                %>
+    <%
+        } else {
+            System.out.println("Error: Sesión no existe");
+            response.sendRedirect("index.jsp");
+        }
+    %>
     <script src="js/producto.js"></script>
 </html>

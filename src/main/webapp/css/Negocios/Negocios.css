@@ -588,6 +588,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 15;
 }
+.Prod_most_espe_edit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
 .Prod_most_espe_cont {
     background-color: #fff7d1;
     padding: 2%;
@@ -597,6 +607,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     border-bottom-left-radius: 5px;
     box-shadow: 4px 4px 5px rgba(0,0,0,0.5);
     height: 90%;
+}
+.Prod_most_espe_cont_edit{
+    background-color: #fff7d1;
+    padding: 2%;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 0px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    box-shadow: 4px 4px 5px rgba(0,0,0,0.5);
+    height: 100%;
+    width: 100%;
 }
 .Prod_most_espe_cont1 {
     display: flex;
@@ -902,6 +923,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 .producto_epecifico_contenedor {
     height: 68%;
     width: 60%;
+    position: relative;
+}
+.producto_epecifico_contenedor_edit{
+    height: 76%;
+    width: 70%;
     position: relative;
 }
 .text_inst_pro_espe {

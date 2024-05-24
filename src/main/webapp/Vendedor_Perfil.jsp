@@ -166,7 +166,7 @@
                                         <button type="submit" class="btn btn_visitar_busq" data-bs-toggle="tooltip" id="btn_sav_nav"
                                                 data-bs-placement="bottom" data-bs-title="Editar Datos del Negocio"><i class="bi bi-pencil-square"></i></button>
                                     </form>
-                                    <form action="CrearNegocio_Formulario.jsp" method="post" class="btn_mn">
+                                    <form action="Agregar_Producto.jsp" method="post" class="btn_mn">
                                         <input type="hidden" name="neid" value="<%=idn%>"/>
                                         <button type="submit" class="btn btn_visitar_busq" data-bs-toggle="tooltip" id="btn_sav_nav"
                                                 data-bs-placement="bottom" data-bs-title="Agregar Productos"><i class="bi bi-plus"></i><i class="bi bi-basket2-fill"></i></button>
