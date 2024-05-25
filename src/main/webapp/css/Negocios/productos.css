@@ -19,6 +19,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     height: 15%;
 }
 .color_ep1, .color_ep2{
+    background: var(--line);
+    width: 100%;
+    position: absolute
+}
+.color_ep1{
+    height: 30%;
+    top: 8%;
+}
+.color_ep2{
+    height: 15%;
+    bottom: 0;
+}
+.color_sn1, .color_sn2{
     background-image: linear-gradient(
         165deg,
         #803357 0,
@@ -32,11 +45,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     width: 100%;
     position: absolute
 }
-.color_ep1{
+.color_sn1{
     height: 30%;
-    top: 8%;
+    top: 0;
 }
-.color_ep2{
+.color_sn2{
     height: 15%;
     bottom: 0;
 }

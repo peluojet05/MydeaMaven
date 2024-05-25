@@ -148,7 +148,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 
 .cont-img{
     border-radius: 100%;
-    resize: both;
     background-color: #ced4da;
     display: flex;
     width: 90%;

@@ -115,7 +115,7 @@
                                             <span>$ <span id="pre_pro_prepro"></span></span>
                                         </div>
                                         <div class="btns_prepro">
-                                            <form action="action" method="post" class="edit_form_prepro">
+                                            <form action="Editar_Producto.jsp" method="post" class="edit_form_prepro">
                                                 <input type="hidden" id="id_edit_prepro" name="idn" value=""/>
                                                 <button class="edit_btn_prepro"><i class="bi bi-pencil-square"></i> Editar Datos</button>
                                             </form>

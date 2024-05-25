@@ -20,7 +20,7 @@
     HttpSession session1 = request.getSession(false);
     if (session1.getAttribute("usuario") != null) {
 
-    %>
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -31,14 +31,13 @@
     <body>
         <jsp:include page="templates/Navegadores/Navegador_CV.jsp"/>
         <div class="d-flex flex-column w-100 justify-content-between cnf1 Inria">
-            <%
-                String id = request.getParameter("idn");
-                %>
-            <section class="color1" id="color"></section>
-            <section class="color2" id="color"></section>
+            <%                String id = request.getParameter("idn");
+            %>
+            <section class="color_sn1 deslizard"></section>
+            <section class="color_sn2 deslizard"></section>
             <div class="content_form w-100">
                 <section class="d-flex text-white align-items-center p1_cnf">
-                    <span class="txt_prin_cnf fw-bolder">Crea y Revisa las Novedades de tu Negocio</span>
+                    <span class="txt_prin_cnf fw-bolder"><i class="bi bi-megaphone-fill"></i> Crea y Revisa las Novedades de tu Negocio</span>
                     <i class="bi bi-question-circle quicon_cnf_lg" data-bs-toggle="tooltip" data-bs-placement="right"
                        data-bs-title="Tooltip on right"></i>
                 </section>
@@ -54,17 +53,17 @@
                                             <span class="fw-bold">Imagen de la Novedad
                                                 <i class="bi bi-question-circle" data-bs-toggle="tooltip"
                                                    data-bs-placement="right" data-bs-title="Tooltip on right"></i></span>
-                                            
-                                     <%//arregla esta cosa valdivia%>       
+
+                                            <%//arregla esta cosa valdivia%>       
                                             <div class="elementos-derecha">
-                <input type="file" name="" id="inpt_file_img_perf" accept="image/png, image/jpeg">
-                <div class="cont-img" id="nue_img">
-                    <img class="img" src="" alt="" id="nimg_most">
-                    <i class="bi bi-image icon_img_most" id="icon_img_most"></i>
-                </div>
-            </div>
-                                            
-                                            
+                                                <input type="file" name="" id="inpt_file_img_perf" accept="image/png, image/jpeg">
+                                                <div class="cont-img" id="nue_img">
+                                                    <img class="img" src="" alt="" id="nimg_most">
+                                                    <i class="bi bi-image icon_img_most" id="icon_img_most"></i>
+                                                </div>
+                                            </div>
+
+
                                         </section>
                                     </section>
                                     <section class="prof1_s2 d-flex flex-column justify-content-around">
@@ -94,75 +93,79 @@
                                 <input type="hidden" name="idn" value="<%=id%>"/>
                                 <input type="hidden" name="ft" id="ft" value=""/>
                             </form>
-                            <div class="prof2_cnf">
+                            <div class="prof2_cnf" id="list_nov">
                                 <span class="dt_txt_cnf">Lista de Novedades<i class="bi bi-question-circle"
                                                                               data-bs-toggle="tooltip" data-bs-placement="right"
                                                                               data-bs-title="Tooltip on right"></i></span>
-                                <%
-                                    Conexion con;
-        Connection c;
-        Statement stmt;
-        ResultSet rs;
-        con = new Conexion();
-        con.setCon();
-        c = con.getCon();
-        stmt = c.createStatement();
-        
-        rs=stmt.executeQuery("Select * from Novedad where neg_id="+id+";");
-        
-        while(rs.next()){
-        
-        String nombre = rs.getString("nov_nombre");
-        String descripcion = rs.getString("nov_descripcion");
-        String foto = rs.getString("nov_foto");
-          
+
+
+                                <section class="w-100 Prod_Cont" id="Prod_Cont">
+                                    <%
+                                        Conexion con;
+                                        Connection c;
+                                        Statement stmt;
+                                        ResultSet rs;
+                                        con = new Conexion();
+                                        con.setCon();
+                                        c = con.getCon();
+                                        stmt = c.createStatement();
+
+                                        rs = stmt.executeQuery("Select * from Novedad where neg_id=" + id + ";");
+
+                                        while (rs.next()) {
+
+                                            String nombre = rs.getString("nov_nombre");
+                                            String descripcion = rs.getString("nov_descripcion");
+                                            String foto = rs.getString("nov_foto");
+
 
                                     %>
-                                
-                                <section class="w-100 Prod_Cont">
-                                    <div class="prod d-flex" id="prod1">
+                                    <form action="" method="post" class="prod d-flex" id="prod1">
+                                        <input type="hidden" name="name" value="">
                                         <img src="<%=foto%>" alt="prod" class="img_prod_cnf">
                                         <section class="d-flex flex-column Prod_Lis w-75 h-100">
                                             <span class="N_ProVP"><%=nombre%></span>
-                                            <textarea type="text" class="D_ProVP h-75" disabled><%=descripcion%></textarea>
+                                            <textarea type="text" class="D_ProVP h-75" id="D_ProVP" disabled><%=descripcion%></textarea>
+                                            <button class="btn_nov_list" type="submit">Dar de baja la Novedad</button>
                                         </section>
-                                    </div>
-                                </section>
-                                
+                                    </form>
+
                                     <%
                                         }
-                                        c.close();
-                                        %>
+                                    %>
+                                </section>
+                                <%
+                                    c.close();
+                                %>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
-    <script src="js/sn.js"></script>
-     <%
-            if(request.getAttribute("mensaje")!=null) 
-            {  
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+        <script src="js/sn.js"></script>
+        <%
+            if (request.getAttribute("mensaje") != null) {
         %>          
-                <script>
-    window.onload=function() {
-       Swal.fire({
-  icon: "success",
-  title: "<%=request.getAttribute("mensaje")%>",
-  showConfirmButton: false,
-  timer: 5000
-});
-    };
- </script>      
+        <script>
+            window.onload = function () {
+                Swal.fire({
+                    icon: "success",
+                    title: "<%=request.getAttribute("mensaje")%>",
+                    showConfirmButton: false,
+                    timer: 5000
+                });
+            };
+        </script>      
         <%
             }
-                %>
-                                                                <%
-            }else{
-    System.out.println("Error: Sesión no existe");
-    response.sendRedirect("index.jsp");
-}
-            %>
+        %>
+        <%
+            } else {
+                System.out.println("Error: Sesión no existe");
+                response.sendRedirect("index.jsp");
+            }
+        %>
     </body>
 </html>

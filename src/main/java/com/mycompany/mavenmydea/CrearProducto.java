@@ -120,7 +120,7 @@ public class CrearProducto extends HttpServlet {
                 }
             
             if(error){
-                request.getRequestDispatcher("/CrearNegocio_Formulario.jsp").forward(request, response);
+                request.getRequestDispatcher("/Agregar_Producto.jsp").forward(request, response);
             } else {
                 switch(disponibilidad){
                 case "Disponible en todo momento":
@@ -170,7 +170,7 @@ public class CrearProducto extends HttpServlet {
                     }
 
                          String fecha = year +"-"+ mes +"-"+ dia;
-                         
+                         System.out.println("Id= "+neid+", nombre= "+nombre+", descripcion= "+descripcion+ ", imagen= "+imagen+", precio= "+precio+", disponibilidad= "+disponibilidad+", fecha= "+fecha);
            String mensaje = con.Agprod( neid,  nombre,  descripcion,  imagen,  precio,  disponibilidad, fecha);
            
            try {
@@ -182,7 +182,7 @@ public class CrearProducto extends HttpServlet {
            request.setAttribute("mensaje", mensaje);
            request.setAttribute("neid", neid);
                   
-           RequestDispatcher rd = request.getRequestDispatcher("CrearNegocio_Formulario.jsp");
+           RequestDispatcher rd = request.getRequestDispatcher("Agregar_Producto.jsp");
                    rd.forward(request, response);
             }
             

@@ -1,0 +1,114 @@
+[33m9749b0e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m Nuevos Cambios en mis negocios 2
+[33mbdd25b3[m Cambios en mis negocios
+[33me776388[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m Funcionalidad Editar producto y Agregar Producto
+[33m3a0383d[m Merge pull request #32 from Gus-Valdivia/master
+[33md01163b[m Cambios Index
+[33m87a7f78[m Agregar Productos
+[33m5487eae[m Agregar Productos
+[33m127b64d[m deploy heroku
+[33m2c540b4[m Funcionalidad lista de productos y eliminar producto
+[33mc8cbfbb[m Editar Producto
+[33m2353ee5[m Editar Producto
+[33m9eddc11[m Editar Producto
+[33me4390d5[m Merge pull request #29 from peluojet05/master
+[33m52366a3[m asistente 1.0
+[33m6f8f901[m Merge pull request #28 from Gus-Valdivia/master
+[33m979382e[m Productos
+[33ma2c063f[m asistente 1.0
+[33m029a6d0[m asistente 1.0
+[33mb46bee2[m asistente 1.0
+[33m40f140f[m asistente 1.0
+[33m69751ca[m Deploy heroku
+[33me6f2cd4[m Log de actualizacion de tickets y notificaciones
+[33m5ff7512[m Log de actualizacion de tickets y notificaciones
+[33m7230073[m Merge pull request #26 from Gus-Valdivia/master
+[33m4187542[m Cambios en el diseño de Productos y negocios
+[33me33f144[m Cambios en el diseño (Se agrega icono de carga entre paginas, cambio de color de fondo, cambio las tarjetas de producto además de algunas funtes)
+[33mae9084f[m Modulo de soporte v1
+[33m256c342[m Problemas con editar
+[33m72d95d7[m Merge pull request #24 from Gus-Valdivia/master
+[33m4af0f02[m Merge pull request #1 from Snowsnr/master
+[33mc6b606b[m Merge pull request #23 from Gus-Valdivia/master
+[33mfe9ee53[m MODULO DE TICKETS (FRONTED) Correcciones en Gestion de Ticket, Finalizacion de Creacion y Gestion de Tickets del usuario (Faltan los comentarios)
+[33m28757f7[m Correcciones en la pagina de Gestion de Tickets
+[33m75feda4[m Funcionalidad gestion de tickets, estructura de edicion
+[33m1dd9a41[m Merge pull request #22 from Gus-Valdivia/master
+[33m10ff6c7[m Pagina Gestion de Tickets completada junto con formulario de edicion
+[33m9947da0[m heroku
+[33m044911a[m Merge pull request #21 from peluojet05/master
+[33mba3fa75[m Graficas info usuario mejoradas ahora si
+[33m5173d26[m Graficas info usuario mejoradas
+[33md70e88c[m Merge branch 'master' of https://github.com/peluojet05/MydeaMaven
+[33mb512c88[m Merge pull request #20 from Gus-Valdivia/master
+[33ma7c068e[m Pagina de Acciones de Administrador
+[33m7fbba80[m Graficas fase cigoto-tipos de usuario
+[33m32b9862[m Graficas fase cigoto-tipos de usuario
+[33m14dd43b[m Problemas de conexion heroku
+[33m930d963[m Eliminar desde index y buscador admin
+[33m0dcebf7[m Inicio de sesion admin, eliminar negocios desde index, buscador
+[33m3509fe8[m Merge pull request #18 from peluojet05/master
+[33m0d1c9df[m Editar negocio y pequeños conflictos
+[33ma6e2fa8[m Conflictos github
+[33m4de5aa4[m Fechas para negocios, productos, novedades, usuarios y comentarios, inicio de sesion admin
+[33m4ba65d2[m Fechas para negocios, productos, novedades, usuarios y comentarios, inicio de sesion admin
+[33m75a4c32[m Merge pull request #16 from peluojet05/master
+[33m42f8804[m Conflictos resueltos
+[33me428385[m Validaciones y alertas arregladas 1
+[33m7569b60[m Negocio y editar cuenta v, escapado
+[33m9510360[m Deploy en heroku
+[33me40c7b5[m Merge pull request #15 from salarconr03/master
+[33mbc15c72[m  Buscador, perfil vendedor y normal y reseñas hechas responsive
+[33mea9bf34[m Merge pull request #14 from Gus-Valdivia/master
+[33mf4b785e[m Implementacion de las primeras pantallas de Administrador y agregacion de botones de eliminar de admin
+[33m5392219[m Buscador, perfil vendedor y normal y resenas hechas responsive
+[33m9e66d14[m inicio arreglado y mas cosas 2
+[33m69ccc8f[m inicio arreglado y mas cosas
+[33m04579f2[m inicio arreglado y mas cosas
+[33m697023c[m Buscador preliminar
+[33meaba201[m Alertas
+[33mb4b255d[m Ofuscacion buscadores
+[33m7a815eb[m Merge pull request #12 from Gus-Valdivia/master
+[33m725e882[m Cambios de negocios (Ahora sí)}
+[33m739c0ab[m Merge pull request #11 from Gus-Valdivia/master
+[33m7ca1e21[m Cambios en las paginas de Negocio
+[33m41bdcba[m Merge pull request #9 from peluojet05/master
+[33m36f9c1b[m ofuscado inicio, registro y buscador
+[33mfc9d712[m problemas tecnicos 2
+[33mb70470c[m problemas tecnicos
+[33m779c251[m cositas
+[33m0c92aef[m cositas
+[33m54fb659[m Merge pull request #8 from salarconr03/master
+[33m583db87[m NegocioSC responsive v1
+[33mb7a530d[m Cambio codigo de verificacion y mas alertas
+[33m311281b[m Pagina negocioSC responsive v1
+[33mb874453[m nav corregido
+[33mc93b821[m nav corregido
+[33m69d9576[m Dos alertas y eliminar negocio
+[33m17497b3[m buscador
+[33mb946585[m buscador bien
+[33m2bdef93[m Buscador
+[33m46baadc[m navbar SC corregido
+[33mf47d7d6[m navbar SC corregido
+[33m32daee0[m Merge pull request #6 from Gus-Valdivia/master
+[33me0aaddb[m Modificacion (Filtros busqueda, tarjetas de Busqueda de Usuario, Vendedor y Producto)
+[33m333c8ed[m Merge pull request #5 from salarconr03/master
+[33m3a697fd[m Registro responsive
+[33mc493285[m Merge pull request #3 from peluojet05/master
+[33m87f0f79[m Registro responsive
+[33m9c20acc[m verificacion editar cuentavendedor
+[33m65fa546[m Eliminar negocio agregado
+[33m34af6b5[m Merge pull request #2 from salarconr03/master
+[33mae5105c[m Inicio de sesion responsive
+[33m66ab606[m Merge pull request #1 from salarconr03/front
+[33mfa089ec[m BD local y hosteada, editar producto sin terminar
+[33m813fadd[m Respondive Formulario de inicio de sesion
+[33m133a63b[m[33m ([m[1;31morigin/front[m[33m)[m sergito
+[33m92d0eaa[m sergioo
+[33m2ce26c3[m fn
+[33mbd0c662[m cv
+[33madab74e[m pruebas
+[33m95bfeae[m prueba2
+[33m71b4f10[m Prueba
+[33mdc76e7d[m Prueba
+[33m2c3d501[m Prueba
+[33me0ff280[m Initialized

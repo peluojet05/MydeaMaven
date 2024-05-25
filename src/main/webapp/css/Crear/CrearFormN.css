@@ -564,6 +564,7 @@ label img {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   padding: 2%;
+  height: 90%;
 }
 
 #Prod_Cont{

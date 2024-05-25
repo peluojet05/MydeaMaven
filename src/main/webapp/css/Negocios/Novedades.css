@@ -8,22 +8,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 */
 
 #Productos_cnf {
-  display: flex;
+    display: flex;
 }
 #prof1_cnf {
-  gap: 15px;
+    border: 3px solid rgb(91, 29, 99);
+    box-shadow: 3px 3px 1px rgb(91, 29, 99);
+    gap: 15px;
 }
 #color {
-  background-image: radial-gradient(
-    circle at 94.48% 46.11%,
-    #ff7b89 0,
-    #ff6c85 16.67%,
-    #f25980 33.33%,
-    #e24178 50%,
-    #d12471 66.67%,
-    #c3006d 83.33%,
-    #b6006d 100%
-  );
+    background-image: radial-gradient(
+        circle at 94.48% 46.11%,
+        #ff7b89 0,
+        #ff6c85 16.67%,
+        #f25980 33.33%,
+        #e24178 50%,
+        #d12471 66.67%,
+        #c3006d 83.33%,
+        #b6006d 100%
+        );
 }
 #btn_AProd{
     background-color: rgb(91, 29, 99);
@@ -38,4 +40,43 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     -o-transition: 0.3s;
     border: 3px solid rgb(56, 12, 62);
     background-color: rgb(56, 12, 62);
+}
+.btn_nov_list{
+    border: none;
+    padding: 1%;
+    color: white;
+    background: var(--btn_rosa);
+    border-radius: 5px;
+}
+.btn_nov_list:hover{
+    transition: 0.3s;
+    color: white;
+    background: var(--btn_rosa_hover);
+    border-radius: 5px;
+    transform: scale(1.05);
+}
+#list_nov{
+    border: 3px solid rgb(91, 29, 99);
+    box-shadow: 3px 3px 1px rgb(91, 29, 99);
+}
+#prod1{
+    border: 3px solid rgb(182, 99, 193);
+    box-shadow: 3px 3px 1px rgb(182, 99, 193);
+}
+#Prod_Cont{
+    background: none;
+}
+#D_ProVP{
+    background: rgb(91, 29, 99);
+}
+#icon_img_most{
+    font-size: 1.5rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+.elementos-derecha:hover #icon_img_most{
+    transition: 0.2s;
+    font-size: 2rem;
 }
