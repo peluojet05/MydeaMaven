@@ -892,4 +892,26 @@ public class Conexion {
         }
     }
     
+    public String EProducto(String nombre, String desc, String precio, String img, String disponibilidad, String id){
+        String mensaje=null;
+     
+        try{
+         
+        Statement stmt=con.createStatement();
+            
+            PreparedStatement ps = con.prepareStatement("update producto set pro_nombre= ?, pro_descripcion= ?, pro_precio = ?, pro_imagen=?, dis_id= ? where pro_id= ? ");
+            ps.setString(1, nombre);
+            ps.setString(2, desc);
+            ps.setInt(3, Integer.parseInt(precio));
+            ps.setString(4, img);
+            ps.setInt(5, Integer.parseInt(disponibilidad));
+            ps.setInt(6, Integer.parseInt(id));
+            ps.execute();
+            
+            
+        } catch (Exception e ) {
+                System.err.println("Error"+e);
+        } return mensaje;
+    }
+   
 }
