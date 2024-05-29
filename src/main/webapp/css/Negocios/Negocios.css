@@ -34,7 +34,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 .cont_neg {
     position: absolute;
     top: 10vh;
-    background: #ebece2;
+    background: #faf2ed;
 }
 .prestn_neg {
     height: 90vh;
@@ -519,6 +519,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     border: 8px solid white;
 }
 .tt_pro_most {
+    display: flex;
+    height: 13%;
+    overflow: hidden;
     font-size: 1.5rem;
     font-weight: bolder;
     margin: 0px;
@@ -526,6 +529,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     margin-bottom: 1%;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
 }
 .pr_inf_n {
     font-weight: bold;
@@ -1457,6 +1464,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 }
 .btns_ch i{
     font-size: 1.2rem;
+}
+#edd_en{
+    color: black;
 }
 @media screen and (max-width:1024px){
     .prestn_neg{

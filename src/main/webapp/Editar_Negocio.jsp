@@ -100,11 +100,11 @@
         }
         
         %>
-            <section class="color1"></section>
-            <section class="color2"></section>
+            <section class="color_pro1 deslizard"></section>
+            <section class="color_pro2 deslizard"></section>
             <div class="content_form w-100">
                 <section class="d-flex text-white align-items-center p1_cnf">
-                    <span class="txt_prin_cnf fw-bolder">Edita los Datos de tu Negocio</span>
+                    <span class="txt_prin_cnf fw-bolder" id="edd_en">Edita los Datos de tu Negocio</span>
                     <i class="bi bi-question-circle quicon_cnf_lg" data-bs-toggle="tooltip" data-bs-placement="right"
                        data-bs-title="Tooltip on right"></i>
                 </section>

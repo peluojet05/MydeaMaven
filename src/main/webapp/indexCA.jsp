@@ -180,7 +180,6 @@
                 </section>
             </section>
         </div>
-
         <div class="information_index_mobile justify-content-around">
             <section class="card_info_in_mobile card_qs d-flex justify-content-between">
                 <section class="d-flex flex-column text-white text_qs_card p-2 justify-content-evenly align-items-center Inria">
@@ -201,10 +200,17 @@
                 </section>
             </section>
         </div>
+        
         <!--LOS MEJORES NEGOCIOS-->
         <div class="padd_lds">
+            <svg class="svg_ft_lmn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 186 186" preserveAspectRatio="none" width="100%" height="100%">
+            <path d="M91.3318 0.770388C91.9372 -0.256794 93.4229 -0.256797 94.0283 0.770386L103.476 16.8012C103.975 17.6488 105.124 17.8307 105.861 17.1789L119.799 4.85214C120.693 4.06229 122.106 4.52142 122.364 5.68539L126.395 23.851C126.608 24.8114 127.644 25.3393 128.547 24.9472L145.612 17.5311C146.706 17.0559 147.908 17.9292 147.794 19.116L146.014 37.6383C145.92 38.6176 146.743 39.4398 147.722 39.3457L166.244 37.5662C167.431 37.4521 168.304 38.6541 167.829 39.7476L160.413 56.8134C160.021 57.7157 160.549 58.7518 161.509 58.9649L179.675 62.9962C180.839 63.2545 181.298 64.6675 180.508 65.5606L168.181 79.4995C167.529 80.2364 167.711 81.3849 168.559 81.8844L184.59 91.3318C185.617 91.9372 185.617 93.4229 184.59 94.0283L168.559 103.476C167.711 103.975 167.529 105.124 168.181 105.861L180.508 119.799C181.298 120.693 180.839 122.106 179.675 122.364L161.509 126.395C160.549 126.608 160.021 127.644 160.413 128.547L167.829 145.612C168.304 146.706 167.431 147.908 166.244 147.794L147.722 146.014C146.743 145.92 145.92 146.743 146.014 147.722L147.794 166.244C147.908 167.431 146.706 168.304 145.612 167.829L128.547 160.413C127.644 160.021 126.608 160.549 126.395 161.509L122.364 179.675C122.106 180.839 120.693 181.298 119.799 180.508L105.861 168.181C105.124 167.529 103.975 167.711 103.476 168.559L94.0283 184.59C93.4229 185.617 91.9372 185.617 91.3318 184.59L81.8844 168.559C81.3849 167.711 80.2364 167.529 79.4995 168.181L65.5606 180.508C64.6675 181.298 63.2545 180.839 62.9962 179.675L58.9649 161.509C58.7518 160.549 57.7157 160.021 56.8134 160.413L39.7476 167.829C38.6541 168.304 37.4521 167.431 37.5662 166.244L39.3457 147.722C39.4398 146.743 38.6176 145.92 37.6383 146.014L19.116 147.794C17.9292 147.908 17.0559 146.706 17.5311 145.612L24.9472 128.547C25.3393 127.644 24.8114 126.608 23.851 126.395L5.68539 122.364C4.52141 122.106 4.06229 120.693 4.85214 119.799L17.1789 105.861C17.8307 105.124 17.6488 103.975 16.8012 103.476L0.770388 94.0283C-0.256794 93.4229 -0.256797 91.9372 0.770386 91.3318L16.8012 81.8844C17.6488 81.3849 17.8307 80.2364 17.1789 79.4995L4.85214 65.5606C4.06229 64.6675 4.52142 63.2545 5.68539 62.9962L23.851 58.9649C24.8114 58.7518 25.3393 57.7157 24.9472 56.8134L17.5311 39.7476C17.0559 38.6541 17.9292 37.4521 19.116 37.5662L37.6383 39.3457C38.6176 39.4398 39.4398 38.6176 39.3457 37.6383L37.5662 19.116C37.4521 17.9292 38.6541 17.0559 39.7476 17.5311L56.8134 24.9472C57.7157 25.3393 58.7518 24.8114 58.9649 23.851L62.9962 5.68539C63.2545 4.52141 64.6675 4.06229 65.5606 4.85214L79.4995 17.1789C80.2364 17.8307 81.3849 17.6488 81.8844 16.8012L91.3318 0.770388Z" fill="#FFCC18"/>
+            </svg>
+            <svg class="svg_lt_lmn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 186 186" preserveAspectRatio="none" width="100%" height="100%">
+            <path d="M91.3318 0.770388C91.9372 -0.256794 93.4229 -0.256797 94.0283 0.770386L103.476 16.8012C103.975 17.6488 105.124 17.8307 105.861 17.1789L119.799 4.85214C120.693 4.06229 122.106 4.52142 122.364 5.68539L126.395 23.851C126.608 24.8114 127.644 25.3393 128.547 24.9472L145.612 17.5311C146.706 17.0559 147.908 17.9292 147.794 19.116L146.014 37.6383C145.92 38.6176 146.743 39.4398 147.722 39.3457L166.244 37.5662C167.431 37.4521 168.304 38.6541 167.829 39.7476L160.413 56.8134C160.021 57.7157 160.549 58.7518 161.509 58.9649L179.675 62.9962C180.839 63.2545 181.298 64.6675 180.508 65.5606L168.181 79.4995C167.529 80.2364 167.711 81.3849 168.559 81.8844L184.59 91.3318C185.617 91.9372 185.617 93.4229 184.59 94.0283L168.559 103.476C167.711 103.975 167.529 105.124 168.181 105.861L180.508 119.799C181.298 120.693 180.839 122.106 179.675 122.364L161.509 126.395C160.549 126.608 160.021 127.644 160.413 128.547L167.829 145.612C168.304 146.706 167.431 147.908 166.244 147.794L147.722 146.014C146.743 145.92 145.92 146.743 146.014 147.722L147.794 166.244C147.908 167.431 146.706 168.304 145.612 167.829L128.547 160.413C127.644 160.021 126.608 160.549 126.395 161.509L122.364 179.675C122.106 180.839 120.693 181.298 119.799 180.508L105.861 168.181C105.124 167.529 103.975 167.711 103.476 168.559L94.0283 184.59C93.4229 185.617 91.9372 185.617 91.3318 184.59L81.8844 168.559C81.3849 167.711 80.2364 167.529 79.4995 168.181L65.5606 180.508C64.6675 181.298 63.2545 180.839 62.9962 179.675L58.9649 161.509C58.7518 160.549 57.7157 160.021 56.8134 160.413L39.7476 167.829C38.6541 168.304 37.4521 167.431 37.5662 166.244L39.3457 147.722C39.4398 146.743 38.6176 145.92 37.6383 146.014L19.116 147.794C17.9292 147.908 17.0559 146.706 17.5311 145.612L24.9472 128.547C25.3393 127.644 24.8114 126.608 23.851 126.395L5.68539 122.364C4.52141 122.106 4.06229 120.693 4.85214 119.799L17.1789 105.861C17.8307 105.124 17.6488 103.975 16.8012 103.476L0.770388 94.0283C-0.256794 93.4229 -0.256797 91.9372 0.770386 91.3318L16.8012 81.8844C17.6488 81.3849 17.8307 80.2364 17.1789 79.4995L4.85214 65.5606C4.06229 64.6675 4.52142 63.2545 5.68539 62.9962L23.851 58.9649C24.8114 58.7518 25.3393 57.7157 24.9472 56.8134L17.5311 39.7476C17.0559 38.6541 17.9292 37.4521 19.116 37.5662L37.6383 39.3457C38.6176 39.4398 39.4398 38.6176 39.3457 37.6383L37.5662 19.116C37.4521 17.9292 38.6541 17.0559 39.7476 17.5311L56.8134 24.9472C57.7157 25.3393 58.7518 24.8114 58.9649 23.851L62.9962 5.68539C63.2545 4.52141 64.6675 4.06229 65.5606 4.85214L79.4995 17.1789C80.2364 17.8307 81.3849 17.6488 81.8844 16.8012L91.3318 0.770388Z" fill="#FFCC18"/>
+            </svg>
             <div class="slid_neg d-flex flex-column">
-                <span class="w-100">Los Mejores Negocios</span>
+                <span class="tt_lmn">Los Mejores Negocios <i class="bi bi-shop"></i></span>                
                 <span class="texto">Encuentra y apoya a los mejores negocios de nuestra comunidad en un solo lugar.
                     Descubre joyas ocultas y favoritos de la comunidad, cuidadosamente seleccionados por su calidad, servicio excepcional o propuestas únicas. Disfruta de experiencias gastronómicas y servicios que sobresalen, avalados por la satisfacción de sus clientes.
                 </span>
@@ -217,8 +223,7 @@
                         rs = stmt.executeQuery("select d.*, n.*, p.usu_id, u.usu_nombre from Direccion d inner join Negocio n on d.dir_id=n.dir_id inner join Persona "
                                 + "p on n.per_id = p.per_id inner join Usuario u on p.usu_id = u.usu_id where n.neg_activo=true;");
 
-                        while (rs.next())
-                        {
+                        while (rs.next()) {
 
                             String nombre = rs.getString("neg_nombre");
                             String nombreu = rs.getString("usu_nombre");
@@ -230,46 +235,40 @@
                             int id = rs.getInt("neg_id");
                             String direccion = colonia + ", " + calle + ", " + numero;
                     %>
-                    <section class="NegocioSC">
-                        <form action="NegociosCA.jsp" class="neg_admin_inx">  
-                            <section class="card_i">
-                                <section class="hover_infn">
-                                    <button type="submit" class="Exp_neg" id="Exp_neg"></button>
+                    <form action="NegocioCA.jsp" class="NegocioSC">  
+                        <section class="card_i">
+
+                            <section class="hover_infn">
+                                <button type="submit" class="Exp_neg" id="Exp_neg"></button>
+
+                            </section>
+
+                            <div class="dts_sli_n">
+                                <span class="nn_sli_n" id="nn_sli_n"><%=nombre%></span>
+                                <span class="nv_sli_n" id="nv_sli_n"><%=nombreu%></span>
+                                <section class="d-flex w-100 justify-content-around cf_sli_n">
+                                    <span class="nv_sli_n" id="nv_sli_n"><%=desc%></span>
+                                </section>
+                                <section class="d-flex w-100 justify-content-around align-items-center dir_sli_n">
+                                    <i class="bi bi-geo-alt-fill"></i>
+                                    <span class="w-75 direccion"><%=direccion%></span>
 
                                 </section>
-                                <div class="dts_sli_n">
-                                    <span class="nn_sli_n" id="nn_sli_n"><%=nombre%></span>
-                                    <span class="nv_sli_n" id="nv_sli_n"><%=nombreu%></span>
-                                    <section class="d-flex w-100 justify-content-around cf_sli_n">
-                                        <span class="nv_sli_n" id="nv_sli_n"><%=desc%></span>
-                                    </section>
-                                    <section class="d-flex w-100 justify-content-around align-items-center dir_sli_n">
-                                        <i class="bi bi-geo-alt-fill"></i>
-                                        <span class="w-75 direccion"><%=direccion%></span>
 
-                                    </section>
-
-                                </div>
-                                <img src="<%=img%>" alt="" class="img_sli_n">
-                                <input type="hidden" name="idn" value="<%=id%>"/>
-                            </section>
-                        </form>
-                        <form action="EliminarNegocioA" class="form_elim elim_neg_inx">
-                            
-                            <input type="hidden" class="name_elim" name="idn" value="<%=id%>"/>
-                            <button type="submit" class="btn btn_elimnegscr_admin" id="btn_elimnegscr_admin">Eliminar Negocio</button>
-                        </form>
-                    </section>
+                            </div>
+                            <img src="<%=img%>" alt="" class="img_sli_n">
+                            <input type="hidden" name="idn" value="<%=id%>"/>
+                        </section>
+                    </form> 
                     <%
                         }
                     %>
                 </div>
             </div>
         </div>
-
         <!--DE TODO UN POCO-->
-        <div class="slid_pro d-flex flex-column">
-            <span class="w-100 dtp_tt">De Todo un Poco</span>
+        <div class="slid_pro d-flex flex-column" id="slid_pro_dtup">
+            <span class="w-100 dtp_tt">De Todo un Poco <i class="bi bi-basket2-fill"></i></span>
             <span class="dtup texto dtup_txt">Aquí encontrarás una mezcla fascinante de contenido variado que enriquecerá tu experiencia. 
                 Sumérgete en artículos, recomendaciones, actualizaciones y mucho más. Explora, aprende y descubre un mundo de posibilidades en este espacio lleno de sorpresas.
             </span>
@@ -285,8 +284,7 @@
 
                     pr = stmt.executeQuery(sl);
 
-                    while (pr.next())
-                    {
+                    while (pr.next()) {
 
                         String np = pr.getString("pro_nombre");
                         int pre = pr.getInt("pro_precio");
@@ -299,9 +297,9 @@
                     <span class="pre_sl">$<div class="pre_most_pro" id="pre_most_pro"><%=pre%>
                         </div>
                     </span>
+                    <span class="card-title tt_pro_most" id="tt_pro_most"><%=np%></span>
                     <img src="<%=pi%>" class="card-img-top img_most" alt="..." id="card-img-top">
                     <input type="text" class="dis_most_pro" value="<%=dis%>" disabled>
-                    <span class="card-title tt_pro_most" id="tt_pro_most"><%=np%></span>
                     <span class="card-text dis_most_pro" id="desc_com_pro"><%=pd%></span>
                 </section>
                 <%
@@ -309,10 +307,11 @@
                 %>
             </div>
         </div>
-
+        <!--Novedades-->
         <div class="slid_pro d-flex flex-column">
-            <span class="w-100 dtp_tt">Novedades</span>
-
+            <img class="img_novinx nov1" src="assets/novedad.png" alt="alt"/>
+            <img class="img_novinx nov2" src="assets/novedad.png" alt="alt"/>
+            <span class="w-100 dtp_tt dtp_tt_nov_mg"><span class="dtp_tt_nov">Novedades</span> <i class="bi bi-megaphone-fill"></i></span>
             <button id="prev_dtp" class="btn prev"><i class="bi bi-caret-left"></i></button>
             <button id="next_dtp" class="btn next"><i class="bi bi-caret-right"></i></button>
             <div class="slider_i" id="slider_dtp">
@@ -320,35 +319,38 @@
                 <%
                     ResultSet pr2;
 
-                    String sl2 = "select n.neg_nombre, n.neg_id, v.* from Negocio n inner join Novedad v on n.neg_id=v.neg_id where n.neg_activo=true;";
+                    String sl2 = "select n.neg_nombre, n.neg_logo, n.neg_id, v.* from Negocio n inner join Novedad v on n.neg_id=v.neg_id where n.neg_activo=true;";
 
                     String pi2 = "";
 
                     pr2 = stmt.executeQuery(sl2);
 
-                    while (pr2.next())
-                    {
+                    while (pr2.next()) {
 
                         String np = pr2.getString("nov_nombre");
                         int pre = pr2.getInt("neg_id");
                         pi2 = pr2.getString("nov_foto");
+                        String nnn = pr2.getString("neg_logo");
                         String dis = pr2.getString("neg_nombre");
                         String pd = pr2.getString("nov_descripcion");
                 %>
 
-                <section class="card_pro_most card_pro_most_active">
-                    <img src="<%=pi2%>" class="card-img-top img_most" alt="...">
-                    <div class="card-body d-flex flex-column">
-                        <span class="card-title tt_pro_most" id="tt_pro_most"><%=dis%></span>
-                        <span class="card-text" id="desc_com_pro"><%=np%></span>
-                        <span class="card-text" id="desc_com_pro"><%=pd%></span>
-
+                <form action="NegocioCA.jsp" method="post" class="card_pro_most card_pro_most_active" id="slid_pro_nov">
+                    <div class="log_nov_cont">
+                        <img src="<%=nnn%>" class="log_nov" alt="...">
                     </div>
-
+                    <div class="nov_img_cont">
+                        <img src="<%=pi2%>" class="nov_img" alt="...">
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <span class="card-text tt_pro_most" id="desc_com_pro"><%=np%></span>
+                        <span class="card-title" id="tt_pro_most">Novedad del Negocio: <br><%=dis%></span>
+                        <span class="card-text"><%=pd%></span>
+                        <button type="submit" id="vis_nov">Visitar Negocio</button>
+                    </div>
                     <input type="hidden" value="<%=pre%>" name="idn" />
 
-
-                </section>
+                </form>
 
                 <%
                     }
