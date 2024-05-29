@@ -11,13 +11,13 @@ EditarCuenta.class
 EditarCuenta2.class
 VerificacionCorreo_R$1.class
 Comentar2.class
-com\mycompany\mavenmydea\JakartaRestConfiguration.class
 com\mycompany\mavenmydea\EditarProducto.class
+com\mycompany\mavenmydea\JakartaRestConfiguration.class
 com\mycompany\mavenmydea\Accion.class
 Clases\Conexion.class
 Guardar.class
-VerificacionCorreo_E$1.class
 Registro.class
+VerificacionCorreo_E$1.class
 IniciarSesion.class
 com\mycompany\mavenmydea\CrearTicket.class
 Comentar.class

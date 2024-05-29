@@ -589,7 +589,7 @@ label img {
 }
 
 .prod {
-  height: 45%;
+  height: 55%;
   color: rgb(0, 0, 0);
   background: white;
   margin-bottom: 13px;
@@ -666,6 +666,23 @@ label img {
   gap: 5px;
 }
 
+.Prod_Lis section{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+
+.Prod_Lis form{
+    width: 50%;
+    height: 100%
+}
+
+.Prod_Lis button{
+    width: 100%;
+    height: 100%;
+    padding: 2%;
+}
+
 #precio{
   color: black;
   background-color: white;
@@ -740,4 +757,16 @@ label img {
     left: 0;
     opacity: 0.8;
     filter: brightness(50%);
+}
+.btn_edit_nov_list{
+    border: none;
+    background: rgb(182, 99, 193);
+    border-radius: 5px;
+    color: white;
+    transition: 0.2s;
+}
+.btn_edit_nov_list:hover{
+    transition: 0.2s;
+    transform: scale(1.05);
+    background: rgb(91, 29, 99);
 }

@@ -357,3 +357,27 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     color: white;
     background: var(--bg_color_op);
 }
+#instr_ednv{
+    background: white;
+}
+#nov_cont_edt{
+    background: white;
+}
+#desc_nov_edt{
+    background: rgb(182, 99, 193);
+    color: white;
+}
+#line_nov_edt{
+    border: 3px solid rgb(91, 29, 99);
+}
+#sect_inf_nove button{
+    transition: 0.2s;
+    border: 3px solid rgb(91, 29, 99);
+}
+#sect_inf_nove button:hover{
+    transition: 0.2s;
+    background: rgb(91, 29, 99);
+}
+#sect_inf_nove input:focus{
+    border-bottom: 3px solid rgb(91, 29, 99);
+}
