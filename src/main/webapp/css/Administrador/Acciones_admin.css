@@ -8,127 +8,127 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 */
 
 .html_accadm {
-  overflow: hidden !important;
+    overflow: hidden !important;
 }
 .adm_cont_admin {
-  height: 90vh;
-  width: 100vw;
-  position: absolute;
-  bottom: 0;
-  background: rgb(6, 21, 39);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    height: 90vh;
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+    background: rgb(6, 21, 39);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .adm_cont_admin_btt {
-  width: 75%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 40px;
-  cursor: auto;
+    width: 75%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    cursor: auto;
 }
 .adm_cont_admin .btn_acc_adm {
-  position: relative;
-  height: 250px;
-  width: 230px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2;
+    position: relative;
+    height: 250px;
+    width: 230px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
 }
 .hexagon {
-  position: absolute;
-  font-size: 230px;
-  color: rgba(250, 250, 250, 0.8);
-  cursor: pointer;
+    position: absolute;
+    font-size: 230px;
+    color: rgba(250, 250, 250, 0.8);
+    cursor: pointer;
 }
 .txt_btn {
-  position: relative;
-  z-index: 3;
+    position: relative;
+    z-index: 3;
 }
 .txt_btn_bttm {
-  z-index: 1;
-  position: absolute;
-  bottom: 15px;
-  width: 100%;
-  text-align: center;
-  font-size: 1.2rem;
-  color: white;
-  font-weight: bold;
-  display: none;
-  justify-content: center;
-  align-items: center;
+    z-index: 1;
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+    display: none;
+    justify-content: center;
+    align-items: center;
 }
 .btn_acc_adm:hover {
-  transition: 0.3s;
-  transform: translateY(-40px);
+    transition: 0.3s;
+    transform: translateY(-40px);
 }
 .sect_btnadmin:hover .txt_btn_bttm {
-  display: flex;
+    display: flex;
 }
 .btn_acc_adm:hover .usu_icon {
-  transition: 0.3s;
-  color: #008c8c;
+    transition: 0.3s;
+    color: #008c8c;
 }
 .btn_acc_adm:hover i {
-  transition: 0.3s;
-  color: white;
+    transition: 0.3s;
+    color: white;
 }
 .btn_acc_adm:hover .neg_icon {
-  transition: 0.3s;
-  color: rgb(151, 26, 64);
+    transition: 0.3s;
+    color: rgb(151, 26, 64);
 }
 .btn_acc_adm:hover .coment_icon {
-  transition: 0.3s;
-  color: rgb(224, 177, 23);
+    transition: 0.3s;
+    color: rgb(224, 177, 23);
 }
 .btn_acc_adm:hover .nov_icon {
-  transition: 0.3s;
-  color: rgba(244, 55, 112, 1);
+    transition: 0.3s;
+    color: rgba(244, 55, 112, 1);
 }
 .btn_acc_adm:hover .tick_icon {
-  transition: 0.3s;
-  color: #454545;
+    transition: 0.3s;
+    color: #454545;
 }
 .sect_btnadmin {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .icon_btnadmin {
-  font-size: 7rem;
-  color: rgba(0, 0, 0, 1);
-  cursor: pointer;
+    font-size: 7rem;
+    color: rgba(0, 0, 0, 1);
+    cursor: pointer;
 }
 .square {
-  position: absolute;
-  background-color: rgba(225, 225, 225, 0.4);
-  animation: animate 10s linear infinite;
-  z-index: 0;
-  filter: blur(5px);
-  border-radius: 8px;
+    position: absolute;
+    background-color: rgba(225, 225, 225, 0.4);
+    animation: animate 10s linear infinite;
+    z-index: 0;
+    filter: blur(5px);
+    border-radius: 8px;
 }
 .btn_hamb {
-  outline: none;
+    outline: none;
 }
 .btn_hamb_icon {
-  font-size: 2.5rem;
-  color: white;
+    font-size: 2.5rem;
+    color: white;
 }
 .input_search_admin {
-  background: rgba(255, 255, 255, 0.3);
-  border: none;
-  outline: none !important;
-  color: #ffffffa8;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    outline: none !important;
+    color: #ffffffa8;
 }
 #input_search_admin::placeholder {
-  background: linear-gradient(to right, rgb(255, 255, 255), transparent);
-  -webkit-background-clip: text;
-  color: transparent;
+    background: linear-gradient(to right, rgb(255, 255, 255), transparent);
+    -webkit-background-clip: text;
+    color: transparent;
 }
 #input_search_admin:focus{
     outline: none;
@@ -138,18 +138,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     color: white;
 }
 .btn_submit_admin {
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-  width: 10%;
-  background-color: #ffffff;
-  padding: 0px;
-  border: none;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    width: 10%;
+    background-color: #ffffff;
+    padding: 0px;
+    border: none;
 }
 #btn_submit_admin_icon {
-  font-weight: bolder;
-  font-size: 20px;
-  text-shadow: none;
-  color: black;
+    font-weight: bolder;
+    font-size: 20px;
+    text-shadow: none;
+    color: black;
 }
 .btn_submit_admin:hover{
     background: rgb(48, 90, 135);
@@ -163,17 +163,97 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     color: white;
 }
 @keyframes animate {
-  0% {
-    transform: translateY(0) rotate(0);
-  }
-  50% {
-    transform: translateY(2vh) rotate(180deg);
-  }
-  100% {
-    transform: translateY(0) rotate(360deg);
-  }
+    0% {
+        transform: translateY(0) rotate(0);
+    }
+    50% {
+        transform: translateY(2vh) rotate(180deg);
+    }
+    100% {
+        transform: translateY(0) rotate(360deg);
+    }
 }
 .nav_admin, .hamburger_admin, #Cuenta_des ul li:hover{
-  background: rgb(22, 40, 60);
-  color: white;
+    background: rgb(22, 40, 60);
+    color: white;
+}
+#gestion_usu_container{
+    padding-top: 1%;
+}
+#gestion_usu_container #fltr_tickets{
+    padding-top: 3.5%;
+}
+#opt_usu{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+#opt_usu button{
+    padding: 5px;
+    height: 100%;
+    padding: 10px;
+    outline: none;
+    font-size: 1rem;
+    border: 1px solid #fff;
+    outline: none;
+    background: none;
+    color: white;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+#opt_usu button:hover{
+    transition: 0.2s;
+    background: rgba(255, 255, 255, 0.2);
+    font-weight: bold;
+}
+#busq_usu_adm{
+    width: 30%;
+    height: 60%;
+    cursor: initial;
+}
+#busq_usu_adm #usu_nr{
+    cursor: initial;
+}
+#busq_usu_adm #usu_img_busq{
+    width: 32%;
+}
+#busq_usu_adm button{
+    margin-top: 0.5%;
+    font-size: 0.85rem;
+}
+#baja_usu{
+    padding: 4%;
+    border: 3px solid rgba(217, 85, 56, 0.5);
+    border-radius: 20px;
+    background: none
+}
+#baja_vend{
+    padding: 4%;
+    border: 3px solid rgba(151, 26, 64, 0.5);
+    border-radius: 20px;
+    background: none
+}
+#usu_nr, #vend_nr{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.usu_nr:hover #baja_usu,.usu_vd:hover #baja_vend{
+    transition: 0.2s;
+    border: 2px solid white;
+    background: white;
+}
+.usu_nr:hover #baja_usu:hover, .usu_vd:hover #baja_vend:hover{
+    transition: 0.2s;
+    background: none;
+    transform: scale(1.05);
+    color: white;
+}
+.sect_btns_adminusu{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+.sect_btns_adminusu form{
+    width: 49%;
 }
