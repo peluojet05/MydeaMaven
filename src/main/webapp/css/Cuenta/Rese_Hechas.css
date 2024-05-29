@@ -120,6 +120,7 @@
     -o-transition: 0.3s;
 }
 .btn_visitar_busq{
+    position: relative;
     border: 2px solid black;
     box-shadow: 3px 3px 1px black;
 }
@@ -145,6 +146,17 @@
 .img_sect_ch{
     width: 25%;
     height: 100%;
+}
+#btn_sav_nav .bi-pencil-fill{
+    position: absolute;
+    right: 5%;
+    top: 2%;
+}
+.edt_nov_neg{
+    width: 10%;
+}
+.edt_nov_neg button{
+    width: 100%
 }
 @media screen and (max-width:1024px){
     .rv_contprin{

@@ -174,7 +174,7 @@
                                     <form action="Subir_Novedad.jsp" method="post" class="btn_mn">
                                         <input type="hidden" name="idn" value="<%=idn%>"/>
                                         <button type="submit" class="btn btn_visitar_busq" data-bs-toggle="tooltip" id="btn_sav_nav"
-                                                data-bs-placement="bottom" data-bs-title="Subir Novedad"><i class="bi bi-megaphone-fill"></i></button>
+                                                data-bs-placement="bottom" data-bs-title="Novedades"><i class="bi bi-megaphone-fill"></i></button>
                                     </form>
                                     <form action="Feedback.jsp" method="post" class="btn_mn">
                                         <input type="hidden" name="idn" value="<%=idn%>"/>

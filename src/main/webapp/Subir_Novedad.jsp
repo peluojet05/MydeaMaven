@@ -120,15 +120,24 @@
 
 
                                     %>
-                                    <form action="" method="post" class="prod d-flex" id="prod1">
+                                    <section class="prod d-flex" id="prod1">
                                         <input type="hidden" name="name" value="">
                                         <img src="<%=foto%>" alt="prod" class="img_prod_cnf">
                                         <section class="d-flex flex-column Prod_Lis w-75 h-100">
                                             <span class="N_ProVP"><%=nombre%></span>
                                             <textarea type="text" class="D_ProVP h-75" id="D_ProVP" disabled><%=descripcion%></textarea>
-                                            <button class="btn_nov_list" type="submit">Dar de baja la Novedad</button>
+                                            <section>
+                                                <form action="action" method="post">
+                                                    <button class="btn_edit_nov_list" type="submit">Editar la Novedad <i class="bi bi-pencil-square"></i></button>
+                                                    <input type="hidden" name="idn" value="<%=id%>">
+                                                </form>
+                                                <form action="action" method="post">
+                                                    <button class="btn_nov_list" type="submit">Dar de Baja</button>
+                                                    <input type="hidden" name="idn" value="<%=id%>">
+                                                </form>
+                                            </section>
                                         </section>
-                                    </form>
+                                    </section>
 
                                     <%
                                         }
