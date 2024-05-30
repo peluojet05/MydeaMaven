@@ -117,6 +117,7 @@
                                             String nombre = rs.getString("nov_nombre");
                                             String descripcion = rs.getString("nov_descripcion");
                                             String foto = rs.getString("nov_foto");
+                                            int idn = rs.getInt("nov_id");
 
 
                                     %>
@@ -127,13 +128,13 @@
                                             <span class="N_ProVP"><%=nombre%></span>
                                             <textarea type="text" class="D_ProVP h-75" id="D_ProVP" disabled><%=descripcion%></textarea>
                                             <section>
-                                                <form action="action" method="post">
+                                                <form action="Editar_Novedad.jsp" method="post">
                                                     <button class="btn_edit_nov_list" type="submit">Editar la Novedad <i class="bi bi-pencil-square"></i></button>
-                                                    <input type="hidden" name="idn" value="<%=id%>">
+                                                    <input type="hidden" name="idn" value="<%=idn%>">
                                                 </form>
-                                                <form action="action" method="post">
+                                                <form action="EliminarNovedad" method="post">
                                                     <button class="btn_nov_list" type="submit">Dar de Baja</button>
-                                                    <input type="hidden" name="idn" value="<%=id%>">
+                                                    <input type="hidden" name="idn" value="<%=idn%>">
                                                 </form>
                                             </section>
                                         </section>

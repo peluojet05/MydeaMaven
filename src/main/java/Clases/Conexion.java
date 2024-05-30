@@ -31,7 +31,7 @@ public class Conexion {
            
      //POSTGRE HOST, CON ESTE HACEN LA PULL REQUESTT
      
-     /*
+     //
      String dbDriver = "org.postgresql.Driver";
      String dbURL = "jdbc:postgresql://ec2-100-26-73-144.compute-1.amazonaws.com/db3v6hean6n35q";
                           
@@ -41,7 +41,7 @@ public class Conexion {
      Class.forName(dbDriver).newInstance();
      con = DriverManager.getConnection(dbURL,dbUsername, dbPassword);
      
-     */
+     //
      //MYSQL LOCAL CAMBIEN LA CONTRASEÑA
      /*
      String dbDriver = "com.mysql.jdbc.Driver";
@@ -55,7 +55,7 @@ public class Conexion {
      dbUsername,
      dbPassword); 
      */
-     // POSTGRE SQL LOCAL POR FAVOR USEN ESTA Y HAGAN TODOS LOS COMMMITS CON ESTA (llamenla MydeaLocal para que no tengan que cambiarlo aqui)
+     /* POSTGRE SQL LOCAL POR FAVOR USEN ESTA Y HAGAN TODOS LOS COMMMITS CON ESTA (llamenla MydeaLocal para que no tengan que cambiarlo aqui)
      
      String dbDriver = "org.postgresql.Driver";
      String dbURL = "jdbc:postgresql://localhost/MydeaLocal";
@@ -66,7 +66,7 @@ public class Conexion {
      Class.forName(dbDriver).newInstance();
      con = DriverManager.getConnection(dbURL,dbUsername, dbPassword);
      
-     //
+     */
       
       } catch (Exception e ) {
             System.out.println("erore");
@@ -836,6 +836,23 @@ public class Conexion {
         return mensaje;
     }
     
+    public String RecuperarU(String id){
+        String mensaje = "Usuario recuperado con éxito";
+        try{
+          
+            
+            
+            String sql3 = "Update Usuario set usu_activo=true where usu_id="+id+";";
+            Statement stmt =con.createStatement();
+            stmt.execute(sql3);
+            
+            
+        } catch (Exception e ) {
+                System.err.println("Error"+e);
+        }
+        return mensaje;
+    }
+    
     public String ETicket(String id, String tipo, String prioridad, String estado, String comentario, String nombre, String uid){
         String mensaje = "Ticket actualizado";
         try{
@@ -906,6 +923,26 @@ public class Conexion {
             ps.setString(4, img);
             ps.setInt(5, Integer.parseInt(disponibilidad));
             ps.setInt(6, Integer.parseInt(id));
+            ps.execute();
+            
+            
+        } catch (Exception e ) {
+                System.err.println("Error"+e);
+        } return mensaje;
+    }
+    
+    public String ENovedad(String nombre, String desc, String img, String id){
+        String mensaje=null;
+     
+        try{
+         
+        Statement stmt=con.createStatement();
+            
+            PreparedStatement ps = con.prepareStatement("update novedad set nov_nombre= ?, nov_descripcion= ?, nov_foto=? where nov_id= ? ");
+            ps.setString(1, nombre);
+            ps.setString(2, desc);
+            ps.setString(3, img);
+            ps.setInt(4, Integer.parseInt(id));
             ps.execute();
             
             
