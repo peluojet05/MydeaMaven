@@ -32,15 +32,15 @@
                         <i class="bi bi-search text-white"></i>
                     </section>
                     <section class="opt_admin" id="opt_usu">
-                        <button>Usuarios</button>
-                        <button>Vendedores</button>
-                        <button>Cualquiera</button>
+                        <button id="">Usuarios</button>
+                        <button id="">Vendedores</button>
+                        <button id="">Cualquiera</button>
                     </section>
                     <section class="opt_admin">
                         <select class="select_adm" id="filtr_est">
                             <option selected disabled hidden>Filtrar por Estado</option>
-                            <option value="Abierto">Activo</option>
-                            <option value="En Proceso">De Baja</option>
+                            <option value="true">Usuario Activo</option>
+                            <option value="false">De Baja</option>
                             <option value="General">Cualquiera</option>
                         </select>
                     </section>
