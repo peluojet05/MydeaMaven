@@ -38,8 +38,8 @@ public class EliminarUsuario extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             String id = request.getParameter("idu");
-            String tipo = request.getParameter("tipo");
-            if(!tipo.equals("3")){
+           
+           
                 Conexion con = new Conexion();
                 Connection c;
                 con.setCon();
@@ -53,13 +53,10 @@ public class EliminarUsuario extends HttpServlet {
                 }
 
                 request.setAttribute("mensaje", mensaje);    
-                       RequestDispatcher rd = request.getRequestDispatcher("indexCA.jsp");
+                       RequestDispatcher rd = request.getRequestDispatcher("Gest_Usu.jsp");
                        rd.forward(request, response);
-            }else{
-                 request.setAttribute("mensaje", "No puede eliminar un usuario administrador");    
-                   RequestDispatcher rd = request.getRequestDispatcher("indexCA.jsp");
-                   rd.forward(request, response);
-            }
+            
+            
             
         }
     }

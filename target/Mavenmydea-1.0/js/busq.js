@@ -4,7 +4,7 @@ let neg = document.getElementById("Negocios_btn_busq");
 let usu = document.getElementById("Usuarios_btn_busq");
 let gen = document.getElementById("General_btn_busq");
 let btn_fltr = document.querySelectorAll(".btn_busq");
-var modal = document.getElementById("modal");
+var modal = document.getElementById("modal");  
 
 busqueda.forEach(function (busqueda_b) {
     busqueda_b.addEventListener('click', function () {

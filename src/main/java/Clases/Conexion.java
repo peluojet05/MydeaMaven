@@ -836,6 +836,23 @@ public class Conexion {
         return mensaje;
     }
     
+    public String RecuperarU(String id){
+        String mensaje = "Usuario recuperado con éxito";
+        try{
+          
+            
+            
+            String sql3 = "Update Usuario set usu_activo=true where usu_id="+id+";";
+            Statement stmt =con.createStatement();
+            stmt.execute(sql3);
+            
+            
+        } catch (Exception e ) {
+                System.err.println("Error"+e);
+        }
+        return mensaje;
+    }
+    
     public String ETicket(String id, String tipo, String prioridad, String estado, String comentario, String nombre, String uid){
         String mensaje = "Ticket actualizado";
         try{
@@ -906,6 +923,26 @@ public class Conexion {
             ps.setString(4, img);
             ps.setInt(5, Integer.parseInt(disponibilidad));
             ps.setInt(6, Integer.parseInt(id));
+            ps.execute();
+            
+            
+        } catch (Exception e ) {
+                System.err.println("Error"+e);
+        } return mensaje;
+    }
+    
+    public String ENovedad(String nombre, String desc, String img, String id){
+        String mensaje=null;
+     
+        try{
+         
+        Statement stmt=con.createStatement();
+            
+            PreparedStatement ps = con.prepareStatement("update novedad set nov_nombre= ?, nov_descripcion= ?, nov_foto=? where nov_id= ? ");
+            ps.setString(1, nombre);
+            ps.setString(2, desc);
+            ps.setString(3, img);
+            ps.setInt(4, Integer.parseInt(id));
             ps.execute();
             
             

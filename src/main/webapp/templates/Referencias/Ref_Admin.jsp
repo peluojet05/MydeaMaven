@@ -43,3 +43,4 @@ crossorigin="anonymous"></script>
 <link rel="stylesheet" href="css/Administrador/Tickets.css?v=<%=version%>" />
 <link rel="stylesheet" href="css/preloud.css?v=<%=version%>" />
 <script src="js/submit.js"></script>
+<link rel="stylesheet" href="css/General/asistente.css?v=<%=version%>">

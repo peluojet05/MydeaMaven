@@ -55,3 +55,4 @@
 <script src="js/click.js"></script>
 <script src="js/Nav_SC.js"></script>
 <script src="js/Nav.js"></script>
+<jsp:include page="../Asistente.jsp"/>
