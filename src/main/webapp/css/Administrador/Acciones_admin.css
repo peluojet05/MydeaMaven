@@ -257,3 +257,32 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 .sect_btns_adminusu form{
     width: 49%;
 }
+#busq_result_com{
+    width: 40%;
+    height: 65%;
+}
+#resena_usua_admin{
+    height: 95%;
+    width: 98%;
+    padding-bottom: 2%;
+    padding-left: 2%;
+}
+.sect_btns_admincom{
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+}
+.sect_btns_admincom form{
+    width: 50%;
+}
+.sect_btns_admincom form button{
+    transition: 0.2s;
+    display: flex;
+}
+.sect_btns_admincom form #baja_usu:hover{
+    transition: 0.2s;
+    display: flex;
+    background: #D95538;
+    color: white;
+    transform: scale(1.05);
+}
