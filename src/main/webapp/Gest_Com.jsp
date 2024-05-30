@@ -4,6 +4,10 @@
     Author     : altro
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="Clases.Conexion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,6 +17,11 @@
         <title>Gestionar Comentarios</title>
     </head>
     <body>
+                <%
+            HttpSession session1 = request.getSession(false);
+            if (session1.getAttribute("usuario") != null) {
+
+        %>
         <jsp:include page="templates/Navegadores/Navegador_CA.jsp"/>
         <div class="gestion_tickets_container" id="gestion_usu_container">
             <div class="controlls_gest_tick" id="controlls_gest_usu">
@@ -38,6 +47,32 @@
                 </div>
             </div>
             <div class="tickets_container" id="tickets_container">
+                
+                <%
+                    Conexion con;
+                        Connection c;
+                        Statement stmt;
+                        ResultSet rs;
+                
+                               con = new Conexion();
+                        con.setCon();
+                        c = con.getCon();
+                        stmt = c.createStatement();
+                        String sql="select u.usu_nombre, f.fed_comentario, f.fed_like, f.fed_activo, f.fed_id, u.usu_id, p.per_foto from Usuario u inner join Persona p "
+                                            + "on p.usu_id = u.usu_id inner join Feedback f on f.per_id = p.per_id where u.usu_activo=true;";
+                        rs = stmt.executeQuery(sql);
+                       
+                            while (rs.next())
+                            {
+                            int idc = rs.getInt("fed_id");
+                            int idu = rs.getInt("usu_id");
+                            Boolean activo = rs.getBoolean("fed_activo");
+                            String nomu = rs.getString("usu_nombre");
+                            String ft = rs.getString("per_foto");
+                            String comentario = rs.getString("fed_comentario");
+                            Boolean like = rs.getBoolean("fed_like");
+
+                %>
                 <!-- Comentarios -->
                 <section class="busq_result" id="busq_result_com">
                     <input class="d-none" id="fecha_inp_busq" type="date" disabled value="2007-04-20">
@@ -45,26 +80,76 @@
                     <img src="src" class="d-none" alt="Logo del negocio que comento" id="log_neg_com"/>
                     <section class="resena_usua_esp d-flex flex-column" id="resena_usua_admin">
                         <section class="comentario_n">
-                            <span id="nom_usu_com">Usuario que comento</span>
-                            <img src="assets/Logo_Icon.png" alt="Img de perfil del usuario" id="img_perf_com">
+                            <span id="nom_usu_com"><%=nomu%></span>
+                            <img src="<%=ft%>" alt="Img de perfil del usuario" id="img_perf_com">
                         </section>
-                        <span class="texto_res_usu" id="coment_desc">Comentario</span>
+                        <span class="texto_res_usu" id="coment_desc"><%=comentario%></span>
+                        <%
+                                        if (like == true) {
+                                    %>
                         <span class="liornli"><i class="bi bi-heart-fill"></i> Le gustó este Negocio</span>
+                        <%
+                                        }
+                                    %>
                         <i class="bi bi-quote comment_icon_neg"></i>
                         
                     <section class="sect_btns_admincom">
-                        <form>
-                            <button id="baja_usu">Dar de baja al Usuario <i class="bi bi-person-x"></i></button>
-                            <input type="hidden" id="idu" name="idu" value=""/>
+                        <%
+                                        if (activo == true) {
+                                    %>
+                        <form action="EliminarComentarioA">
+                            <button id="baja_usu">Dar de baja el comentario <i class="bi bi-person-x"></i></button>
+                            <input type="hidden" id="idu" name="idc" value="<%=idc%>"/>
                         </form>
-                        <form>
-                            <button id="baja_usu">Dar de alta al Usuario <i class="bi bi-person-fill-up"></i></button>
-                            <input type="hidden" id="idu" name="idu" value=""/>
+                        <%
+                            }else{
+                                    %>
+                        <form action="RecuperarComentario">
+                            <button id="baja_usu">Dar de alta el comentario <i class="bi bi-person-fill-up"></i></button>
+                            <input type="hidden" id="idu" name="idc" value="<%=idc%>"/>
                         </form>
+                        <%
+                            }
+                                    %>
+                        <form action="EliminarUsuario">
+                            <button id="baja_usu">Dar de baja al Usuario que comentó <i class="bi bi-person-x"></i></button>
+                            <input type="hidden" id="idu" name="idu" value="<%=idu%>"/> 
+                            <input type="hidden" name="comentario" value="1"/> 
+                        </form>
+                        
                     </section>
                     </section>
                 </section>
+                
+                <%
+                
+                    }
+
+c.close();
+                %>
             </div>
         </div>
+ <%
+            if(request.getAttribute("mensaje")!=null) 
+            {  
+        %>          
+                <script>
+    window.onload=function() {
+       Swal.fire({
+  icon: "success",
+  title: "<%=request.getAttribute("mensaje")%>",
+  showConfirmButton: false,
+  timer: 5000
+});
+    };
+ </script>  
+                <%
+            }
+                %>
+                <%            } else {
+                System.out.println("Error: Sesión no existe");
+                response.sendRedirect("index.jsp");
+            }
+        %>
     </body>
 </html>

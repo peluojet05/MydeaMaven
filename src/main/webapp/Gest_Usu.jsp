@@ -53,11 +53,7 @@
                         Connection c;
                         Statement stmt;
                         ResultSet rs;
-
-                        int id;
-                        int i = 0;
-
-                    
+                
                                con = new Conexion();
                         con.setCon();
                         c = con.getCon();
@@ -147,6 +143,8 @@
                                 }
                             }
                         }
+
+c.close();
                     %>
                 
                 

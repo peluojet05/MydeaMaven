@@ -38,7 +38,7 @@ public class EliminarUsuario extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             String id = request.getParameter("idu");
-           
+            String com = request.getParameter("comentario");
            
                 Conexion con = new Conexion();
                 Connection c;
@@ -51,11 +51,16 @@ public class EliminarUsuario extends HttpServlet {
                 } catch (SQLException ex) {
                     System.out.println("QUWEEEEEE");
                 }
-
+                
+                if(com==null){
                 request.setAttribute("mensaje", mensaje);    
                        RequestDispatcher rd = request.getRequestDispatcher("Gest_Usu.jsp");
                        rd.forward(request, response);
-            
+                }else{
+                    request.setAttribute("mensaje", mensaje);    
+                       RequestDispatcher rd = request.getRequestDispatcher("Gest_Com.jsp");
+                       rd.forward(request, response);
+                }
             
             
         }

@@ -853,6 +853,23 @@ public class Conexion {
         return mensaje;
     }
     
+    public String RecuperarC(String id){
+        String mensaje = "Comentario recuperado con éxito";
+        try{
+          
+            
+            
+            String sql3 = "Update Feedback set fed_activo=true where fed_id="+id+";";
+            Statement stmt =con.createStatement();
+            stmt.execute(sql3);
+            
+            
+        } catch (Exception e ) {
+                System.err.println("Error"+e);
+        }
+        return mensaje;
+    }
+    
     public String ETicket(String id, String tipo, String prioridad, String estado, String comentario, String nombre, String uid){
         String mensaje = "Ticket actualizado";
         try{
