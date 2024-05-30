@@ -56,3 +56,4 @@
 </audio>
 <script src="js/click.js"></script>
 <script src="js/Nav_CC.js"></script>
+<jsp:include page="../Asistente.jsp"/>

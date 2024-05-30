@@ -65,3 +65,4 @@
 </audio>
 <script src="js/click.js"></script>
 <script src="js/Nav_CV.js"></script>
+<jsp:include page="../Asistente.jsp"/>
