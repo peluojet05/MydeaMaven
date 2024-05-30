@@ -20,8 +20,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author diego
  */
-@WebServlet(name = "EliminarUsuario", urlPatterns = {"/EliminarUsuario"})
-public class EliminarUsuario extends HttpServlet {
+@WebServlet(name = "EditarNovedad", urlPatterns = {"/EditarNovedad"})
+public class EditarNovedad extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,27 +37,55 @@ public class EliminarUsuario extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String id = request.getParameter("idu");
+            String nombre = request.getParameter("nombre");
+            String anombre = request.getParameter("anombre");
+            
+            String desc = request.getParameter("desc");
+            String adesc = request.getParameter("adesc");
+            
+            String img = request.getParameter("img");
+            String aimg = request.getParameter("aimg");
+            
            
-           
-                Conexion con = new Conexion();
-                Connection c;
-                con.setCon();
-                c=con.getCon();
-                String mensaje = con.EliminarU(id);
+            String id = request.getParameter("idn");
+            
+            
+            
+            if(nombre.equals("")){
+                nombre = anombre;
+            }
+            if(desc.equals("")){
+                desc=adesc;
+            }
+            if(img.equals("")){
+                img=aimg;
+            }
+            
+            
+            Conexion con = new Conexion();
+                        Connection c;
+                        con.setCon();
+                        c=con.getCon();
 
-                try {
-                    c.close();
-                } catch (SQLException ex) {
-                    System.out.println("QUWEEEEEE");
-                }
+                        String mensaje = con.ENovedad(nombre, desc, img, id);
 
-                request.setAttribute("mensaje", mensaje);    
-                       RequestDispatcher rd = request.getRequestDispatcher("Gest_Usu.jsp");
-                       rd.forward(request, response);
-            
-            
-            
+                        try {
+                            c.close();
+                        } catch (SQLException ex) {
+                            
+                        }
+                         
+                        if(mensaje==null){
+                                mensaje="Datos actualizados correctamente";
+                               request.setAttribute("mensaje", mensaje);
+                               request.setAttribute("neid", id);
+                               
+                              RequestDispatcher rd = request.getRequestDispatcher("Subir_Novedad.jsp");
+                              rd.forward(request, response);
+
+
+                        //
+                        }
         }
     }
 

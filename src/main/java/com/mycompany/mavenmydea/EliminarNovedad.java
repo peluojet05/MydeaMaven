@@ -4,12 +4,8 @@
  */
 package com.mycompany.mavenmydea;
 
-import Clases.Conexion;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.SQLException;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author diego
  */
-@WebServlet(name = "EliminarUsuario", urlPatterns = {"/EliminarUsuario"})
-public class EliminarUsuario extends HttpServlet {
+@WebServlet(name = "EliminarNovedad", urlPatterns = {"/EliminarNovedad"})
+public class EliminarNovedad extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,27 +33,15 @@ public class EliminarUsuario extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String id = request.getParameter("idu");
-           
-           
-                Conexion con = new Conexion();
-                Connection c;
-                con.setCon();
-                c=con.getCon();
-                String mensaje = con.EliminarU(id);
-
-                try {
-                    c.close();
-                } catch (SQLException ex) {
-                    System.out.println("QUWEEEEEE");
-                }
-
-                request.setAttribute("mensaje", mensaje);    
-                       RequestDispatcher rd = request.getRequestDispatcher("Gest_Usu.jsp");
-                       rd.forward(request, response);
-            
-            
-            
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet EliminarNovedad</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet EliminarNovedad at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 

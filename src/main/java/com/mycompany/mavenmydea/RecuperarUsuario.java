@@ -20,8 +20,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author diego
  */
-@WebServlet(name = "EliminarUsuario", urlPatterns = {"/EliminarUsuario"})
-public class EliminarUsuario extends HttpServlet {
+@WebServlet(name = "RecuperarUsuario", urlPatterns = {"/RecuperarUsuario"})
+public class RecuperarUsuario extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,14 +37,14 @@ public class EliminarUsuario extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String id = request.getParameter("idu");
+             String id = request.getParameter("idu");
            
            
                 Conexion con = new Conexion();
                 Connection c;
                 con.setCon();
                 c=con.getCon();
-                String mensaje = con.EliminarU(id);
+                String mensaje = con.RecuperarU(id);
 
                 try {
                     c.close();
@@ -55,9 +55,6 @@ public class EliminarUsuario extends HttpServlet {
                 request.setAttribute("mensaje", mensaje);    
                        RequestDispatcher rd = request.getRequestDispatcher("Gest_Usu.jsp");
                        rd.forward(request, response);
-            
-            
-            
         }
     }
 
