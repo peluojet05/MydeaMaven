@@ -11,14 +11,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-      </head>
-      <body>
-          <ul id="chat"></ul>
-          <input type="text" placeholder="Escribe algo" id="prompt">
-          <button id="enviar">enviar</button>
-
-
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
-          <script src="js/asistente.js"></script>
-      </body>
+        <jsp:include page="templates/Referencias/Todas_Ref.jsp"/>
+    </head>
+        <jsp:include page="templates/Asistente.jsp"/>
+    <body>
+    </body>
 </html>

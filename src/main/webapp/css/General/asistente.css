@@ -1,0 +1,148 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 30 may 2024, 09:34:52
+    Author     : altro
+*/
+
+.ass_cont{
+    height: 90px;
+    width: 90px;
+}
+.ass_cont button{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    overflow: hidden;
+    background: white;
+    padding: 6%;
+    border: 7px solid var(--line);
+    transition: 0.3s;
+}
+.ass_cont button:hover{
+    transition: 0.3s;
+    padding: 4%;
+    transform: scale(1.3);
+    border: 4px solid var(--line);
+}
+.ass_cont button img{
+    transition: 0.3s;
+    height: 99%;
+    width: 99%;
+}
+.mns_ass_cont{
+    display: none;
+    flex-direction: column;
+    background: #fff7d1;
+    position: fixed;
+    z-index: 5;
+    bottom: 5%;
+    right: 5%;
+    width: 30%;
+    height: 60%;
+    border-radius: 15px;
+    justify-content: flex-end;
+    gap: 5%;
+    overflow: hidden;
+}
+.mns_ass_cont section{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    height: 15%;
+    background: var(--line);
+    padding: 2%;
+    padding-right: 3.5%;
+}
+.mns_ass_cont section input{
+    border: none;
+    color: black;
+    background: rgba(0,0,0,0.3);
+    padding: 2px;
+    border-radius: 10px;
+    width: 80%;
+    outline: 2px solid white;
+    transition: 0.2s;
+}
+.mns_ass_cont section input:focus{
+    transition: 0.2s;
+    outline: 2px solid white;
+    background: rgba(255,255,255,0.3);
+}
+.mns_ass_cont section input::placeholder{
+    color: white;
+}
+.ass_cont{
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    z-index: 5;
+}
+#chat{
+    display: flex;
+    flex-direction: column;
+    height: 85%;
+    width: 100%;
+    gap: 3%;
+    overflow-y: scroll;
+    padding: 2%;
+}
+#chat::-webkit-scrollbar {
+    width: 5px;
+}
+#chat::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 10px;
+}
+#chat li{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+#chat li img{
+    height: 2.2rem;
+    width: auto;
+    background: white;
+    border-radius: 100%;
+}
+.tu{
+    justify-content: right;
+}
+#chat li span{
+    display: flex;
+    max-height: none;
+    align-items: center;
+    padding: 2%;
+    border-radius: 15px;
+    gap: 5px;
+}
+.tu span{
+    background: var(--bg_base);
+}
+.ass{
+    justify-content: left;
+}
+.ass span{
+    display: flex;
+}
+#enviar{
+    background: none;
+    border-radius: 100%;
+    padding: 0;
+    border: none;
+}
+#enviar:hover i{
+    transition: 0.2s;
+    color: white;
+    font-size: 2.1rem;
+}
+#enviar i{
+    font-size: 2rem;
+    color: rgba(0,0,0,0.3);
+    transition: 0.2s;
+}
