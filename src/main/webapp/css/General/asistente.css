@@ -27,7 +27,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 .ass_cont button:hover{
     transition: 0.3s;
     padding: 4%;
-    transform: scale(1.3);
+    transform: scale(1.15);
     border: 4px solid var(--line);
 }
 .ass_cont button img{
@@ -46,9 +46,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     width: 30%;
     height: 60%;
     border-radius: 15px;
-    justify-content: flex-end;
     gap: 5%;
+    position: relative;
     overflow: hidden;
+    box-shadow: 4px 4px 7px rgba(0,0,0,0.4);
 }
 .mns_ass_cont section{
     display: flex;
@@ -116,11 +117,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 #chat li span{
     display: flex;
     max-height: none;
-    align-items: center;
+    align-items: start;
     padding: 2%;
     border-radius: 15px;
     gap: 5px;
-}
+} 
 .tu span{
     background: var(--bg_base);
 }
@@ -145,4 +146,37 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     font-size: 2rem;
     color: rgba(0,0,0,0.3);
     transition: 0.2s;
+}
+#close_chat{
+    position: absolute;
+    top: 1%;
+    right: 2%;
+    font-size: 1.5rem;
+    transition: 0.2s;
+    color: rgba(0,0,0,0.4);
+    cursor: pointer;
+}
+#close_chat:hover{
+    transition: 0.2s;
+    font-size: 1.6rem;
+    color: black;
+}
+.ass_cont:hover .txt_prr{
+    transition: 0.2s;
+    display: block;
+}
+.txt_prr{
+    transition: 0.2s;
+    display: none;
+    position: absolute;
+    top: -100%;
+    width: 170%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background: black;
+    padding: 1%;
+    border-radius: 10px;
 }
