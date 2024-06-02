@@ -1095,7 +1095,7 @@ nav {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    display: inline-block;
+    display: none;
 }
 #tt_pro_most{
     width: 100%;

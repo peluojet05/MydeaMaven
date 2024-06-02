@@ -225,7 +225,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     padding: 4%;
     border: 3px solid rgba(217, 85, 56, 0.5);
     border-radius: 20px;
-    background: none
+    background: none;
+    gap: 1%;
+    display: flex;
+    align-items: center;
 }
 #baja_vend{
     padding: 4%;
@@ -269,7 +272,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 }
 .sect_btns_admincom{
     display: flex;
-    width: 80%;
+    width: 90%;
     justify-content: space-around;
 }
 .sect_btns_admincom form{
@@ -285,4 +288,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     background: #D95538;
     color: white;
     transform: scale(1.05);  
+}
+#nov_container_admin #prod1{
+    width: 45%;
+    height: 45%;
+}
+#neg_container_admin #negbusq{
+    height: 58%;
+    width: 43%;
+    cursor: initial;
+}
+.form_admin_nego{
+    display: flex;
+    gap: 2%;
+}
+#neg_container_admin button:hover{
+    transition: 0.2s;
+    background: white;
 }

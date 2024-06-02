@@ -118,11 +118,11 @@
                         <span class="dir_bus w-100 desc_busq" id="desc_busq_usu"><%=descripcion%></span>
                         <i class="bi bi-shop uservd_icon"></i>
                         <section class="sect_btns_adminusu">
-                            <<%
+                            <%
                             if(activo==true){
                             %>
                             <form action="EliminarUsuario">
-                                <button id="baja_usu">Dar de baja al Usuario <i class="bi bi-person-x"></i></button>
+                                <button id="baja_usu">Dar de baja al Vendedor <i class="bi bi-person-x"></i></button>
                                 <input type="hidden" id="idu" name="idu" value="<%=pid%>"/>
                             </form>
                             <%

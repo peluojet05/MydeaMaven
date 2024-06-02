@@ -171,7 +171,7 @@
                             <!--Nav-->
                             <section class="d-flex flex-column nav_neg w-100 h-25">
                                 <span><%=nombre%></span>
-                                <section class="d-flex justify-content-between" id="nav_sc">
+                                <section class="d-flex justify-content-between" id="nav_cc">
                                     <a href="#Productos_Neg">
                                         <button class="btn btn_bl">Productos</button>
                                     </a>

@@ -1376,6 +1376,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 #nav_sc{
     width: 30%;
 }
+#nav_cc{
+    width: 50%;
+}
 .ancho{
     width: 50%;
 }
@@ -1448,7 +1451,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     height: 75%;
 }
 #des_pro_esp{
-    font-size: 1.3rem;
+    font-size: 1.15rem;
 }
 #pre_pro_esp{
     font-size: 1.8rem;
