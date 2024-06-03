@@ -80,7 +80,7 @@ public class EditarNovedad extends HttpServlet {
                                request.setAttribute("mensaje", mensaje);
                                request.setAttribute("neid", id);
                                
-                              RequestDispatcher rd = request.getRequestDispatcher("Subir_Novedad.jsp");
+                              RequestDispatcher rd = request.getRequestDispatcher("Vendedor_Perfil.jsp");
                               rd.forward(request, response);
 
 

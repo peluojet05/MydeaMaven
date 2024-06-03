@@ -116,7 +116,7 @@
                     </section>
                     <div class="p22_cnf p-4 pt-3">
                         <span class="dt_txt_cnf" id="dt_txt_cnf">Datos de Negocio</span>
-                        <form class="form_cnf Datos_Negocio" id="Datos_Negocio" method="post" action="EditarNegocio">
+                        <form action="EditarNegocio" class="form_cnf Datos_Negocio" id="Datos_Negocio" method="post" >
                             <!--Parte 1-->
                             <section class="p221_cnf d-flex flex-column justify-content-between">
                                 <section>

@@ -205,8 +205,20 @@ public class Conexion {
                        
                         break;
                     }                 
-                } 
-                if(h==3){
+                }
+                
+                String sql4="select * from usuario where usu_id="+usu_id+";";
+                ResultSet activo = stmt.executeQuery(sql4);
+                int a = 0;
+                while(activo.next()){
+                    Boolean act = activo.getBoolean("usu_activo");
+                    if(act == false){
+                    a=1;
+                    }
+                }
+                if(h==3 && a==0){
+                }else if(a==1){
+                    mensaje="Cuenta eliminada por favor contacta con Mydea";
                 }else{
                    mensaje="Por favor revisa que los datos proporcionados sean correctos";       
                 }
@@ -732,12 +744,14 @@ public class Conexion {
             
             ResultSet rs=stmt.executeQuery("Select * from Guardado where per_id="+idu+" and neg_id="+idn+";");
             while(rs.next()){
-                     pid = "1";
-                    
+                     int pi = rs.getInt("gua_id");
+                    pid=Integer.toString(pi);
                     System.out.println("pid "+pid);
                 }
             if(pid!=null){
-                mensaje="Ya has guardado este negocio";
+                String sql3 = "delete from Guardado where gua_id="+pid+";";
+                stmt.execute(sql3);
+                mensaje="Negocio eliminado de guardados";
             }else{
             String sql3 = "Insert into Guardado(neg_id, per_id) Values("+idn+","+idu+");";
             stmt.execute(sql3);
@@ -809,6 +823,40 @@ public class Conexion {
             
             
             String sql3 = "Update Novedad set nov_activo=false where nov_id="+id+";";
+            Statement stmt =con.createStatement();
+            stmt.execute(sql3);
+            
+            
+        } catch (Exception e ) {
+                System.err.println("Error"+e);
+        }
+        return mensaje;
+    }
+    
+    public String RecuperarN(String id){
+        String mensaje = "Novedad recuperada con éxito";
+        try{
+          
+            
+            
+            String sql3 = "Update Novedad set nov_activo=true where nov_id="+id+";";
+            Statement stmt =con.createStatement();
+            stmt.execute(sql3);
+            
+            
+        } catch (Exception e ) {
+                System.err.println("Error"+e);
+        }
+        return mensaje;
+    }
+    
+    public String RecuperarNe(String id){
+        String mensaje = "Negocio recuperado con éxito";
+        try{
+          
+            
+            
+            String sql3 = "Update Negocio set neg_activo=true where neg_id="+id+";";
             Statement stmt =con.createStatement();
             stmt.execute(sql3);
             

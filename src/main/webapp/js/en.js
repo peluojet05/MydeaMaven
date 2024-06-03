@@ -191,14 +191,14 @@ let Cerr_Dom = document.getElementById("cerr_dom");
 let She_Dom = document.getElementById("she_dom");
 
 let Form_Sub_Neg = document.getElementById("Datos_Negocio");
-let Form_AnP = document.getElementById("Productos_cnf");
-let Btn_AProduct = document.getElementById("Btn_AnadirP");
+//let Form_AnP = document.getElementById("Productos_cnf");
+//let Btn_AProduct = document.getElementById("Btn_AnadirP");
 let Btn_DNProduct = document.getElementById("Btn_DtNg");
 let Txt_tittle_cnf = document.getElementById("dt_txt_cnf");
 
 
 
-Form_AnP.style.display = "none";
+//Form_AnP.style.display = "none";
 
 document.addEventListener('DOMContentLoaded', function () {
   var radiosDias = document.querySelectorAll('.form-check-input');
@@ -293,7 +293,8 @@ function showPreviewImage3(event) {
 
 imginp3_cnf.addEventListener("change", showPreviewImage3);
 
-
+let Plus_Logo = document.getElementById("Plus_L");
+let Input_L = document.getElementById("logo_cnf");
 
 Plus_Logo.addEventListener("click", function () {
   Input_L.click();

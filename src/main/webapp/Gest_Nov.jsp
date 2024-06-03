@@ -4,7 +4,16 @@
     Author     : altro
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="Clases.Conexion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    HttpSession session1 = request.getSession(false);
+    if (session1.getAttribute("usuario") != null) {
+
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -39,26 +48,86 @@
                 </div>
             </div>
             <div class="tickets_container" id="nov_container_admin">
+                 <%
+                        Conexion con;
+                        Connection c;
+                        Statement stmt;
+                        ResultSet rs;
+                
+                               con = new Conexion();
+                        con.setCon();
+                        c = con.getCon();
+                        stmt = c.createStatement();
+                        rs = stmt.executeQuery("Select * from Novedad;");
+                        if (rs != null)
+                        {
+                            while (rs.next()) {
+
+                                String nombre = rs.getString("nov_nombre");
+                                String descripcion = rs.getString("nov_descripcion");
+                                String foto = rs.getString("nov_foto");
+                                Boolean activo = rs.getBoolean("nov_activo");
+                                int idn = rs.getInt("nov_id");
+                 %>
                 <!-- Novedad -->
                 <section class="prod d-flex" id="prod1">
-                    <input type="hidden" name="name" value="">
-                    <img src="" alt="prod" class="img_prod_cnf">
+                    <input type="hidden" name="name" value="<%=nombre%>">
+                    <img src="<%=foto%>" alt="prod" class="img_prod_cnf">
                     <section class="d-flex flex-column Prod_Lis w-75 h-100">
-                        <span class="N_ProVP"></span>
-                        <textarea type="text" class="D_ProVP h-75" id="D_ProVP" disabled></textarea>
+                        <span class="N_ProVP"><%=nombre%></span>
+                        <textarea type="text" class="D_ProVP h-75" id="D_ProVP" disabled><%=descripcion%></textarea>
                         <section>
-                            <form action="" method="post">
-                                <button class="btn_edit_nov_list" type="submit">Restaurar Novedad</button>
-                                <input type="hidden" name="idn" value="">
-                            </form>
-                            <form action="" method="post">
+                            <%
+                            if(activo==true){
+                            %>
+                            <form action="EliminarNovedadA" method="post">
                                 <button class="btn_nov_list" type="submit">Dar de Baja</button>
-                                <input type="hidden" name="idn" value="">
+                                <input type="hidden" name="idn" value="<%=idn%>">
+                                <input type="hidden" name="coso" value="1">
                             </form>
+                           
+                            <%
+                                }else{
+                            %>
+                             <form action="RecuperarNovedad" method="post">
+                                <button class="btn_edit_nov_list" type="submit">Restaurar Novedad</button>
+                                <input type="hidden" name="idn" value="<%=idn%>">
+                            </form>
+                            <%
+                                }
+                            %>
                         </section>
                     </section>
                 </section>
+                <%
+                
+                
+                    }
+}
+c.close();
+                %>
             </div>
         </div>
+                <%
+            if (request.getAttribute("mensaje") != null) {
+        %>          
+        <script>
+            window.onload = function () {
+                Swal.fire({
+                    icon: "success",
+                    title: "<%=request.getAttribute("mensaje")%>",
+                    showConfirmButton: false,
+                    timer: 5000
+                });
+            };
+        </script>  
+        <%
+            }
+        %>
+        <%            } else {
+                System.out.println("Error: Sesión no existe");
+                response.sendRedirect("index.jsp");
+            }
+        %>
     </body>
 </html>

@@ -138,35 +138,7 @@ public class EditarNegocio extends HttpServlet {
             
             String did = request.getParameter("did");
             String idn = request.getParameter("idn");
-            switch(Tipo){
-                case "Abarrotes":
-                    Tipo="1";
-                    break;
-                case "Materia_Prima":
-                    Tipo="2";
-                    break;
-                case "Restaurantes":
-                    Tipo="3";
-                    break;
-                case "SyP":
-                    Tipo="4";
-                    break;
-                case "Cafeteria":
-                    Tipo="5";
-                    break;
-                case "Catering":
-                    Tipo="6";
-                    break;
-                case "Panaderia":
-                    Tipo="7";
-                    break;
-                case "OyF":
-                    Tipo="8";
-                    break;
-                case "Otro":
-                    Tipo="9";
-                    break;
-            }
+            
             
             //Expresiones regulares
                 //Contactos
@@ -501,8 +473,37 @@ public class EditarNegocio extends HttpServlet {
             }
             
             if(error){
-                request.getRequestDispatcher("EditarNegocio.jsp").forward(request, response);
+                request.getRequestDispatcher("Editar_Negocio.jsp").forward(request, response);
             } else {
+                switch(Tipo){
+                case "Abarrotes":
+                    Tipo="1";
+                    break;
+                case "Materia_Prima":
+                    Tipo="2";
+                    break;
+                case "Restaurantes":
+                    Tipo="3";
+                    break;
+                case "SyP":
+                    Tipo="4";
+                    break;
+                case "Cafeteria":
+                    Tipo="5";
+                    break;
+                case "Catering":
+                    Tipo="6";
+                    break;
+                case "Panaderia":
+                    Tipo="7";
+                    break;
+                case "OyF":
+                    Tipo="8";
+                    break;
+                case "Otro":
+                    Tipo="9";
+                    break;
+            }
                 Conexion con = new Conexion();
                 Connection c;
                 con.setCon();

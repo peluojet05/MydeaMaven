@@ -18,10 +18,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author diego
+ * @author Usuario
  */
-@WebServlet(name = "EliminarNovedadA", urlPatterns = {"/EliminarNovedadA"})
-public class EliminarNovedadA extends HttpServlet {
+@WebServlet(name = "RecuperarNovedad", urlPatterns = {"/RecuperarNovedad"})
+public class RecuperarNovedad extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,28 +38,23 @@ public class EliminarNovedadA extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             String id = request.getParameter("idn");
-            String coso = request.getParameter("coso");
-            Conexion con = new Conexion();
-            Connection c;
-            con.setCon();
-            c=con.getCon();
-            String mensaje = con.EliminarN(id);
-            
-            try {
-                c.close();
-            } catch (SQLException ex) {
-                System.out.println("QUWEEEEEE");
-            }
-            if(coso==null){
-            request.setAttribute("mensaje", mensaje);    
-                   RequestDispatcher rd = request.getRequestDispatcher("indexCA.jsp");
-                   rd.forward(request, response);     
-            }else{
+           
+           
+                Conexion con = new Conexion();
+                Connection c;
+                con.setCon();
+                c=con.getCon();
+                String mensaje = con.RecuperarN(id);
+
+                try {
+                    c.close();
+                } catch (SQLException ex) {
+                    System.out.println("QUWEEEEEE");
+                }
+
                 request.setAttribute("mensaje", mensaje);    
-                   RequestDispatcher rd = request.getRequestDispatcher("Gest_Nov.jsp");
-                   rd.forward(request, response);   
-            }
-        
+                       RequestDispatcher rd = request.getRequestDispatcher("Gest_Nov.jsp");
+                       rd.forward(request, response);
         }
     }
 

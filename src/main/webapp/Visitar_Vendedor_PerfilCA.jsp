@@ -65,7 +65,7 @@
         <title>Cuenta de <%=unom%></title>
     </head>
     <body>
-        <jsp:include page="templates/Navegadores/Navegador_CC.jsp"/>
+        <jsp:include page="templates/Navegadores/Navegador_CA.jsp"/>
         <div class="rv_contprin w-100">
             <div class="rv_cont_usu h-100 d-flex flex-column justify-content-center align-items-center" id="rv_cont_usu">
                 <section class="h-50 prop_neg_cont">
@@ -170,12 +170,12 @@
                             </section>
                             <section class="d-flex justify-content-between w-100">
                                 <section class="btns_ch w-100 justify-content-between">
-                                    <form method="post" class="btn_mn" action="Negocio.jsp">
+                                    <form method="post" class="btn_mn" action="NegociosCA.jsp">
                                         <input type="hidden" name="idn" value="<%=idn%>">
                                         <button type="submit" class="btn btn_visitar_busq">Visitar</button>
                                     </form>
-                                    <form action="action" class="form_elim">
-                                        <input type="hidden" name="" value=""/>
+                                    <form action="EliminarNegocioA" class="form_elim">
+                                        <input type="hidden" name="idn" value="<%=idn%>"/>
                                         <input type="hidden" class="name_elim" value="<%=nnom%>"/>
                                         <button type="submit" class="btn btn_elimnegscr_admin">Eliminar Negocio</button>
                                     </form>

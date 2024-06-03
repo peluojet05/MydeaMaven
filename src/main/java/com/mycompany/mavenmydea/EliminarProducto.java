@@ -53,7 +53,7 @@ public class EliminarProducto extends HttpServlet {
             
             request.setAttribute("neid", id);    
             request.setAttribute("mensaje", mensaje);  
-                   RequestDispatcher rd = request.getRequestDispatcher("Productos.jsp");
+                   RequestDispatcher rd = request.getRequestDispatcher("Vendedor_Perfil.jsp");
                    rd.forward(request, response);
         }
     }

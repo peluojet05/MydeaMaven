@@ -4,8 +4,12 @@
  */
 package com.mycompany.mavenmydea;
 
+import Clases.Conexion;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.SQLException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,15 +37,25 @@ public class EliminarNovedad extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet EliminarNovedad</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet EliminarNovedad at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            String id = request.getParameter("idn");
+            
+            Conexion con = new Conexion();
+            Connection c;
+            con.setCon();
+            c=con.getCon();
+            System.out.println("id novedad="+id);
+            String mensaje = con.EliminarN(id);
+            
+            try {
+                c.close();
+            } catch (SQLException ex) {
+                System.out.println("QUWEEEEEE");
+            }
+            
+            request.setAttribute("mensaje", mensaje);    
+                   RequestDispatcher rd = request.getRequestDispatcher("Vendedor_Perfil.jsp");
+                   rd.forward(request, response);     
+            
         }
     }
 

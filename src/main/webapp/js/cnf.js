@@ -450,7 +450,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 });
 
-/*PRODUCTO*/
+/*PRODUCTO
 document.addEventListener('DOMContentLoaded', (event) => {
     Input_ProdL.addEventListener('change', function(e) {
         var archivo = e.target.files[0];
@@ -485,7 +485,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     }
 });
-
+*/
 
 /*HORARIOS*/
 
@@ -706,15 +706,15 @@ Btn_DNProduct.addEventListener("click", () => {
   Btn_DNProduct.classList.add("bg-dark");
   Btn_DNProduct.style.color = "#FFF";
   Btn_DNProduct.style.fontWeight = "bolder";
-  Btn_AProduct.classList.remove("bg-dark");
+  /*Btn_AProduct.classList.remove("bg-dark");
   Btn_AProduct.classList.remove("text-white");
   Btn_AProduct.style.fontWeight = "400";
   Btn_AProduct.classList.add("btn_nav_cnf_btn2");
-  Btn_AProduct.style.color = "#000";
+  Btn_AProduct.style.color = "#000";*/
   Txt_tittle_cnf.innerText = "Datos del Negocio";
 });
 
-//Botón Añadir Productos
+/*Botón Añadir Productos
 Btn_AProduct.addEventListener("click", () => {
   Form_AnP.style.display = "flex";
   Form_Sub_Neg.style.display = "none";
@@ -727,7 +727,7 @@ Btn_AProduct.addEventListener("click", () => {
   Btn_DNProduct.classList.add("btn_nav_cnf_btn2");
   Btn_DNProduct.style.color = "#000";
   Txt_tittle_cnf.innerText = "Crear y Añadir Productos o Servicios";
-});
+}); 
 
 let Btn_AProd = document.getElementById("btn_AProd");
 let Nom_Prod_inp = document.getElementById("Nom_Pro_inp");
@@ -749,7 +749,7 @@ Btn_AProd.addEventListener("click", () => {
       pro1.innerHTML = '<img src="' + url + '" alt="prod1" class="img_prod_cnf"><input type="file" class="d-none" disabled><section class="d-flex flex-column Prod_Lis"><input type="text" class="N_ProVP" value="' + Nom_Prod_inp.value + '" disabled><textarea type="text"class="D_ProVP"disabled>' + Desc_Pro_inp.value + '</textarea><section class="d-flex w-100 justify-content-between"><input type="text" value="$' + Pre_Prod_inp.value + '" id="precio" disabled><input type="text" id="dis" value="' + Tip_Pro_inp.value + '" disabled><button class="btn_elim_pro btn_rosa" type="button">Eliminar</button></section></section>';
       
         //Hola, añadi esto para poder validar que hay minimo un prodcuto subido, que yo recuerde es lo unico que modifique de este js
-        /*let producto = Nom_Prod_inp.value + ',' + Pre_Prod_inp.value + ',' + Desc_Pro_inp.value + ',' + Tip_Pro_inp.value + '';
+        let producto = Nom_Prod_inp.value + ',' + Pre_Prod_inp.value + ',' + Desc_Pro_inp.value + ',' + Tip_Pro_inp.value + '';
         let productos = document.getElementById('Productos_cnf').action;
         if (productos.indexOf('?') !== -1) {
             productos += '&';
@@ -757,7 +757,7 @@ Btn_AProd.addEventListener("click", () => {
             productos += '?';
         }
       productos += 'producto=' + encodeURIComponent(producto);
-      document.getElementById('Productos_cnf').action = productos;*/
+      document.getElementById('Productos_cnf').action = productos;
       eliminarValores();
       alert("Esta vacio");
     }
@@ -795,3 +795,4 @@ Btn_AProd.addEventListener("click", () => {
   }
 });
 
+*/

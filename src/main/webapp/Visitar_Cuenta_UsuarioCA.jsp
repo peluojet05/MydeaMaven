@@ -57,7 +57,7 @@
         <title>Cuenta de <%=unom%></title>
     </head>
     <body>
-        <jsp:include page="templates/Navegadores/Navegador_CC.jsp"/>
+        <jsp:include page="templates/Navegadores/Navegador_CA.jsp"/>
         <div class="main-container">
 
 
@@ -127,8 +127,8 @@
                         <input type="hidden" name="idu" value="<%=request.getParameter("idu")%>"/>
                         <button class="btn btn_negro btn-outline-dark">Reseñas Hechas</button>
                     </form>
-                    <form action="action" class="form_elim">
-                        <input type="hidden" name="" value=""/>
+                    <form action="EliminarUsuario" class="form_elim">
+                        <input type="hidden" name="idu" value="<%=id%>"/>
                         <input type="hidden" class="name_elim" value='AL USUARIO: <%=pnom%> "<%=unom%>"' />
                         <button type="submit" class="btn btn_elimnegscr_admin" id="btn_elimnegscr_admin">Eliminar Usuario</button>
                     </form>

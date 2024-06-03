@@ -74,7 +74,7 @@
                             </section>
                             <section class="d-flex flex-column desc justify-content-between">
                                 <span class="Des_neg_indx"><%=dd[0]%></span>
-                                <form action="NegocioSC.jsp">
+                                <form action="NegocioCV.jsp">
                                     <input type="hidden" name="idn" value="<%=idg[0]%>"/>
                                     <button type="submit" class="btn btn_exp">Explorar <i class="bi bi-caret-right"></i></button>
                                 </form>
@@ -95,7 +95,7 @@
                             </section>
                             <section class="d-flex flex-column desc justify-content-between">
                                 <span class="Des_neg_indx"><%=dd[1]%></span>
-                                <form action="NegocioSC.jsp">
+                                <form action="NegocioCV.jsp">
                                     <input type="hidden" name="idn" value="<%=idg[1]%>"/>
                                     <button type="submit" class="btn btn_exp">Explorar <i class="bi bi-caret-right"></i></button>
                                 </form>
@@ -116,7 +116,7 @@
                             </section>
                             <section class="d-flex flex-column desc justify-content-between">
                                 <span class="Des_neg_indx"><%=dd[2]%></span>
-                                <form action="NegocioSC.jsp">
+                                <form action="NegocioCV.jsp">
                                     <input type="hidden" name="idn" value="<%=idg[2]%>"/>
                                     <button type="submit" class="btn btn_exp">Explorar <i class="bi bi-caret-right"></i></button>
                                 </form>
@@ -285,7 +285,7 @@
                 <%
                     ResultSet pr2;
 
-                    String sl2 = "select n.neg_nombre, n.neg_logo, n.neg_id, v.* from Negocio n inner join Novedad v on n.neg_id=v.neg_id where n.neg_activo=true;";
+                    String sl2 = "select n.neg_nombre, n.neg_logo, n.neg_id, v.* from Negocio n inner join Novedad v on n.neg_id=v.neg_id where n.neg_activo=true and v.nov_activo=true;";
 
                     String pi2 = "";
 

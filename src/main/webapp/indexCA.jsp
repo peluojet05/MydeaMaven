@@ -235,7 +235,7 @@
                             int id = rs.getInt("neg_id");
                             String direccion = colonia + ", " + calle + ", " + numero;
                     %>
-                    <form action="NegocioCA.jsp" class="NegocioSC">  
+                    <form action="NegociosCA.jsp" class="NegocioSC">  
                         <section class="card_i">
 
                             <section class="hover_infn">
@@ -319,7 +319,7 @@
                 <%
                     ResultSet pr2;
 
-                    String sl2 = "select n.neg_nombre, n.neg_logo, n.neg_id, v.* from Negocio n inner join Novedad v on n.neg_id=v.neg_id where n.neg_activo=true;";
+                    String sl2 = "select n.neg_nombre, n.neg_logo, n.neg_id, v.* from Negocio n inner join Novedad v on n.neg_id=v.neg_id where n.neg_activo=true and v.nov_activo=true;";
 
                     String pi2 = "";
 
@@ -335,7 +335,7 @@
                         String pd = pr2.getString("nov_descripcion");
                 %>
 
-                <form action="NegocioCA.jsp" method="post" class="card_pro_most card_pro_most_active" id="slid_pro_nov">
+                <form action="NegociosCA.jsp" method="post" class="card_pro_most card_pro_most_active" id="slid_pro_nov">
                     <div class="log_nov_cont">
                         <img src="<%=nnn%>" class="log_nov" alt="...">
                     </div>
@@ -440,8 +440,8 @@
                             possimus
                             facere vitae.</span>
                         <span id="dis_pro_esp">Disponibilidad</span>
-                        <form action="action" class="form_elim">
-                            <input type="hidden" name="" value=""/>
+                        <form action="EliminarProductoA" class="form_elim">
+                            <input type="hidden" name="idp" value=""/>
                             <input type="hidden" class="name_elim" value="ESTE PRODUCTO"/>
                             <button type="submit" class="btn btn_elimnegscr_admin">Eliminar Producto</button>
                         </form>

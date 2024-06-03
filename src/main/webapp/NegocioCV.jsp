@@ -895,7 +895,7 @@ let cancelar_resena_neg = document.getElementById("cancelar_resena_neg");
     // Activar todos los tooltips         var tooltips = new bootstrap.Tooltip(document.body, {
             selector: '[data-bs-toggle="tooltip"]',
     });
-</sc    ript>
+</script>
     <%
         if (request.getAttribute("mensaje") != null) {
 

@@ -246,7 +246,7 @@
 
                     <%
                         PreparedStatement ps3 = c.prepareStatement("SELECT * FROM Producto p inner join Negocio n on p.neg_id=n.neg_id"
-                                + " WHERE p.pro_activo=true and p.pro_nombre LIKE ?");
+                                + " WHERE p.pro_activo=true and n.neg_activo=true and p.pro_nombre LIKE ?");
                         ps3.setString(1, "%" + bs + "%");
                         rs3 = ps3.executeQuery();
                         if (rs3 != null)

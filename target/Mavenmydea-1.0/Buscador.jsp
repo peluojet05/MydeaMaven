@@ -182,7 +182,7 @@
                     %>
 
                     <%
-                        PreparedStatement ps2 = c.prepareStatement("SELECT p.per_foto, p.per_descripcion, per_id, u.usu_nombre, u.tip_id FROM Persona p INNER JOIN Usuario u ON u.usu_id=p.usu_id WHERE usu_nombre ILIKE ?");
+                        PreparedStatement ps2 = c.prepareStatement("SELECT p.per_foto, p.per_descripcion, per_id, u.usu_nombre, u.tip_id FROM Persona p INNER JOIN Usuario u ON u.usu_id=p.usu_id WHERE usu_activo=true and usu_nombre ILIKE ?");
                         ps2.setString(1, "%" + bs + "%");
                         rs2 = ps2.executeQuery();
                         if (rs2 != null)
@@ -239,7 +239,7 @@
 
                     <%
                         PreparedStatement ps3 = c.prepareStatement("SELECT * FROM Producto p inner join Negocio n on p.neg_id=n.neg_id"
-                                + " WHERE p.pro_nombre ILIKE ?");
+                                + " WHERE p.pro_activo= true and n.neg_activo=true and p.pro_nombre ILIKE ?");
                         ps3.setString(1, "%" + bs + "%");
                         rs3 = ps3.executeQuery();
                         if (rs3 != null)

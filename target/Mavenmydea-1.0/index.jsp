@@ -309,7 +309,7 @@
                 <%
                     ResultSet pr2;
 
-                    String sl2 = "select n.neg_nombre, n.neg_logo, n.neg_id, v.* from Negocio n inner join Novedad v on n.neg_id=v.neg_id where n.neg_activo=true;";
+                    String sl2 = "select n.neg_nombre, n.neg_logo, n.neg_id, v.* from Negocio n inner join Novedad v on n.neg_id=v.neg_id where n.neg_activo=true and v.nov_activo=true;";
 
                     String pi2 = "";
 

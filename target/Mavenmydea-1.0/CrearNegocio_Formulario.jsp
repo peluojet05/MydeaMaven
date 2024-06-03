@@ -30,30 +30,12 @@
                 </section>
                 <div class="p2_cnf d-flex flex-column" method="post" id="FORM_CNF">
                     <section class="d-flex p21_cnf">
-  
-                        
-                        
-                                                                                          <%
-            if(request.getAttribute("neid")!=null || request.getParameter("neid")!=null){  
-        %>                             
-        <button type="button" class="btn text-white btn_nav_cnf bg-dark" id="Btn_DtNg" disabled>
-                            Datos del Negocio
-                        </button>
-                             <%
-            }else{
-                %>
-                        
+                      
                     <button type="button" class="btn text-white btn_nav_cnf bg-dark" id="Btn_DtNg">
                             Datos del Negocio
                         </button>
-                
-                <%
-                    }
-                    %>
                     
-                        <button type="button" class="btn btn_nav_cnf btn_nav_cnf_btn2 btn_APro" id="Btn_AnadirP">
-                            Añadir Productos y/o Servicios
-                        </button>
+                        
                     </section>
                     <div class="p22_cnf p-4 pt-3">
                         <span class="dt_txt_cnf" id="dt_txt_cnf">Datos de Negocio</span>
@@ -430,7 +412,7 @@
                                             <label for="cpp">Código Postal
                                                 <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right"
                                                    data-bs-title="Tooltip on right"></i></label>
-                                            <input type="text" class="form-control" name="cpp" id="cpp" value="${valorCp}" onkeypress="return Letras(event)"/>
+                                            <input type="text" class="form-control" name="cpp" id="cpp" value="${valorCp}" onkeypress="return Numeros(event)"/>
                                             <span class="error">${error_codigoPostal_Invalido}</span>
                                         </section>
                                     </section>
@@ -495,7 +477,7 @@
                                     <li class="d-flex ctc_l">
                                         <label for="tel_loc_cnf"><i class="bi bi-telephone-fill" data-bs-toggle="tooltip"
                                                                     data-bs-placement="right" data-bs-title="Número Telefonico (Sin espacios)"></i></label><input
-                                                                        type="tel" id="tel_loc_cnf" name="tel_loc_cnf" class="form-control" value="${valorTelefono}" onkeypress="return Letras(event)"/>
+                                                                        type="tel" id="tel_loc_cnf" name="tel_loc_cnf" class="form-control" value="${valorTelefono}" onkeypress="return Numeros(event)"/>
                                                                     
                                     </li>
                                     <span class="error">${error_telefono_Vacio}</span>

@@ -110,7 +110,7 @@
                                         c = con.getCon();
                                         stmt = c.createStatement();
 
-                                        rs = stmt.executeQuery("Select * from Novedad where neg_id=" + id + ";");
+                                        rs = stmt.executeQuery("Select * from Novedad where neg_id=" + id + " and nov_activo=true;");
 
                                         while (rs.next()) {
 
@@ -133,8 +133,9 @@
                                                     <input type="hidden" name="idn" value="<%=idn%>">
                                                 </form>
                                                 <form action="EliminarNovedad" method="post">
+                                                    <input type="hidden" name="idn" value="<%=idn%>"/>
                                                     <button class="btn_nov_list" type="submit">Dar de Baja</button>
-                                                    <input type="hidden" name="idn" value="<%=idn%>">
+                                                    
                                                 </form>
                                             </section>
                                         </section>

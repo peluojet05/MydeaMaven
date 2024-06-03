@@ -81,7 +81,7 @@
                 </section>
 
                 <section class="Contactos_section_n h-25">
-                    <span class="hu_tt" id="hu_tt">Contactos del Negocio <i class="bi bi-question-circle"
+                    <span class="hu_tt" id="hu_tt">Contactos <i class="bi bi-question-circle"
                                                                             data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Tooltip on right"></i></span>
                     <section class="d-flex justify-content-between w-100 icnsc_section_n">
                         <i class="bi bi-telephone contactos_usu_perfil" data-bs-toggle="tooltip" data-bs-placement="bottom"
@@ -223,7 +223,12 @@
         %>          
         <script>
             window.onload = function () {
-                alert("  <%=request.getAttribute("mensaje")%>");
+                Swal.fire({
+                    icon: "success",
+                    title: "<%=request.getAttribute("mensaje")%>",
+                    showConfirmButton: false,
+                    timer: 5000
+                });
             };
         </script>      
         <%

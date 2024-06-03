@@ -178,6 +178,27 @@
                                     <a href="#resenas_otros_usuarios">
                                         <button class="btn btn_bl">Reseñas</button>
                                     </a>
+                                     <%
+                                    if (request.getAttribute("neid") != null) {
+                                %>
+                                <form action="Guardar">
+                                    <input type="hidden" name="idn" value="<%=request.getAttribute("neid")%>"/>
+
+                                    <button class="btn btn_bl">Guardar Negocio</button>
+                                </form>
+                                <%
+                                } else {
+                                %>
+
+                                <form action="Guardar">
+                                    <input type="hidden" name="idn" value="<%=id%>"/>
+
+                                    <button class="btn btn_bl">Guardar Negocio</button>
+                                </form>
+
+                                <%
+
+                                    }%>
                                 </section>
                             </section>
                             <!--Horarios-->
@@ -884,42 +905,37 @@
                 selector: '[data-bs-toggle="tooltip"]',
             });
         </script>
-        <%
-            if (request.getAttribute("mensaje") != null)
-            {
+    <%
+        if (request.getAttribute("mensaje") != null) {
 
-                if (request.getAttribute("mensaje").equals("Ya has guardado este negocio"))
-                {
-        %>          
-        <script>
+            if (request.getAttribute("mensaje").equals("Ya has guardado este negocio")) {
+    %>          
+    <script>
+        
+    Swal.fire({
+            icon: "error",
+            title: "<%=request.getAttribute("mensaje")%>",
+            showConfirmButton: false,
+            timer: 5000
+    });
+</script>      
+    <%
+    } else {
+    %>          
+    <script>
+    Swal.fire({
+            icon: "success",
+            title: "<%=request.getAttribute("mensaje")%>",
+            showConfirmButton: false,
+            timer: 5000
+        });
+            
+    </script>      
+    <%
 
-            Swal.fire({
-                icon: "error",
-                title: "<%=request.getAttribute("mensaje")%>",
-                showConfirmButton: false,
-                timer: 5000
-            });
-
-        </script>      
-        <%
-        } else
-        {
-        %>          
-        <script>
-
-            Swal.fire({
-                icon: "success",
-                title: "<%=request.getAttribute("mensaje")%>",
-                showConfirmButton: false,
-                timer: 5000
-            });
-
-        </script>      
-        <%
-
-                }
             }
-        %>
+        }
+    %>
         <%
             } else
             {

@@ -141,8 +141,7 @@
         <title><%=nombre%> - MYDEA</title>
     </head>
     <body class="nego_neg">
-
-        <jsp:include page="templates/Navegadores/Navegador_CA.jsp"/>
+ <jsp:include page="templates/Navegadores/Navegador_CA.jsp"/>
         <div class="cont_neg w-100 d-flex flex-column" id="neg_bdy">
 
             <!---->
@@ -158,8 +157,8 @@
                         <button class="btn btn_Sen" id="btn_Sen">SEGUIR EXPLORANDO ESTE NEGOCIO</button>
                         <a href="index.jsp" class="link_salir">Salir de este Negocio</a>
                         <span class="heart_neg"><i class="bi bi-heart-fill"></i> <%=lk%></span>
-                        <form action="action" class="form_elim">
-                            <input type="hidden" name="" value=""/>
+                        <form action="EliminarNegocioA" class="form_elim">
+                            <input type="hidden" name="idn" value="<%=neid%>"/>
                             <input type="hidden" class="name_elim" value="<%=nombre%>"/>
                             <button type="submit" class="btn btn_elimnegscr_admin">Eliminar Negocio</button>
                         </form>

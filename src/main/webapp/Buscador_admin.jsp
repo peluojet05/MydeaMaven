@@ -149,13 +149,13 @@
                                 int numero = rs.getInt("dir_numero");
                                 int idn = rs.getInt("neg_id");
                                 String direccion = colonia + ", " + calle + ", " + numero;
-
+                                String fecha =rs.getString("neg_fecha");
 
                     %>
 
                     <!-- Negocio -->
                     <section class="busq_result busq_neg" id="negbusq">
-                        <input class="d-none" id="fecha_inp_busq" type="date" disabled value="">
+                        <input class="d-none" id="fecha_inp_busq" type="date" disabled value="<%=fecha%>">
                         <section class="neg_bus_pre">
                             <img class="img_neg_busq" src="<%=img%>" alt="" id="img_loc_busq">
                             <span class="nb_busq nb" id="nb_busq"><%=nombre%></span>
@@ -192,7 +192,7 @@
                     %>
 
                     <%
-                        PreparedStatement ps2 = c.prepareStatement("SELECT p.per_foto, p.per_descripcion, per_id, u.usu_nombre, u.tip_id FROM Persona p INNER JOIN Usuario u ON u.usu_id=p.usu_id WHERE usu_nombre ILIKE ?");
+                        PreparedStatement ps2 = c.prepareStatement("SELECT p.per_foto, p.per_fecha, p.per_descripcion, per_id, u.usu_nombre, u.tip_id FROM Persona p INNER JOIN Usuario u ON u.usu_id=p.usu_id WHERE u.usu_activo=true and u.usu_nombre ILIKE ?");
                         ps2.setString(1, "%" + bs + "%");
                         rs2 = ps2.executeQuery();
                         if (rs2 != null)
@@ -205,6 +205,7 @@
                                 String descripcion = rs2.getString("per_descripcion");
                                 int pid = rs2.getInt("per_id");
                                 int tipo = rs2.getInt("tip_id");
+                                String fecha = rs2.getString("per_fecha");
 
                                 if (tipo == 1)
                                 {
@@ -216,7 +217,7 @@
                         <input class="d-none" id="nlu_usu" type="text" disabled value="Numero de Likes Dados">
                         <input class="d-none" id="ncu_usu" type="text" disabled value="Numero de Reseñas Hechas">
                         <input class="d-none" id="Nombre_comp_usu" type="text" disabled value="Nombre Comleto Usuario">
-                        <input class="d-none" id="fecha_inp_busq" type="date" disabled value="">
+                        <input class="d-none" id="fecha_inp_busq" type="date" disabled value="<%=fecha%>">
                         <button class="d-none" type="submit" id="btn_smt_usu"></button>
                         <img src="<%=pfoto%>" class="usunr_img" id="usu_img_busq">
                         <section class="info_usu_nusq usu_nr">
@@ -239,7 +240,7 @@
                         <input class="d-none" id="nnuv_usu" type="text" disabled value="Numero de negocios a su nombre">
                         <input class="d-none" id="nluv_usu" type="text" disabled value="Numero de Likes Dados">
                         <input class="d-none" id="ncuv_usu" type="text" disabled value="Numero de Reseñas Hechas">
-                        <input class="d-none" id="fecha_inp_busq" type="date" disabled value="2001-05-20">
+                        <input class="d-none" id="fecha_inp_busq" type="date" disabled value="<%=fecha%>">
                         <button class="d-none" type="submit" id="btn_smt_usu"></button>
                         <img src="<%=pfoto%>" class="usuvd_img" id="usu_img_busq">
                         <section class="info_usu_nusq usu_vd">
@@ -251,31 +252,11 @@
                         <input type="hidden" name="idu" id="idu" value="<%=pid%>"/>
                     </form>
 
-                    <%
-                                }else if (tipo == 3)
-                    {
-%>
- <!-- Usuario Administrador -->
-                    <form class="busq_result busq_usu" id="vendbusq" method="post" action="Visitar_Vendedor_PerfilCA.jsp" >
-                        <input class="d-none" id="Nombre_comp_usuv" type="text" disabled value="Nombre Completo Vendedor">
-                        <input class="d-none" id="nnuv_usu" type="text" disabled value="Numero de negocios a su nombre">
-                        <input class="d-none" id="nluv_usu" type="text" disabled value="Numero de Likes Dados">
-                        <input class="d-none" id="ncuv_usu" type="text" disabled value="Numero de Reseñas Hechas">
-                        <input class="d-none" id="fecha_inp_busq" type="date" disabled value="2001-05-20">
-                        <button class="d-none" type="submit" id="btn_smt_usu"></button>
-                        <img src="<%=pfoto%>" class="usuvd_img" id="usu_img_busq">
-                        <section class="info_usu_nusq usu_vd">
-                            <span class="nb_busq nb">Administrador <%=unom%></span>
-                            <input class="d-none" type="text" id="nom_usu_ck" value="<%=unom%>" disabled>
-                            <span class="dir_bus w-100 desc_busq" id="desc_busq_usu"><%=descripcion%></span>
-                            <i class="bi bi-shop uservd_icon"></i>
-                        </section>
-                        <input type="hidden" name="idu" id="idu" value="<%=pid%>"/>
-                    </form>
 <%
-}
+
                             }
                         }
+}
                     %>
 
                     <%
@@ -294,12 +275,13 @@
                                 String desc = rs3.getString("pro_descripcion");
                                 int nid = rs3.getInt("neg_id");
                                 String nimg = rs3.getString("neg_logo");
+                                String fecha = rs3.getString("pro_fecha");
                     %>
 
                     <!-- Producto -->
                     <form class="busq_result busq_pr" id="probusq" method="post" action="NegociosCA.jsp" >
                         <input class="d-none" type="text" id="nom_neg_ofr" disabled value="Nombre del negocio que lo ofrefe">
-                        <input class="d-none" id="fecha_inp_busq" type="date" disabled value="2006-04-20">
+                        <input class="d-none" id="fecha_inp_busq" type="date" disabled value="<%=fecha%>">
                         <button class="d-none" type="submit" id="btn_smt_pro"></button>
                         <img class="img_pro_busq ipb1" id="img_pro_busq" src="<%=pimg%>">
                         <section class="ivbs" id="ivsy">
@@ -328,23 +310,47 @@
                         }
                     %>
 
-                    <!-- Comentarios -->
+                    <%
+                    String sql = "select u.usu_nombre, f.fed_fecha, n.neg_nombre, n.neg_id, f.fed_comentario, f.fed_like, f.fed_activo, f.fed_id, u.usu_id, p.per_foto from Usuario u inner join Persona p "
+                            + "on p.usu_id = u.usu_id inner join Feedback f on f.per_id = p.per_id inner join Negocio n on f.neg_id=n.neg_id where u.usu_activo=true and f.fed_activo=true;";
+                    rs = stmt.executeQuery(sql);
+
+                    while (rs.next()) {
+                        int idc = rs.getInt("fed_id");
+                        int idn = rs.getInt("neg_id");
+                        String fecha = rs.getString("fed_fecha");
+                        String nomu = rs.getString("usu_nombre");
+                        String nomn = rs.getString("neg_nombre");
+                        String ft = rs.getString("per_foto");
+                        String comentario = rs.getString("fed_comentario");
+                        Boolean like = rs.getBoolean("fed_like");
+
+                    %>
                     <section class="busq_result" id="combusq">
-                        <input class="d-none" id="fecha_inp_busq" type="date" disabled value="2007-04-20">
-                        <input class="d-none" type="text" id="nom_neg_com" disabled value="Nombre del negocio que ah comentado">
-                        <img src="src" class="d-none" alt="Logo del negocio que comento" id="log_neg_com"/>
+                        <input class="d-none" id="fecha_inp_busq" type="date" disabled value="<%=fecha%>">
+                        <input class="d-none" type="text" id="nom_neg_com" disabled value="<%=nomn%>">
+                        <img src="<%=ft%>" class="d-none" alt="Logo del negocio que comento" id="log_neg_com"/>
                         <section class="resena_usua_esp d-flex flex-column" id="resena_usua_esp_busq">
                             <section class="comentario_n">
-                                <span id="nom_usu_com">Usuario que comento</span>
+                                <span id="nom_usu_com"><%=nomu%></span>
                                 <img src="assets/Logo_Icon.png" alt="Img de perfil del usuario" id="img_perf_com">
                             </section>
-                            <span class="texto_res_usu" id="coment_desc">Comentario</span>
+                            <span class="texto_res_usu" id="coment_desc"><%=comentario%></span>
+                            <%
+                            if(like==true){
+                            %>
                             <span class="liornli"><i class="bi bi-heart-fill"></i> Le gustó este Negocio</span>
+                            <%
+                                }
+                            %>
                             <i class="bi bi-quote comment_icon_neg"></i>
                         </section>
-                        <input type="hidden" id="idn_com" name="idn" value="id para visitar el negocio"/>
+                        <input type="hidden" id="idn_com" name="idn" value="<%=idn%>"/>
                     </section>
-
+<%
+    }
+%>
+                    
                     <%
                         ResultSet pr2;
 
@@ -362,17 +368,18 @@
                             pi2 = pr2.getString("nov_foto");
                             String dis = pr2.getString("neg_nombre");
                             String pd = pr2.getString("nov_descripcion");
+                            String fecha = pr2.getString("nov_fecha");
                     %>
                     <!-- Novedades -->
                     <div class="busq_result nov_busq" id="novbusq">
-                        <input class="d-none" id="fecha_inp_busq" type="date" disabled value="2020-04-20">
+                        <input class="d-none" id="fecha_inp_busq" type="date" disabled value="<%=fecha%>">
                         <section class="nov_desc_esp">
                             <section class="cont_anuncio">
                                 <span class="tt_nov_bus"><span><%=dis%> </span> Anuncia: <br> <span class="tt_nov_esp" id="tt_nov_esp"><%=np%></span></span>
                                 <span class="desc_nov_busq" id="desc_nov_busq"><%=pd%> </span>
                             </section>
                             <img class="img_nov" id="img_nov" src="<%=pi2%>" alt="alt"/>
-                            <img class="img_nov_neg" id="img_nov_neg" src="assets/neg1.jpg" alt="alt"/>
+                            <img class="img_nov_neg" id="img_nov_neg" src="<%=pi2%>" alt="alt"/>
                         </section>
                         <section class="present_nov">
                             <span class="tt_nov_pres"><%=np%></span>
@@ -422,12 +429,12 @@
                             <input class="d-flex" type="date" id="Fech_Creacion_busq" disabled>
                         </section>
                     </section>
-                    <form  method="post" action="NegocioSC.jsp">
+                    <form  method="post" action="NegociosCA.jsp">
                         <input type="text" class="d-none" id="id_neg_vp" name="idn" >
                         <button type="submit" class="btn_busq">Explorar Negocio</button>
                     </form>
-                    <form action="action" class="form_elim">
-                        <input type="hidden" name="" value=""/>
+                    <form action="EliminarNegocioA" class="form_elim">
+                        <input type="hidden" name="idn" value=""/>
                         <input type="hidden" class="name_elim" value="ESTE NEGOCIO"/>
                         <button type="submit" class="btn btn_elimnegscr_admin" id="btn_elimnegscr_admin">Eliminar Negocio</button>
                     </form>
@@ -460,8 +467,8 @@
                         <input type="text" class="d-none" id="id_usuv_vp" name="idu" >
                         <button type="submit" class="btn_busq">Visitar Cuenta</button>
                     </form>
-                    <form action="action" class="form_elim">
-                        <input type="hidden" name="" value=""/>
+                    <form action="EliminarUsuario" class="form_elim">
+                        <input type="hidden" name="idu" value=""/>
                         <input type="hidden" class="name_elim" value="ESTE VENDEDOR"/>
                         <button type="submit" class="btn btn_elimnegscr_admin" id="btn_elimnegscr_admin">Eliminar Vendedor</button>
                     </form>
@@ -490,8 +497,8 @@
                         <input type="text" class="d-none" id="id_usu_vp" name="idu" >
                         <button type="submit" class="btn_busq">Visitar Cuenta</button>
                     </form>
-                    <form action="action" class="form_elim">
-                        <input type="hidden" name="" value=""/>
+                    <form action="EliminarUsuario" class="form_elim">
+                        <input type="hidden" name="idu" value=""/>
                         <input type="hidden" class="name_elim" value="ESTE USUARIO"/>
                         <button type="submit" class="btn btn_elimnegscr_admin" id="btn_elimnegscr_admin">Eliminar Usuario</button>
                     </form>
@@ -520,8 +527,8 @@
                         <input type="text" class="d-none" id="id_pro_vp" name="idn" >
                         <button type="submit" class="btn_busq">Visitar Negocio que lo ofrece</button>
                     </form>
-                    <form action="action" class="form_elim">
-                        <input type="hidden" name="" value=""/>
+                    <form action="EliminarProductoA" class="form_elim">
+                        <input type="hidden" name="idp" value=""/>
                         <input type="hidden" class="name_elim" value="ESTE PRODUCTO"/>
                         <button type="submit" class="btn btn_elimnegscr_admin" id="btn_elimnegscr_admin">Eliminar Producto</button>
                     </form>
@@ -546,8 +553,8 @@
                         <input type="text" class="d-none" id="id_com_vp" name="idn" >
                         <button type="submit" class="btn_busq">Visitar Negocio que Comentó</button>
                     </form>
-                    <form action="action" class="form_elim">
-                        <input type="hidden" name="" value=""/>
+                    <form action="EliminarComentarioA" class="form_elim">
+                        <input type="hidden" name="idc" value=""/>
                         <input type="hidden" class="name_elim" value="ESTE COMENTARIO"/>
                         <button type="submit" class="btn btn_elimnegscr_admin" id="btn_elimnegscr_admin">Eliminar Comentario</button>
                     </form>
@@ -568,12 +575,12 @@
                         <span>Publicada el: </span>
                         <input class="d-flex" type="date" id="Fech_Creacion_busq_nov" disabled>
                     </section>
-                    <form method="post" action="NegocioSC.jsp">
+                    <form method="post" action="NegociosCA.jsp">
                         <input type="text" class="d-none" id="id_nov_vp" name="idn" >
                         <button type="submit" class="btn_busq">Visitar negocio de la Novedad</button>
                     </form>
-                    <form action="action" class="form_elim">
-                        <input type="hidden" name="" value=""/>
+                    <form action="EliminarNovedadA" class="form_elim">
+                        <input type="hidden" name="idn" value=""/>
                         <input type="hidden" class="name_elim" value="ESTA NOVEDAD"/>
                         <button type="submit" class="btn btn_elimnegscr_admin" id="btn_elimnegscr_admin">Eliminar Novedad</button>
                     </form>
