@@ -180,8 +180,8 @@ public class EditarCuenta extends HttpServlet {
                                per.setPer_twitter(enctwitter);
                                per.setPer_web(encweb);
 
-                              RequestDispatcher rd = request.getRequestDispatcher("Editar_CuentaCV.jsp");
-                              rd.forward(request, response);
+                              response.sendRedirect("Editar_CuentaCV.jsp");
+                              return;
 
 
                         //
@@ -190,6 +190,7 @@ public class EditarCuenta extends HttpServlet {
 
                            RequestDispatcher rd = request.getRequestDispatcher("Editar_CuentaCV.jsp");
                            rd.forward(request, response);
+                           return;
                         }
                         
                     }
@@ -327,6 +328,7 @@ public class EditarCuenta extends HttpServlet {
             //errores y correos
             if(error){
                 request.getRequestDispatcher("Editar_CuentaCV.jsp").forward(request, response);
+                return;
             } else {
                 if (!enccorreo.equals(correoa)) {
                     request.getSession().setAttribute("nombreu", encnombreu);
@@ -343,7 +345,8 @@ public class EditarCuenta extends HttpServlet {
                     VerificacionCorreo_E emailSender = new VerificacionCorreo_E();
                     String confirmationCode = emailSender.sendConfirmationCode(request);
                     request.getSession().setAttribute("confirmationCode", confirmationCode);
-                    request.getRequestDispatcher("ConfirmarCodigo_E.jsp").forward(request, response);
+                    response.sendRedirect("ConfirmarCodigo_E.jsp");
+                    return;
                 } else {
 
                     Conexion con = new Conexion();
@@ -375,14 +378,15 @@ public class EditarCuenta extends HttpServlet {
                            per.setPer_twitter(enctwitter);
                            per.setPer_web(encweb);
 
-                          RequestDispatcher rd = request.getRequestDispatcher("Editar_CuentaCV.jsp");
-                          rd.forward(request, response);
+                          response.sendRedirect("Editar_CuentaCV.jsp");
+                          return;
 
                     }else{
                        request.setAttribute("mensaje", mensaje);
 
                        RequestDispatcher rd = request.getRequestDispatcher("Editar_CuentaCV.jsp");
                        rd.forward(request, response);
+                       return;
                     }
                 }
             }
